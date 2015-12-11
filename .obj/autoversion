@@ -1,0 +1,47 @@
+#!/usr/bin/python
+
+import datetime
+
+output = """
+
+#ifndef ETK_AUTOVERSION_H_INCLUDED
+#define ETK_AUTOVERSION_H_INCLUDED
+
+namespace etk
+{
+
+namespace Version
+{
+	static const char* year = \""""
+
+year = str(datetime.datetime.now().year-2000)
+month = str(datetime.datetime.now().month)
+day = str(datetime.datetime.now().day)
+output += year
+output += "\";\n"
+output += """	static const char* month = \""""
+output += month
+output += "\";\n"
+output += """	static const char* day = \""""
+output += day
+output += "\";\n"
+output += """	static const char* version = \""""
+output += year
+if(int(month) < 10):
+	month = "0" + month
+output += month
+output += day
+output += "\";\n"
+output += """}
+
+}
+
+#endif
+
+"""
+
+
+f = open('inc/etk/version.h', 'w')
+f.write(output)
+f.close()
+
