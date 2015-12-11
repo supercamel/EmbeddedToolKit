@@ -72,13 +72,15 @@ public:
 
 	Iterator begin()
 	{
-		return Iterator(*this);
+	    Iterator iter(*this);
+	    iter.pos = 0;
+		return iter;
 	}
 
 	Iterator end()
 	{
 		Iterator iter(*this);
-		iter.pos = list_end+1;
+		iter.pos = list_end;
 		return iter;
 	}
 
@@ -164,6 +166,11 @@ public:
     uint32_t size()
     {
         return list_end+1;
+    }
+
+    const uint32_t max_len() const
+    {
+        return L;
     }
 
     void set_list_end(uint32_t le)

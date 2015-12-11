@@ -1,17 +1,18 @@
 #include "linkedlist_test.h"
 
-#include <etk/forward_list.h>
-#include <etk/linked_list.h>
+#include <etk/etk.h>
 
 #include <iostream>
 using namespace std;
 
 using namespace etk;
 
-extern MemPool pool;
-
 bool linkedlist_test(std::string& subtest)
 {
+    List<uint8_t, 64> list;
+    list.set_list_end(64);
+
+    MemPool pool(list.raw_memory(), 64);
 	subtest = "Ll";
 
 	forward_list<int> fl(pool);
@@ -26,7 +27,6 @@ bool linkedlist_test(std::string& subtest)
 
 	fl.insert_before(fl.begin(), 6554);
 
-
 	etk::forward_list<int>::Iterator iter = fl.begin();
 
 
@@ -39,33 +39,14 @@ bool linkedlist_test(std::string& subtest)
 		iter++;
 	}
 
-	iter = fl.begin();
-	while(iter != fl.end())
-		cout << *(iter++) << " ";
-	cout << endl;
-
+    for(auto i : list)
+        cout << "";
+    cout << endl;
 
 	etk::linked_list<float> ll(pool);
 
-	for(float i = -0.5; i < 0.5; i += 0.1)
-	{
-		cout << i << endl;
+	for(float i = -0.5; i < 0.5; i += 0.2)
 		ll.append(i);
-	}
-
-	etk::linked_list<float>::Iterator fiter = ll.begin();
-	while(fiter != ll.end())
-		cout << *(fiter++) << " ";
-	cout << endl;
-
-	fiter--;
-	fiter--;
-
-	ll.insert_before(fiter, 0.36565);
-	fiter = ll.begin();
-	while(fiter != ll.end())
-		cout << *(fiter++) << " ";
-	cout << endl;
 
 	return true;
 }

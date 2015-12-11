@@ -4,6 +4,8 @@
 
 #include <etk/pool.h>
 
+#include <iostream>
+using namespace std;
 
 namespace etk
 {
@@ -67,6 +69,7 @@ public:
 		Node* node = head;
 		while(node != nullptr)
 		{
+		    cout << (int)node << endl;
 			Node* pnext = node->next;
 			pool.free<Node>(node);
 			node = pnext;

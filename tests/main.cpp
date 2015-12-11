@@ -12,7 +12,7 @@
 #include "stack_test.h"
 #include "out.h"
 #include "linkedlist_test.h"
-#include "simple_rt.h"
+#include "pool_test.h"
 
 
 bool limiter_test(std::string& subtest)
@@ -50,6 +50,7 @@ int main()
 	th.add_module(navigation_test, "Navigation test");
 	th.add_module(string_test, "String test");
 	th.add_module(stack_test, "Stack test");
+	th.add_module(pool_test, "Pool test");
 	th.add_module(linkedlist_test, "Linked lists");
 
 	if(th.run())

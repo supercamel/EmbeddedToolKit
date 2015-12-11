@@ -3,7 +3,7 @@
 #define ETK_BITS_H_INCLUDED
 
 #include "staticstring.h"
-
+#include <type_traits>
 
 namespace etk
 {
@@ -13,11 +13,15 @@ template <class T> class Bits
 public:
     Bits()
     {
+    	static_assert(std::is_integral<T>::value,
+                  "Bits type must be an integral");
         bte = 0;
     }
 
     Bits(T b)
     {
+    	static_assert(std::is_integral<T>::value,
+                  "Bits type must be an integral");
         bte = b;
     }
 

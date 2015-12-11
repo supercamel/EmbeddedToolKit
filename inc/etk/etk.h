@@ -23,6 +23,7 @@
 #include "navigation.h"
 #include "pool.h"
 #include "loop_range.h"
+#include "fuzzy.h"
 
 #endif
 

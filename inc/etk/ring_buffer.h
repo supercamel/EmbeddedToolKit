@@ -7,7 +7,7 @@
 namespace etk
 {
 
-template <class T> class RingBuffer
+template <class T, bool overwrite = false> class RingBuffer
 {
 public:
     RingBuffer(T* buffer, uint16_t sz)
@@ -30,8 +30,11 @@ public:
 
     void put(T b)
     {
-        if(is_full())
-            return;
+    	if(!overwrite)
+    	{
+		    if(is_full())
+		        return;
+        }
         buf[end] = b;
         end = (end + 1) % size;
     }

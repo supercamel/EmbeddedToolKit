@@ -11,7 +11,7 @@ all: inc/emblib/version.h $(SOURCES) $(EXECUTABLE)
 	
 $(EXECUTABLE): $(HEADERS) $(OBJECTS) $(TEST_OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) $(TEST_OBJECTS) -o $@
-	./bin/main
+	#./bin/main
 	ar rcs libetk.a $(OBJECTS) 
 
 .obj/%.o:src/%.cpp
