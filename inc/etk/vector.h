@@ -257,7 +257,7 @@ public:
     Vector operator += (Vector v)
     {
         *this = *this + v;
-		return *this;
+        return *this;
     }
 
     void toDegrees()
@@ -284,10 +284,10 @@ public:
         return p_vec[2];
     }
 
-	float squaredNorm()
-	{
-		return dot(*this);
-	}
+    float squaredNorm()
+    {
+        return dot(*this);
+    }
 
 
 private:

@@ -18,7 +18,7 @@ public:
         {
             for(uint32_t y = 0; y < MAX_Y; y++)
             {
-				_cell[x][y] = 0.0f;
+                _cell[x][y] = 0.0f;
             }
         }
     }
@@ -29,28 +29,28 @@ public:
         {
             for(uint32_t y = 0; y < MAX_Y; y++)
             {
-				_cell[x][y] = v._cell[x][y];
+                _cell[x][y] = v._cell[x][y];
             }
         }
     }
 
     Matrix(const Vector<MAX_X*MAX_Y>& v)
     {
-		uint32_t c = 0;
+        uint32_t c = 0;
         for (uint32_t x = 0; x < MAX_X; x++ )
         {
             for(uint32_t y = 0; y < MAX_Y; y++)
             {
-				_cell[x][y] = v[c];
-				c++;
+                _cell[x][y] = v[c];
+                c++;
             }
         }
     }
 
     template<typename... Args> Matrix(float a, Args... args)
     {
-		float* pcell = &_cell[0][0];
-		*(pcell+set_flag++) = a;
+        float* pcell = &_cell[0][0];
+        *(pcell+set_flag++) = a;
         set(args...);
     }
 
@@ -104,8 +104,8 @@ public:
 
     template <uint32_t nn> Vector<nn> sub_vector(uint32_t n)
     {
-		float* pcell = &_cell[0][0];
-		pcell += n;
+        float* pcell = &_cell[0][0];
+        pcell += n;
         Vector<nn> ret;
         for(uint32_t i = 0; i < nn; i++)
             ret[i] = *pcell++;
@@ -119,14 +119,14 @@ public:
 
     uint32_t set(uint32_t v, float value)
     {
-		float* pcell = _cell;
+        float* pcell = _cell;
         *(pcell+v) = value;
         return v;
     }
 
     void set(float a)
     {
-		float* pcell = &_cell[0][0];
+        float* pcell = &_cell[0][0];
         *(pcell+set_flag) = a;
         set_flag = 0;
     }
@@ -150,21 +150,21 @@ public:
         set_diagonal(args...);
     }
 
-	template<uint32_t N> void set_diagonal(Vector<N> v)
-	{
-		uint32_t n = etk::min<uint32_t>(MAX_X, MAX_Y);
-		for(uint32_t i = 0; i < n; i++)
-			_cell[i][i] = v[i];
-	}
+    template<uint32_t N> void set_diagonal(Vector<N> v)
+    {
+        uint32_t n = etk::min<uint32_t>(MAX_X, MAX_Y);
+        for(uint32_t i = 0; i < n; i++)
+            _cell[i][i] = v[i];
+    }
 
-	template<uint32_t N> Vector<N> get_diagonal_vector()
-	{
-		Vector<etk::min<uint32_t>(MAX_X, MAX_Y)> v;
-		uint32_t n = etk::min<uint32_t>(MAX_X, MAX_Y);
-		for(uint32_t i = 0; i < n; i++)
-			v[i] = _cell[i][i];
-		return v;
-	}
+    template<uint32_t N> Vector<N> get_diagonal_vector()
+    {
+        Vector<etk::min<uint32_t>(MAX_X, MAX_Y)> v;
+        uint32_t n = etk::min<uint32_t>(MAX_X, MAX_Y);
+        for(uint32_t i = 0; i < n; i++)
+            v[i] = _cell[i][i];
+        return v;
+    }
 
 
     float& cell(uint32_t x, uint32_t y)
@@ -332,27 +332,27 @@ public:
 
     Matrix llt()
     {
-		//LLT cholesky decomposition
-		Matrix A = *this;
-		Matrix L = lower_triangle();
+        //LLT cholesky decomposition
+        Matrix A = *this;
+        Matrix L = lower_triangle();
         for (int i = 0; i < MAX_X; i++)
-		{
+        {
             for (int j = 0; j < (i+1); j++)
-			{
+            {
                 float s = 0;
                 for (int k = 0; k < j; k++)
                     s += L(i,k) * L(j,k);
 
-				float v = 0;
-				if(i == j)
-					v = sqrtf(A(i,i)-s);
-				else
-					v = (1.0 / L(j,j) * (A(i,j) - s));
-				if(isnan(v))
-					return L;
+                float v = 0;
+                if(i == j)
+                    v = sqrtf(A(i,i)-s);
+                else
+                    v = (1.0 / L(j,j) * (A(i,j) - s));
+                if(isnan(v))
+                    return L;
                 L(i,j) = v;
             }
-		}
+        }
 
         return L;
     }

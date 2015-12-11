@@ -31,66 +31,68 @@ public:
 
 
     class Iterator
-	{
-	friend class List;
-	public:
-		Iterator(List& list) : list(&list) { pos = 0; }
+    {
+        friend class List;
+    public:
+        Iterator(List& list) : list(&list) {
+            pos = 0;
+        }
 
-		T& operator*()
-		{
-			return (*list)[pos];
-		}
+        T& operator*()
+        {
+            return (*list)[pos];
+        }
 
-		Iterator& operator++ ()
-		{
-			pos++;
-			return *this;
-		}
+        Iterator& operator++ ()
+        {
+            pos++;
+            return *this;
+        }
 
-		Iterator operator++(int)
-		{
-			Iterator iter(*this);
-			++(*this);
-			return iter;
-		}
+        Iterator operator++(int)
+        {
+            Iterator iter(*this);
+            ++(*this);
+            return iter;
+        }
 
-		bool operator==(Iterator iter)
-		{
-			return (pos == iter.pos);
-		}
+        bool operator==(Iterator iter)
+        {
+            return (pos == iter.pos);
+        }
 
-		bool operator!=(Iterator iter)
-		{
-			return (pos != iter.pos);
-		}
+        bool operator!=(Iterator iter)
+        {
+            return (pos != iter.pos);
+        }
 
-	private:
-		List* list;
-		int64_t pos;
-	};
+    private:
+        List* list;
+        int64_t pos;
+    };
 
 
-	Iterator begin()
-	{
-	    Iterator iter(*this);
-	    iter.pos = 0;
-		return iter;
-	}
+    Iterator begin()
+    {
+        Iterator iter(*this);
+        iter.pos = 0;
+        return iter;
+    }
 
-	Iterator end()
-	{
-		Iterator iter(*this);
-		iter.pos = list_end;
-		return iter;
-	}
+    Iterator end()
+    {
+        Iterator iter(*this);
+        iter.pos = list_end;
+        return iter;
+    }
 
     void append(T t)
     {
         if(size() < L)
-		{
-			list_end++;
+        {
+            list_end++;
             items[list_end] = t;
-		}
+        }
     }
 
     void insert(T t, uint32_t pos)
@@ -99,7 +101,7 @@ public:
         {
             for(uint32_t i = L-1; i >= (pos+1); i--)
                 etk::swap<T>(items[i], items[i-1]);
-			list_end++;
+            list_end++;
             items[pos] = t;
         }
     }
@@ -110,7 +112,7 @@ public:
         {
             for(uint32_t i = pos; i < L-1; i++)
                 etk::swap<T>(items[i], items[i+1]);
-			list_end--;
+            list_end--;
             items[L-1] = padding;
         }
     }

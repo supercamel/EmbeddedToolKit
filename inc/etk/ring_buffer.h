@@ -30,10 +30,10 @@ public:
 
     void put(T b)
     {
-    	if(!overwrite)
-    	{
-		    if(is_full())
-		        return;
+        if(!overwrite)
+        {
+            if(is_full())
+                return;
         }
         buf[end] = b;
         end = (end + 1) % size;

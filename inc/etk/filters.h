@@ -198,23 +198,23 @@ private:
 class RateLimiter
 {
 public:
-	RateLimiter(float max_step, float init_val)
-	{
-		ms = max_step;
-		last_sample = init_val;
-	}
+    RateLimiter(float max_step, float init_val)
+    {
+        ms = max_step;
+        last_sample = init_val;
+    }
 
-	float step(float sample)
-	{
-		float delta = sample - last_sample;
-		delta = constrain(delta, -ms, ms);
-		last_sample += delta;
-		return last_sample;
-	}
+    float step(float sample)
+    {
+        float delta = sample - last_sample;
+        delta = constrain(delta, -ms, ms);
+        last_sample += delta;
+        return last_sample;
+    }
 
 private:
-	float ms;
-	float last_sample;
+    float ms;
+    float last_sample;
 };
 
 

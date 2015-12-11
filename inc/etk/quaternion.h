@@ -47,12 +47,12 @@ public:
         return Vector<4>(_w, _x, _y, _z);
     }
 
-	void set_vector(Vector<3> v)
-	{
-		_x = v.x();
-		_y = v.y();
-		_z = v.z();
-	}
+    void set_vector(Vector<3> v)
+    {
+        _x = v.x();
+        _y = v.y();
+        _z = v.z();
+    }
 
     float& w()
     {
@@ -133,52 +133,52 @@ public:
 
     void fromMatrix(Matrix<3, 3> m)
     {
-		_w = sqrtf(max<float>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
-		_x = sqrtf(max<float>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
-		_y = sqrtf(max<float>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
-		_z = sqrtf(max<float>( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
-		_x = copysign_zero(_x, m(2,1) - m(1,2));
-		_y = copysign_zero(_y, m(0,2) - m(2,0));
-		_z = copysign_zero(_z, m(1,0) - m(0,1));
+        _w = sqrtf(max<float>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
+        _x = sqrtf(max<float>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
+        _y = sqrtf(max<float>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
+        _z = sqrtf(max<float>( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
+        _x = copysign_zero(_x, m(2,1) - m(1,2));
+        _y = copysign_zero(_y, m(0,2) - m(2,0));
+        _z = copysign_zero(_z, m(1,0) - m(0,1));
 
-/*
-		//trace of matrix
-        float tr = m(0, 0) + m(1, 1) + m(2, 2);
+        /*
+        		//trace of matrix
+                float tr = m(0, 0) + m(1, 1) + m(2, 2);
 
-        float S = 0.0;
-        if (tr > 0)
-        {
-            S = sqrtf(tr+1.0f) * 2;
-            _w = float(0.25f) * S;
-            _x = (m(2, 1) - m(1, 2)) / S;
-            _y = (m(0, 2) - m(2, 0)) / S;
-            _z = (m(1, 0) - m(0, 1)) / S;
-        }
-        else if ((m(0, 0) < m(1, 1))&(m(0, 0) < m(2, 2)))
-        {
-            S = sqrtf(float(1.0) + m(0, 0) - m(1, 1) - m(2, 2)) * 2;
-            _w = (m(2, 1) - m(1, 2)) / S;
-            _x = 0.25f * S;
-            _y = (m(0, 1) + m(1, 0)) / S;
-            _z = (m(0, 2) + m(2, 0)) / S;
-        }
-        else if (m(1, 1) < m(2, 2))
-        {
-            S = sqrtf(float(1.0) + m(1, 1) - m(0, 0) - m(2, 2)) * 2;
-            _w = (m(0, 2) - m(2, 0)) / S;
-            _x = (m(0, 1) + m(1, 0)) / S;
-            _y = 0.25f * S;
-            _z = (m(1, 2) + m(2, 1)) / S;
-        }
-        else
-        {
-            S = sqrtf(float(1.0) + m(2, 2) - m(0, 0) - m(1, 1)) * float(2);
-            _w = (m(1, 0) - m(0, 1)) / S;
-            _x = (m(0, 2) + m(2, 0)) / S;
-            _y = (m(1, 2) + m(2, 1)) / S;
-            _z = 0.25f * S;
-        }
-*/
+                float S = 0.0;
+                if (tr > 0)
+                {
+                    S = sqrtf(tr+1.0f) * 2;
+                    _w = float(0.25f) * S;
+                    _x = (m(2, 1) - m(1, 2)) / S;
+                    _y = (m(0, 2) - m(2, 0)) / S;
+                    _z = (m(1, 0) - m(0, 1)) / S;
+                }
+                else if ((m(0, 0) < m(1, 1))&(m(0, 0) < m(2, 2)))
+                {
+                    S = sqrtf(float(1.0) + m(0, 0) - m(1, 1) - m(2, 2)) * 2;
+                    _w = (m(2, 1) - m(1, 2)) / S;
+                    _x = 0.25f * S;
+                    _y = (m(0, 1) + m(1, 0)) / S;
+                    _z = (m(0, 2) + m(2, 0)) / S;
+                }
+                else if (m(1, 1) < m(2, 2))
+                {
+                    S = sqrtf(float(1.0) + m(1, 1) - m(0, 0) - m(2, 2)) * 2;
+                    _w = (m(0, 2) - m(2, 0)) / S;
+                    _x = (m(0, 1) + m(1, 0)) / S;
+                    _y = 0.25f * S;
+                    _z = (m(1, 2) + m(2, 1)) / S;
+                }
+                else
+                {
+                    S = sqrtf(float(1.0) + m(2, 2) - m(0, 0) - m(1, 1)) * float(2);
+                    _w = (m(1, 0) - m(0, 1)) / S;
+                    _x = (m(0, 2) + m(2, 0)) / S;
+                    _y = (m(1, 2) + m(2, 1)) / S;
+                    _z = 0.25f * S;
+                }
+        */
     }
 
     Matrix<3, 3> toMatrix()
@@ -219,55 +219,55 @@ public:
     Vector<3> toAngularVelocity(float dt)
     {
         Vector<3> ret;
-		if(dt == 0)
-			return ret;
-/*
-        Quaternion one(1.0, 0.0, 0.0, 0.0);
-        Quaternion delta = one - *this;
-        Quaternion r = (delta/dt);
-        r = r * 2;
-        r = r * one;
+        if(dt == 0)
+            return ret;
+        /*
+                Quaternion one(1.0, 0.0, 0.0, 0.0);
+                Quaternion delta = one - *this;
+                Quaternion r = (delta/dt);
+                r = r * 2;
+                r = r * one;
 
-        ret.x() = r.x();
-        ret.y() = r.y();
-        ret.z() = r.z();
-*/
+                ret.x() = r.x();
+                ret.y() = r.y();
+                ret.z() = r.z();
+        */
 
-		float angle = 0;
-		toAxisAngle(ret, angle);
-		ret = ret*angle; //finds angular displacement
-		ret = ret/dt; //over dt to find angular velocity
+        float angle = 0;
+        toAxisAngle(ret, angle);
+        ret = ret*angle; //finds angular displacement
+        ret = ret/dt; //over dt to find angular velocity
 
-/*
-		Vector<3> v(x(), y(), z());
-		float s = w();
-		ret = (v*2.0f)/(v.magnitude()*acos(s));
+        /*
+        		Vector<3> v(x(), y(), z());
+        		float s = w();
+        		ret = (v*2.0f)/(v.magnitude()*acos(s));
 
 
-		Quaternion qdt = *this/dt;
-		Quaternion r = (qdt*2)*this->conjugate();
+        		Quaternion qdt = *this/dt;
+        		Quaternion r = (qdt*2)*this->conjugate();
 
-		if(isnan(r.x()))
-			return ret;
-		if(isnan(r.y()))
-			return ret;
-		if(isnan(r.z()))
-			return ret;
-		ret.x() = r.x();
-		ret.y() = r.y();
-		ret.z() = r.z();
-*/
+        		if(isnan(r.x()))
+        			return ret;
+        		if(isnan(r.y()))
+        			return ret;
+        		if(isnan(r.z()))
+        			return ret;
+        		ret.x() = r.x();
+        		ret.y() = r.y();
+        		ret.z() = r.z();
+        */
         return ret;
 
     }
 
-	void fromAngularVelocity(Vector<3> w, float dt)
-	{
-		float theta = w.magnitude() * dt;
-    	w.normalize();
+    void fromAngularVelocity(Vector<3> w, float dt)
+    {
+        float theta = w.magnitude() * dt;
+        w.normalize();
 
-    	fromAxisAngle(w, theta);
-	}
+        fromAxisAngle(w, theta);
+    }
 
 
     Vector<3> rotateVector(Vector<2> v)

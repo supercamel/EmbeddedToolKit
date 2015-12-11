@@ -22,14 +22,14 @@ template<typename T> T constrain(T x, T a, T b)
 */
 template<typename T> T constrain_circular(T x, uint32_t segments)
 {
-	uint32_t half_segment = segments/2;
-	int64_t seg_lower = half_segment;
-	seg_lower = -seg_lower;
+    uint32_t half_segment = segments/2;
+    int64_t seg_lower = half_segment;
+    seg_lower = -seg_lower;
 
-	while(x < seg_lower)
-		x += segments;
+    while(x < seg_lower)
+        x += segments;
     while(x > half_segment)
-		x -= segments;
+        x -= segments;
     return x;
 }
 
@@ -55,18 +55,18 @@ template<typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
 
 template<typename T> T copysign(T x, T y)
 {
-	if((y >= 0) && (x < 0))
-		return -x;
-	if((y < 0) && (x >= 0))
-		return -x;
-	return x;
+    if((y >= 0) && (x < 0))
+        return -x;
+    if((y < 0) && (x >= 0))
+        return -x;
+    return x;
 }
 
 template<typename T> T copysign_zero(T x, T y)
 {
-	if(y == 0)
-		return 0;
-	return copysign(x, y);
+    if(y == 0)
+        return 0;
+    return copysign(x, y);
 }
 
 
@@ -139,9 +139,9 @@ inline char to_lower(char c)
 
 template<typename T> T abs(T t)
 {
-	if(t < 0)
-		return -t;
-	return t;
+    if(t < 0)
+        return -t;
+    return t;
 }
 
 }

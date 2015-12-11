@@ -11,7 +11,7 @@ template <typename T> class LoopRangeIterator
 {
 public:
     LoopRangeIterator(T value_)
-        : value(value_){}
+        : value(value_) {}
 
     bool operator!=(LoopRangeIterator const& other) const
     {
@@ -37,10 +37,10 @@ template <typename T> class LoopRange
 {
 public:
     LoopRange(T from_, T to_)
-        : from(from_), to(to_){}
+        : from(from_), to(to_) {}
 
     LoopRange(T to_)
-        : from(0), to(to_){}
+        : from(0), to(to_) {}
 
     LoopRangeIterator<T> begin() const
     {
