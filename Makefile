@@ -1,5 +1,5 @@
-CC=clang++
-CFLAGS=-c -g -Wall -Wextra -std=c++11 -I./inc -I/usr/include/eigen3 -Wno-deprecated-register
+CC=g++
+CFLAGS=-c -g -Wall -Wextra -std=c++14 -I./inc -I/usr/include/eigen3 -Wno-deprecated-register
 LDFLAGS= -lc
 SOURCES=$(wildcard src/*.cpp) $(wildcard tests/*.cpp)
 HEADERS=$(wildcard inc/emblib/*.h)
