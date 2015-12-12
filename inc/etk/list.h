@@ -82,7 +82,7 @@ public:
     Iterator end()
     {
         Iterator iter(*this);
-        iter.pos = list_end;
+        iter.pos = list_end+1;
         return iter;
     }
 

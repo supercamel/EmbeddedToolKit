@@ -3,6 +3,8 @@
 #define ROPE_H_INCLUDED
 
 /*
+ * http://www.camelsoftware.com/blog/2015/12/11/ditching-c-libraries-concatenation-of-c-strings-without-stdio/
+ *
  * WHY ROPE? It's like a string, only more robust.
  *
  * Rope is a C-string manipulation class. `

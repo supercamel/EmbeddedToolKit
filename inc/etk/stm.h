@@ -1,6 +1,10 @@
 #ifndef ETK_SHORT_TERM_MEMORY_H
 #define ETK_SHORT_TERM_MEMORY_H
 
+#include "loop_range.h"
+
+namespace etk
+{
 
 template <typename T, uint32_t LEN> class ShortTermMemory
 {
@@ -65,6 +69,12 @@ public:
             start = (start+1)%LEN;
         }
     }
+    
+    bool is_full()
+    {
+        return (end + 1) % LEN == start;
+    }
+
 
     void increment()
     {
@@ -97,5 +107,6 @@ private:
     T buf[LEN];
 };
 
+};
 
 #endif

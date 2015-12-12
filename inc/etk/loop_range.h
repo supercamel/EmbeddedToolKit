@@ -4,8 +4,18 @@
 
 #include <type_traits>
 
-//brilliant loop range classes from here
-//http://codereview.stackexchange.com/questions/51523/simple-integer-range-for-c11-range-based-for-loops
+/*
+
+	http://www.camelsoftware.com/blog/2015/12/02/improving-the-for-loop-with-c11/
+	
+	
+	brilliant loop range classes from here
+	http://codereview.stackexchange.com/questions/51523/simple-integer-range-for-c11-range-based-for-loops
+	
+*/
+
+namespace etk
+{
 
 template <typename T> class LoopRangeIterator
 {
@@ -76,6 +86,7 @@ LoopRange<T> range(T to)
 }
 
 
+};
 
 
 #endif

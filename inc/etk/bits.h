@@ -48,7 +48,7 @@ public:
         return false;
     }
 
-    StaticString<sizeof(T)*8+1> to_string()
+    auto to_string()
     {
         StaticString<sizeof(T)*8+1> string;
         for(uint32_t i = 0; i < (sizeof(T)*8); i++)
