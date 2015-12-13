@@ -25,6 +25,7 @@
 #include "loop_range.h"
 #include "stm.h"
 #include "fuzzy.h"
+#include "pid.h"
 
 #endif
 

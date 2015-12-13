@@ -5,6 +5,9 @@
 
 #include <etk/etk.h>
 
+namespace etk
+{
+
 class PIDController
 {
 public:
@@ -29,6 +32,7 @@ public:
     float step(float setpoint, float measurement, float dt);
 };
 
+};
 
 #endif
 

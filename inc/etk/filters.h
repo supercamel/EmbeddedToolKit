@@ -7,6 +7,24 @@
 namespace etk
 {
 
+/**
+ * \class ExpoMovingAvg
+ *
+ * \brief An exponential moving average low-pass filter.
+ *
+ * @code
+    etk::ExpoMovingAvg filter(0.1);
+    
+    for(auto i : etk::range(100))
+    {
+    	filter.step(i);
+    	cout << filter.get() << endl;
+    }
+    
+    @endcode
+ *
+ */
+ 
 class ExpoMovingAvg
 {
 public:
@@ -15,64 +33,44 @@ public:
         a = 0.5f;
         accumulator = 0;
     }
+    
+    /**
+	 * \brief This constructor allows you to set the filter gain and initial estimate.
+	 *
+	 * @arg f filter gain
+	 * @arg init_est initial estimate
+	 */
     ExpoMovingAvg(float f, float init_est = 0)
     {
         a = f;
         accumulator = init_est;
     }
 
-    void set_factor(float factor)
+	/**
+	 * \brief The gain controls the responsiveness of the filter. 
+	 * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
+	 *
+	 * @arg factor The filter gain (0.0 - 1.0)
+	 */
+    void set_gain(float factor)
     {
         a = factor;
     }
+    
+    /**
+     * \brief Performs a single iteration of the filter. 
+     * Raw samples are entered into the filter using this function.
+     *
+     * @arg measurement A raw measurement or sample to be filtered.
+     */
     void step(float measurement)
     {
         accumulator = (a* measurement) + (1.0f - a) * accumulator;
     }
 
-    float get()
-    {
-        return accumulator;
-    }
-
-private:
-    float accumulator;
-    float a;
-};
-
-class CircularExpoMovingAvg
-{
-public:
-    CircularExpoMovingAvg()
-    {
-        a = 0.5;
-        accumulator = 0;
-    }
-    CircularExpoMovingAvg(float f, float init_est = 0)
-    {
-        a = f;
-        accumulator = init_est;
-    }
-
-    void set_factor(float factor)
-    {
-        a = factor;
-    }
-    void step(float measurement)
-    {
-        while(measurement > 18000)
-            measurement -= 36000;
-        while(measurement < -18000)
-            measurement += 36000;
-
-        accumulator = (a* measurement) + (1.0f - a) * accumulator;
-
-        while(accumulator > 18000)
-            accumulator -= 36000;
-        while(accumulator < -18000)
-            accumulator += 36000;
-    }
-
+	/**
+     * \brief Returns the current state of the filter.
+     */
     float get()
     {
         return accumulator;
@@ -84,6 +82,12 @@ private:
 };
 
 
+/**
+ * \class BrownLinearExpo
+ *
+ * \brief Browns linear exponential filter is a form of double exponential smoothing. It can be more responsive than the MovingExpoAvg filter, but is prone to overshoot.
+ */
+ 
 class BrownLinearExpo
 {
 public:
@@ -94,6 +98,13 @@ public:
         double_smoothed = 0;
         single_smoothed = 0;
     }
+    
+    /**
+	 * \brief This constructor allows you to set the filter gain and initial estimate.
+	 *
+	 * @arg f filter gain
+	 * @arg init_est initial estimate
+	 */
     BrownLinearExpo(float f, float init_est)
     {
         a = f;
@@ -102,10 +113,23 @@ public:
         single_smoothed = 0;
     }
 
-    void set_factor(float factor)
+	/**
+	 * \brief The gain controls the responsiveness of the filter. 
+	 * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
+	 *
+	 * @arg factor The filter gain (0.0 - 1.0)
+	 */
+    void set_gain(float factor)
     {
         a = factor;
     }
+    
+    /**
+     * \brief Performs a single iteration of the filter. 
+     * Raw samples are entered into the filter using this function.
+     *
+     * @arg measurement A raw measurement or sample to be filtered.
+     */
     void step(float measurement)
     {
         single_smoothed = a * measurement + (1 - a) * single_smoothed;
@@ -115,6 +139,10 @@ public:
         float est_b = (a / (1-a) )*(single_smoothed - double_smoothed);
         estimate = est_a + est_b;
     }
+    
+    /**
+     * \brief Returns the current state of the filter.
+     */
     float get()
     {
         return estimate;
@@ -126,7 +154,11 @@ private:
 };
 
 
-
+/**
+ * \class scalarLinearKalman
+ *
+ * \brief A linear kalman filter for scalars.
+ */
 class scalarLinearKalman
 {
 public:
@@ -161,22 +193,36 @@ public:
         current_prob_estimate = (1 - kalman_gain) * predicted_prob_estimate;
     }
 
+private:
     float B, current_state_estimate, current_prob_estimate;
     float Q, R;
 };
 
 
-/*
-This high pass filter algorithm uses a low-pass filter to remove the long term average from the input signal.
-*/
+/**
+ * \class HighPassFilter
+ *
+ * \brief The HighPassFilter blocks long term averages and allows higher frequencies through.
+ */
 class HighPassFilter
 {
 public:
+	
+    /**
+     * \brief The gain is set by the constructor. The gain must be between 0.0 and 1.0. The higher the gain, the higher the cutoff frequency.
+     */
+     
     HighPassFilter(float gain) : emv(gain)
     {
         estimate = 0;
     }
 
+	 /**
+     * \brief Performs a single iteration of the filter. 
+     * Raw samples are entered into the filter using this function.
+     *
+     * @arg measurement A raw measurement or sample to be filtered.
+     */
     void step(float sample)
     {
         emv.step(sample);
@@ -184,6 +230,9 @@ public:
         estimate = sample - emv.get();
     }
 
+	/**
+     * \brief Returns the current state of the filter.
+     */
     float get()
     {
         return estimate;
@@ -194,6 +243,19 @@ private:
     float estimate;
 };
 
+
+/**
+ * \class RateLimiter
+ *
+ * \brief The RateLimiter limits the rate of change of a signal to a given step size.
+ *
+ * @code
+ etk::RateLimiter lim(1.0, 0.0);
+ for(auto i : etk::range(10))
+ 	cout << lim.step(10) << " ";
+ 	@endcode
+ * Output: 0,1,2,3,4,5,6,7,8,9
+ */
 
 class RateLimiter
 {

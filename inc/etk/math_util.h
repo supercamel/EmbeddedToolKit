@@ -7,7 +7,7 @@
 namespace etk
 {
 
-template<typename T> T constrain(T x, T a, T b)
+auto constrain(auto x, auto a, auto b)
 {
     if(x < a)
         return a;
@@ -20,7 +20,7 @@ template<typename T> T constrain(T x, T a, T b)
 /*
 	To keep within +/- 180.0 degrees, set segments to 360.0
 */
-template<typename T> T constrain_circular(T x, uint32_t segments)
+auto constrain_circular(auto x, uint32_t segments)
 {
     uint32_t half_segment = segments/2;
     int64_t seg_lower = half_segment;
@@ -33,7 +33,7 @@ template<typename T> T constrain_circular(T x, uint32_t segments)
     return x;
 }
 
-template<typename T> T min(T a, T b)
+auto min(auto a, auto b)
 {
     if(a < b)
         return a;
@@ -41,19 +41,19 @@ template<typename T> T min(T a, T b)
 }
 
 
-template<typename T> T max(T a, T b)
+auto max(auto a, auto b)
 {
     if(a > b)
         return a;
     return b;
 }
 
-template<typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
+auto map(auto x, auto in_min, auto in_max, auto out_min, auto out_max)
 {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-template<typename T> T copysign(T x, T y)
+auto copysign(auto x, auto y)
 {
     if((y >= 0) && (x < 0))
         return -x;
@@ -62,7 +62,7 @@ template<typename T> T copysign(T x, T y)
     return x;
 }
 
-template<typename T> T copysign_zero(T x, T y)
+auto copysign_zero(auto x, auto y)
 {
     if(y == 0)
         return 0;
@@ -70,16 +70,16 @@ template<typename T> T copysign_zero(T x, T y)
 }
 
 
-template<typename T> void swap(T& a, T& b)
+void swap(auto& a, auto& b)
 {
-    T temp = a;
+    auto temp = a;
     a = b;
     b = temp;
 }
 
-template<typename T> bool compare(T a, T b, T precision)
+bool compare(auto a, auto b, auto precision)
 {
-    T result = a-b;
+    auto result = a-b;
     if(result < 0)
         result = -result;
     return ((result-precision) < 0);
@@ -94,7 +94,7 @@ template<typename T> void bubble_sort_up(T* items, uint32_t n)
         {
             if(items[i-1] > items[i])
             {
-                swap<T>(items[i], items[i-1]);
+                swap(items[i], items[i-1]);
                 newn = i;
             }
         }
@@ -111,7 +111,7 @@ template<typename T> void bubble_sort_down(T* items, uint32_t n)
         {
             if(items[i-1] < items[i])
             {
-                swap<T>(items[i], items[i-1]);
+                swap(items[i], items[i-1]);
                 newn = i;
             }
         }

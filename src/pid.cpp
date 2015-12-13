@@ -1,8 +1,9 @@
 
 
-#include "pid.h"
+#include <etk/pid.h>
 
-using namespace etk;
+namespace etk
+{
 
 PIDController::PIDController()
 {
@@ -55,4 +56,6 @@ float CircularPIDController::step(float setpoint, float measurement, float dt)
 
     return output;
 }
+
+};
 

@@ -6,6 +6,17 @@
 namespace etk
 {
 
+/**
+ * \class Fuzzy
+ *
+ * \brief Fuzzy logic class. Fuzzy logic can be used for function approximation, control applications, signal process, AI and so on.
+ * Here is a tutorial on using Fuzzy logic with ETK
+ * http://www.camelsoftware.com/blog/2015/12/12/fuzzy-logic-control-part-1/
+ *
+ * @tparam N The maximum number of fuzzy sets to use. 
+ */
+ 
+ 
 template <uint16_t N> class Fuzzy
 {
 public:
@@ -72,6 +83,21 @@ public:
         {
             return get_dom(crisp_in)*val;
         }
+        
+        float get_min()
+        {
+        	return min;
+        }
+        
+        float get_mid()
+        {
+        	return mid;
+        }
+        
+        float get_max()
+        {
+        	return max;
+        }
 
 	protected:
 		enum FUZZY_POINT { START,MID,END };
@@ -114,6 +140,20 @@ public:
         for(auto set : sets)
             out += set.get_result(crisp_in);
         return out;
+    }
+    
+    auto inverse()
+    {
+    	auto ret = *this;
+    	for(auto& set : ret.sets)
+    	{
+    		float set_min = set.get_min();
+    		float set_mid = set.get_mid();
+    		float set_max = set.get_max();
+    		set.set_points(crisp_out(set_min), crisp_out(set_mid), crisp_out(set_max));
+    		set.set_value(set_mid);
+    	}
+    	return ret;
     }
 
 private:

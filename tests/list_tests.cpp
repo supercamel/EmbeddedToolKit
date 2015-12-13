@@ -56,7 +56,7 @@ bool list_test(std::string& subtest)
 	list.insert(4, 0);
 
 	list.erase(2, 3, 1);
-	for(auto i : range(2, 5))
+	for(auto i : etk::range(2, 5))
 	{
 		if(list.raw_memory()[i] != 1)
 			return false;
