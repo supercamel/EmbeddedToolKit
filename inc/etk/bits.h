@@ -10,7 +10,7 @@ namespace etk
 /**
  * \class Bits
  *
- * \brief Bits allows you to set and read the bits of an integer individually. 
+ * \brief Bits provides an easy way to set and read the bits of an integer individually. 
  *
  * @code
     etk::Bits<uint8_t> bits;

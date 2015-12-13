@@ -26,6 +26,38 @@ namespace etk
  * \brief StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns.
  * StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways. 
  * 
+ * @code
+ #include <etk/etk.h>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	etk::StaticString<100> ss;
+	ss = "Hello world!"; //basic string assignment
+	
+	ss.clear(); //clear string and start again
+	//assign a bunch of stuff.
+	ss += 56;
+	ss += " + ";
+	ss += 5.4;
+	ss += " = ";
+	ss += 56+5.4;
+	
+	//that's a big clunky. here's another option.
+	ss.clear();
+	ss.get_rope() << 56 << " + " << 5.4  << " = " << 56+5.4;
+	cout << ss.c_str() << endl;
+	
+	etk::StaticString<20> sub;
+	ss.sub_string(sub, 5, 4);
+	//sub now contains "5.40"
+	float f = sub.atof();
+	cout << f << endl;
+}
+@endcode
  * @tparam L the maximum length of the string in bytes.
  */
 
@@ -321,7 +353,7 @@ public:
     }
 
 	/**
-	 * \brief Sets the contents of the 0
+	 * \brief Sets all characters to null.
 	 */
     void clear()
     {
@@ -346,9 +378,10 @@ public:
         return (r1 != r);
     }
 
-    Rope& get_rope()
+    Rope get_rope()
     {
-        return *this;
+    	Rope rope(list.raw_memory(), L);
+        return rope;
     }
 
 	/**
