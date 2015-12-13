@@ -1,0 +1,108 @@
+\hypertarget{classetk_1_1_list_1_1_iterator}{\section{etk\-:\-:List$<$ T, L $>$\-:\-:Iterator Class Reference}
+\label{classetk_1_1_list_1_1_iterator}\index{etk\-::\-List$<$ T, L $>$\-::\-Iterator@{etk\-::\-List$<$ T, L $>$\-::\-Iterator}}
+}
+
+
+The list iterator makes a list iterable using C++11 ranged for loop syntax.  
+
+
+
+
+{\ttfamily \#include $<$list.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_list_1_1_iterator_a6a299eafca46db90564fdbffca60c7fa}{Iterator} (\hyperlink{classetk_1_1_list}{List} \&list)
+\item 
+T \& \hyperlink{classetk_1_1_list_1_1_iterator_a368d2b78fd175b0dac43aee52dc54f8f}{operator$\ast$} ()
+\item 
+\hyperlink{classetk_1_1_list_1_1_iterator}{Iterator} \& \hyperlink{classetk_1_1_list_1_1_iterator_aa7b714a588a29db93f9e406223b8783c}{operator++} ()
+\item 
+\hyperlink{classetk_1_1_list_1_1_iterator}{Iterator} \hyperlink{classetk_1_1_list_1_1_iterator_ae1f9efc5598a14487881bd7281fd27dd}{operator++} (int)
+\item 
+bool \hyperlink{classetk_1_1_list_1_1_iterator_a971c5acbef70bdd9a9513a87ad40fd4e}{operator==} (\hyperlink{classetk_1_1_list_1_1_iterator}{Iterator} iter)
+\item 
+bool \hyperlink{classetk_1_1_list_1_1_iterator_a7c9b29d64794609438e68b928125f14b}{operator!=} (\hyperlink{classetk_1_1_list_1_1_iterator}{Iterator} iter)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classetk_1_1_list_1_1_iterator_a8cee552d09eaeb60a09d95309a87b498}{List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, uint32\-\_\-t L$>$class etk\-::\-List$<$ T, L $>$\-::\-Iterator}
+
+The list iterator makes a list iterable using C++11 ranged for loop syntax. 
+
+
+\begin{DoxyCode}
+\hyperlink{classetk_1_1_list}{etk::List<int, 10>} list;
+...
+\textcolor{comment}{//print out the entire list}
+for(\textcolor{keyword}{auto} i : list)
+\{
+    cout << i << \textcolor{stringliteral}{" "};
+\}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_list_1_1_iterator_a6a299eafca46db90564fdbffca60c7fa}{\index{etk\-::\-List\-::\-Iterator@{etk\-::\-List\-::\-Iterator}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!etk::List::Iterator@{etk\-::\-List\-::\-Iterator}}
+\subsubsection[{Iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L$>$ {\bf etk\-::\-List}$<$ T, L $>$\-::Iterator\-::\-Iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf List} \&}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_1_1_iterator_a6a299eafca46db90564fdbffca60c7fa}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_list_1_1_iterator_a7c9b29d64794609438e68b928125f14b}{\index{etk\-::\-List\-::\-Iterator@{etk\-::\-List\-::\-Iterator}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!etk::List::Iterator@{etk\-::\-List\-::\-Iterator}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L$>$ bool {\bf etk\-::\-List}$<$ T, L $>$\-::Iterator\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{{\bf Iterator}}]{iter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_1_1_iterator_a7c9b29d64794609438e68b928125f14b}
+\hypertarget{classetk_1_1_list_1_1_iterator_a368d2b78fd175b0dac43aee52dc54f8f}{\index{etk\-::\-List\-::\-Iterator@{etk\-::\-List\-::\-Iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!etk::List::Iterator@{etk\-::\-List\-::\-Iterator}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L$>$ T\& {\bf etk\-::\-List}$<$ T, L $>$\-::Iterator\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_1_1_iterator_a368d2b78fd175b0dac43aee52dc54f8f}
+\hypertarget{classetk_1_1_list_1_1_iterator_aa7b714a588a29db93f9e406223b8783c}{\index{etk\-::\-List\-::\-Iterator@{etk\-::\-List\-::\-Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!etk::List::Iterator@{etk\-::\-List\-::\-Iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L$>$ {\bf Iterator}\& {\bf etk\-::\-List}$<$ T, L $>$\-::Iterator\-::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_1_1_iterator_aa7b714a588a29db93f9e406223b8783c}
+\hypertarget{classetk_1_1_list_1_1_iterator_ae1f9efc5598a14487881bd7281fd27dd}{\index{etk\-::\-List\-::\-Iterator@{etk\-::\-List\-::\-Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!etk::List::Iterator@{etk\-::\-List\-::\-Iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L$>$ {\bf Iterator} {\bf etk\-::\-List}$<$ T, L $>$\-::Iterator\-::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_1_1_iterator_ae1f9efc5598a14487881bd7281fd27dd}
+\hypertarget{classetk_1_1_list_1_1_iterator_a971c5acbef70bdd9a9513a87ad40fd4e}{\index{etk\-::\-List\-::\-Iterator@{etk\-::\-List\-::\-Iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!etk::List::Iterator@{etk\-::\-List\-::\-Iterator}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L$>$ bool {\bf etk\-::\-List}$<$ T, L $>$\-::Iterator\-::operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf Iterator}}]{iter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_1_1_iterator_a971c5acbef70bdd9a9513a87ad40fd4e}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classetk_1_1_list_1_1_iterator_a8cee552d09eaeb60a09d95309a87b498}{\index{etk\-::\-List\-::\-Iterator@{etk\-::\-List\-::\-Iterator}!List@{List}}
+\index{List@{List}!etk::List::Iterator@{etk\-::\-List\-::\-Iterator}}
+\subsubsection[{List}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L$>$ friend class {\bf List}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classetk_1_1_list_1_1_iterator_a8cee552d09eaeb60a09d95309a87b498}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{list_8h}{list.\-h}\end{DoxyCompactItemize}

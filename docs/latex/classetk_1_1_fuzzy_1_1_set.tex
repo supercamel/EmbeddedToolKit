@@ -1,0 +1,176 @@
+\hypertarget{classetk_1_1_fuzzy_1_1_set}{\section{etk\-:\-:Fuzzy$<$ N $>$\-:\-:Set Class Reference}
+\label{classetk_1_1_fuzzy_1_1_set}\index{etk\-::\-Fuzzy$<$ N $>$\-::\-Set@{etk\-::\-Fuzzy$<$ N $>$\-::\-Set}}
+}
+
+
+A fuzzy logic set.  
+
+
+
+
+{\ttfamily \#include $<$fuzzy.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classetk_1_1_fuzzy_1_1_set_af3d525a63382b697559aff3a3f70ea65}{set\-\_\-points} (float p1, float p2, float p3)
+\begin{DoxyCompactList}\small\item\em set\-\_\-points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_fuzzy_1_1_set_a7dac2b7d03e467b8b22a806e82adec59}{get\-\_\-dom} (float crisp\-\_\-in)
+\begin{DoxyCompactList}\small\item\em get\-\_\-dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the D\-O\-M is zero. Otherwise, the D\-O\-M represents how close the crisp is to the mid point. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_fuzzy_1_1_set_aca2ae652a087e109f032e7e82db6f6b5}{set\-\_\-value} (float v)
+\begin{DoxyCompactList}\small\item\em Sets the value of this set. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_fuzzy_1_1_set_ae2a4f2ace143666060977617d51c4f45}{get\-\_\-result} (float crisp\-\_\-in)
+\begin{DoxyCompactList}\small\item\em Returns the degree of membership of a crisp input, multiplied by the value of the set. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_fuzzy_1_1_set_a2a31cd40458aa086bdb21f1d4fd5768a}{get\-\_\-min} ()
+\begin{DoxyCompactList}\small\item\em Returns the minimum point. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_fuzzy_1_1_set_aace726f2405de59678bfaf1124e41def}{get\-\_\-mid} ()
+\begin{DoxyCompactList}\small\item\em Returns the middle point / triangle peak. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_fuzzy_1_1_set_ade3e255cd25f7b2944fbd8ee3c28434d}{get\-\_\-max} ()
+\begin{DoxyCompactList}\small\item\em Returns the maximum point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97}{F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T} \{ \hyperlink{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97ac8fc7790d2c5d6719b755e21658d60f5}{S\-T\-A\-R\-T}, 
+\hyperlink{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97a622f9b497afa3b59681c1875936788ee}{M\-I\-D}, 
+\hyperlink{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97a58517baf34b39d08da1c1a184d872856}{E\-N\-D}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classetk_1_1_fuzzy_1_1_set_ac02bbfc5d8a4388cdedc2a172cab9209}{set\-\_\-position} (\hyperlink{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97}{F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T} p)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classetk_1_1_fuzzy_1_1_set_adea15307855814ee46c7bb9177a6bac2}{Fuzzy$<$ N $>$}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$uint16\-\_\-t N$>$class etk\-::\-Fuzzy$<$ N $>$\-::\-Set}
+
+A fuzzy logic set. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T@{F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T}}
+\index{F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T@{F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ enum {\bf etk\-::\-Fuzzy\-::\-Set\-::\-F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T}\hspace{0.3cm}{\ttfamily [protected]}}}\label{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\-T\-A\-R\-T@{S\-T\-A\-R\-T}!etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}}\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!S\-T\-A\-R\-T@{S\-T\-A\-R\-T}}\item[{\em 
+\hypertarget{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97ac8fc7790d2c5d6719b755e21658d60f5}{S\-T\-A\-R\-T}\label{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97ac8fc7790d2c5d6719b755e21658d60f5}
+}]\index{M\-I\-D@{M\-I\-D}!etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}}\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!M\-I\-D@{M\-I\-D}}\item[{\em 
+\hypertarget{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97a622f9b497afa3b59681c1875936788ee}{M\-I\-D}\label{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97a622f9b497afa3b59681c1875936788ee}
+}]\index{E\-N\-D@{E\-N\-D}!etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}}\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!E\-N\-D@{E\-N\-D}}\item[{\em 
+\hypertarget{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97a58517baf34b39d08da1c1a184d872856}{E\-N\-D}\label{classetk_1_1_fuzzy_1_1_set_a458bba0e19aa05ab891962a705243a97a58517baf34b39d08da1c1a184d872856}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_fuzzy_1_1_set_a7dac2b7d03e467b8b22a806e82adec59}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!get\-\_\-dom@{get\-\_\-dom}}
+\index{get\-\_\-dom@{get\-\_\-dom}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{get\-\_\-dom}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ float {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::get\-\_\-dom (
+\begin{DoxyParamCaption}
+\item[{float}]{crisp\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_1_1_set_a7dac2b7d03e467b8b22a806e82adec59}
+
+
+get\-\_\-dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the D\-O\-M is zero. Otherwise, the D\-O\-M represents how close the crisp is to the mid point. 
+
+\begin{DoxyItemize}
+\item crisp\-\_\-in The crisp input \begin{DoxyReturn}{Returns}
+The degree of membership. This will be a number between 0.\-0 and 1.\-0 
+\end{DoxyReturn}
+\end{DoxyItemize}
+\hypertarget{classetk_1_1_fuzzy_1_1_set_ade3e255cd25f7b2944fbd8ee3c28434d}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!get\-\_\-max@{get\-\_\-max}}
+\index{get\-\_\-max@{get\-\_\-max}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{get\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ float {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::get\-\_\-max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_1_1_set_ade3e255cd25f7b2944fbd8ee3c28434d}
+
+
+Returns the maximum point. 
+
+\hypertarget{classetk_1_1_fuzzy_1_1_set_aace726f2405de59678bfaf1124e41def}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!get\-\_\-mid@{get\-\_\-mid}}
+\index{get\-\_\-mid@{get\-\_\-mid}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{get\-\_\-mid}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ float {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::get\-\_\-mid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_1_1_set_aace726f2405de59678bfaf1124e41def}
+
+
+Returns the middle point / triangle peak. 
+
+\hypertarget{classetk_1_1_fuzzy_1_1_set_a2a31cd40458aa086bdb21f1d4fd5768a}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!get\-\_\-min@{get\-\_\-min}}
+\index{get\-\_\-min@{get\-\_\-min}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{get\-\_\-min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ float {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::get\-\_\-min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_1_1_set_a2a31cd40458aa086bdb21f1d4fd5768a}
+
+
+Returns the minimum point. 
+
+\hypertarget{classetk_1_1_fuzzy_1_1_set_ae2a4f2ace143666060977617d51c4f45}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!get\-\_\-result@{get\-\_\-result}}
+\index{get\-\_\-result@{get\-\_\-result}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{get\-\_\-result}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ float {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::get\-\_\-result (
+\begin{DoxyParamCaption}
+\item[{float}]{crisp\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_1_1_set_ae2a4f2ace143666060977617d51c4f45}
+
+
+Returns the degree of membership of a crisp input, multiplied by the value of the set. 
+
+\hypertarget{classetk_1_1_fuzzy_1_1_set_af3d525a63382b697559aff3a3f70ea65}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!set\-\_\-points@{set\-\_\-points}}
+\index{set\-\_\-points@{set\-\_\-points}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{set\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ void {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::set\-\_\-points (
+\begin{DoxyParamCaption}
+\item[{float}]{p1, }
+\item[{float}]{p2, }
+\item[{float}]{p3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_1_1_set_af3d525a63382b697559aff3a3f70ea65}
+
+
+set\-\_\-points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle. 
+
+\begin{DoxyItemize}
+\item p1 minimum point \item p2 middle/peak of triangle \item p3 maximum point \end{DoxyItemize}
+\hypertarget{classetk_1_1_fuzzy_1_1_set_ac02bbfc5d8a4388cdedc2a172cab9209}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!set\-\_\-position@{set\-\_\-position}}
+\index{set\-\_\-position@{set\-\_\-position}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{set\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ void {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::set\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{{\bf F\-U\-Z\-Z\-Y\-\_\-\-P\-O\-I\-N\-T}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classetk_1_1_fuzzy_1_1_set_ac02bbfc5d8a4388cdedc2a172cab9209}
+\hypertarget{classetk_1_1_fuzzy_1_1_set_aca2ae652a087e109f032e7e82db6f6b5}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!set\-\_\-value@{set\-\_\-value}}
+\index{set\-\_\-value@{set\-\_\-value}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{set\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ void {\bf etk\-::\-Fuzzy}$<$ N $>$\-::Set\-::set\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{float}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_1_1_set_aca2ae652a087e109f032e7e82db6f6b5}
+
+
+Sets the value of this set. 
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classetk_1_1_fuzzy_1_1_set_adea15307855814ee46c7bb9177a6bac2}{\index{etk\-::\-Fuzzy\-::\-Set@{etk\-::\-Fuzzy\-::\-Set}!Fuzzy$<$ N $>$@{Fuzzy$<$ N $>$}}
+\index{Fuzzy$<$ N $>$@{Fuzzy$<$ N $>$}!etk::Fuzzy::Set@{etk\-::\-Fuzzy\-::\-Set}}
+\subsubsection[{Fuzzy$<$ N $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ friend class {\bf Fuzzy}$<$ N $>$\hspace{0.3cm}{\ttfamily [friend]}}}\label{classetk_1_1_fuzzy_1_1_set_adea15307855814ee46c7bb9177a6bac2}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{fuzzy_8h}{fuzzy.\-h}\end{DoxyCompactItemize}

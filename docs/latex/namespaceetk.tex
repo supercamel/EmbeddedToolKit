@@ -1,0 +1,311 @@
+\hypertarget{namespaceetk}{\section{etk Namespace Reference}
+\label{namespaceetk}\index{etk@{etk}}
+}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceetk_1_1_version}{Version}
+\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classetk_1_1_bits}{Bits}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_bits}{Bits} provides an easy way to set and read the bits of an integer individually. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_cout}{Cout}
+\item 
+class \hyperlink{classetk_1_1_expo_moving_avg}{Expo\-Moving\-Avg}
+\begin{DoxyCompactList}\small\item\em An exponential moving average low-\/pass filter. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_brown_linear_expo}{Brown\-Linear\-Expo}
+\begin{DoxyCompactList}\small\item\em Browns linear exponential filter is a form of double exponential smoothing. It can be more responsive than the Moving\-Expo\-Avg filter, but is prone to overshoot. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1scalar_linear_kalman}{scalar\-Linear\-Kalman}
+\begin{DoxyCompactList}\small\item\em A linear kalman filter for scalars. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_high_pass_filter}{High\-Pass\-Filter}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classetk_1_1_high_pass_filter}{High\-Pass\-Filter} blocks long term averages and allows higher frequencies through. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_rate_limiter}{Rate\-Limiter}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classetk_1_1_rate_limiter}{Rate\-Limiter} limits the rate of change of a signal to a given step size. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_fuzzy}{Fuzzy}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic class. \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic can be used for function approximation, control applications, signal process, A\-I and so on. Here is a tutorial on using \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic with E\-T\-K \href{http://www.camelsoftware.com/blog/2015/12/12/fuzzy-logic-control-part-1/}{\tt http\-://www.\-camelsoftware.\-com/blog/2015/12/12/fuzzy-\/logic-\/control-\/part-\/1/}. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_list}{List}
+\begin{DoxyCompactList}\small\item\em The list class is an iterable container object. A list can contain up to a maximum number of items determined by the template parameter L. \hyperlink{classetk_1_1_list}{List} is supposed to provide a similar look and feel to std\-::vector, but without using dynamic memory allocation. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_loop_range_iterator}{Loop\-Range\-Iterator}
+\begin{DoxyCompactList}\small\item\em See \hyperlink{classetk_1_1_loop_range}{Loop\-Range}. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_loop_range}{Loop\-Range}
+\begin{DoxyCompactList}\small\item\em This class is of limited usefullness by itself. It should be used with the \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range()} template functions. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_matrix}{Matrix}
+\item 
+class \hyperlink{classetk_1_1_coordinate}{Coordinate}
+\begin{DoxyCompactList}\small\item\em Represents latitude and longitude coordinates. Units are in degrees unless stated otherwise. All navigation functions use great circle mathematics and are, in theory, suitable for long distances and navigation in polar regions. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_waypoint}{Waypoint}
+\begin{DoxyCompactList}\small\item\em A \hyperlink{classetk_1_1_waypoint}{Waypoint} I\-S\-\_\-\-A coordinate, but it has an extra dimension to store altitude. It provides get and set methods for altitude, and it can be cast to a 3 dimensional \hyperlink{classetk_1_1_vector}{etk\-::\-Vector}. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_p_i_d_controller}{P\-I\-D\-Controller}
+\begin{DoxyCompactList}\small\item\em A generic \hyperlink{classetk_1_1_p_i_d_controller}{P\-I\-D\-Controller}. \href{https://en.wikipedia.org/wiki/PID_controller}{\tt https\-://en.\-wikipedia.\-org/wiki/\-P\-I\-D\-\_\-controller}. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_circular_p_i_d_controller}{Circular\-P\-I\-D\-Controller}
+\begin{DoxyCompactList}\small\item\em A Circular P\-I\-D Controller. This controller uses \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\-\_\-circular()}; to keep it's inputs and error within a circular range. If segments was set to 360, the setpoint was 175 and the measurement was -\/175, the resulting error would be -\/10 degrees. This makes the circular P\-I\-D controller suitable for controlling the heading of a vehicle, for example. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_quaternion}{Quaternion}
+\item 
+class \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer}
+\begin{DoxyCompactList}\small\item\em Ring\-Buffers are a great way to buffer information from data streams such as U\-A\-R\-Ts. \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer} does not allocate it's own memory, instead it requires a pointer to an array or memory region where it can store data. \par
+\par
+ Example. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_rope}{Rope}
+\begin{DoxyCompactList}\small\item\em W\-H\-Y R\-O\-P\-E? It's like a string, only more robust. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_static_string}{Static\-String}
+\begin{DoxyCompactList}\small\item\em Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are immune to buffer overruns. Static\-Strings also provide a lot of the convenience of std\-::strings, although they do differ from std\-::strings in a number of ways. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_short_term_memory}{Short\-Term\-Memory}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_short_term_memory}{Short\-Term\-Memory} stores a data in a buffer. As more data is received, the old data is eventually overwritten and forgotten. It has some uses in digital signal processing, adaptive control and filtering. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_time}{Time}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_time}{Time} is a class that can be used to perform time related functions such as counting systicks. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_tokeniser}{Tokeniser}
+\begin{DoxyCompactList}\small\item\em The tokeniser moves along a string and breaks it into tokens. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_vector}{Vector}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classetk_1_1_loop_range}{Loop\-Range}$<$ T $>$ \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range} (T from, T to)
+\begin{DoxyCompactList}\small\item\em Like \hyperlink{namespaceetk_a65f1ea4495206c62f285e48ffd2f677e}{range(\-T to)}, except the start value can be specified. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classetk_1_1_loop_range}{Loop\-Range}$<$ T $>$ \hyperlink{namespaceetk_a65f1ea4495206c62f285e48ffd2f677e}{range} (T to)
+\begin{DoxyCompactList}\small\item\em The range function constructs and returns a loop range iterator. It's purpose is to exploit C++11 ranged look syntax and provide a cleaner and less verbose way to iterate over a range of numbers. \end{DoxyCompactList}\item 
+auto \hyperlink{namespaceetk_a3b8ba4e0ed638ad07a7ab4f6cfc22c26}{constrain} (auto x, auto a, auto b)
+\begin{DoxyCompactList}\small\item\em Used to keep a number within a particular range. \end{DoxyCompactList}\item 
+auto \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\-\_\-circular} (auto x, uint32\-\_\-t segments)
+\begin{DoxyCompactList}\small\item\em Used to constrain a number to within a circular range. For example,. \end{DoxyCompactList}\item 
+auto \hyperlink{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}{min} (auto a, auto b)
+\begin{DoxyCompactList}\small\item\em Returns the smaller of two values. \end{DoxyCompactList}\item 
+auto \hyperlink{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}{max} (auto a, auto b)
+\begin{DoxyCompactList}\small\item\em Returns the larger of two values. \end{DoxyCompactList}\item 
+auto \hyperlink{namespaceetk_a5c4722af8a58319b06077130fe759644}{map} (auto x, auto in\-\_\-min, auto in\-\_\-max, auto out\-\_\-min, auto out\-\_\-max)
+\begin{DoxyCompactList}\small\item\em Converts a value from one scale to another. For example, a control functions returns a value between -\/1.\-0 and 1.\-0. The servo requires an input from 0 -\/ 90. ctrl\-\_\-val = map(ctrl\-\_\-val, -\/1.\-0, 1.\-0, 0.\-0, 90.\-0);. \end{DoxyCompactList}\item 
+auto \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign} (auto x, auto y)
+\begin{DoxyCompactList}\small\item\em Returns a number with the value of x and the sign of y. \end{DoxyCompactList}\item 
+auto \hyperlink{namespaceetk_a784f32aa2a3661196e1cf73218c53670}{copysign\-\_\-zero} (auto x, auto y)
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign()}, but if y is zero then zero will be returned regardless of x. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}{swap} (auto \&a, auto \&b)
+\begin{DoxyCompactList}\small\item\em Moves a to b and b to a. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}{compare} (auto a, auto b, auto precision)
+\begin{DoxyCompactList}\small\item\em Compares two values. Returns true if their difference is less than precision. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceetk_abc861c6adcc9b0a83ccca68458756e4d}{bubble\-\_\-sort\-\_\-up} (T $\ast$items, uint32\-\_\-t n)
+\begin{DoxyCompactList}\small\item\em Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceetk_a413ad16607a0b44d5a90ca11b3bec5bc}{bubble\-\_\-sort\-\_\-down} (T $\ast$items, uint32\-\_\-t n)
+\begin{DoxyCompactList}\small\item\em Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array. \end{DoxyCompactList}\item 
+char \hyperlink{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}{to\-\_\-upper} (char c)
+\begin{DoxyCompactList}\small\item\em Converts a character to its uppercase A\-S\-C\-I\-I equivalent. \end{DoxyCompactList}\item 
+char \hyperlink{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}{to\-\_\-lower} (char c)
+\begin{DoxyCompactList}\small\item\em Converts a character to its lowercase A\-S\-C\-I\-I equivalent. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceetk_af4854b73ae0591651e39ab85b52fc454}{abs} (T t)
+\begin{DoxyCompactList}\small\item\em Returns the input parameter with a positive sign. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceetk_af4854b73ae0591651e39ab85b52fc454}{\index{etk@{etk}!abs@{abs}}
+\index{abs@{abs}!etk@{etk}}
+\subsubsection[{abs}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T etk\-::abs (
+\begin{DoxyParamCaption}
+\item[{T}]{t}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_af4854b73ae0591651e39ab85b52fc454}
+
+
+Returns the input parameter with a positive sign. 
+
+\hypertarget{namespaceetk_a413ad16607a0b44d5a90ca11b3bec5bc}{\index{etk@{etk}!bubble\-\_\-sort\-\_\-down@{bubble\-\_\-sort\-\_\-down}}
+\index{bubble\-\_\-sort\-\_\-down@{bubble\-\_\-sort\-\_\-down}!etk@{etk}}
+\subsubsection[{bubble\-\_\-sort\-\_\-down}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void etk\-::bubble\-\_\-sort\-\_\-down (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{items, }
+\item[{uint32\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a413ad16607a0b44d5a90ca11b3bec5bc}
+
+
+Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array. 
+
+\hypertarget{namespaceetk_abc861c6adcc9b0a83ccca68458756e4d}{\index{etk@{etk}!bubble\-\_\-sort\-\_\-up@{bubble\-\_\-sort\-\_\-up}}
+\index{bubble\-\_\-sort\-\_\-up@{bubble\-\_\-sort\-\_\-up}!etk@{etk}}
+\subsubsection[{bubble\-\_\-sort\-\_\-up}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void etk\-::bubble\-\_\-sort\-\_\-up (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{items, }
+\item[{uint32\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_abc861c6adcc9b0a83ccca68458756e4d}
+
+
+Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array. 
+
+\hypertarget{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}{\index{etk@{etk}!compare@{compare}}
+\index{compare@{compare}!etk@{etk}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}bool etk\-::compare (
+\begin{DoxyParamCaption}
+\item[{auto}]{a, }
+\item[{auto}]{b, }
+\item[{auto}]{precision}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}
+
+
+Compares two values. Returns true if their difference is less than precision. 
+
+\hypertarget{namespaceetk_a3b8ba4e0ed638ad07a7ab4f6cfc22c26}{\index{etk@{etk}!constrain@{constrain}}
+\index{constrain@{constrain}!etk@{etk}}
+\subsubsection[{constrain}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::constrain (
+\begin{DoxyParamCaption}
+\item[{auto}]{x, }
+\item[{auto}]{a, }
+\item[{auto}]{b}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a3b8ba4e0ed638ad07a7ab4f6cfc22c26}
+
+
+Used to keep a number within a particular range. 
+
+\begin{DoxyItemize}
+\item x Number to constrain. \item a Minimum value \item b Maximum value \begin{DoxyReturn}{Returns}
+x, if x is between a and b. If x is smaller than a, then a. If x is larger than b, then b. 
+\end{DoxyReturn}
+\end{DoxyItemize}
+\hypertarget{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{\index{etk@{etk}!constrain\-\_\-circular@{constrain\-\_\-circular}}
+\index{constrain\-\_\-circular@{constrain\-\_\-circular}!etk@{etk}}
+\subsubsection[{constrain\-\_\-circular}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::constrain\-\_\-circular (
+\begin{DoxyParamCaption}
+\item[{auto}]{x, }
+\item[{uint32\-\_\-t}]{segments}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}
+
+
+Used to constrain a number to within a circular range. For example,. 
+
+
+\begin{DoxyCode}
+cout << \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\_circular}(450, 360);
+\end{DoxyCode}
+ Output\-: 90 Why? Because 450 degrees is the same as 90 degrees on a map. This function can be used with radians by making segments 2$\ast$\-P\-I. \hypertarget{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{\index{etk@{etk}!copysign@{copysign}}
+\index{copysign@{copysign}!etk@{etk}}
+\subsubsection[{copysign}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::copysign (
+\begin{DoxyParamCaption}
+\item[{auto}]{x, }
+\item[{auto}]{y}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}
+
+
+Returns a number with the value of x and the sign of y. 
+
+\hypertarget{namespaceetk_a784f32aa2a3661196e1cf73218c53670}{\index{etk@{etk}!copysign\-\_\-zero@{copysign\-\_\-zero}}
+\index{copysign\-\_\-zero@{copysign\-\_\-zero}!etk@{etk}}
+\subsubsection[{copysign\-\_\-zero}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::copysign\-\_\-zero (
+\begin{DoxyParamCaption}
+\item[{auto}]{x, }
+\item[{auto}]{y}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a784f32aa2a3661196e1cf73218c53670}
+
+
+Same as \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign()}, but if y is zero then zero will be returned regardless of x. 
+
+\hypertarget{namespaceetk_a5c4722af8a58319b06077130fe759644}{\index{etk@{etk}!map@{map}}
+\index{map@{map}!etk@{etk}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::map (
+\begin{DoxyParamCaption}
+\item[{auto}]{x, }
+\item[{auto}]{in\-\_\-min, }
+\item[{auto}]{in\-\_\-max, }
+\item[{auto}]{out\-\_\-min, }
+\item[{auto}]{out\-\_\-max}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a5c4722af8a58319b06077130fe759644}
+
+
+Converts a value from one scale to another. For example, a control functions returns a value between -\/1.\-0 and 1.\-0. The servo requires an input from 0 -\/ 90. ctrl\-\_\-val = map(ctrl\-\_\-val, -\/1.\-0, 1.\-0, 0.\-0, 90.\-0);. 
+
+\hypertarget{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}{\index{etk@{etk}!max@{max}}
+\index{max@{max}!etk@{etk}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::max (
+\begin{DoxyParamCaption}
+\item[{auto}]{a, }
+\item[{auto}]{b}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}
+
+
+Returns the larger of two values. 
+
+\hypertarget{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}{\index{etk@{etk}!min@{min}}
+\index{min@{min}!etk@{etk}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::min (
+\begin{DoxyParamCaption}
+\item[{auto}]{a, }
+\item[{auto}]{b}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}
+
+
+Returns the smaller of two values. 
+
+\hypertarget{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{\index{etk@{etk}!range@{range}}
+\index{range@{range}!etk@{etk}}
+\subsubsection[{range}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Loop\-Range}$<$T$>$ etk\-::range (
+\begin{DoxyParamCaption}
+\item[{T}]{from, }
+\item[{T}]{to}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}
+
+
+Like \hyperlink{namespaceetk_a65f1ea4495206c62f285e48ffd2f677e}{range(\-T to)}, except the start value can be specified. 
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i : \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range}(5, 9))
+    cout << i << \textcolor{stringliteral}{" "};
+\end{DoxyCode}
+ Output\-: 5, 6, 7, 8 \hypertarget{namespaceetk_a65f1ea4495206c62f285e48ffd2f677e}{\index{etk@{etk}!range@{range}}
+\index{range@{range}!etk@{etk}}
+\subsubsection[{range}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Loop\-Range}$<$T$>$ etk\-::range (
+\begin{DoxyParamCaption}
+\item[{T}]{to}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_a65f1ea4495206c62f285e48ffd2f677e}
+
+
+The range function constructs and returns a loop range iterator. It's purpose is to exploit C++11 ranged look syntax and provide a cleaner and less verbose way to iterate over a range of numbers. 
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i : \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range}(4))
+    cout << i << \textcolor{stringliteral}{" "};
+\end{DoxyCode}
+ Output\-: 0 1 2 3 \hypertarget{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}{\index{etk@{etk}!swap@{swap}}
+\index{swap@{swap}!etk@{etk}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::swap (
+\begin{DoxyParamCaption}
+\item[{auto \&}]{a, }
+\item[{auto \&}]{b}
+\end{DoxyParamCaption}
+)}}\label{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}
+
+
+Moves a to b and b to a. 
+
+\hypertarget{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}{\index{etk@{etk}!to\-\_\-lower@{to\-\_\-lower}}
+\index{to\-\_\-lower@{to\-\_\-lower}!etk@{etk}}
+\subsubsection[{to\-\_\-lower}]{\setlength{\rightskip}{0pt plus 5cm}char etk\-::to\-\_\-lower (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}
+
+
+Converts a character to its lowercase A\-S\-C\-I\-I equivalent. 
+
+\hypertarget{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}{\index{etk@{etk}!to\-\_\-upper@{to\-\_\-upper}}
+\index{to\-\_\-upper@{to\-\_\-upper}!etk@{etk}}
+\subsubsection[{to\-\_\-upper}]{\setlength{\rightskip}{0pt plus 5cm}char etk\-::to\-\_\-upper (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}
+
+
+Converts a character to its uppercase A\-S\-C\-I\-I equivalent. 
+

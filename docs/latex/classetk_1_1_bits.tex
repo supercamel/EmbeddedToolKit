@@ -1,0 +1,149 @@
+\hypertarget{classetk_1_1_bits}{\section{etk\-:\-:Bits$<$ T $>$ Class Template Reference}
+\label{classetk_1_1_bits}\index{etk\-::\-Bits$<$ T $>$@{etk\-::\-Bits$<$ T $>$}}
+}
+
+
+\hyperlink{classetk_1_1_bits}{Bits} provides an easy way to set and read the bits of an integer individually.  
+
+
+
+
+{\ttfamily \#include $<$bits.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_bits_a267397258333acde678e061d437e9b36}{Bits} ()
+\item 
+\hyperlink{classetk_1_1_bits_a0ea9f6cc412e17a55ef34cf2753f7f3e}{Bits} (T b)
+\item 
+bool \hyperlink{classetk_1_1_bits_af87f87e0e415962c5b701384f7f76320}{set\-\_\-bit} (uint32\-\_\-t n, bool on=true)
+\begin{DoxyCompactList}\small\item\em set\-\_\-bit allows you to turn a bit on or off. \end{DoxyCompactList}\item 
+bool \hyperlink{classetk_1_1_bits_a1668888b17d42b9ae276923437002a22}{read\-\_\-bit} (uint32\-\_\-t n)
+\begin{DoxyCompactList}\small\item\em read\-\_\-bit reads the value of a bit. \end{DoxyCompactList}\item 
+auto \hyperlink{classetk_1_1_bits_a692698877d8fa33a6570750979018274}{to\-\_\-string} ()
+\begin{DoxyCompactList}\small\item\em Creates a human readable string of ones and zeroes. \end{DoxyCompactList}\item 
+T \hyperlink{classetk_1_1_bits_a3d46dbbf64a5e23d1cf7774c3e13c2ea}{get} ()
+\begin{DoxyCompactList}\small\item\em Returns the integer that \hyperlink{classetk_1_1_bits}{Bits} has been modifying. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_bits_a8a98aeb0aa064f7c9783148f3c77a9ca}{set} (T b)
+\begin{DoxyCompactList}\small\item\em Sets the integer to a particular value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class etk\-::\-Bits$<$ T $>$}
+
+\hyperlink{classetk_1_1_bits}{Bits} provides an easy way to set and read the bits of an integer individually. 
+
+
+\begin{DoxyCode}
+\hyperlink{classetk_1_1_bits}{etk::Bits<uint8\_t>} bits;
+bits.\hyperlink{classetk_1_1_bits_af87f87e0e415962c5b701384f7f76320}{set\_bit}(7);
+bits.\hyperlink{classetk_1_1_bits_af87f87e0e415962c5b701384f7f76320}{set\_bit}(1);
+
+uint8\_t v = bits.\hyperlink{classetk_1_1_bits_a3d46dbbf64a5e23d1cf7774c3e13c2ea}{get}();
+
+\textcolor{keyword}{auto} str = bits.\hyperlink{classetk_1_1_bits_a692698877d8fa33a6570750979018274}{to\_string}();
+
+cout << \textcolor{stringliteral}{"v == "} << str.c\_str() << endl;
+\end{DoxyCode}
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & An int type. For example, uint16\-\_\-t which is 16 bits long. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_bits_a267397258333acde678e061d437e9b36}{\index{etk\-::\-Bits@{etk\-::\-Bits}!Bits@{Bits}}
+\index{Bits@{Bits}!etk::Bits@{etk\-::\-Bits}}
+\subsubsection[{Bits}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf etk\-::\-Bits}$<$ T $>$\-::{\bf Bits} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_bits_a267397258333acde678e061d437e9b36}
+\hypertarget{classetk_1_1_bits_a0ea9f6cc412e17a55ef34cf2753f7f3e}{\index{etk\-::\-Bits@{etk\-::\-Bits}!Bits@{Bits}}
+\index{Bits@{Bits}!etk::Bits@{etk\-::\-Bits}}
+\subsubsection[{Bits}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf etk\-::\-Bits}$<$ T $>$\-::{\bf Bits} (
+\begin{DoxyParamCaption}
+\item[{T}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_bits_a0ea9f6cc412e17a55ef34cf2753f7f3e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_bits_a3d46dbbf64a5e23d1cf7774c3e13c2ea}{\index{etk\-::\-Bits@{etk\-::\-Bits}!get@{get}}
+\index{get@{get}!etk::Bits@{etk\-::\-Bits}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf etk\-::\-Bits}$<$ T $>$\-::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_bits_a3d46dbbf64a5e23d1cf7774c3e13c2ea}
+
+
+Returns the integer that \hyperlink{classetk_1_1_bits}{Bits} has been modifying. 
+
+\hypertarget{classetk_1_1_bits_a1668888b17d42b9ae276923437002a22}{\index{etk\-::\-Bits@{etk\-::\-Bits}!read\-\_\-bit@{read\-\_\-bit}}
+\index{read\-\_\-bit@{read\-\_\-bit}!etk::Bits@{etk\-::\-Bits}}
+\subsubsection[{read\-\_\-bit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf etk\-::\-Bits}$<$ T $>$\-::read\-\_\-bit (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_bits_a1668888b17d42b9ae276923437002a22}
+
+
+read\-\_\-bit reads the value of a bit. 
+
+\begin{DoxyItemize}
+\item n The bit to read. \begin{DoxyReturn}{Returns}
+true if bit is 1, false if 0 
+\end{DoxyReturn}
+\end{DoxyItemize}
+\hypertarget{classetk_1_1_bits_a8a98aeb0aa064f7c9783148f3c77a9ca}{\index{etk\-::\-Bits@{etk\-::\-Bits}!set@{set}}
+\index{set@{set}!etk::Bits@{etk\-::\-Bits}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf etk\-::\-Bits}$<$ T $>$\-::set (
+\begin{DoxyParamCaption}
+\item[{T}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_bits_a8a98aeb0aa064f7c9783148f3c77a9ca}
+
+
+Sets the integer to a particular value. 
+
+\hypertarget{classetk_1_1_bits_af87f87e0e415962c5b701384f7f76320}{\index{etk\-::\-Bits@{etk\-::\-Bits}!set\-\_\-bit@{set\-\_\-bit}}
+\index{set\-\_\-bit@{set\-\_\-bit}!etk::Bits@{etk\-::\-Bits}}
+\subsubsection[{set\-\_\-bit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf etk\-::\-Bits}$<$ T $>$\-::set\-\_\-bit (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{n, }
+\item[{bool}]{on = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_bits_af87f87e0e415962c5b701384f7f76320}
+
+
+set\-\_\-bit allows you to turn a bit on or off. 
+
+\begin{DoxyItemize}
+\item n The bit to modify. \item on True to set the bit to 1, false to set to 0. \begin{DoxyReturn}{Returns}
+This function returns false if n is greater than the size of T. 
+\end{DoxyReturn}
+\end{DoxyItemize}
+\hypertarget{classetk_1_1_bits_a692698877d8fa33a6570750979018274}{\index{etk\-::\-Bits@{etk\-::\-Bits}!to\-\_\-string@{to\-\_\-string}}
+\index{to\-\_\-string@{to\-\_\-string}!etk::Bits@{etk\-::\-Bits}}
+\subsubsection[{to\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ auto {\bf etk\-::\-Bits}$<$ T $>$\-::to\-\_\-string (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_bits_a692698877d8fa33a6570750979018274}
+
+
+Creates a human readable string of ones and zeroes. 
+
+\begin{DoxyReturn}{Returns}
+a \hyperlink{classetk_1_1_static_string}{Static\-String}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{bits_8h}{bits.\-h}\end{DoxyCompactItemize}

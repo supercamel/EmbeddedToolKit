@@ -1,0 +1,112 @@
+\hypertarget{classetk_1_1_waypoint}{\section{etk\-:\-:Waypoint Class Reference}
+\label{classetk_1_1_waypoint}\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}}
+}
+
+
+A \hyperlink{classetk_1_1_waypoint}{Waypoint} I\-S\-\_\-\-A coordinate, but it has an extra dimension to store altitude. It provides get and set methods for altitude, and it can be cast to a 3 dimensional \hyperlink{classetk_1_1_vector}{etk\-::\-Vector}.  
+
+
+
+
+{\ttfamily \#include $<$navigation.\-h$>$}
+
+Inheritance diagram for etk\-:\-:Waypoint\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classetk_1_1_waypoint}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_waypoint_ae32da48fa23083a1e1e185405d9e724d}{Waypoint} ()
+\item 
+\hyperlink{classetk_1_1_waypoint_abecb90e70b8deacf3f76ccfe63265f58}{Waypoint} (float la, float ln)
+\item 
+\hyperlink{classetk_1_1_waypoint_a7fdd9bf6ecb548a1e1e06f95d1f6f7d4}{Waypoint} (float la, float ln, float a)
+\item 
+\hyperlink{classetk_1_1_waypoint_a153e7a17f2de1340493b3f09f3eea3b5}{Waypoint} (\hyperlink{classetk_1_1_vector}{etk\-::\-Vector}$<$ 3 $>$ pos)
+\item 
+\hyperlink{classetk_1_1_waypoint_a713be7c1b38ef8b77bcdf976caa69aa5}{operator Vector$<$ 3 $>$} ()
+\item 
+float \hyperlink{classetk_1_1_waypoint_a60478ff0da6acbc2f117ebb47dc3f90e}{get\-\_\-alt} ()
+\item 
+void \hyperlink{classetk_1_1_waypoint_aeed0028f88e5380a457604c609a7620c}{set\-\_\-alt} (float a)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classetk_1_1_waypoint_a9602058eaab556f8db26b663fae161e9}{alt} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{classetk_1_1_waypoint}{Waypoint} I\-S\-\_\-\-A coordinate, but it has an extra dimension to store altitude. It provides get and set methods for altitude, and it can be cast to a 3 dimensional \hyperlink{classetk_1_1_vector}{etk\-::\-Vector}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_waypoint_ae32da48fa23083a1e1e185405d9e724d}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!Waypoint@{Waypoint}}
+\index{Waypoint@{Waypoint}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{Waypoint}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Waypoint\-::\-Waypoint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_waypoint_ae32da48fa23083a1e1e185405d9e724d}
+\hypertarget{classetk_1_1_waypoint_abecb90e70b8deacf3f76ccfe63265f58}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!Waypoint@{Waypoint}}
+\index{Waypoint@{Waypoint}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{Waypoint}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Waypoint\-::\-Waypoint (
+\begin{DoxyParamCaption}
+\item[{float}]{la, }
+\item[{float}]{ln}
+\end{DoxyParamCaption}
+)}}\label{classetk_1_1_waypoint_abecb90e70b8deacf3f76ccfe63265f58}
+\hypertarget{classetk_1_1_waypoint_a7fdd9bf6ecb548a1e1e06f95d1f6f7d4}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!Waypoint@{Waypoint}}
+\index{Waypoint@{Waypoint}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{Waypoint}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Waypoint\-::\-Waypoint (
+\begin{DoxyParamCaption}
+\item[{float}]{la, }
+\item[{float}]{ln, }
+\item[{float}]{a}
+\end{DoxyParamCaption}
+)}}\label{classetk_1_1_waypoint_a7fdd9bf6ecb548a1e1e06f95d1f6f7d4}
+\hypertarget{classetk_1_1_waypoint_a153e7a17f2de1340493b3f09f3eea3b5}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!Waypoint@{Waypoint}}
+\index{Waypoint@{Waypoint}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{Waypoint}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Waypoint\-::\-Waypoint (
+\begin{DoxyParamCaption}
+\item[{{\bf etk\-::\-Vector}$<$ 3 $>$}]{pos}
+\end{DoxyParamCaption}
+)}}\label{classetk_1_1_waypoint_a153e7a17f2de1340493b3f09f3eea3b5}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_waypoint_a60478ff0da6acbc2f117ebb47dc3f90e}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!get\-\_\-alt@{get\-\_\-alt}}
+\index{get\-\_\-alt@{get\-\_\-alt}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{get\-\_\-alt}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-Waypoint\-::get\-\_\-alt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_waypoint_a60478ff0da6acbc2f117ebb47dc3f90e}
+\hypertarget{classetk_1_1_waypoint_a713be7c1b38ef8b77bcdf976caa69aa5}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!operator Vector$<$ 3 $>$@{operator Vector$<$ 3 $>$}}
+\index{operator Vector$<$ 3 $>$@{operator Vector$<$ 3 $>$}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{operator Vector$<$ 3 $>$}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Waypoint\-::operator {\bf Vector}$<$ 3 $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_waypoint_a713be7c1b38ef8b77bcdf976caa69aa5}
+\hypertarget{classetk_1_1_waypoint_aeed0028f88e5380a457604c609a7620c}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!set\-\_\-alt@{set\-\_\-alt}}
+\index{set\-\_\-alt@{set\-\_\-alt}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{set\-\_\-alt}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Waypoint\-::set\-\_\-alt (
+\begin{DoxyParamCaption}
+\item[{float}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_waypoint_aeed0028f88e5380a457604c609a7620c}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classetk_1_1_waypoint_a9602058eaab556f8db26b663fae161e9}{\index{etk\-::\-Waypoint@{etk\-::\-Waypoint}!alt@{alt}}
+\index{alt@{alt}!etk::Waypoint@{etk\-::\-Waypoint}}
+\subsubsection[{alt}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-Waypoint\-::alt = 0\hspace{0.3cm}{\ttfamily [protected]}}}\label{classetk_1_1_waypoint_a9602058eaab556f8db26b663fae161e9}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{navigation_8h}{navigation.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,298 @@
+\hypertarget{classetk_1_1_quaternion}{\section{etk\-:\-:Quaternion Class Reference}
+\label{classetk_1_1_quaternion}\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}}
+}
+
+
+{\ttfamily \#include $<$quaternion.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_quaternion_a84e5df2bfc9c0a28324f435bc7e982e9}{Quaternion} ()
+\item 
+\hyperlink{classetk_1_1_quaternion_ab87d30ca3035f35d0b2398040faa433c}{Quaternion} (float iw, float ix, float iy, float iz)
+\item 
+\hyperlink{classetk_1_1_quaternion_af9f52e0be9887cf14c9d84c518118812}{Quaternion} (float \hyperlink{classetk_1_1_quaternion_ae8087566ada295e00a13be97a090acc3}{w}, \hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ vec)
+\item 
+\hyperlink{classetk_1_1_quaternion_a284ec056776c41d681670a76b49eaeac}{Quaternion} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 4 $>$ v)
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ 4 $>$ \hyperlink{classetk_1_1_quaternion_a7c1a3035f2cbf11cb30a29bd1516b801}{to\-\_\-vector} ()
+\item 
+void \hyperlink{classetk_1_1_quaternion_ae39c916d1534200ec39f04b036aeb97c}{set\-\_\-vector} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ v)
+\item 
+float \& \hyperlink{classetk_1_1_quaternion_ae8087566ada295e00a13be97a090acc3}{w} ()
+\item 
+float \& \hyperlink{classetk_1_1_quaternion_ad76e562f566d259c2c9f1ec22d31c1b1}{x} ()
+\item 
+float \& \hyperlink{classetk_1_1_quaternion_a15f04dac1d1b9d0ae20560e8872d09d7}{y} ()
+\item 
+float \& \hyperlink{classetk_1_1_quaternion_ab0ec0b04e80256bbd09dccd3612b0a74}{z} ()
+\item 
+float \hyperlink{classetk_1_1_quaternion_a858bc7b7679991c4184f787e90088374}{magnitude} ()
+\item 
+void \hyperlink{classetk_1_1_quaternion_a2fea07c80f64acf916c4141068d4dc4d}{normalize} ()
+\item 
+\hyperlink{classetk_1_1_quaternion}{Quaternion} \hyperlink{classetk_1_1_quaternion_ad5fa5e5d2edbcee852480e63053daf80}{conjugate} ()
+\item 
+void \hyperlink{classetk_1_1_quaternion_ae191a92873826ad1de7495810a0ed1a9}{from\-Euler} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ euler)
+\item 
+void \hyperlink{classetk_1_1_quaternion_a682f23ae7b2d38e78660456d10937306}{from\-Axis\-Angle} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ axis, float theta)
+\item 
+void \hyperlink{classetk_1_1_quaternion_adc1333e656e74c33f3f1169a32614fb0}{to\-Axis\-Angle} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ \&axis, float \&angle)
+\item 
+void \hyperlink{classetk_1_1_quaternion_a6dd99f266dfb3338e9fa3a61fac8b046}{from\-Matrix} (\hyperlink{classetk_1_1_matrix}{Matrix}$<$ 3, 3 $>$ m)
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix}$<$ 3, 3 $>$ \hyperlink{classetk_1_1_quaternion_a3f6d295725e34994abcc00ea60e19658}{to\-Matrix} ()
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ \hyperlink{classetk_1_1_quaternion_a81ad691231786ab3a13157bfbc6de1ec}{to\-Euler} ()
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ \hyperlink{classetk_1_1_quaternion_a594a9d43225c192559670a6038cbb136}{to\-Angular\-Velocity} (float dt)
+\item 
+void \hyperlink{classetk_1_1_quaternion_a5cb0bc620fc02826964bf53ddde65cb7}{from\-Angular\-Velocity} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ \hyperlink{classetk_1_1_quaternion_ae8087566ada295e00a13be97a090acc3}{w}, float dt)
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ \hyperlink{classetk_1_1_quaternion_a8c5bdf49977cb3c9c9e3189b75b224c2}{rotate\-Vector} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 2 $>$ v)
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ \hyperlink{classetk_1_1_quaternion_afa4cab588a1fdfa2c2ca0e2f60473063}{rotate\-Vector} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ v)
+\item 
+\hyperlink{classetk_1_1_quaternion}{Quaternion} \hyperlink{classetk_1_1_quaternion_acfd5de59138eb00b43d5c2633152d72d}{operator$\ast$} (\hyperlink{classetk_1_1_quaternion}{Quaternion} q)
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ \hyperlink{classetk_1_1_quaternion_a7ed0b672fabb560607b8260429b3e4af}{operator$\ast$} (\hyperlink{classetk_1_1_vector}{Vector}$<$ 3 $>$ v)
+\item 
+\hyperlink{classetk_1_1_quaternion}{Quaternion} \hyperlink{classetk_1_1_quaternion_a661853921fda0ca0cd44f52bea9196bf}{operator+} (\hyperlink{classetk_1_1_quaternion}{Quaternion} q)
+\item 
+\hyperlink{classetk_1_1_quaternion}{Quaternion} \hyperlink{classetk_1_1_quaternion_a5294305248643853bc3258f24930cece}{operator-\/} (\hyperlink{classetk_1_1_quaternion}{Quaternion} q)
+\item 
+\hyperlink{classetk_1_1_quaternion}{Quaternion} \hyperlink{classetk_1_1_quaternion_a1ea27ca901b892ace102c2a32108ecb7}{operator/} (float scalar)
+\item 
+\hyperlink{classetk_1_1_quaternion}{Quaternion} \hyperlink{classetk_1_1_quaternion_a9e68d3c912cc53ef6f8a5224c4571e86}{operator$\ast$} (float scalar)
+\item 
+\hyperlink{classetk_1_1_quaternion}{Quaternion} \hyperlink{classetk_1_1_quaternion_a16bc6ba21e171da1afb1e2fa2b8692e2}{scale} (float scalar)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_quaternion_a84e5df2bfc9c0a28324f435bc7e982e9}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Quaternion\-::\-Quaternion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a84e5df2bfc9c0a28324f435bc7e982e9}
+\hypertarget{classetk_1_1_quaternion_ab87d30ca3035f35d0b2398040faa433c}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Quaternion\-::\-Quaternion (
+\begin{DoxyParamCaption}
+\item[{float}]{iw, }
+\item[{float}]{ix, }
+\item[{float}]{iy, }
+\item[{float}]{iz}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_ab87d30ca3035f35d0b2398040faa433c}
+\hypertarget{classetk_1_1_quaternion_af9f52e0be9887cf14c9d84c518118812}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Quaternion\-::\-Quaternion (
+\begin{DoxyParamCaption}
+\item[{float}]{w, }
+\item[{{\bf Vector}$<$ 3 $>$}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_af9f52e0be9887cf14c9d84c518118812}
+\hypertarget{classetk_1_1_quaternion_a284ec056776c41d681670a76b49eaeac}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Quaternion\-::\-Quaternion (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 4 $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a284ec056776c41d681670a76b49eaeac}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_quaternion_ad5fa5e5d2edbcee852480e63053daf80}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!conjugate@{conjugate}}
+\index{conjugate@{conjugate}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{conjugate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quaternion} etk\-::\-Quaternion\-::conjugate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_ad5fa5e5d2edbcee852480e63053daf80}
+\hypertarget{classetk_1_1_quaternion_a5cb0bc620fc02826964bf53ddde65cb7}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!from\-Angular\-Velocity@{from\-Angular\-Velocity}}
+\index{from\-Angular\-Velocity@{from\-Angular\-Velocity}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{from\-Angular\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Quaternion\-::from\-Angular\-Velocity (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 3 $>$}]{w, }
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a5cb0bc620fc02826964bf53ddde65cb7}
+\hypertarget{classetk_1_1_quaternion_a682f23ae7b2d38e78660456d10937306}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!from\-Axis\-Angle@{from\-Axis\-Angle}}
+\index{from\-Axis\-Angle@{from\-Axis\-Angle}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{from\-Axis\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Quaternion\-::from\-Axis\-Angle (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 3 $>$}]{axis, }
+\item[{float}]{theta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a682f23ae7b2d38e78660456d10937306}
+\hypertarget{classetk_1_1_quaternion_ae191a92873826ad1de7495810a0ed1a9}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!from\-Euler@{from\-Euler}}
+\index{from\-Euler@{from\-Euler}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{from\-Euler}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Quaternion\-::from\-Euler (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 3 $>$}]{euler}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_ae191a92873826ad1de7495810a0ed1a9}
+\hypertarget{classetk_1_1_quaternion_a6dd99f266dfb3338e9fa3a61fac8b046}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!from\-Matrix@{from\-Matrix}}
+\index{from\-Matrix@{from\-Matrix}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{from\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Quaternion\-::from\-Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix}$<$ 3, 3 $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a6dd99f266dfb3338e9fa3a61fac8b046}
+\hypertarget{classetk_1_1_quaternion_a858bc7b7679991c4184f787e90088374}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!magnitude@{magnitude}}
+\index{magnitude@{magnitude}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{magnitude}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-Quaternion\-::magnitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a858bc7b7679991c4184f787e90088374}
+\hypertarget{classetk_1_1_quaternion_a2fea07c80f64acf916c4141068d4dc4d}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!normalize@{normalize}}
+\index{normalize@{normalize}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Quaternion\-::normalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a2fea07c80f64acf916c4141068d4dc4d}
+\hypertarget{classetk_1_1_quaternion_acfd5de59138eb00b43d5c2633152d72d}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quaternion} etk\-::\-Quaternion\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Quaternion}}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_acfd5de59138eb00b43d5c2633152d72d}
+\hypertarget{classetk_1_1_quaternion_a7ed0b672fabb560607b8260429b3e4af}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$<$3$>$ etk\-::\-Quaternion\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 3 $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a7ed0b672fabb560607b8260429b3e4af}
+\hypertarget{classetk_1_1_quaternion_a9e68d3c912cc53ef6f8a5224c4571e86}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quaternion} etk\-::\-Quaternion\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{float}]{scalar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a9e68d3c912cc53ef6f8a5224c4571e86}
+\hypertarget{classetk_1_1_quaternion_a661853921fda0ca0cd44f52bea9196bf}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!operator+@{operator+}}
+\index{operator+@{operator+}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quaternion} etk\-::\-Quaternion\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Quaternion}}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a661853921fda0ca0cd44f52bea9196bf}
+\hypertarget{classetk_1_1_quaternion_a5294305248643853bc3258f24930cece}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quaternion} etk\-::\-Quaternion\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Quaternion}}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a5294305248643853bc3258f24930cece}
+\hypertarget{classetk_1_1_quaternion_a1ea27ca901b892ace102c2a32108ecb7}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!operator/@{operator/}}
+\index{operator/@{operator/}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quaternion} etk\-::\-Quaternion\-::operator/ (
+\begin{DoxyParamCaption}
+\item[{float}]{scalar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a1ea27ca901b892ace102c2a32108ecb7}
+\hypertarget{classetk_1_1_quaternion_a8c5bdf49977cb3c9c9e3189b75b224c2}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!rotate\-Vector@{rotate\-Vector}}
+\index{rotate\-Vector@{rotate\-Vector}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{rotate\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$<$3$>$ etk\-::\-Quaternion\-::rotate\-Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 2 $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a8c5bdf49977cb3c9c9e3189b75b224c2}
+\hypertarget{classetk_1_1_quaternion_afa4cab588a1fdfa2c2ca0e2f60473063}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!rotate\-Vector@{rotate\-Vector}}
+\index{rotate\-Vector@{rotate\-Vector}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{rotate\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$<$3$>$ etk\-::\-Quaternion\-::rotate\-Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 3 $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_afa4cab588a1fdfa2c2ca0e2f60473063}
+\hypertarget{classetk_1_1_quaternion_a16bc6ba21e171da1afb1e2fa2b8692e2}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!scale@{scale}}
+\index{scale@{scale}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{scale}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quaternion} etk\-::\-Quaternion\-::scale (
+\begin{DoxyParamCaption}
+\item[{float}]{scalar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a16bc6ba21e171da1afb1e2fa2b8692e2}
+\hypertarget{classetk_1_1_quaternion_ae39c916d1534200ec39f04b036aeb97c}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!set\-\_\-vector@{set\-\_\-vector}}
+\index{set\-\_\-vector@{set\-\_\-vector}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{set\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Quaternion\-::set\-\_\-vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 3 $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_ae39c916d1534200ec39f04b036aeb97c}
+\hypertarget{classetk_1_1_quaternion_a7c1a3035f2cbf11cb30a29bd1516b801}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!to\-\_\-vector@{to\-\_\-vector}}
+\index{to\-\_\-vector@{to\-\_\-vector}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{to\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$<$4$>$ etk\-::\-Quaternion\-::to\-\_\-vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a7c1a3035f2cbf11cb30a29bd1516b801}
+\hypertarget{classetk_1_1_quaternion_a594a9d43225c192559670a6038cbb136}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!to\-Angular\-Velocity@{to\-Angular\-Velocity}}
+\index{to\-Angular\-Velocity@{to\-Angular\-Velocity}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{to\-Angular\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$<$3$>$ etk\-::\-Quaternion\-::to\-Angular\-Velocity (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a594a9d43225c192559670a6038cbb136}
+\hypertarget{classetk_1_1_quaternion_adc1333e656e74c33f3f1169a32614fb0}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!to\-Axis\-Angle@{to\-Axis\-Angle}}
+\index{to\-Axis\-Angle@{to\-Axis\-Angle}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{to\-Axis\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Quaternion\-::to\-Axis\-Angle (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ 3 $>$ \&}]{axis, }
+\item[{float \&}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_adc1333e656e74c33f3f1169a32614fb0}
+\hypertarget{classetk_1_1_quaternion_a81ad691231786ab3a13157bfbc6de1ec}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!to\-Euler@{to\-Euler}}
+\index{to\-Euler@{to\-Euler}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{to\-Euler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$<$3$>$ etk\-::\-Quaternion\-::to\-Euler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a81ad691231786ab3a13157bfbc6de1ec}
+\hypertarget{classetk_1_1_quaternion_a3f6d295725e34994abcc00ea60e19658}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!to\-Matrix@{to\-Matrix}}
+\index{to\-Matrix@{to\-Matrix}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{to\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}$<$3, 3$>$ etk\-::\-Quaternion\-::to\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a3f6d295725e34994abcc00ea60e19658}
+\hypertarget{classetk_1_1_quaternion_ae8087566ada295e00a13be97a090acc3}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!w@{w}}
+\index{w@{w}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{w}]{\setlength{\rightskip}{0pt plus 5cm}float\& etk\-::\-Quaternion\-::w (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_ae8087566ada295e00a13be97a090acc3}
+\hypertarget{classetk_1_1_quaternion_ad76e562f566d259c2c9f1ec22d31c1b1}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!x@{x}}
+\index{x@{x}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}float\& etk\-::\-Quaternion\-::x (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_ad76e562f566d259c2c9f1ec22d31c1b1}
+\hypertarget{classetk_1_1_quaternion_a15f04dac1d1b9d0ae20560e8872d09d7}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!y@{y}}
+\index{y@{y}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}float\& etk\-::\-Quaternion\-::y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_a15f04dac1d1b9d0ae20560e8872d09d7}
+\hypertarget{classetk_1_1_quaternion_ab0ec0b04e80256bbd09dccd3612b0a74}{\index{etk\-::\-Quaternion@{etk\-::\-Quaternion}!z@{z}}
+\index{z@{z}!etk::Quaternion@{etk\-::\-Quaternion}}
+\subsubsection[{z}]{\setlength{\rightskip}{0pt plus 5cm}float\& etk\-::\-Quaternion\-::z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_quaternion_ab0ec0b04e80256bbd09dccd3612b0a74}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{quaternion_8h}{quaternion.\-h}\end{DoxyCompactItemize}

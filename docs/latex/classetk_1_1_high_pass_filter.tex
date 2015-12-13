@@ -1,0 +1,70 @@
+\hypertarget{classetk_1_1_high_pass_filter}{\section{etk\-:\-:High\-Pass\-Filter Class Reference}
+\label{classetk_1_1_high_pass_filter}\index{etk\-::\-High\-Pass\-Filter@{etk\-::\-High\-Pass\-Filter}}
+}
+
+
+The \hyperlink{classetk_1_1_high_pass_filter}{High\-Pass\-Filter} blocks long term averages and allows higher frequencies through.  
+
+
+
+
+{\ttfamily \#include $<$filters.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_high_pass_filter_a4aeeef21e744faf88b362396689cfac3}{High\-Pass\-Filter} (float gain)
+\begin{DoxyCompactList}\small\item\em The gain is set by the constructor. The gain must be between 0.\-0 and 1.\-0. The higher the gain, the higher the cutoff frequency. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_high_pass_filter_afb3dc39c0776b42f3baa60206837b145}{step} (float sample)
+\begin{DoxyCompactList}\small\item\em Performs a single iteration of the filter. Raw samples are entered into the filter using this function. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_high_pass_filter_a2976e0cb1eaaeac3400339461f3115d5}{get} ()
+\begin{DoxyCompactList}\small\item\em Returns the current state of the filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classetk_1_1_high_pass_filter}{High\-Pass\-Filter} blocks long term averages and allows higher frequencies through. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_high_pass_filter_a4aeeef21e744faf88b362396689cfac3}{\index{etk\-::\-High\-Pass\-Filter@{etk\-::\-High\-Pass\-Filter}!High\-Pass\-Filter@{High\-Pass\-Filter}}
+\index{High\-Pass\-Filter@{High\-Pass\-Filter}!etk::HighPassFilter@{etk\-::\-High\-Pass\-Filter}}
+\subsubsection[{High\-Pass\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-High\-Pass\-Filter\-::\-High\-Pass\-Filter (
+\begin{DoxyParamCaption}
+\item[{float}]{gain}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_high_pass_filter_a4aeeef21e744faf88b362396689cfac3}
+
+
+The gain is set by the constructor. The gain must be between 0.\-0 and 1.\-0. The higher the gain, the higher the cutoff frequency. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_high_pass_filter_a2976e0cb1eaaeac3400339461f3115d5}{\index{etk\-::\-High\-Pass\-Filter@{etk\-::\-High\-Pass\-Filter}!get@{get}}
+\index{get@{get}!etk::HighPassFilter@{etk\-::\-High\-Pass\-Filter}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-High\-Pass\-Filter\-::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_high_pass_filter_a2976e0cb1eaaeac3400339461f3115d5}
+
+
+Returns the current state of the filter. 
+
+\hypertarget{classetk_1_1_high_pass_filter_afb3dc39c0776b42f3baa60206837b145}{\index{etk\-::\-High\-Pass\-Filter@{etk\-::\-High\-Pass\-Filter}!step@{step}}
+\index{step@{step}!etk::HighPassFilter@{etk\-::\-High\-Pass\-Filter}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-High\-Pass\-Filter\-::step (
+\begin{DoxyParamCaption}
+\item[{float}]{sample}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_high_pass_filter_afb3dc39c0776b42f3baa60206837b145}
+
+
+Performs a single iteration of the filter. Raw samples are entered into the filter using this function. 
+
+\begin{DoxyItemize}
+\item measurement A raw measurement or sample to be filtered. \end{DoxyItemize}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{filters_8h}{filters.\-h}\end{DoxyCompactItemize}

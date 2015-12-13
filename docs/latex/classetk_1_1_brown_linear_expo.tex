@@ -1,0 +1,97 @@
+\hypertarget{classetk_1_1_brown_linear_expo}{\section{etk\-:\-:Brown\-Linear\-Expo Class Reference}
+\label{classetk_1_1_brown_linear_expo}\index{etk\-::\-Brown\-Linear\-Expo@{etk\-::\-Brown\-Linear\-Expo}}
+}
+
+
+Browns linear exponential filter is a form of double exponential smoothing. It can be more responsive than the Moving\-Expo\-Avg filter, but is prone to overshoot.  
+
+
+
+
+{\ttfamily \#include $<$filters.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_brown_linear_expo_aa214f323dc43e9e6dd5f3a8ce9f746f7}{Brown\-Linear\-Expo} ()
+\item 
+\hyperlink{classetk_1_1_brown_linear_expo_a7b90cde755b5ab5bdd4a11f83fc288a2}{Brown\-Linear\-Expo} (float f, float init\-\_\-est)
+\begin{DoxyCompactList}\small\item\em This constructor allows you to set the filter gain and initial estimate. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_brown_linear_expo_ac0e42dec24086fcb2b64f3050cfa20b0}{set\-\_\-gain} (float factor)
+\begin{DoxyCompactList}\small\item\em The gain controls the responsiveness of the filter. It should be a value between 0.\-0 and 1.\-0. A higher value makes the filter more responsive and allows more noise through. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_brown_linear_expo_a65f7ea0377bfeea6d906e9d3fdfbc43c}{step} (float measurement)
+\begin{DoxyCompactList}\small\item\em Performs a single iteration of the filter. Raw samples are entered into the filter using this function. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_brown_linear_expo_a6a9d611fcfc2c64bb091897676723c19}{get} ()
+\begin{DoxyCompactList}\small\item\em Returns the current state of the filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Browns linear exponential filter is a form of double exponential smoothing. It can be more responsive than the Moving\-Expo\-Avg filter, but is prone to overshoot. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_brown_linear_expo_aa214f323dc43e9e6dd5f3a8ce9f746f7}{\index{etk\-::\-Brown\-Linear\-Expo@{etk\-::\-Brown\-Linear\-Expo}!Brown\-Linear\-Expo@{Brown\-Linear\-Expo}}
+\index{Brown\-Linear\-Expo@{Brown\-Linear\-Expo}!etk::BrownLinearExpo@{etk\-::\-Brown\-Linear\-Expo}}
+\subsubsection[{Brown\-Linear\-Expo}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Brown\-Linear\-Expo\-::\-Brown\-Linear\-Expo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_brown_linear_expo_aa214f323dc43e9e6dd5f3a8ce9f746f7}
+\hypertarget{classetk_1_1_brown_linear_expo_a7b90cde755b5ab5bdd4a11f83fc288a2}{\index{etk\-::\-Brown\-Linear\-Expo@{etk\-::\-Brown\-Linear\-Expo}!Brown\-Linear\-Expo@{Brown\-Linear\-Expo}}
+\index{Brown\-Linear\-Expo@{Brown\-Linear\-Expo}!etk::BrownLinearExpo@{etk\-::\-Brown\-Linear\-Expo}}
+\subsubsection[{Brown\-Linear\-Expo}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Brown\-Linear\-Expo\-::\-Brown\-Linear\-Expo (
+\begin{DoxyParamCaption}
+\item[{float}]{f, }
+\item[{float}]{init\-\_\-est}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_brown_linear_expo_a7b90cde755b5ab5bdd4a11f83fc288a2}
+
+
+This constructor allows you to set the filter gain and initial estimate. 
+
+\begin{DoxyItemize}
+\item f filter gain \item init\-\_\-est initial estimate \end{DoxyItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_brown_linear_expo_a6a9d611fcfc2c64bb091897676723c19}{\index{etk\-::\-Brown\-Linear\-Expo@{etk\-::\-Brown\-Linear\-Expo}!get@{get}}
+\index{get@{get}!etk::BrownLinearExpo@{etk\-::\-Brown\-Linear\-Expo}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-Brown\-Linear\-Expo\-::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_brown_linear_expo_a6a9d611fcfc2c64bb091897676723c19}
+
+
+Returns the current state of the filter. 
+
+\hypertarget{classetk_1_1_brown_linear_expo_ac0e42dec24086fcb2b64f3050cfa20b0}{\index{etk\-::\-Brown\-Linear\-Expo@{etk\-::\-Brown\-Linear\-Expo}!set\-\_\-gain@{set\-\_\-gain}}
+\index{set\-\_\-gain@{set\-\_\-gain}!etk::BrownLinearExpo@{etk\-::\-Brown\-Linear\-Expo}}
+\subsubsection[{set\-\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Brown\-Linear\-Expo\-::set\-\_\-gain (
+\begin{DoxyParamCaption}
+\item[{float}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_brown_linear_expo_ac0e42dec24086fcb2b64f3050cfa20b0}
+
+
+The gain controls the responsiveness of the filter. It should be a value between 0.\-0 and 1.\-0. A higher value makes the filter more responsive and allows more noise through. 
+
+\begin{DoxyItemize}
+\item factor The filter gain (0.\-0 -\/ 1.\-0) \end{DoxyItemize}
+\hypertarget{classetk_1_1_brown_linear_expo_a65f7ea0377bfeea6d906e9d3fdfbc43c}{\index{etk\-::\-Brown\-Linear\-Expo@{etk\-::\-Brown\-Linear\-Expo}!step@{step}}
+\index{step@{step}!etk::BrownLinearExpo@{etk\-::\-Brown\-Linear\-Expo}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Brown\-Linear\-Expo\-::step (
+\begin{DoxyParamCaption}
+\item[{float}]{measurement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_brown_linear_expo_a65f7ea0377bfeea6d906e9d3fdfbc43c}
+
+
+Performs a single iteration of the filter. Raw samples are entered into the filter using this function. 
+
+\begin{DoxyItemize}
+\item measurement A raw measurement or sample to be filtered. \end{DoxyItemize}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{filters_8h}{filters.\-h}\end{DoxyCompactItemize}

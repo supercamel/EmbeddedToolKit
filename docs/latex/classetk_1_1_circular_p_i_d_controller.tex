@@ -1,0 +1,45 @@
+\hypertarget{classetk_1_1_circular_p_i_d_controller}{\section{etk\-:\-:Circular\-P\-I\-D\-Controller Class Reference}
+\label{classetk_1_1_circular_p_i_d_controller}\index{etk\-::\-Circular\-P\-I\-D\-Controller@{etk\-::\-Circular\-P\-I\-D\-Controller}}
+}
+
+
+A Circular P\-I\-D Controller. This controller uses \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\-\_\-circular()}; to keep it's inputs and error within a circular range. If segments was set to 360, the setpoint was 175 and the measurement was -\/175, the resulting error would be -\/10 degrees. This makes the circular P\-I\-D controller suitable for controlling the heading of a vehicle, for example.  
+
+
+
+
+{\ttfamily \#include $<$pid.\-h$>$}
+
+Inheritance diagram for etk\-:\-:Circular\-P\-I\-D\-Controller\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classetk_1_1_circular_p_i_d_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classetk_1_1_circular_p_i_d_controller_acefc7ea3b8ce7fbbf47a696753b48c24}{step} (float setpoint, float measurement, float segments, float dt)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A Circular P\-I\-D Controller. This controller uses \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\-\_\-circular()}; to keep it's inputs and error within a circular range. If segments was set to 360, the setpoint was 175 and the measurement was -\/175, the resulting error would be -\/10 degrees. This makes the circular P\-I\-D controller suitable for controlling the heading of a vehicle, for example. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_circular_p_i_d_controller_acefc7ea3b8ce7fbbf47a696753b48c24}{\index{etk\-::\-Circular\-P\-I\-D\-Controller@{etk\-::\-Circular\-P\-I\-D\-Controller}!step@{step}}
+\index{step@{step}!etk::CircularPIDController@{etk\-::\-Circular\-P\-I\-D\-Controller}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-Circular\-P\-I\-D\-Controller\-::step (
+\begin{DoxyParamCaption}
+\item[{float}]{setpoint, }
+\item[{float}]{measurement, }
+\item[{float}]{segments, }
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)}}\label{classetk_1_1_circular_p_i_d_controller_acefc7ea3b8ce7fbbf47a696753b48c24}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{pid_8h}{pid.\-h}\end{DoxyCompactItemize}

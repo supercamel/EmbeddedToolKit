@@ -1,0 +1,81 @@
+\hypertarget{classetk_1_1_loop_range}{\section{etk\-:\-:Loop\-Range$<$ T $>$ Class Template Reference}
+\label{classetk_1_1_loop_range}\index{etk\-::\-Loop\-Range$<$ T $>$@{etk\-::\-Loop\-Range$<$ T $>$}}
+}
+
+
+This class is of limited usefullness by itself. It should be used with the \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range()} template functions.  
+
+
+
+
+{\ttfamily \#include $<$loop\-\_\-range.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_loop_range_a3520ba367e7ad86c8e3fb5ecd7a63692}{Loop\-Range} (T from\-\_\-, T to\-\_\-)
+\item 
+\hyperlink{classetk_1_1_loop_range_a6e74f73210af0ff35a8c701f9243c4b3}{Loop\-Range} (T to\-\_\-)
+\item 
+\hyperlink{classetk_1_1_loop_range_iterator}{Loop\-Range\-Iterator}$<$ T $>$ \hyperlink{classetk_1_1_loop_range_a03dc63b4ba3c7ff6d0c8b4be80295976}{begin} () const 
+\item 
+\hyperlink{classetk_1_1_loop_range_iterator}{Loop\-Range\-Iterator}$<$ T $>$ \hyperlink{classetk_1_1_loop_range_a5b531d7156af411cbceab6c6c039ee84}{end} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class etk\-::\-Loop\-Range$<$ T $>$}
+
+This class is of limited usefullness by itself. It should be used with the \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range()} template functions. 
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i : \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range}(4))
+    cout << i << \textcolor{stringliteral}{" "};
+  Output: 0 1 2 3
+\end{DoxyCode}
+ 
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i : \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range}(5, 9))
+    cout << i << \textcolor{stringliteral}{" "};
+\end{DoxyCode}
+ Output\-: 5, 6, 7, 8 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_loop_range_a3520ba367e7ad86c8e3fb5ecd7a63692}{\index{etk\-::\-Loop\-Range@{etk\-::\-Loop\-Range}!Loop\-Range@{Loop\-Range}}
+\index{Loop\-Range@{Loop\-Range}!etk::LoopRange@{etk\-::\-Loop\-Range}}
+\subsubsection[{Loop\-Range}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf etk\-::\-Loop\-Range}$<$ T $>$\-::{\bf Loop\-Range} (
+\begin{DoxyParamCaption}
+\item[{T}]{from\-\_\-, }
+\item[{T}]{to\-\_\-}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_loop_range_a3520ba367e7ad86c8e3fb5ecd7a63692}
+\hypertarget{classetk_1_1_loop_range_a6e74f73210af0ff35a8c701f9243c4b3}{\index{etk\-::\-Loop\-Range@{etk\-::\-Loop\-Range}!Loop\-Range@{Loop\-Range}}
+\index{Loop\-Range@{Loop\-Range}!etk::LoopRange@{etk\-::\-Loop\-Range}}
+\subsubsection[{Loop\-Range}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf etk\-::\-Loop\-Range}$<$ T $>$\-::{\bf Loop\-Range} (
+\begin{DoxyParamCaption}
+\item[{T}]{to\-\_\-}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_loop_range_a6e74f73210af0ff35a8c701f9243c4b3}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_loop_range_a03dc63b4ba3c7ff6d0c8b4be80295976}{\index{etk\-::\-Loop\-Range@{etk\-::\-Loop\-Range}!begin@{begin}}
+\index{begin@{begin}!etk::LoopRange@{etk\-::\-Loop\-Range}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Loop\-Range\-Iterator}$<$T$>$ {\bf etk\-::\-Loop\-Range}$<$ T $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_loop_range_a03dc63b4ba3c7ff6d0c8b4be80295976}
+\hypertarget{classetk_1_1_loop_range_a5b531d7156af411cbceab6c6c039ee84}{\index{etk\-::\-Loop\-Range@{etk\-::\-Loop\-Range}!end@{end}}
+\index{end@{end}!etk::LoopRange@{etk\-::\-Loop\-Range}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Loop\-Range\-Iterator}$<$T$>$ {\bf etk\-::\-Loop\-Range}$<$ T $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_loop_range_a5b531d7156af411cbceab6c6c039ee84}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{loop__range_8h}{loop\-\_\-range.\-h}\end{DoxyCompactItemize}

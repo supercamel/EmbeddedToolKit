@@ -1,0 +1,167 @@
+\hypertarget{classetk_1_1_ring_buffer}{\section{etk\-:\-:Ring\-Buffer$<$ T, overwrite $>$ Class Template Reference}
+\label{classetk_1_1_ring_buffer}\index{etk\-::\-Ring\-Buffer$<$ T, overwrite $>$@{etk\-::\-Ring\-Buffer$<$ T, overwrite $>$}}
+}
+
+
+Ring\-Buffers are a great way to buffer information from data streams such as U\-A\-R\-Ts. \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer} does not allocate it's own memory, instead it requires a pointer to an array or memory region where it can store data. \par
+\par
+ Example.  
+
+
+
+
+{\ttfamily \#include $<$ring\-\_\-buffer.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_ring_buffer_a2a6d3471b49baba47dbf58e47a6ba810}{Ring\-Buffer} (T $\ast$buffer, uint16\-\_\-t sz)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classetk_1_1_ring_buffer_a978d9d2868965d77ecc1270d0b54707d}{is\-\_\-full} ()
+\begin{DoxyCompactList}\small\item\em Returns true when the \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer} is full. \end{DoxyCompactList}\item 
+uint16\-\_\-t \hyperlink{classetk_1_1_ring_buffer_a67b70ec4c7698adcf060810c8d7756d2}{available} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of items queued up in the \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer}. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_ring_buffer_ac17418eb9abba39351152b7d70a426ae}{put} (T b)
+\begin{DoxyCompactList}\small\item\em Puts an item on to the \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer}. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_ring_buffer_a251380d6c89541f0be046e6358c2307b}{increment} ()
+\begin{DoxyCompactList}\small\item\em Moves the end of the ring buffer along by one position. \end{DoxyCompactList}\item 
+T \hyperlink{classetk_1_1_ring_buffer_ac1327e40f6f3914156154e669076f4b8}{get} ()
+\begin{DoxyCompactList}\small\item\em Removes the next item from the buffer and returns it. \end{DoxyCompactList}\item 
+T \hyperlink{classetk_1_1_ring_buffer_a64f9f9a3f4ca4448a1d7365280ae4431}{peek\-\_\-ahead} (uint16\-\_\-t n=0)
+\begin{DoxyCompactList}\small\item\em Returns the next item from the buffer without actually removing it. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_ring_buffer_a911dbba377c34fa2d20defd1a0922171}{empty} ()
+\begin{DoxyCompactList}\small\item\em Makes the start and end of the ring buffer equal zero so that \hyperlink{classetk_1_1_ring_buffer_a67b70ec4c7698adcf060810c8d7756d2}{available()} return zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T, bool overwrite = false$>$class etk\-::\-Ring\-Buffer$<$ T, overwrite $>$}
+
+Ring\-Buffers are a great way to buffer information from data streams such as U\-A\-R\-Ts. \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer} does not allocate it's own memory, instead it requires a pointer to an array or memory region where it can store data. \par
+\par
+ Example. 
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{char} usart\_buffer[128];
+\hyperlink{classetk_1_1_ring_buffer}{etk::RingBuffer<char>} ringbuf(usart\_buffer, 128);
+
+\textcolor{keywordtype}{void} usart\_isr\_hander()
+\{
+    ringbuf.put(USART\_READ\_BYTE());
+\}
+
+\textcolor{keywordtype}{void} foo()
+\{
+    \textcolor{keywordflow}{while}(ringbuf.available())
+        Usart.put(ringbuf.get());
+\}
+\end{DoxyCode}
+ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of object that is being buffered. For a U\-A\-R\-T this would typically be a char or uint8\-\_\-t. \\
+\hline
+{\em overwrite} & If overriden to true, the ring buffer will write over data when it becomes full. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_ring_buffer_a2a6d3471b49baba47dbf58e47a6ba810}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!Ring\-Buffer@{Ring\-Buffer}}
+\index{Ring\-Buffer@{Ring\-Buffer}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{Ring\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::{\bf Ring\-Buffer} (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{buffer, }
+\item[{uint16\-\_\-t}]{sz}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_a2a6d3471b49baba47dbf58e47a6ba810}
+
+
+The constructor. 
+
+\begin{DoxyItemize}
+\item buffer Pointer to a writeable memory location. \item sz Maximum number of items that can be stored before the buffer is full. \end{DoxyItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_ring_buffer_a67b70ec4c7698adcf060810c8d7756d2}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!available@{available}}
+\index{available@{available}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{available}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ uint16\-\_\-t {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::available (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_a67b70ec4c7698adcf060810c8d7756d2}
+
+
+Returns the number of items queued up in the \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer}. 
+
+\hypertarget{classetk_1_1_ring_buffer_a911dbba377c34fa2d20defd1a0922171}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!empty@{empty}}
+\index{empty@{empty}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ void {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_a911dbba377c34fa2d20defd1a0922171}
+
+
+Makes the start and end of the ring buffer equal zero so that \hyperlink{classetk_1_1_ring_buffer_a67b70ec4c7698adcf060810c8d7756d2}{available()} return zero. 
+
+\hypertarget{classetk_1_1_ring_buffer_ac1327e40f6f3914156154e669076f4b8}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!get@{get}}
+\index{get@{get}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ T {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_ac1327e40f6f3914156154e669076f4b8}
+
+
+Removes the next item from the buffer and returns it. 
+
+\hypertarget{classetk_1_1_ring_buffer_a251380d6c89541f0be046e6358c2307b}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!increment@{increment}}
+\index{increment@{increment}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ void {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::increment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_a251380d6c89541f0be046e6358c2307b}
+
+
+Moves the end of the ring buffer along by one position. 
+
+\hypertarget{classetk_1_1_ring_buffer_a978d9d2868965d77ecc1270d0b54707d}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!is\-\_\-full@{is\-\_\-full}}
+\index{is\-\_\-full@{is\-\_\-full}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{is\-\_\-full}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ bool {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::is\-\_\-full (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_a978d9d2868965d77ecc1270d0b54707d}
+
+
+Returns true when the \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer} is full. 
+
+\hypertarget{classetk_1_1_ring_buffer_a64f9f9a3f4ca4448a1d7365280ae4431}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!peek\-\_\-ahead@{peek\-\_\-ahead}}
+\index{peek\-\_\-ahead@{peek\-\_\-ahead}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{peek\-\_\-ahead}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ T {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::peek\-\_\-ahead (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{n = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_a64f9f9a3f4ca4448a1d7365280ae4431}
+
+
+Returns the next item from the buffer without actually removing it. 
+
+\hypertarget{classetk_1_1_ring_buffer_ac17418eb9abba39351152b7d70a426ae}{\index{etk\-::\-Ring\-Buffer@{etk\-::\-Ring\-Buffer}!put@{put}}
+\index{put@{put}!etk::RingBuffer@{etk\-::\-Ring\-Buffer}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, bool overwrite = false$>$ void {\bf etk\-::\-Ring\-Buffer}$<$ T, overwrite $>$\-::put (
+\begin{DoxyParamCaption}
+\item[{T}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_ring_buffer_ac17418eb9abba39351152b7d70a426ae}
+
+
+Puts an item on to the \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer}. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{ring__buffer_8h}{ring\-\_\-buffer.\-h}\end{DoxyCompactItemize}

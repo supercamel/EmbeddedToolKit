@@ -1,0 +1,309 @@
+\hypertarget{classetk_1_1_matrix}{\section{etk\-:\-:Matrix$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$ Class Template Reference}
+\label{classetk_1_1_matrix}\index{etk\-::\-Matrix$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$@{etk\-::\-Matrix$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$}}
+}
+
+
+{\ttfamily \#include $<$matrix.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_matrix_a1340cc17dcd847ee988c8dee72c32565}{Matrix} ()
+\item 
+\hyperlink{classetk_1_1_matrix_a0242991f55f1e1696e59ea79831d3209}{Matrix} (const \hyperlink{classetk_1_1_matrix}{Matrix} \&v)
+\item 
+\hyperlink{classetk_1_1_matrix_a5a291855a1c2bf5f83c151a2dbfc6c15}{Matrix} (const \hyperlink{classetk_1_1_vector}{Vector}$<$ M\-A\-X\-\_\-\-X $\ast$M\-A\-X\-\_\-\-Y $>$ \&v)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\\hyperlink{classetk_1_1_matrix_a69555e8311fc0e7fd20a8e51e0fe48f6}{Matrix} (float a, Args...\-args)
+\item 
+void \hyperlink{classetk_1_1_matrix_a31163e3aba16e2becc41e9b6810aaf56}{operator=} (\hyperlink{classetk_1_1_matrix}{Matrix} m)
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ M\-A\-X\-\_\-\-Y $>$ \hyperlink{classetk_1_1_matrix_a9e8537e95c1d901e32e70a93f12b63d4}{row\-\_\-to\-\_\-vector} (uint32\-\_\-t y)
+\item 
+\hyperlink{classetk_1_1_vector}{Vector}$<$ M\-A\-X\-\_\-\-X $>$ \hyperlink{classetk_1_1_matrix_a45c037788065b738e9e09c87280f4d07}{col\-\_\-to\-\_\-vector} (uint32\-\_\-t x)
+\item 
+void \hyperlink{classetk_1_1_matrix_afd0607137dafdf4aefbd4323f192b5df}{vector\-\_\-to\-\_\-row} (\hyperlink{classetk_1_1_vector}{Vector}$<$ M\-A\-X\-\_\-\-Y $>$ v, uint32\-\_\-t row)
+\item 
+void \hyperlink{classetk_1_1_matrix_a4c975ee52094e0f8dc379a39a7a310f4}{vector\-\_\-to\-\_\-col} (\hyperlink{classetk_1_1_vector}{Vector}$<$ M\-A\-X\-\_\-\-X $>$ v, uint32\-\_\-t col)
+\item 
+{\footnotesize template$<$uint32\-\_\-t nn$>$ }\\\hyperlink{classetk_1_1_vector}{Vector}$<$ nn $>$ \hyperlink{classetk_1_1_matrix_a9415ca959acf61a1621bfdc5bcb56100}{sub\-\_\-vector} (uint32\-\_\-t n)
+\item 
+float \& \hyperlink{classetk_1_1_matrix_aad7af28437d15a1c278bcd6a241b2c96}{operator()} (uint32\-\_\-t x, uint32\-\_\-t y)
+\item 
+uint32\-\_\-t \hyperlink{classetk_1_1_matrix_a9a6d1b9c496122b0a08535beb3cd8155}{set} (uint32\-\_\-t v, float value)
+\item 
+void \hyperlink{classetk_1_1_matrix_a486b5fbb6db45e45f9999b79b24cd6da}{set} (float a)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \hyperlink{classetk_1_1_matrix_ab2d2e667b16b2d63dc2b46d8db3d516a}{set} (float a, Args...\-args)
+\item 
+void \hyperlink{classetk_1_1_matrix_a5e93de5c6c804680b5599610a845e2ac}{set\-\_\-diagonal} (float a)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \hyperlink{classetk_1_1_matrix_a0621c7eb5df433e05f5bf36ef0dc33f8}{set\-\_\-diagonal} (float a, Args...\-args)
+\item 
+{\footnotesize template$<$uint32\-\_\-t N$>$ }\\void \hyperlink{classetk_1_1_matrix_adba6f054bebc5f457e3b8ca10350c950}{set\-\_\-diagonal} (\hyperlink{classetk_1_1_vector}{Vector}$<$ N $>$ v)
+\item 
+{\footnotesize template$<$uint32\-\_\-t N$>$ }\\\hyperlink{classetk_1_1_vector}{Vector}$<$ N $>$ \hyperlink{classetk_1_1_matrix_a68fbc90828c19ae853c37da0413ee954}{get\-\_\-diagonal\-\_\-vector} ()
+\item 
+float \& \hyperlink{classetk_1_1_matrix_adc2f82946de711454e0404fcd0835dae}{cell} (uint32\-\_\-t x, uint32\-\_\-t y)
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_a465be428c62e36a4ab0d1112006e79bd}{operator+} (\hyperlink{classetk_1_1_matrix}{Matrix} m)
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_a820352c0703315ed72951067b4d65d72}{operator-\/} (\hyperlink{classetk_1_1_matrix}{Matrix} m)
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_aad071e58ccb5e1a2854bb46b42bace21}{operator$\ast$} (float scalar)
+\item 
+{\footnotesize template$<$uint32\-\_\-t N$>$ }\\\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_a6744d34d9ce5246c360648aec83c1abe}{operator$\ast$} (\hyperlink{classetk_1_1_matrix}{Matrix}$<$ N, M\-A\-X\-\_\-\-X $>$ m)
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix}$<$ M\-A\-X\-\_\-\-Y, M\-A\-X\-\_\-\-X $>$ \hyperlink{classetk_1_1_matrix_a6c4e00132a3b9299bdcf2b05db4750f8}{transpose} ()
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix}$<$ M\-A\-X\-\_\-\-Y-\/1, M\-A\-X\-\_\-\-X-\/1 $>$ \hyperlink{classetk_1_1_matrix_a2188e56d24f9b5133bb763fd569cfb2e}{minor\-\_\-matrix} (uint32\-\_\-t row, uint32\-\_\-t col)
+\item 
+float \hyperlink{classetk_1_1_matrix_ae177b98134c51529b481696ef59ff115}{determinant} ()
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_aa5fabab4740967a5d4b7b13b3ae48288}{invert} ()
+\item 
+void \hyperlink{classetk_1_1_matrix_a1b16c550358a1373a1ce8d808b5464bc}{load\-\_\-identity} ()
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_a4ccb9a463ad121b882d552dd0225a03d}{lower\-\_\-triangle} ()
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_a0a84efb6306b845df59fc823a88b9118}{upper\-\_\-triangle} ()
+\item 
+\hyperlink{classetk_1_1_matrix}{Matrix} \hyperlink{classetk_1_1_matrix_a1e88bf778fd404bc846cc3d260625cd9}{llt} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_matrix_a1340cc17dcd847ee988c8dee72c32565}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::{\bf Matrix} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a1340cc17dcd847ee988c8dee72c32565}
+\hypertarget{classetk_1_1_matrix_a0242991f55f1e1696e59ea79831d3209}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::{\bf Matrix} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a0242991f55f1e1696e59ea79831d3209}
+\hypertarget{classetk_1_1_matrix_a5a291855a1c2bf5f83c151a2dbfc6c15}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::{\bf Matrix} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ M\-A\-X\-\_\-\-X $\ast$M\-A\-X\-\_\-\-Y $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a5a291855a1c2bf5f83c151a2dbfc6c15}
+\hypertarget{classetk_1_1_matrix_a69555e8311fc0e7fd20a8e51e0fe48f6}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ template$<$typename... Args$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::{\bf Matrix} (
+\begin{DoxyParamCaption}
+\item[{float}]{a, }
+\item[{Args...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a69555e8311fc0e7fd20a8e51e0fe48f6}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_matrix_adc2f82946de711454e0404fcd0835dae}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!cell@{cell}}
+\index{cell@{cell}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{cell}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ float\& {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::cell (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{x, }
+\item[{uint32\-\_\-t}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_adc2f82946de711454e0404fcd0835dae}
+\hypertarget{classetk_1_1_matrix_a45c037788065b738e9e09c87280f4d07}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!col\-\_\-to\-\_\-vector@{col\-\_\-to\-\_\-vector}}
+\index{col\-\_\-to\-\_\-vector@{col\-\_\-to\-\_\-vector}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{col\-\_\-to\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Vector}$<$M\-A\-X\-\_\-\-X$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::col\-\_\-to\-\_\-vector (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a45c037788065b738e9e09c87280f4d07}
+\hypertarget{classetk_1_1_matrix_ae177b98134c51529b481696ef59ff115}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!determinant@{determinant}}
+\index{determinant@{determinant}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{determinant}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ float {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::determinant (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_ae177b98134c51529b481696ef59ff115}
+\hypertarget{classetk_1_1_matrix_a68fbc90828c19ae853c37da0413ee954}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!get\-\_\-diagonal\-\_\-vector@{get\-\_\-diagonal\-\_\-vector}}
+\index{get\-\_\-diagonal\-\_\-vector@{get\-\_\-diagonal\-\_\-vector}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{get\-\_\-diagonal\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ template$<$uint32\-\_\-t N$>$ {\bf Vector}$<$N$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::get\-\_\-diagonal\-\_\-vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a68fbc90828c19ae853c37da0413ee954}
+\hypertarget{classetk_1_1_matrix_aa5fabab4740967a5d4b7b13b3ae48288}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!invert@{invert}}
+\index{invert@{invert}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{invert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::invert (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_aa5fabab4740967a5d4b7b13b3ae48288}
+\hypertarget{classetk_1_1_matrix_a1e88bf778fd404bc846cc3d260625cd9}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!llt@{llt}}
+\index{llt@{llt}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{llt}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::llt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a1e88bf778fd404bc846cc3d260625cd9}
+\hypertarget{classetk_1_1_matrix_a1b16c550358a1373a1ce8d808b5464bc}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!load\-\_\-identity@{load\-\_\-identity}}
+\index{load\-\_\-identity@{load\-\_\-identity}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{load\-\_\-identity}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::load\-\_\-identity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a1b16c550358a1373a1ce8d808b5464bc}
+\hypertarget{classetk_1_1_matrix_a4ccb9a463ad121b882d552dd0225a03d}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!lower\-\_\-triangle@{lower\-\_\-triangle}}
+\index{lower\-\_\-triangle@{lower\-\_\-triangle}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{lower\-\_\-triangle}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::lower\-\_\-triangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a4ccb9a463ad121b882d552dd0225a03d}
+\hypertarget{classetk_1_1_matrix_a2188e56d24f9b5133bb763fd569cfb2e}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!minor\-\_\-matrix@{minor\-\_\-matrix}}
+\index{minor\-\_\-matrix@{minor\-\_\-matrix}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{minor\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix}$<$M\-A\-X\-\_\-\-Y-\/1,M\-A\-X\-\_\-\-X-\/1$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::minor\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{row, }
+\item[{uint32\-\_\-t}]{col}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a2188e56d24f9b5133bb763fd569cfb2e}
+\hypertarget{classetk_1_1_matrix_aad7af28437d15a1c278bcd6a241b2c96}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!operator()@{operator()}}
+\index{operator()@{operator()}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ float\& {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{x, }
+\item[{uint32\-\_\-t}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_aad7af28437d15a1c278bcd6a241b2c96}
+\hypertarget{classetk_1_1_matrix_aad071e58ccb5e1a2854bb46b42bace21}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{float}]{scalar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_aad071e58ccb5e1a2854bb46b42bace21}
+\hypertarget{classetk_1_1_matrix_a6744d34d9ce5246c360648aec83c1abe}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ template$<$uint32\-\_\-t N$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix}$<$ N, M\-A\-X\-\_\-\-X $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a6744d34d9ce5246c360648aec83c1abe}
+\hypertarget{classetk_1_1_matrix_a465be428c62e36a4ab0d1112006e79bd}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!operator+@{operator+}}
+\index{operator+@{operator+}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a465be428c62e36a4ab0d1112006e79bd}
+\hypertarget{classetk_1_1_matrix_a820352c0703315ed72951067b4d65d72}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a820352c0703315ed72951067b4d65d72}
+\hypertarget{classetk_1_1_matrix_a31163e3aba16e2becc41e9b6810aaf56}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a31163e3aba16e2becc41e9b6810aaf56}
+\hypertarget{classetk_1_1_matrix_a9e8537e95c1d901e32e70a93f12b63d4}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!row\-\_\-to\-\_\-vector@{row\-\_\-to\-\_\-vector}}
+\index{row\-\_\-to\-\_\-vector@{row\-\_\-to\-\_\-vector}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{row\-\_\-to\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Vector}$<$M\-A\-X\-\_\-\-Y$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::row\-\_\-to\-\_\-vector (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a9e8537e95c1d901e32e70a93f12b63d4}
+\hypertarget{classetk_1_1_matrix_a9a6d1b9c496122b0a08535beb3cd8155}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!set@{set}}
+\index{set@{set}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ uint32\-\_\-t {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::set (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{v, }
+\item[{float}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a9a6d1b9c496122b0a08535beb3cd8155}
+\hypertarget{classetk_1_1_matrix_a486b5fbb6db45e45f9999b79b24cd6da}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!set@{set}}
+\index{set@{set}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::set (
+\begin{DoxyParamCaption}
+\item[{float}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a486b5fbb6db45e45f9999b79b24cd6da}
+\hypertarget{classetk_1_1_matrix_ab2d2e667b16b2d63dc2b46d8db3d516a}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!set@{set}}
+\index{set@{set}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ template$<$typename... Args$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::set (
+\begin{DoxyParamCaption}
+\item[{float}]{a, }
+\item[{Args...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_ab2d2e667b16b2d63dc2b46d8db3d516a}
+\hypertarget{classetk_1_1_matrix_a5e93de5c6c804680b5599610a845e2ac}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!set\-\_\-diagonal@{set\-\_\-diagonal}}
+\index{set\-\_\-diagonal@{set\-\_\-diagonal}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{set\-\_\-diagonal}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::set\-\_\-diagonal (
+\begin{DoxyParamCaption}
+\item[{float}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a5e93de5c6c804680b5599610a845e2ac}
+\hypertarget{classetk_1_1_matrix_a0621c7eb5df433e05f5bf36ef0dc33f8}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!set\-\_\-diagonal@{set\-\_\-diagonal}}
+\index{set\-\_\-diagonal@{set\-\_\-diagonal}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{set\-\_\-diagonal}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ template$<$typename... Args$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::set\-\_\-diagonal (
+\begin{DoxyParamCaption}
+\item[{float}]{a, }
+\item[{Args...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a0621c7eb5df433e05f5bf36ef0dc33f8}
+\hypertarget{classetk_1_1_matrix_adba6f054bebc5f457e3b8ca10350c950}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!set\-\_\-diagonal@{set\-\_\-diagonal}}
+\index{set\-\_\-diagonal@{set\-\_\-diagonal}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{set\-\_\-diagonal}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ template$<$uint32\-\_\-t N$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::set\-\_\-diagonal (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ N $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_adba6f054bebc5f457e3b8ca10350c950}
+\hypertarget{classetk_1_1_matrix_a9415ca959acf61a1621bfdc5bcb56100}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!sub\-\_\-vector@{sub\-\_\-vector}}
+\index{sub\-\_\-vector@{sub\-\_\-vector}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{sub\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ template$<$uint32\-\_\-t nn$>$ {\bf Vector}$<$nn$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::sub\-\_\-vector (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a9415ca959acf61a1621bfdc5bcb56100}
+\hypertarget{classetk_1_1_matrix_a6c4e00132a3b9299bdcf2b05db4750f8}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!transpose@{transpose}}
+\index{transpose@{transpose}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{transpose}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix}$<$M\-A\-X\-\_\-\-Y,M\-A\-X\-\_\-\-X$>$ {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::transpose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a6c4e00132a3b9299bdcf2b05db4750f8}
+\hypertarget{classetk_1_1_matrix_a0a84efb6306b845df59fc823a88b9118}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!upper\-\_\-triangle@{upper\-\_\-triangle}}
+\index{upper\-\_\-triangle@{upper\-\_\-triangle}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{upper\-\_\-triangle}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ {\bf Matrix} {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::upper\-\_\-triangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a0a84efb6306b845df59fc823a88b9118}
+\hypertarget{classetk_1_1_matrix_a4c975ee52094e0f8dc379a39a7a310f4}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!vector\-\_\-to\-\_\-col@{vector\-\_\-to\-\_\-col}}
+\index{vector\-\_\-to\-\_\-col@{vector\-\_\-to\-\_\-col}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{vector\-\_\-to\-\_\-col}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::vector\-\_\-to\-\_\-col (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ M\-A\-X\-\_\-\-X $>$}]{v, }
+\item[{uint32\-\_\-t}]{col}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_a4c975ee52094e0f8dc379a39a7a310f4}
+\hypertarget{classetk_1_1_matrix_afd0607137dafdf4aefbd4323f192b5df}{\index{etk\-::\-Matrix@{etk\-::\-Matrix}!vector\-\_\-to\-\_\-row@{vector\-\_\-to\-\_\-row}}
+\index{vector\-\_\-to\-\_\-row@{vector\-\_\-to\-\_\-row}!etk::Matrix@{etk\-::\-Matrix}}
+\subsubsection[{vector\-\_\-to\-\_\-row}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t M\-A\-X\-\_\-\-X, uint32\-\_\-t M\-A\-X\-\_\-\-Y$>$ void {\bf etk\-::\-Matrix}$<$ M\-A\-X\-\_\-\-X, M\-A\-X\-\_\-\-Y $>$\-::vector\-\_\-to\-\_\-row (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ M\-A\-X\-\_\-\-Y $>$}]{v, }
+\item[{uint32\-\_\-t}]{row}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_matrix_afd0607137dafdf4aefbd4323f192b5df}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{matrix_8h}{matrix.\-h}\end{DoxyCompactItemize}

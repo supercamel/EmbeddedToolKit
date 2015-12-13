@@ -1,0 +1,77 @@
+\hypertarget{classetk_1_1_tokeniser}{\section{etk\-:\-:Tokeniser Class Reference}
+\label{classetk_1_1_tokeniser}\index{etk\-::\-Tokeniser@{etk\-::\-Tokeniser}}
+}
+
+
+The tokeniser moves along a string and breaks it into tokens.  
+
+
+
+
+{\ttfamily \#include $<$tokeniser.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_tokeniser_a4c296b7ff45ca4d5fdee4a7870b350a8}{Tokeniser} (char $\ast$str, char token)
+\item 
+bool \hyperlink{classetk_1_1_tokeniser_ad2fc672e9143525962ea1f48eba6bed7}{next} (char $\ast$out, int len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The tokeniser moves along a string and breaks it into tokens. 
+
+\href{http://www.camelsoftware.com/blog/2015/12/11/splitting-strings-a-c-string-tokeniser/}{\tt http\-://www.\-camelsoftware.\-com/blog/2015/12/11/splitting-\/strings-\/a-\/c-\/string-\/tokeniser/}
+
+These are all comma separated tokens 
+\begin{DoxyPre}
+      v    v  v    v    v
+    $POW0,12,135,1238,8234*F5
+\end{DoxyPre}
+ \begin{DoxyVerb}Example:
+\end{DoxyVerb}
+ 
+\begin{DoxyCode}
+include <iostream>
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keywordtype}{int} main()
+\{
+
+    \textcolor{keywordtype}{char} nmea[] = \textcolor{stringliteral}{"$POW0,12,135*F5"};
+
+    \textcolor{keywordtype}{char} token[20]; \textcolor{comment}{//buffer to store token}
+    \hyperlink{classetk_1_1_tokeniser}{etk::Tokeniser} tok(nmea, \textcolor{charliteral}{','});
+    \textcolor{keywordflow}{while}(tok.next(token, 20))
+        cout << token << \textcolor{stringliteral}{" "};
+    cout << endl;
+\}
+\end{DoxyCode}
+ Result\-: \$\-P\-O\-W0 12 135$\ast$\-F5 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_tokeniser_a4c296b7ff45ca4d5fdee4a7870b350a8}{\index{etk\-::\-Tokeniser@{etk\-::\-Tokeniser}!Tokeniser@{Tokeniser}}
+\index{Tokeniser@{Tokeniser}!etk::Tokeniser@{etk\-::\-Tokeniser}}
+\subsubsection[{Tokeniser}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Tokeniser\-::\-Tokeniser (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{char}]{token}
+\end{DoxyParamCaption}
+)}}\label{classetk_1_1_tokeniser_a4c296b7ff45ca4d5fdee4a7870b350a8}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_tokeniser_ad2fc672e9143525962ea1f48eba6bed7}{\index{etk\-::\-Tokeniser@{etk\-::\-Tokeniser}!next@{next}}
+\index{next@{next}!etk::Tokeniser@{etk\-::\-Tokeniser}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}bool etk\-::\-Tokeniser\-::next (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{out, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}}\label{classetk_1_1_tokeniser_ad2fc672e9143525962ea1f48eba6bed7}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{tokeniser_8h}{tokeniser.\-h}\end{DoxyCompactItemize}

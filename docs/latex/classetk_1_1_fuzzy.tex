@@ -1,0 +1,113 @@
+\hypertarget{classetk_1_1_fuzzy}{\section{etk\-:\-:Fuzzy$<$ N $>$ Class Template Reference}
+\label{classetk_1_1_fuzzy}\index{etk\-::\-Fuzzy$<$ N $>$@{etk\-::\-Fuzzy$<$ N $>$}}
+}
+
+
+\hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic class. \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic can be used for function approximation, control applications, signal process, A\-I and so on. Here is a tutorial on using \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic with E\-T\-K \href{http://www.camelsoftware.com/blog/2015/12/12/fuzzy-logic-control-part-1/}{\tt http\-://www.\-camelsoftware.\-com/blog/2015/12/12/fuzzy-\/logic-\/control-\/part-\/1/}.  
+
+
+
+
+{\ttfamily \#include $<$fuzzy.\-h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classetk_1_1_fuzzy_1_1_set}{Set}
+\begin{DoxyCompactList}\small\item\em A fuzzy logic set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classetk_1_1_fuzzy_abe817aa98e6ad63a9d0f9d28aa917d7a}{add\-\_\-set} (\hyperlink{classetk_1_1_fuzzy_1_1_set}{Set} \&f)
+\begin{DoxyCompactList}\small\item\em Adds a set. You can add up to N sets. \end{DoxyCompactList}\item 
+uint32\-\_\-t \hyperlink{classetk_1_1_fuzzy_a4f3805dacad88776a8167552af8d9066}{get\-\_\-n\-\_\-sets} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of sets. \end{DoxyCompactList}\item 
+void \hyperlink{classetk_1_1_fuzzy_a000d2dcf15ab0aa1d6cb9b7a528c2ed4}{clear\-\_\-sets} ()
+\begin{DoxyCompactList}\small\item\em Removes all sets. \end{DoxyCompactList}\item 
+float \hyperlink{classetk_1_1_fuzzy_a87b7d8737b59a22c8059c1a4bdc272bd}{crisp\-\_\-out} (float crisp\-\_\-in)
+\begin{DoxyCompactList}\small\item\em Returns a crisp output for a given crisp input. \end{DoxyCompactList}\item 
+auto \hyperlink{classetk_1_1_fuzzy_a4a4952392e6950a71734304a8b880fab}{inverse} ()
+\begin{DoxyCompactList}\small\item\em Returns a fuzzy logic class that is inverted. Let's say you're using \hyperlink{classetk_1_1_fuzzy}{Fuzzy} to control speed using throttle. You know for throttle x you get speed y. You can plot the throttle response using \hyperlink{classetk_1_1_fuzzy}{Fuzzy}, but all that's going to tell is you what speed to expect for a selected throttle setting. By inverting the \hyperlink{classetk_1_1_fuzzy}{Fuzzy} sets, you can work backwards and determine what throttle setting is required for a selected speed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$uint16\-\_\-t N$>$class etk\-::\-Fuzzy$<$ N $>$}
+
+\hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic class. \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic can be used for function approximation, control applications, signal process, A\-I and so on. Here is a tutorial on using \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic with E\-T\-K \href{http://www.camelsoftware.com/blog/2015/12/12/fuzzy-logic-control-part-1/}{\tt http\-://www.\-camelsoftware.\-com/blog/2015/12/12/fuzzy-\/logic-\/control-\/part-\/1/}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & The maximum number of fuzzy sets to use. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_fuzzy_abe817aa98e6ad63a9d0f9d28aa917d7a}{\index{etk\-::\-Fuzzy@{etk\-::\-Fuzzy}!add\-\_\-set@{add\-\_\-set}}
+\index{add\-\_\-set@{add\-\_\-set}!etk::Fuzzy@{etk\-::\-Fuzzy}}
+\subsubsection[{add\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ void {\bf etk\-::\-Fuzzy}$<$ N $>$\-::add\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{{\bf Set} \&}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_abe817aa98e6ad63a9d0f9d28aa917d7a}
+
+
+Adds a set. You can add up to N sets. 
+
+\hypertarget{classetk_1_1_fuzzy_a000d2dcf15ab0aa1d6cb9b7a528c2ed4}{\index{etk\-::\-Fuzzy@{etk\-::\-Fuzzy}!clear\-\_\-sets@{clear\-\_\-sets}}
+\index{clear\-\_\-sets@{clear\-\_\-sets}!etk::Fuzzy@{etk\-::\-Fuzzy}}
+\subsubsection[{clear\-\_\-sets}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ void {\bf etk\-::\-Fuzzy}$<$ N $>$\-::clear\-\_\-sets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_a000d2dcf15ab0aa1d6cb9b7a528c2ed4}
+
+
+Removes all sets. 
+
+\hypertarget{classetk_1_1_fuzzy_a87b7d8737b59a22c8059c1a4bdc272bd}{\index{etk\-::\-Fuzzy@{etk\-::\-Fuzzy}!crisp\-\_\-out@{crisp\-\_\-out}}
+\index{crisp\-\_\-out@{crisp\-\_\-out}!etk::Fuzzy@{etk\-::\-Fuzzy}}
+\subsubsection[{crisp\-\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ float {\bf etk\-::\-Fuzzy}$<$ N $>$\-::crisp\-\_\-out (
+\begin{DoxyParamCaption}
+\item[{float}]{crisp\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_a87b7d8737b59a22c8059c1a4bdc272bd}
+
+
+Returns a crisp output for a given crisp input. 
+
+\begin{DoxyItemize}
+\item crisp\-\_\-in A crisp input. \begin{DoxyReturn}{Returns}
+A crisp output. 
+\end{DoxyReturn}
+\end{DoxyItemize}
+\hypertarget{classetk_1_1_fuzzy_a4f3805dacad88776a8167552af8d9066}{\index{etk\-::\-Fuzzy@{etk\-::\-Fuzzy}!get\-\_\-n\-\_\-sets@{get\-\_\-n\-\_\-sets}}
+\index{get\-\_\-n\-\_\-sets@{get\-\_\-n\-\_\-sets}!etk::Fuzzy@{etk\-::\-Fuzzy}}
+\subsubsection[{get\-\_\-n\-\_\-sets}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ uint32\-\_\-t {\bf etk\-::\-Fuzzy}$<$ N $>$\-::get\-\_\-n\-\_\-sets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_a4f3805dacad88776a8167552af8d9066}
+
+
+Returns the number of sets. 
+
+\hypertarget{classetk_1_1_fuzzy_a4a4952392e6950a71734304a8b880fab}{\index{etk\-::\-Fuzzy@{etk\-::\-Fuzzy}!inverse@{inverse}}
+\index{inverse@{inverse}!etk::Fuzzy@{etk\-::\-Fuzzy}}
+\subsubsection[{inverse}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint16\-\_\-t N$>$ auto {\bf etk\-::\-Fuzzy}$<$ N $>$\-::inverse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_fuzzy_a4a4952392e6950a71734304a8b880fab}
+
+
+Returns a fuzzy logic class that is inverted. Let's say you're using \hyperlink{classetk_1_1_fuzzy}{Fuzzy} to control speed using throttle. You know for throttle x you get speed y. You can plot the throttle response using \hyperlink{classetk_1_1_fuzzy}{Fuzzy}, but all that's going to tell is you what speed to expect for a selected throttle setting. By inverting the \hyperlink{classetk_1_1_fuzzy}{Fuzzy} sets, you can work backwards and determine what throttle setting is required for a selected speed. 
+
+\begin{DoxyReturn}{Returns}
+A \hyperlink{classetk_1_1_fuzzy}{Fuzzy} class that plots an inverse function. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{fuzzy_8h}{fuzzy.\-h}\end{DoxyCompactItemize}

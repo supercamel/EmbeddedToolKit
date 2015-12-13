@@ -1,0 +1,56 @@
+\hypertarget{classetk_1_1_rate_limiter}{\section{etk\-:\-:Rate\-Limiter Class Reference}
+\label{classetk_1_1_rate_limiter}\index{etk\-::\-Rate\-Limiter@{etk\-::\-Rate\-Limiter}}
+}
+
+
+The \hyperlink{classetk_1_1_rate_limiter}{Rate\-Limiter} limits the rate of change of a signal to a given step size.  
+
+
+
+
+{\ttfamily \#include $<$filters.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classetk_1_1_rate_limiter_abcbc7438be31813a62a453e29f1b585d}{Rate\-Limiter} (float max\-\_\-step, float init\-\_\-val)
+\item 
+float \hyperlink{classetk_1_1_rate_limiter_a2a281daf4bafd198af604d59483cccf6}{step} (float sample)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classetk_1_1_rate_limiter}{Rate\-Limiter} limits the rate of change of a signal to a given step size. 
+
+
+\begin{DoxyCode}
+\hyperlink{classetk_1_1_rate_limiter}{etk::RateLimiter} lim(1.0, 0.0);
+\textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i : \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{etk::range}(10))
+    cout << lim.step(10) << \textcolor{stringliteral}{" "};
+\end{DoxyCode}
+ Output\-: 0,1,2,3,4,5,6,7,8,9 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classetk_1_1_rate_limiter_abcbc7438be31813a62a453e29f1b585d}{\index{etk\-::\-Rate\-Limiter@{etk\-::\-Rate\-Limiter}!Rate\-Limiter@{Rate\-Limiter}}
+\index{Rate\-Limiter@{Rate\-Limiter}!etk::RateLimiter@{etk\-::\-Rate\-Limiter}}
+\subsubsection[{Rate\-Limiter}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Rate\-Limiter\-::\-Rate\-Limiter (
+\begin{DoxyParamCaption}
+\item[{float}]{max\-\_\-step, }
+\item[{float}]{init\-\_\-val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_rate_limiter_abcbc7438be31813a62a453e29f1b585d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classetk_1_1_rate_limiter_a2a281daf4bafd198af604d59483cccf6}{\index{etk\-::\-Rate\-Limiter@{etk\-::\-Rate\-Limiter}!step@{step}}
+\index{step@{step}!etk::RateLimiter@{etk\-::\-Rate\-Limiter}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-Rate\-Limiter\-::step (
+\begin{DoxyParamCaption}
+\item[{float}]{sample}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_rate_limiter_a2a281daf4bafd198af604d59483cccf6}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+inc/etk/\hyperlink{filters_8h}{filters.\-h}\end{DoxyCompactItemize}
