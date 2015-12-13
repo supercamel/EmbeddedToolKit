@@ -95,7 +95,7 @@ void Time::to_rope(Rope& r)
     int32_t hours = (sec / 60 / 60) % 24;
     int32_t minutes = (sec / 60) % 60;
     int32_t seconds = sec % 60;
-	r << days << "days, " << hours << " hours, " << minutes << " mins, " << seconds << " seconds";
+	r << days << " days, " << hours << " hours, " << minutes << " mins, " << seconds << " seconds";
 }
 
 

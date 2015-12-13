@@ -17,6 +17,10 @@
 namespace etk
 {
 
+/**
+ * \class LoopRangeIterator
+ * \brief See LoopRange
+ */
 template <typename T> class LoopRangeIterator
 {
 public:
@@ -43,6 +47,21 @@ private:
     T value;
 };
 
+/**
+ * \class LoopRange
+ * \brief This class is of limited usefullness by itself. It should be used with the range() template functions.
+  * @code
+ for(auto i : range(4))
+     cout << i << " ";
+ * Output: 0 1 2 3
+ @endcode
+ * @code
+ for(auto i : range(5, 9))
+ 	cout << i << " ";
+ @endcode
+ * Output: 5, 6, 7, 8
+ */
+ 
 template <typename T> class LoopRange
 {
 public:
@@ -67,6 +86,14 @@ private:
     T const to;
 };
 
+/**
+ * \brief Like range(T to), except the start value can be specified.
+ * @code
+ for(auto i : range(5, 9))
+ 	cout << i << " ";
+ @endcode
+ * Output: 5, 6, 7, 8
+ */
 template<typename T>
 LoopRange<T> range(T from, T to)
 {
@@ -76,6 +103,16 @@ LoopRange<T> range(T from, T to)
     return { from, to };
 }
 
+
+/**
+ * \brief The range function constructs and returns a loop range iterator. 
+ * It's purpose is to exploit C++11 ranged look syntax and provide a cleaner and less verbose way to iterate over a range of numbers.
+ * @code
+ for(auto i : range(4))
+     cout << i << " ";
+ @endcode
+ * Output: 0 1 2 3
+ */
 template<typename T>
 LoopRange<T> range(T to)
 {

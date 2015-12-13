@@ -39,14 +39,14 @@ float PIDController::step(float setpoint, float measurement, float dt)
     return output;
 }
 
-float CircularPIDController::step(float setpoint, float measurement, float dt)
+float CircularPIDController::step(float setpoint, float measurement, float segments, float dt)
 {
-	constrain_circular(setpoint, 36000);
-	constrain_circular(measurement, 36000);
+	constrain_circular(setpoint, segments);
+	constrain_circular(measurement, segments);
 
     float error = setpoint - measurement;
     
-    constrain_circular(error, 36000);
+    constrain_circular(error, segments);
     integral = constrain(integral + error*dt, float(-integral_constraint), float(integral_constraint));
 
     der_filter.step((error - previous_error)/dt);

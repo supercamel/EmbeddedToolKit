@@ -3,21 +3,26 @@
 #define TOKENISER_H_INCLUDED
 
 
-/*
+namespace etk
+{
+
+/**
+ \class Tokeniser
+
+
+	
+ \brief The tokeniser moves along a string and breaks it into tokens.
 
 	http://www.camelsoftware.com/blog/2015/12/11/splitting-strings-a-c-string-tokeniser/
 	
-	
-	The tokeniser moves along a string and breaks it into tokens.
-
 	These are all comma separated tokens
-
+<pre>
 	  v    v  v    v    v
 	$POW0,12,135,1238,8234*F5
-
+</pre>
 
 	Example:
-
+@code
     include <iostream>
     using namespace std;
 
@@ -32,15 +37,11 @@
             cout << token << " ";
         cout << endl;
     }
-
+@endcode
     Result:
         $POW0 12 135*F5
 
 */
-
-
-namespace etk
-{
 
 class Tokeniser
 {

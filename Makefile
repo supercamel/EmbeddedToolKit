@@ -1,5 +1,5 @@
 CC=g++-4.9
-CFLAGS=-c -g -Wall -Wextra -std=c++14 -I./inc -I/usr/include/eigen3 -Wno-deprecated-register
+CFLAGS=-c -g -Wall -Wextra -std=c++14 -I./inc -I/usr/include/eigen3
 LDFLAGS= -lc
 SOURCES=$(wildcard src/*.cpp) $(wildcard tests/*.cpp)
 HEADERS=$(wildcard inc/etk/*.h)

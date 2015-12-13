@@ -11,23 +11,23 @@ bool navigation_test(std::string& subtest)
 	subtest = "Coordinate constructors";
 
 	Coordinate coord(5.0f, 6.0f);
-	if(!compare<float>(coord.get_latitude(), 5.0f, 0.00001f))
+	if(!compare<float>(coord.get_lat(), 5.0f, 0.00001f))
 		return false;
-	if(!compare<float>(coord.get_longitude(), 6.0f, 0.00001f))
+	if(!compare<float>(coord.get_lng(), 6.0f, 0.00001f))
 		return false;
 
 	Vector<2> v(3.6, -146.3);
 	coord = Coordinate(v);
-	if(!compare<float>(coord.get_latitude(), 3.6f, 0.0001f))
+	if(!compare<float>(coord.get_lat(), 3.6f, 0.0001f))
 		return false;
-	if(!compare<float>(coord.get_longitude(), -146.3f, 0.000001f))
+	if(!compare<float>(coord.get_lng(), -146.3f, 0.000001f))
 		return false;
 
 	Vector<3> v3(3.6, -146.3, 90);
 	coord = Coordinate(v3);
-	if(!compare<float>(coord.get_latitude(), 3.6f, 0.0001f))
+	if(!compare<float>(coord.get_lat(), 3.6f, 0.0001f))
 		return false;
-	if(!compare<float>(coord.get_longitude(), -146.3f, 0.000001f))
+	if(!compare<float>(coord.get_lng(), -146.3f, 0.000001f))
 		return false;
 
 	subtest = "Coordinate to vector conversion";

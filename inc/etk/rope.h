@@ -2,12 +2,18 @@
 #ifndef ROPE_H_INCLUDED
 #define ROPE_H_INCLUDED
 
-/*
- * http://www.camelsoftware.com/blog/2015/12/11/ditching-c-libraries-concatenation-of-c-strings-without-stdio/
+#include <stdint.h>
+
+namespace etk
+{
+
+/**
+ * \class Rope
+ * 
+ * \brief WHY ROPE? It's like a string, only more robust.
  *
- * WHY ROPE? It's like a string, only more robust.
+ * Rope is a C-string manipulation class.
  *
- * Rope is a C-string manipulation class. `
  * Many C-string functions are prohibited by JSF-AV standard.
  * Rope is designed to replace standard C string functions
  * such as strncmp, strcpy and sprintf
@@ -15,14 +21,10 @@
  * It uses pre-allocated buffers instead of dynamic memory like
  * std::string, so it's relatively safe to use in embedded systems
  * with tight memory constraints.
+ *
+ * http://www.camelsoftware.com/blog/2015/12/11/ditching-c-libraries-concatenation-of-c-strings-without-stdio/
  */
-
-
-#include <stdint.h>
-
-namespace etk
-{
-
+ 
 class Rope
 {
 public:

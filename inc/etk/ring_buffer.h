@@ -7,9 +7,41 @@
 namespace etk
 {
 
+/**
+ * \class RingBuffer
+ *
+ * \brief RingBuffers are a great way to buffer information from data streams such as UARTs.
+ * RingBuffer does not allocate it's own memory, instead it requires a pointer to an array or memory region where it can store data.
+ * <br><br>
+ * Example
+ * @code
+ char usart_buffer[128];
+ etk::RingBuffer<char> ringbuf(usart_buffer, 128);
+ 
+ void usart_isr_hander()
+ {
+     ringbuf.put(USART_READ_BYTE());
+ }
+ 
+ void foo()
+ {
+     while(ringbuf.available())
+         Usart.put(ringbuf.get());
+ }
+ @endcode
+ * @tparam T type of object that is being buffered. For a UART this would typically be a char or uint8_t.
+ * @tparam overwrite If overriden to true, the ring buffer will write over data when it becomes full.
+ */
+ 
+
 template <class T, bool overwrite = false> class RingBuffer
 {
 public:
+	/**
+	 * \brief The constructor.
+	 * @arg buffer Pointer to a writeable memory location.
+	 * @arg sz Maximum number of items that can be stored before the buffer is full.
+	 */
     RingBuffer(T* buffer, uint16_t sz)
     {
         size = sz;
@@ -18,16 +50,25 @@ public:
         buf = buffer;
     }
 
+	/**
+	 * \brief Returns true when the RingBuffer is full.
+	 */
     bool is_full()
     {
         return (end + 1) % size == start;
     }
 
+	/**
+	 * \brief Returns the number of items queued up in the RingBuffer.
+	 */
     uint16_t available()
     {
         return (uint16_t)(size + end - start) % size;
     }
 
+	/**
+	 * \brief Puts an item on to the RingBuffer.
+	 */
     void put(T b)
     {
         if(!overwrite)
@@ -39,11 +80,17 @@ public:
         end = (end + 1) % size;
     }
 
+	/**
+	 * \brief Moves the end of the ring buffer along by one position.
+	 */
     void increment()
     {
         end = (end + 1) % size;
     }
 
+	/**
+	 * \brief Removes the next item from the buffer and returns it.
+	 */
     T get()
     {
         T ret = buf[start];
@@ -51,12 +98,18 @@ public:
         return ret;
     }
 
+	/**
+	 * \brief Returns the next item from the buffer without actually removing it.
+	 */
     T peek_ahead(uint16_t n=0)
     {
         uint16_t pos = (start+n) % size;
         return buf[pos];
     }
 
+	/**
+	 * \brief Makes the start and end of the ring buffer equal zero so that available() return zero.
+	 */
     void empty()
     {
         start = 0;
