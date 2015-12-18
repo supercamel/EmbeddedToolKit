@@ -13,6 +13,8 @@
 #include "out.h"
 //#include "linkedlist_test.h"
 //#include "pool_test.h"
+#include "pid_tests.h"
+#include "array_test.h"
 
 
 bool limiter_test(std::string& subtest)
@@ -52,6 +54,8 @@ int main()
 	//th.add_module(stack_test, "Stack test");
 	//th.add_module(pool_test, "Pool test");
 	//th.add_module(linkedlist_test, "Linked lists");
+	th.add_module(pid_test, "PID test");
+	th.add_module(array_test, "Array test");
 
 	if(th.run())
 		return 0;

@@ -12,13 +12,13 @@ namespace etk
  * \class List
  *
  * \brief The list class is an iterable container object. A list can contain up to a maximum number of items determined by the template parameter L.
- * List is supposed to provide a similar look and feel to std::vector, but without using dynamic memory allocation. 
+ * List is supposed to provide a similar look and feel to std::vector, but without using dynamic memory allocation.
  *
  * @tparam T The type of object that the list contains.
  * @tparam L The maximum size of the list.
  */
- 
- 
+
+
 template <typename T, uint32_t L> class List
 {
 public:
@@ -130,7 +130,7 @@ public:
     }
 
 /**
- * \brief Inserts an item into the list. 
+ * \brief Inserts an item into the list.
  * @arg T the item to be inserted.
  * @arg pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list.
  */
@@ -236,7 +236,9 @@ public:
  */
     T& operator[](uint32_t pos)
     {
-        return items[pos];
+        if(pos < L)
+            return items[pos];
+        return items[L-1];
     }
 
 /**
@@ -250,13 +252,13 @@ public:
 /**
  * \brief Returns the maximum possible number of items that the list can contain.
  */
-    const uint32_t max_len() const
+    uint32_t max_len()
     {
         return L;
     }
 
 /**
- * \brief Overrides the list end pointer. This function can be convenient but should be used with caution. 
+ * \brief Overrides the list end pointer. This function can be convenient but should be used with caution.
  */
     void set_list_end(uint32_t le)
     {

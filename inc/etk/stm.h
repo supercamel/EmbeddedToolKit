@@ -8,12 +8,12 @@ namespace etk
 
 /**
  * \class ShortTermMemory
- * 
+ *
  * \brief ShortTermMemory stores a data in a buffer. As more data is received, the old data is eventually overwritten and forgotten. It has some uses in digital signal processing, adaptive control and filtering.
  *
- * It's similar to a RingBuffer, except it has it's own memory and will always overwrite old data. 
+ * It's similar to a RingBuffer, except it has it's own memory and will always overwrite old data.
  *
- * ShortTermMemory is also iterable, which make it nice and easy to use. 
+ * ShortTermMemory is also iterable, which make it nice and easy to use.
  *
  * Example
  * @code
@@ -25,7 +25,7 @@ namespace etk
      cout << i << " ";
     @endcode
  * Output: 5 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9
- * 
+ *
  * @tparam L the maximum length of the string in bytes.
  */
 
@@ -96,13 +96,13 @@ public:
             start = (start+1)%LEN;
         }
     }
-    
+
     /**
      * \brief Returns true if memory is full.
      */
     bool is_full()
     {
-        return (end + 1) % LEN == start;
+        return (buf_end + 1) % LEN == start;
     }
 
     /**
@@ -122,7 +122,7 @@ public:
         return buf[pos];
     }
 
-	/** 
+	/**
 	 * \brief Empties memory.
 	 */
     void empty()
@@ -137,7 +137,10 @@ public:
     void fill(T t)
     {
         for(auto i : range(LEN))
+        {
             put(t);
+            (void)(i);
+        }
         start = 0;
         buf_end = LEN-1;
     }

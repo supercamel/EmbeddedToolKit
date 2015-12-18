@@ -1,8 +1,8 @@
 
-#ifndef FILTERS_H_INCLUDED
-#define FILTERS_H_INCLUDED
+#ifndef ETK_FILTERS_H_INCLUDED
+#define ETK_FILTERS_H_INCLUDED
 
-#include "etk/etk.h"
+#include "math_util.h"
 
 namespace etk
 {
@@ -14,17 +14,17 @@ namespace etk
  *
  * @code
     etk::ExpoMovingAvg filter(0.1);
-    
+
     for(auto i : etk::range(100))
     {
     	filter.step(i);
     	cout << filter.get() << endl;
     }
-    
+
     @endcode
  *
  */
- 
+
 class ExpoMovingAvg
 {
 public:
@@ -33,7 +33,7 @@ public:
         a = 0.5f;
         accumulator = 0;
     }
-    
+
     /**
 	 * \brief This constructor allows you to set the filter gain and initial estimate.
 	 *
@@ -47,7 +47,7 @@ public:
     }
 
 	/**
-	 * \brief The gain controls the responsiveness of the filter. 
+	 * \brief The gain controls the responsiveness of the filter.
 	 * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
 	 *
 	 * @arg factor The filter gain (0.0 - 1.0)
@@ -56,9 +56,9 @@ public:
     {
         a = factor;
     }
-    
+
     /**
-     * \brief Performs a single iteration of the filter. 
+     * \brief Performs a single iteration of the filter.
      * Raw samples are entered into the filter using this function.
      *
      * @arg measurement A raw measurement or sample to be filtered.
@@ -87,7 +87,7 @@ private:
  *
  * \brief Browns linear exponential filter is a form of double exponential smoothing. It can be more responsive than the MovingExpoAvg filter, but is prone to overshoot.
  */
- 
+
 class BrownLinearExpo
 {
 public:
@@ -98,7 +98,7 @@ public:
         double_smoothed = 0;
         single_smoothed = 0;
     }
-    
+
     /**
 	 * \brief This constructor allows you to set the filter gain and initial estimate.
 	 *
@@ -114,7 +114,7 @@ public:
     }
 
 	/**
-	 * \brief The gain controls the responsiveness of the filter. 
+	 * \brief The gain controls the responsiveness of the filter.
 	 * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
 	 *
 	 * @arg factor The filter gain (0.0 - 1.0)
@@ -123,9 +123,9 @@ public:
     {
         a = factor;
     }
-    
+
     /**
-     * \brief Performs a single iteration of the filter. 
+     * \brief Performs a single iteration of the filter.
      * Raw samples are entered into the filter using this function.
      *
      * @arg measurement A raw measurement or sample to be filtered.
@@ -139,7 +139,7 @@ public:
         float est_b = (a / (1-a) )*(single_smoothed - double_smoothed);
         estimate = est_a + est_b;
     }
-    
+
     /**
      * \brief Returns the current state of the filter.
      */
@@ -207,18 +207,18 @@ private:
 class HighPassFilter
 {
 public:
-	
+
     /**
      * \brief The gain is set by the constructor. The gain must be between 0.0 and 1.0. The higher the gain, the higher the cutoff frequency.
      */
-     
+
     HighPassFilter(float gain) : emv(gain)
     {
         estimate = 0;
     }
 
 	 /**
-     * \brief Performs a single iteration of the filter. 
+     * \brief Performs a single iteration of the filter.
      * Raw samples are entered into the filter using this function.
      *
      * @arg measurement A raw measurement or sample to be filtered.

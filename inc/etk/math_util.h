@@ -24,13 +24,13 @@ auto constrain(auto x, auto a, auto b)
 }
 
 /**
- * \brief Used to constrain a number to within a circular range. 
+ * \brief Used to constrain a number to within a circular range.
  * For example,
  * @code
  cout << constrain_circular(450, 360);
  @endcode
  * Output: 90
- * Why? Because 450 degrees is the same as 90 degrees on a map. 
+ * Why? Because 450 degrees is the same as 90 degrees on a map.
  * This function can be used with radians by making segments 2*PI.
  */
 auto constrain_circular(auto x, uint32_t segments)
@@ -68,7 +68,7 @@ auto max(auto a, auto b)
 
 /**
  * \brief Converts a value from one scale to another.
- * For example, a control functions returns a value between -1.0 and 1.0. The servo requires an input from 0 - 90. 
+ * For example, a control functions returns a value between -1.0 and 1.0. The servo requires an input from 0 - 90.
  * ctrl_val = map(ctrl_val, -1.0, 1.0, 0.0, 90.0);
  *
  */
@@ -124,7 +124,7 @@ bool compare(auto a, auto b, auto precision)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array.
  */
-template<typename T> void bubble_sort_up(T* items, uint32_t n)
+template<typename T> void bubble_sort_up(T& items, uint32_t n)
 {
     while(n != 0)
     {
@@ -144,7 +144,7 @@ template<typename T> void bubble_sort_up(T* items, uint32_t n)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array.
  */
-template<typename T> void bubble_sort_down(T* items, uint32_t n)
+template<typename T> void bubble_sort_down(T& items, uint32_t n)
 {
     while(n != 0)
     {

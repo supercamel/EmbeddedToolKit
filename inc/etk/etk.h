@@ -14,10 +14,10 @@
  * ETK uses C++14 language features. This means it requires at least g++-4.9 or an equivalent compiler to use.
  *
  *
- * 
+ *
  Robot graphic by <a href="http://www.freepik.com/">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>
  */
- 
+
 
 #include "cout.h"
 #include "rope.h"
@@ -38,6 +38,7 @@
 #include "stm.h"
 #include "fuzzy.h"
 #include "pid.h"
+#include "array.h"
 
 #endif
 

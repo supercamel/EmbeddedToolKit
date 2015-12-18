@@ -22,10 +22,10 @@ namespace etk
 
 /**
  * \class StaticString
- * 
+ *
  * \brief StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns.
- * StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways. 
- * 
+ * StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways.
+ *
  * @code
  #include <etk/etk.h>
 #include <iostream>
@@ -37,7 +37,7 @@ int main()
 {
 	etk::StaticString<100> ss;
 	ss = "Hello world!"; //basic string assignment
-	
+
 	ss.clear(); //clear string and start again
 	//assign a bunch of stuff.
 	ss += 56;
@@ -45,12 +45,12 @@ int main()
 	ss += 5.4;
 	ss += " = ";
 	ss += 56+5.4;
-	
+
 	//that's a big clunky. here's another option.
 	ss.clear();
 	ss.get_rope() << 56 << " + " << 5.4  << " = " << 56+5.4;
 	cout << ss.c_str() << endl;
-	
+
 	etk::StaticString<20> sub;
 	ss.sub_string(sub, 5, 4);
 	//sub now contains "5.40"
@@ -130,8 +130,10 @@ public:
 	 */
     StaticString& operator=(char* c)
     {
-        for(uint32_t i = 0; i < Rope::c_strlen(c, L); i++)
+        uint32_t i = 0;
+        for(i = 0; i < Rope::c_strlen(c, L); i++)
             list.raw_memory()[i] = c[i];
+        list.raw_memory()[i] = '\0';
         return *this;
     }
 
@@ -411,7 +413,7 @@ public:
         list.erase(pos, len, '\0');
     }
 
-	/** 
+	/**
 	 * \brief Converts the string to upper case.
 	 */
     void to_upper()
@@ -437,7 +439,7 @@ public:
         return list.buffer();
     }
 
-	/** 
+	/**
 	 * \bried Returns a pointer to the raw memory used by StaticString
 	 */
     char* raw_memory()
@@ -445,7 +447,7 @@ public:
         return list.raw_memory();
     }
 
-	/** 
+	/**
 	 * \bried Extracts a section of text from the string and assigns it to buf.
 	 */
     void sub_string(char* buf, uint32_t start, uint32_t len)
@@ -453,8 +455,8 @@ public:
         Rope r(list.raw_memory(), L);
         r.sub_string(buf, start, len);
     }
-	
-	/** 
+
+	/**
 	 * \bried Extracts a section of text from the string and assigns it to rope.
 	 */
     void sub_string(Rope& rope, uint32_t start, uint32_t len)
@@ -463,7 +465,7 @@ public:
         r.sub_string(rope, start, len);
     }
 
-	/** 
+	/**
 	 * \bried Extracts a section of text from the string and assigns it to string.
 	 */
     template <uint32_t N> void sub_string(StaticString<N>& string, uint32_t start, uint32_t len)

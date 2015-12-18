@@ -1,5 +1,7 @@
 #include "static_string_tests.h"
 #include <etk/staticstring.h>
+#include <etk/tokeniser.h>
+#include <etk/loop_range.h>
 #include <iostream>
 using namespace std;
 
@@ -118,6 +120,14 @@ bool static_string_test(std::string& subtest)
 	string.clear();
 	string += "Hello world";
 
+	std::string tokens = "Tokens are awesome";
+	auto tok = make_tokeniser(tokens, ' ');
+
+    tok.next(gday, 20);
+    tok.next(gday, 20);
+    tok.next(gday, 20);
+
+    cout << endl << endl << gday.c_str() << endl << endl;
 	return true;
 }
 
