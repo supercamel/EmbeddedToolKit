@@ -1,3 +1,20 @@
+/*
+    Embedded Tool Kit
+    Copyright (C) 2015 Samuel Cowen
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #ifndef ETK_TIME_H_INCLUDED
 #define ETK_TIME_H_INCLUDED
@@ -10,10 +27,10 @@ namespace etk
 
 /**
  * \class Time
- * 
- * \brief Time is a class that can be used to perform time related functions such as counting systicks. 
  *
- * A simple 32bit systick counter with microsecond precision will roll over after about 12 hours. 
+ * \brief Time is a class that can be used to perform time related functions such as counting systicks.
+ *
+ * A simple 32bit systick counter with microsecond precision will roll over after about 12 hours.
  * The Time class counts both seconds and microseconds. This multiplies the roll over time by a million, which means it won't roll over for 120 years.
  * Some say systick roll over is easy to work around, but some haven't had to debug a fault that only occurs once per 12 hours :-).
  *
@@ -45,12 +62,12 @@ public:
 	 * \brief Returns the system Time.
 	 */
     static Time now();
-    
+
     /**
      * \brief Increments the systick counter by the tick rate (set_tick_rate(); )
      */
     static void tick();
-    
+
     /**
      * \brief Sets the tick rate in microseconds per tick. eg for a 1ms tick rate, use set_tick_rate(1000);
      * @arg us Microseconds per tick.
@@ -62,7 +79,7 @@ public:
 	 * @arg ms Number of milliseconds to wait.
 	 */
     static void sleep_ms(uint32_t ms);
-    
+
     /**
      * \brief Sleeps for a number of microseconds.
      * @args us Number of microseconds to wait.
@@ -93,7 +110,7 @@ public:
         return diff_time(then)*1000.0f;
     }
 
-	/** 
+	/**
 	 * \brief Sets the time instance to zero.
 	 */
     void setnull();
@@ -111,7 +128,7 @@ public:
     uint32_t& seconds() {
         return sec;
     }
-    
+
     /**
      * \brief Returns a reference to the microsecond counter.
      */

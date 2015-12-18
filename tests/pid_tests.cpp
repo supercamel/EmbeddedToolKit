@@ -16,7 +16,7 @@ class System
 public:
     float step(float in)
     {
-        position += (in*0.25f)+0.2f;
+        position += (in*0.22f)+0.8f;
         return position;
     }
 
@@ -61,7 +61,7 @@ bool pid_test(std::string& subtest)
     float sp = 100;
     for(auto j : range(10))
     {
-        for(auto i : range(100000))
+        for(auto i : range(10000))
         {
             sys.step(epid.step(sp, sys.get_pos(), 0.1));
             if(!(i%8))
@@ -69,7 +69,7 @@ bool pid_test(std::string& subtest)
                 sp = -sp;
             }
 
-            //of << sys.get_pos() << "\n";
+            of << sys.get_pos() << "\n";
         }
     }
 

@@ -1,3 +1,21 @@
+/*
+    Embedded Tool Kit
+    Copyright (C) 2015 Samuel Cowen
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #ifndef ETK_FUZZY_H
 #define ETK_FUZZY_H
 
@@ -13,10 +31,10 @@ namespace etk
  * Here is a tutorial on using Fuzzy logic with ETK
  * http://www.camelsoftware.com/blog/2015/12/12/fuzzy-logic-control-part-1/
  *
- * @tparam N The maximum number of fuzzy sets to use. 
+ * @tparam N The maximum number of fuzzy sets to use.
  */
- 
- 
+
+
 template <uint16_t N> class Fuzzy
 {
 public:
@@ -27,15 +45,15 @@ public:
  * \brief A fuzzy logic set.
  *
  */
- 
+
     class Set
     {
     friend class Fuzzy<N>;
-    
+
     public:
-    	
+
 		/**
-		 * \brief set_points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle. 
+		 * \brief set_points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle.
 		 *
 		 * @arg p1 minimum point
 		 * @arg p2 middle/peak of triangle
@@ -49,8 +67,8 @@ public:
         }
 
 		/**
-		 * \brief get_dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the DOM is zero. 
-		 * Otherwise, the DOM represents how close the crisp is to the mid point. 
+		 * \brief get_dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the DOM is zero.
+		 * Otherwise, the DOM represents how close the crisp is to the mid point.
 		 *
 		 * @arg crisp_in The crisp input
 		 * @return The degree of membership. This will be a number between 0.0 and 1.0
@@ -96,7 +114,7 @@ public:
 
             return (1-crisp_in);
         }
-        
+
         /**
          * \brief Sets the value of this set.
          */
@@ -112,7 +130,7 @@ public:
         {
             return get_dom(crisp_in)*val;
         }
-        
+
         /**
          * \brief Returns the minimum point.
          */
@@ -120,7 +138,7 @@ public:
         {
         	return min;
         }
-        
+
         /**
          * \brief Returns the middle point / triangle peak.
          */
@@ -128,7 +146,7 @@ public:
         {
         	return mid;
         }
-        
+
         /**
          * \brief Returns the maximum point.
          */
@@ -139,12 +157,12 @@ public:
 
 	protected:
 		enum FUZZY_POINT { START,MID,END };
-		
+
 		void set_position(FUZZY_POINT p)
         {
         	pos = p;
         }
-        
+
 	private:
         float min, mid, max;
         FUZZY_POINT pos;
@@ -193,13 +211,13 @@ public:
             out += set.get_result(crisp_in);
         return out;
     }
-    
+
     /**
-     * \brief Returns a fuzzy logic class that is inverted. 
-     * Let's say you're using Fuzzy to control speed using throttle. You know for throttle x you get speed y. 
+     * \brief Returns a fuzzy logic class that is inverted.
+     * Let's say you're using Fuzzy to control speed using throttle. You know for throttle x you get speed y.
      * You can plot the throttle response using Fuzzy, but all that's going to tell is you what speed to expect for a selected throttle setting.
-     * By inverting the Fuzzy sets, you can work backwards and determine what throttle setting is required for a selected speed. 
-     * @return A Fuzzy class that plots an inverse function. 
+     * By inverting the Fuzzy sets, you can work backwards and determine what throttle setting is required for a selected speed.
+     * @return A Fuzzy class that plots an inverse function.
      */
     auto inverse()
     {

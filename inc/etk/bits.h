@@ -1,3 +1,20 @@
+/*
+    Embedded Tool Kit
+    Copyright (C) 2015 Samuel Cowen
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #ifndef ETK_BITS_H_INCLUDED
 #define ETK_BITS_H_INCLUDED
@@ -10,23 +27,23 @@ namespace etk
 /**
  * \class Bits
  *
- * \brief Bits provides an easy way to set and read the bits of an integer individually. 
+ * \brief Bits provides an easy way to set and read the bits of an integer individually.
  *
  * @code
     etk::Bits<uint8_t> bits;
     bits.set_bit(7);
     bits.set_bit(1);
-    
+
     uint8_t v = bits.get();
-    
+
     auto str = bits.to_string();
-    
+
     cout << "v == " << str.c_str() << endl;
     @endcode
  *
- * @tparam T An int type. For example, uint16_t which is 16 bits long. 
+ * @tparam T An int type. For example, uint16_t which is 16 bits long.
  */
- 
+
 template <class T> class Bits
 {
 public:
@@ -81,7 +98,7 @@ public:
     }
 
 	/**
-	 * \brief Creates a human readable string of ones and zeroes. 
+	 * \brief Creates a human readable string of ones and zeroes.
 	 *
 	 * @return a StaticString.
 	 */
