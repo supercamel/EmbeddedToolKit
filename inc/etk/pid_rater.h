@@ -29,12 +29,10 @@ public:
         setpoint_delta += abs(setpoint - last_setpoint);
         n_samples++;
         last_setpoint = setpoint;
-
         float stm_err = 0.0f;
         for(auto i : stm)
             stm_err += i;
         stm_err /= (float)(MEMORY_LENGTH);
-
         if(stm_err > max_error)
         {
             avg_error = INFINITY;
@@ -42,7 +40,6 @@ public:
             stm.fill(0.0f);
             return true;
         }
-
         if((n_samples > min_samples) && (setpoint_delta > min_setpoint_delta))
         {
             avg_error = total_error/float(n_samples);
@@ -50,7 +47,6 @@ public:
             stm.fill(0.0f);
             return true;
         }
-
         return false;
     }
 

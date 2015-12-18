@@ -50,8 +50,14 @@ public:
 
     void repopulate(PIDGain& p);
 
-    void set_max_mutation(float mutation_max) { max_mutation = mutation_max; }
-    void set_mutation_rate(float mute_rate) { mutation_rate = mute_rate; }
+    void set_max_mutation(float mutation_max)
+    {
+        max_mutation = mutation_max;
+    }
+    void set_mutation_rate(float mute_rate)
+    {
+        mutation_rate = mute_rate;
+    }
 
     auto to_string()
     {
@@ -83,7 +89,6 @@ public:
                     pids[line_count].kd = val_str.atof();
                 gain_count++;
             }
-
             line_count++;
             if(line_count == 6)
                 break;
