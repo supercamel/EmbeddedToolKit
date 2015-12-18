@@ -56,6 +56,8 @@
 #include "fuzzy.h"
 #include "pid.h"
 #include "array.h"
+#include "pid_rater.h"
+#include "evopid.h"
 
 #endif
 
