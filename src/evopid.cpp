@@ -21,6 +21,8 @@
 #include <etk/loop_range.h>
 #include <etk/tokeniser.h>
 
+#include <iostream>
+
 
 namespace etk
 {
@@ -59,10 +61,11 @@ float EvoPid::step(float setpoint, float measurement, float dt)
             }
             bubble_sort_up(pids, 8);
             PIDGain father = pids[0];
+            std::cout << father.score << std::endl;
             uint8_t m[3];
-            m[0] = (rand_one()*7)+1.0f;
-            m[1] = (rand_one()*4)+1.0f;
-            m[2] = (rand_one()*2)+1.0f;
+            m[0] = (rand_one()*3)+1.0f;
+            m[1] = (rand_one()*2)+1.0f;
+            m[2] = 1.0f;
             int v = m[int(rand_one()*3)];
             PIDGain mother = pids[v];
             breed(mother, father);

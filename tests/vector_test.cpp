@@ -26,19 +26,19 @@ bool vector_test(std::string& subtest)
 		return false;
 
 	subtest = "copy sign";
-	if(copysign(5, -5) != -5)
+	if(etk::copysign(5, -5) != -5)
 		return false;
 
-	if(copysign(5, 5) != 5)
+	if(etk::copysign(5, 5) != 5)
 		return false;
 
-	if(copysign(-5, 5) != 5)
+	if(etk::copysign(-5, 5) != 5)
 		return false;
 
-	if(copysign(-5, -5) != -5)
+	if(etk::copysign(-5, -5) != -5)
 		return false;
 
-	if(copysign_zero(5, 0) != 0)
+	if(etk::copysign_zero(5, 0) != 0)
 		return false;
 
 	subtest = "sub vector";
