@@ -90,6 +90,14 @@ public:
 	 */
 	void set_derivative_filter_gain(float g) { der_filter.set_gain(g); }
 
+	/**
+	 * \brief Returns the integral value.
+	 */
+	 float get_integral()
+	 {
+	     return integral;
+	 }
+
 protected:
     float integral;
     float Kp, Ki, Kd;
