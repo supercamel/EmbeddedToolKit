@@ -42,11 +42,14 @@ public:
     bool rate(float setpoint, float measurement)
     {
         float err = abs(setpoint-measurement);
-        stm.put(err);
+        
         total_error += err;
+        
         setpoint_delta += abs(setpoint - last_setpoint);
         n_samples++;
         last_setpoint = setpoint;
+        
+        stm.put(err);
         float stm_err = 0.0f;
         for(auto i : stm)
             stm_err += i;
@@ -58,6 +61,7 @@ public:
             stm.fill(0.0f);
             return true;
         }
+        
         if((n_samples > min_samples) && (setpoint_delta > min_setpoint_delta))
         {
             avg_error = total_error/float(n_samples);
@@ -65,6 +69,7 @@ public:
             stm.fill(0.0f);
             return true;
         }
+        
         return false;
     }
 

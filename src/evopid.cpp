@@ -43,6 +43,7 @@ EvoPid::EvoPid(PIDRater& rater) : rater(rater)
     PIDGain pg = { 1.0, 0.0, 0.0 };
     repopulate(pg);
     der_filter.set_gain(0.1);
+    best_ever.score = INFINITY;
 }
 
 float EvoPid::step(float setpoint, float measurement, float dt)
@@ -51,23 +52,42 @@ float EvoPid::step(float setpoint, float measurement, float dt)
     {
         pids[current_pid].score = rater.get_score();
         current_pid++;
-        if(current_pid == 8)
+        if(current_pid == POPULATION)
         {
+            generation_counter++;
             current_pid = 0;
             for(auto i : pids)
             {
                 if(std::isnan(i.score))
                     i.score = INFINITY;
             }
-            bubble_sort_up(pids, 8);
+            bubble_sort_up(pids, POPULATION);
             PIDGain father = pids[0];
-            std::cout << father.score << std::endl;
-            uint8_t m[3];
-            m[0] = (rand_one()*3)+1.0f;
-            m[1] = (rand_one()*2)+1.0f;
-            m[2] = 1.0f;
-            int v = m[int(rand_one()*3)];
-            PIDGain mother = pids[v];
+            if(father.score < best_ever.score)
+                best_ever = father;
+            PIDGain mother;
+            /*
+            if(rand_one() > 0.3)
+            {
+                uint8_t m[3];
+                m[0] = (rand_one()*3)+1.0f;
+                m[1] = (rand_one()*2)+1.0f;
+                m[2] = 1.0f;
+                int v = m[int(rand_one()*3)];
+                mother = pids[v];
+            }
+            else
+                mother = best_ever;
+            */
+            uint8_t m[2];
+            m[0] = (rand_one()*2)+1.0f;
+            m[1] = 1.0f;
+            int v = m[int(rand_one()*2)];
+            mother = pids[v];
+
+            max_mutation *= 0.99;
+            if(max_mutation < min_mutation)
+                max_mutation = min_mutation;
             breed(mother, father);
         }
     }
@@ -84,12 +104,18 @@ void EvoPid::breed(PIDGain& mother, PIDGain& father)
 {
     for(auto& i : pids)
     {
-        float pc = constrain(rand_one(), 0.0001, 0.999);
-        i.kp = (mother.kp*pc) + (father.kp*(1.0-pc));
-        pc = constrain(rand_one(), 0.0001, 0.999);
-        i.ki =  (mother.ki*pc) + (father.ki*(1.0-pc));
-        pc = constrain(rand_one(), 0.0001, 0.999);
-        i.kd =  (mother.kd*pc) + (father.kd*(1.0-pc));
+        if(rand_one() > 0.5)
+            i.kp = mother.kp;
+        else
+            i.kp = father.kp;
+        if(rand_one() > 0.5)
+            i.ki = mother.ki;
+        else
+            i.ki = father.ki;
+        if(rand_one() > 0.5)
+            i.kd = mother.kd;
+        else
+            i.kd = father.kd;
         apply_mutation(i);
     }
 }
@@ -104,13 +130,13 @@ void EvoPid::apply_mutation(PIDGain& mutant)
     }
     if(rand_one() < mutation_rate)
     {
-        mutant.ki += (rand_one_range())*max_mutation*0.7;
+        mutant.ki += (rand_one_range())*max_mutation*0.5;
         if(mutant.ki < 0)
             mutant.ki = 0;
     }
     if(rand_one() < mutation_rate)
     {
-        mutant.kd += rand_one_range()*max_mutation*0.3;
+        mutant.kd += rand_one_range()*max_mutation*0.1;
         if(mutant.kd < 0)
             mutant.kd = 0;
     }

@@ -72,6 +72,12 @@ public:
     {
         max_mutation = mutation_max;
     }
+
+    void set_min_mutation(float mute_min)
+    {
+        min_mutation = mute_min;
+    }
+
     void set_mutation_rate(float mute_rate)
     {
         mutation_rate = mute_rate;
@@ -82,7 +88,7 @@ public:
         StaticString<256> ss;
         auto rope = ss.get_rope();
         for(auto p : pids)
-            rope << p.kp << " " << p.ki << " " << p.kd << "\n";
+            rope << p.kp << " " << p.ki << " " << p.kd << " " << p.score << "\n";
         return ss;
     }
 
@@ -105,6 +111,8 @@ public:
                     pids[line_count].ki = val_str.atof();
                 if(gain_count == 2)
                     pids[line_count].kd = val_str.atof();
+                if(gain_count == 3)
+                    pids[line_count].score = val_str.atof();
                 gain_count++;
             }
             line_count++;
@@ -123,21 +131,37 @@ public:
         der_filter.set_gain(g);
     }
 
+    PIDGain get_best_ever()
+    {
+        return best_ever;
+    }
+
+    uint32_t get_generation_count()
+    {
+        return generation_counter;
+    }
+
 private:
     void breed(PIDGain& mother, PIDGain& father);
     void apply_mutation(PIDGain& mutant);
 
-    Array<PIDGain, 8> pids;
+    static const uint32_t POPULATION = 8;
+    Array<PIDGain, POPULATION> pids;
     PIDRater& rater;
+
+    uint32_t generation_counter = 0;
 
     uint8_t current_pid;
     float mutation_rate = 10.0f;
     float max_mutation = 1.0f;
+    float min_mutation = 0.1f;
 
     float integral = 0.0f;
     float integral_constraint = 10.0f;
     float previous_error = 0.0f;
     etk::ExpoMovingAvg der_filter;
+
+    PIDGain best_ever;
 };
 
 }
