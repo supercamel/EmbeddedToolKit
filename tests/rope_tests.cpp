@@ -130,6 +130,13 @@ bool test_rope(std::string& subtest)
 	if(!compare<float>(rope.atof(), 53.24f, 0.000001f))
 		return false;
 
+
+    rope.clear();
+    rope << "2710.000";
+    if(!compare<float>(rope.atof(), 2710.00, 0.0001f))
+        return false;
+
+
 	subtest = "atof NAN";
 	rope.clear();
 	rope << NAN;

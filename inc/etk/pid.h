@@ -93,10 +93,12 @@ public:
 	/**
 	 * \brief Returns the integral value.
 	 */
-	 float get_integral()
-	 {
-	     return integral;
-	 }
+    float get_integral() { return integral; }
+
+    /**
+	 * \brief Sets the integral value. USE WITH CAUTION. Suddenly changing the integral will suddenly change the output.
+	 */
+    void set_integral(float integ) { integral = integ; }
 
 protected:
     float integral;

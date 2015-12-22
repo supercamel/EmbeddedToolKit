@@ -39,6 +39,7 @@ namespace etk
 
 class Time
 {
+friend void tick();
 public:
     Time() {
         setnull();
@@ -57,34 +58,6 @@ public:
     }
 
     Time& operator=(const Time& d) volatile;
-
-	/**
-	 * \brief Returns the system Time.
-	 */
-    static Time now();
-
-    /**
-     * \brief Increments the systick counter by the tick rate (set_tick_rate(); )
-     */
-    static void tick();
-
-    /**
-     * \brief Sets the tick rate in microseconds per tick. eg for a 1ms tick rate, use set_tick_rate(1000);
-     * @arg us Microseconds per tick.
-     */
-    static void set_tick_rate(uint32_t us); //microseconds per tick
-
-	/**
-	 * \brief Sleeps for a number of milliseconds.
-	 * @arg ms Number of milliseconds to wait.
-	 */
-    static void sleep_ms(uint32_t ms);
-
-    /**
-     * \brief Sleeps for a number of microseconds.
-     * @args us Number of microseconds to wait.
-     */
-    static void sleep_us(uint32_t us);
 
 	/**
 	 * \brief Calculates the difference between two Times in seconds.
@@ -160,7 +133,29 @@ private:
     uint32_t mic;
 };
 
+Time now();
+/**
+	 * \brief Sleeps for a number of milliseconds.
+	 * @arg ms Number of milliseconds to wait.
+	 */
+void sleep_ms(uint32_t ms);
 
+    /**
+     * \brief Sleeps for a number of microseconds.
+     * @args us Number of microseconds to wait.
+     */
+void sleep_us(uint32_t us);
+
+    /**
+     * \brief Increments the systick counter by the tick rate (set_tick_rate(); )
+     */
+void tick();
+
+    /**
+     * \brief Sets the tick rate in microseconds per tick. eg for a 1ms tick rate, use set_tick_rate(1000);
+     * @arg us Microseconds per tick.
+     */
+void set_tick_rate(uint32_t us); //microseconds per tick
 
 }
 

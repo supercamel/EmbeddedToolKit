@@ -21,7 +21,6 @@
 #include <etk/math_util.h>
 #include <cmath>
 
-
 namespace etk
 {
 
@@ -462,7 +461,7 @@ float Rope::atof()
     int is[9];
     int i = 0;
     for(; i < 9; i++)
-        is[i] = 0;
+        is[i] = -1;
     i = 0;
     int result = 0;
     int negate = 1;
@@ -485,7 +484,7 @@ float Rope::atof()
     for(int k = 8; k >= 0; k--)
     {
         int r = is[k];
-        if(r != 0)
+        if(r != -1)
             counting = true;
         if(counting)
         {

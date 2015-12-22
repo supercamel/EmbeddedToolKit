@@ -24,12 +24,12 @@ namespace etk
 static volatile Time _now;
 static uint32_t us_tick_rate = 1000;
 
-Time Time::now()
+Time __attribute__((weak)) now()
 {
 	return _now;
 }
 
-void Time::set_tick_rate(uint32_t us)
+void set_tick_rate(uint32_t us)
 {
 	us_tick_rate = us;
 }
@@ -76,7 +76,7 @@ bool Time::is_nulltime() volatile
 }
 
 
-void Time::tick()
+void tick()
 {
 	_now.mic += us_tick_rate;
 
@@ -87,7 +87,7 @@ void Time::tick()
 	}
 }
 
-void Time::sleep_ms(uint32_t ms)
+void __attribute__((weak)) sleep_ms(uint32_t ms)
 {
     Time start = now();
 	float sms = ms/1000.0f;
@@ -96,7 +96,7 @@ void Time::sleep_ms(uint32_t ms)
     { }
 }
 
-void Time::sleep_us(uint32_t us)
+void __attribute__((weak)) sleep_us(uint32_t us)
 {
     Time start = now();
 	float sus = us/1000000.0f;

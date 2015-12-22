@@ -151,6 +151,7 @@ public:
 
     void fromMatrix(Matrix<3, 3> m)
     {
+        /*
         _w = sqrtf(max<float>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
         _x = sqrtf(max<float>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
         _y = sqrtf(max<float>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
@@ -158,45 +159,45 @@ public:
         _x = copysign_zero(_x, m(2,1) - m(1,2));
         _y = copysign_zero(_y, m(0,2) - m(2,0));
         _z = copysign_zero(_z, m(1,0) - m(0,1));
-
-        /*
-        		//trace of matrix
-                float tr = m(0, 0) + m(1, 1) + m(2, 2);
-
-                float S = 0.0;
-                if (tr > 0)
-                {
-                    S = sqrtf(tr+1.0f) * 2;
-                    _w = float(0.25f) * S;
-                    _x = (m(2, 1) - m(1, 2)) / S;
-                    _y = (m(0, 2) - m(2, 0)) / S;
-                    _z = (m(1, 0) - m(0, 1)) / S;
-                }
-                else if ((m(0, 0) < m(1, 1))&(m(0, 0) < m(2, 2)))
-                {
-                    S = sqrtf(float(1.0) + m(0, 0) - m(1, 1) - m(2, 2)) * 2;
-                    _w = (m(2, 1) - m(1, 2)) / S;
-                    _x = 0.25f * S;
-                    _y = (m(0, 1) + m(1, 0)) / S;
-                    _z = (m(0, 2) + m(2, 0)) / S;
-                }
-                else if (m(1, 1) < m(2, 2))
-                {
-                    S = sqrtf(float(1.0) + m(1, 1) - m(0, 0) - m(2, 2)) * 2;
-                    _w = (m(0, 2) - m(2, 0)) / S;
-                    _x = (m(0, 1) + m(1, 0)) / S;
-                    _y = 0.25f * S;
-                    _z = (m(1, 2) + m(2, 1)) / S;
-                }
-                else
-                {
-                    S = sqrtf(float(1.0) + m(2, 2) - m(0, 0) - m(1, 1)) * float(2);
-                    _w = (m(1, 0) - m(0, 1)) / S;
-                    _x = (m(0, 2) + m(2, 0)) / S;
-                    _y = (m(1, 2) + m(2, 1)) / S;
-                    _z = 0.25f * S;
-                }
         */
+
+        //trace of matrix
+        float tr = m(0, 0) + m(1, 1) + m(2, 2);
+
+        float S = 0.0;
+        if (tr > 0)
+        {
+            S = sqrtf(tr+1.0f) * 2;
+            _w = float(0.25f) * S;
+            _x = (m(2, 1) - m(1, 2)) / S;
+            _y = (m(0, 2) - m(2, 0)) / S;
+            _z = (m(1, 0) - m(0, 1)) / S;
+        }
+        else if ((m(0, 0) < m(1, 1))&(m(0, 0) < m(2, 2)))
+        {
+            S = sqrtf(float(1.0) + m(0, 0) - m(1, 1) - m(2, 2)) * 2;
+            _w = (m(2, 1) - m(1, 2)) / S;
+            _x = 0.25f * S;
+            _y = (m(0, 1) + m(1, 0)) / S;
+            _z = (m(0, 2) + m(2, 0)) / S;
+        }
+        else if (m(1, 1) < m(2, 2))
+        {
+            S = sqrtf(float(1.0) + m(1, 1) - m(0, 0) - m(2, 2)) * 2;
+            _w = (m(0, 2) - m(2, 0)) / S;
+            _x = (m(0, 1) + m(1, 0)) / S;
+            _y = 0.25f * S;
+            _z = (m(1, 2) + m(2, 1)) / S;
+        }
+        else
+        {
+            S = sqrtf(float(1.0) + m(2, 2) - m(0, 0) - m(1, 1)) * float(2);
+            _w = (m(1, 0) - m(0, 1)) / S;
+            _x = (m(0, 2) + m(2, 0)) / S;
+            _y = (m(1, 2) + m(2, 1)) / S;
+            _z = 0.25f * S;
+        }
+
     }
 
     Matrix<3, 3> toMatrix()
