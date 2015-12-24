@@ -21,8 +21,6 @@
 #include <etk/loop_range.h>
 #include <etk/tokeniser.h>
 
-#include <iostream>
-
 
 namespace etk
 {

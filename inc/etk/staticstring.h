@@ -342,10 +342,10 @@ public:
 	 //f == 20.65f
 	 @endcode
 	 */
-    float atof()
+    float atof(uint16_t p=0)
     {
         Rope rope(list.raw_memory(), L);
-        return rope.atof();
+        return rope.atof(p);
     }
 
 	/**
@@ -356,10 +356,10 @@ public:
 	 //f == 20
 	 @endcode
 	 */
-    int atoi()
+    int atoi(uint16_t p=0)
     {
         Rope rope(list.raw_memory(), L);
-        return rope.atoi();
+        return rope.atoi(p);
     }
 
 	/**
@@ -413,7 +413,7 @@ public:
     }
 
 	/**
-	 * \brief Removes a particular from positon pos
+	 * \brief Removes a character rom position pos
 	 */
     void remove(uint32_t pos)
     {
@@ -429,6 +429,13 @@ public:
         list.set_list_end(Rope::c_strlen(list.raw_memory(), L));
         list.erase(pos, len, '\0');
     }
+
+    void fill(char c, uint32_t pos, uint32_t len)
+    {
+        list.set_list_end(Rope::c_strlen(list.raw_memory(), L));
+        list.fill(pos, pos+len, c);
+    }
+
 
 	/**
 	 * \brief Converts the string to upper case.

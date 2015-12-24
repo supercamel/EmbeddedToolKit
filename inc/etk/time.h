@@ -30,6 +30,8 @@ namespace etk
  *
  * \brief Time is a class that can be used to perform time related functions such as counting systicks.
  *
+ * http://www.camelsoftware.com/2015/12/24/etk-time/
+ *
  * A simple 32bit systick counter with microsecond precision will roll over after about 12 hours.
  * The Time class counts both seconds and microseconds. This multiplies the roll over time by a million, which means it won't roll over for 120 years.
  * Some say systick roll over is easy to work around, but some haven't had to debug a fault that only occurs once per 12 hours :-).
@@ -133,7 +135,11 @@ private:
     uint32_t mic;
 };
 
+/**
+ * \brief Returns the current time.
+ */
 Time now();
+
 /**
 	 * \brief Sleeps for a number of milliseconds.
 	 * @arg ms Number of milliseconds to wait.

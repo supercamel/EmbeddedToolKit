@@ -120,14 +120,50 @@ bool static_string_test(std::string& subtest)
 	string.clear();
 	string += "Hello world";
 
+    subtest = "Tokeniser";
 	std::string tokens = "Tokens are awesome";
 	auto tok = make_tokeniser(tokens, ' ');
 
     tok.next(gday, 20);
+    if(gday != "Tokens")
+        return false;
     tok.next(gday, 20);
+    if(gday != "are")
+        return false;
     tok.next(gday, 20);
 
-    cout << endl << endl << gday.c_str() << endl << endl;
+    subtest = "Tokenising c-strings";
+    char trr[256] = "Tokens are awesome";
+    char tbuf[20];
+    auto cstok = make_tokeniser(trr, ' ');
+
+    cstok.next(tbuf, 20);
+
+    rope.clear();
+    rope << tbuf;
+
+    if(!rope.compare("Tokens", 6))
+        return false;
+    cout << tbuf << endl;
+    cstok.next(tbuf, 20);
+    cout << tbuf << endl;
+    cstok.next(tbuf, 20);
+    cout << tbuf << endl;
+
+    StaticString<100> ss = "Hello world";
+    ss.remove(0);
+    ss.insert('Y', 0);
+    ss.insert('w', 5);
+    if(ss != "Yellow world")
+        return false;
+
+    ss = "Giggle";
+    ss.fill('0', 1, 2);
+    cout << ss.c_str() << endl;
+    if(ss != "G00gle")
+        return false;
+    cout << ss.c_str() << endl;
+
 	return true;
 }
 

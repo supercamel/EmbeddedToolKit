@@ -12,7 +12,12 @@ using namespace etk;
 bool test_rope(std::string& subtest)
 {
     char buf[20];
-    etk::Rope rope(buf, 20);
+    etk::Rope rope(buf, 20, "Hello!");
+
+    if(rope != "Hello!")
+        return false;
+
+    rope.clear();
 
 	subtest = "Appending unsigned integer";
 	rope.append(556u);
@@ -159,6 +164,17 @@ bool test_rope(std::string& subtest)
 	rope << 0;
 	if(!rope.compare("0"))
 		return false;
+
+    rope.clear();
+    rope << "Seven 7 yay!";
+    if(rope.atoi(6) != 7)
+        return false;
+
+    rope.set_cursor(6);
+    rope << 8;
+    cout << rope.c_str() << endl;
+    if(rope.atoi(6) != 8)
+        return false;
 
     return true;
 }

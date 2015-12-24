@@ -32,6 +32,7 @@ Rope::Rope(char* buf, uint16_t maxlen, const char* c)
     N = maxlen;
     for(int i = 0; i < c_strlen(c, maxlen); i++)
         append(c[i]);
+    Rope::terminate();
 }
 
 Rope::Rope(char* c, uint16_t maxlen)
@@ -334,6 +335,16 @@ bool Rope::operator != (Rope r)
     return (!compare(r));
 }
 
+bool Rope::operator == (const char* r)
+{
+    return compare(r);
+}
+
+bool Rope::operator != (const char* r)
+{
+    return (!compare(r));
+}
+
 bool Rope::compare(Rope r, uint32_t len)
 {
     if(len == 0)
@@ -356,7 +367,9 @@ bool Rope::compare(const char* c, uint32_t len)
     {
         len = static_cast<int>(c_strlen(c, static_cast<uint16_t>(length()+2)));
         if(len != length())
+        {
             return false; //strings are different lengths, so they aren't the same
+        }
     }
     for(uint32_t i = 0; i < len; i++)
     {
@@ -410,7 +423,7 @@ void Rope::clear()
     pos = 0;
 }
 
-int Rope::atoi()
+int Rope::atoi(uint16_t p)
 {
     int is[9];
     int i = 0;
@@ -419,7 +432,7 @@ int Rope::atoi()
     i = 0;
     int result = 0;
     int negate = 1;
-    if(str[0] == '-')
+    if(str[p+0] == '-')
     {
         negate = -1;
         i++;
@@ -428,9 +441,9 @@ int Rope::atoi()
 	int len = length();
     for(; i < len; i++)
     {
-        if((str[i] > '9') || (str[i] < '0'))
+        if((str[p+i] > '9') || (str[p+i] < '0'))
             break;
-        is[count] = str[i]-'0';
+        is[count] = str[p+i]-'0';
         count++;
     }
     bool counting = false;
@@ -449,7 +462,7 @@ int Rope::atoi()
     return negate*result;
 }
 
-float Rope::atof()
+float Rope::atof(uint16_t p)
 {
 	if(compare("nan", 3))
 		return NAN;
@@ -465,7 +478,7 @@ float Rope::atof()
     i = 0;
     int result = 0;
     int negate = 1;
-    if(str[0] == '-')
+    if(str[p+0] == '-')
     {
         negate = -1;
         i++;
@@ -474,9 +487,9 @@ float Rope::atof()
 	int len = length();
     for(; i < len; i++)
     {
-        if((str[i] > '9') || (str[i] < '0'))
+        if((str[p+i] > '9') || (str[p+i] < '0'))
             break;
-        is[count] = str[i]-'0';
+        is[count] = str[p+i]-'0';
         count++;
     }
     bool counting = false;
@@ -494,14 +507,14 @@ float Rope::atof()
     }
     integer_part = result;
 
-    if(str[i++] == '.')
+    if(str[p+i++] == '.')
     {
         float divisor = 10;
         for(; i < len; i++)
         {
-            if((str[i] > '9') || (str[i] < '0'))
+            if((str[p+i] > '9') || (str[p+i] < '0'))
                 break;
-            fraction_part += (str[i]-'0')/divisor;
+            fraction_part += (str[p+i]-'0')/divisor;
             divisor *= 10;
         }
     }
@@ -516,7 +529,7 @@ void Rope::copy(char* c, uint32_t len) const
 		c[i] = str[i];
 }
 
-char* Rope::raw_buffer()
+char* Rope::get_buffer()
 {
     return str;
 }

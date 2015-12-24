@@ -71,8 +71,7 @@ public:
 
     bool next(auto& out, int len)
     {
-        int count = 0;
-
+        int counter = 0;
         if(str[0] == 0)
             return false;
 
@@ -80,22 +79,22 @@ public:
         {
             if(str[count] == '\0')
             {
-                out[count] = '\0';
-                str = &str[count];
+                count = len;
+                out[counter] = '\0';
                 return true;
             }
 
             if(str[count] == token)
             {
-                out[count] = '\0';
+                out[counter] = '\0';
                 count++;
-                str = &str[count];
                 return true;
             }
 
-            out[count] = str[count];
+            out[counter] = str[count];
 
             count++;
+            counter++;
         }
         return false;
     }
@@ -103,13 +102,15 @@ public:
 private:
     T& str;
     int token;
+    int count = 0;
 };
+
+
 
 template <typename T> Tokeniser<T> make_tokeniser(T& l, char t)
 {
     return Tokeniser<T>(l, t);
 }
-
 
 }
 

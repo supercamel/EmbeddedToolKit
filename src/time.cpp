@@ -24,11 +24,6 @@ namespace etk
 static volatile Time _now;
 static uint32_t us_tick_rate = 1000;
 
-Time __attribute__((weak)) now()
-{
-	return _now;
-}
-
 void set_tick_rate(uint32_t us)
 {
 	us_tick_rate = us;
@@ -104,6 +99,12 @@ void __attribute__((weak)) sleep_us(uint32_t us)
     while(now().diff_time(start) < sus)
     { }
 }
+
+Time __attribute__((weak)) now()
+{
+	return _now;
+}
+
 
 void Time::to_rope(Rope& r)
 {

@@ -89,6 +89,8 @@ public:
 
     bool operator == (Rope r);
     bool operator != (Rope r);
+    bool operator == (const char* r);
+    bool operator != (const char* r);
 
     bool compare(Rope r, uint32_t len = 0);
     bool compare(const char* c, uint32_t len = 0);
@@ -102,8 +104,8 @@ public:
 
     void clear();
 
-    int atoi();
-    float atof();
+    int atoi(uint16_t p=0);
+    float atof(uint16_t p=0);
 
     void set_cursor(uint16_t p) {
         pos = p;
@@ -112,7 +114,7 @@ public:
         return pos;
     }
 
-    char* raw_buffer();
+    char* get_buffer();
     void set_buffer(char* b) {
         str = b;
     }
