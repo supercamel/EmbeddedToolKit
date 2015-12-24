@@ -72,14 +72,13 @@ public:
     bool next(auto& out, int len)
     {
         int counter = 0;
-        if(str[0] == 0)
+        if(str[count] == 0)
             return false;
 
-        while(count < len)
+        while(counter < len)
         {
             if(str[count] == '\0')
             {
-                count = len;
                 out[counter] = '\0';
                 return true;
             }

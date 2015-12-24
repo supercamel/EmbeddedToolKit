@@ -15,6 +15,8 @@
 //#include "pool_test.h"
 #include "pid_tests.h"
 #include "array_test.h"
+#include "tokeniser_test.h"
+
 
 
 bool limiter_test(std::string& subtest)
@@ -56,6 +58,7 @@ int main()
 	//th.add_module(linkedlist_test, "Linked lists");
 	th.add_module(pid_test, "PID test");
 	th.add_module(array_test, "Array test");
+	th.add_module(tokeniser_test, "Tokeniser test");
 
 	if(th.run())
 		return 0;

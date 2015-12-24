@@ -89,7 +89,5 @@ bool pid_test(std::string& subtest)
         }
     }
 
-    cout << sp << " " << sys.get_pos() << endl;
-    cout << epid.to_string().c_str() << endl;
     return true;
 }

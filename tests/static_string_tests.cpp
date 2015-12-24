@@ -144,11 +144,8 @@ bool static_string_test(std::string& subtest)
 
     if(!rope.compare("Tokens", 6))
         return false;
-    cout << tbuf << endl;
     cstok.next(tbuf, 20);
-    cout << tbuf << endl;
     cstok.next(tbuf, 20);
-    cout << tbuf << endl;
 
     StaticString<100> ss = "Hello world";
     ss.remove(0);
@@ -159,10 +156,8 @@ bool static_string_test(std::string& subtest)
 
     ss = "Giggle";
     ss.fill('0', 1, 2);
-    cout << ss.c_str() << endl;
     if(ss != "G00gle")
         return false;
-    cout << ss.c_str() << endl;
 
 	return true;
 }

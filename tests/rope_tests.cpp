@@ -172,7 +172,6 @@ bool test_rope(std::string& subtest)
 
     rope.set_cursor(6);
     rope << 8;
-    cout << rope.c_str() << endl;
     if(rope.atoi(6) != 8)
         return false;
 
