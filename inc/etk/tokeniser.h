@@ -19,8 +19,6 @@
 #ifndef TOKENISER_H_INCLUDED
 #define TOKENISER_H_INCLUDED
 
-#include "staticstring.h"
-
 namespace etk
 {
 
@@ -31,7 +29,7 @@ namespace etk
 
  \brief The tokeniser moves along a string and breaks it into tokens.
 
-	http://www.camelsoftware.com/blog/2015/12/11/splitting-strings-a-c-string-tokeniser/
+	http://www.camelsoftware.com/2015/12/24/embedded-string-programming/
 
 	These are all comma separated tokens
 <pre>
@@ -50,7 +48,7 @@ namespace etk
         char nmea[] = "$POW0,12,135*F5";
 
         char token[20]; //buffer to store token
-        etk::Tokeniser tok(nmea, ',');
+        auto tok = etk::make_tokeniser(nmea, ',');
         while(tok.next(token, 20))
             cout << token << " ";
         cout << endl;
@@ -71,29 +69,29 @@ public:
 
     bool next(auto& out, int len)
     {
-        int counter = 0;
+        int out_counter = 0;
         if(str[count] == 0)
             return false;
 
-        while(counter < len)
+        while(out_counter < len)
         {
             if(str[count] == '\0')
             {
-                out[counter] = '\0';
+                out[out_counter] = '\0';
                 return true;
             }
 
             if(str[count] == token)
             {
-                out[counter] = '\0';
+                out[out_counter] = '\0';
                 count++;
                 return true;
             }
 
-            out[counter] = str[count];
+            out[out_counter] = str[count];
 
             count++;
-            counter++;
+            out_counter++;
         }
         return false;
     }

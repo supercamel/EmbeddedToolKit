@@ -39,6 +39,12 @@ public:
             buf[i] = t[i];
     }
 
+    Array(const T* t)
+    {
+        for(auto i : range(L))
+            buf[i] = t[i];
+    }
+
     class Iterator
     {
         friend class Array;
