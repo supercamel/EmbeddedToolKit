@@ -36,7 +36,7 @@ namespace etk
  */
 
 
-template <typename T, uint32_t L> class List
+template <typename T, uint16_t L> class List
 {
 public:
     List()
@@ -45,14 +45,14 @@ public:
     }
     List(List& list)
     {
-        for(uint32_t i = 0; i < L; i++)
+        for(uint16_t i = 0; i < L; i++)
             items[i] = list.items[i];
         list_end = list.list_end;
     }
 
     List(const List& list)
     {
-        for(uint32_t i = 0; i < L; i++)
+        for(uint16_t i = 0; i < L; i++)
             items[i] = list.items[i];
         list_end = list.list_end;
     }
@@ -110,7 +110,7 @@ public:
 
     private:
         List* list;
-        int64_t pos;
+        int32_t pos;
     };
 
 
@@ -151,11 +151,11 @@ public:
  * @arg T the item to be inserted.
  * @arg pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list.
  */
-    void insert(T t, uint32_t pos)
+    void insert(T t, uint16_t pos)
     {
         if((pos <= size()) && (size() < L))
         {
-            for(uint32_t i = L-1; i >= (pos+1); i--)
+            for(uint16_t i = L-1; i >= (pos+1); i--)
                 etk::swap<T>(items[i], items[i-1]);
             list_end++;
             items[pos] = t;
@@ -167,11 +167,11 @@ public:
  * @arg pos The position of the item to remove.
  * @arg padding A value / default object to fill in the space at the end of the list.
  */
-    void remove(uint32_t pos, T padding)
+    void remove(uint16_t pos, T padding)
     {
         if((pos < L) && (size() > 0))
         {
-            for(uint32_t i = pos; i < L-1; i++)
+            for(uint16_t i = pos; i < L-1; i++)
                 etk::swap<T>(items[i], items[i+1]);
             list_end--;
             items[L-1] = padding;
@@ -184,9 +184,9 @@ public:
  * @arg len The number of items to remove.
  * @arg padding A value / default object to fill in the space at the end of the list.
  */
-    void erase(uint32_t pos, uint32_t len, T padding)
+    void erase(uint16_t pos, uint16_t len, T padding)
     {
-        for(uint32_t i = 0; i < len; i++)
+        for(uint16_t i = 0; i < len; i++)
             remove(pos, padding);
     }
 
@@ -203,10 +203,10 @@ public:
  * @arg t The item to count.
  * @return The number of these items in the list.
  */
-    uint32_t count(T t)
+    uint16_t count(T t)
     {
-        uint32_t c = 0;
-        for(uint32_t i = 0; i < size(); i++)
+        uint16_t c = 0;
+        for(uint16_t i = 0; i < size(); i++)
         {
 
             if(t == items[i])
@@ -221,11 +221,11 @@ public:
  * @arg end The end position.
  * @arg f The item to fill with.
  */
-    void fill(uint32_t start, uint32_t end, T f)
+    void fill(uint16_t start, uint16_t end, T f)
     {
         end = etk::min(end, size());
         start = etk::min(start, end);
-        for(uint32_t i = start; i < end; i++)
+        for(uint16_t i = start; i < end; i++)
             items[i] = f;
     }
 
@@ -251,7 +251,7 @@ public:
 /**
  * \brief This operator allows you to access elements of the list just like a normal array.
  */
-    T& operator[](uint32_t pos)
+    T& operator[](uint16_t pos)
     {
         if(pos < L)
             return items[pos];
@@ -261,7 +261,7 @@ public:
 /**
  * \brief Returns the number of items in the list.
  */
-    uint32_t size()
+    uint16_t size()
     {
         return list_end+1;
     }
@@ -269,7 +269,7 @@ public:
 /**
  * \brief Returns the maximum possible number of items that the list can contain.
  */
-    uint32_t max_len()
+    uint16_t max_len()
     {
         return L;
     }
@@ -277,7 +277,7 @@ public:
 /**
  * \brief Overrides the list end pointer. This function can be convenient but should be used with caution.
  */
-    void set_list_end(uint32_t le)
+    void set_list_end(uint16_t le)
     {
         list_end = le;
     }
@@ -300,7 +300,7 @@ public:
 
 private:
     T items[L];
-    int64_t list_end;
+    int32_t list_end;
 };
 
 }
