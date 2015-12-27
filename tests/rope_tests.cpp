@@ -132,6 +132,7 @@ bool test_rope(std::string& subtest)
 	subtest = "atof";
 	rope.clear();
 	rope << 53.24;
+	cout << rope.atof() << endl;
 	if(!compare<float>(rope.atof(), 53.24f, 0.000001f))
 		return false;
 

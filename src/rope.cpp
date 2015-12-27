@@ -69,7 +69,7 @@ void Rope::append(const char* s, int len)
     if(len == 0)
         len = min(N-pos-1, Rope::c_strlen(s, N));
     else
-        len = min(N-pos-1, len);
+        len = min(int(N-pos-1), len);
     for(int i = 0; i < len; i++)
         str[pos++] = s[i];
     str[pos] = '\0';
@@ -112,7 +112,6 @@ void Rope::append(uint32_t j, uint32_t npad)
             break;
         i++;
     }
-
     i = min(i, 9-npad);
     append(&buf[i], 9-i);
 }
@@ -141,12 +140,12 @@ void Rope::append(uint64_t j, uint32_t npad)
 
 void Rope::append(float j, uint8_t precision)
 {
-    if(std::isnan(j))
+    if(isnan(j))
     {
         append("nan", 3);
         return;
     }
-    if(std::isinf(j))
+    if(isinf(j))
     {
         append("inf", 3);
         return;
@@ -160,7 +159,6 @@ void Rope::append(float j, uint8_t precision)
     sb.clear();
     sb.append(t, 3);
     uint32_t len = max((int)sb.length()-precision, 0);
-
     append(sb.c_str(), len);
     append('.');
     append(&sb.c_str()[len], sb.length()-len);
@@ -418,61 +416,43 @@ int Rope::atoi(uint16_t p)
     //return ::atoi(&str[p]);
 }
 
-float Rope::atof(uint16_t p)
+float Rope::atof(uint16_t ps)
 {
     if(compare("nan", 3))
         return NAN;
     if(compare("inf", 3))
         return INFINITY;
-    float integer_part = 0.0f;
-    float fraction_part = 0.0f;
-    int is[9];
-    int i = 0;
-    for(; i < 9; i++)
-        is[i] = -1;
-    i = 0;
-    int result = 0;
-    int negate = 1;
-    if(str[p+0] == '-')
+
+    char* p = &str[ps];
+    int frac;
+    double sign, value;
+
+    sign = 1.0;
+    if (*p == '-')
     {
-        negate = -1;
-        i++;
+        sign = -1.0;
+        p += 1;
     }
-    int count = 0;
-    int len = length();
-    for(; i < len; i++)
+    else if (*p == '+')
+        p += 1;
+
+    for (value = 0.0; (*p >= '0') && (*p <= '9'); p++)
+        value = value * 10.0 + (*p - '0');
+
+    // Get digits after decimal point, if any.
+    if (*p == '.')
     {
-        if((str[p+i] > '9') || (str[p+i] < '0'))
-            break;
-        is[count] = str[p+i]-'0';
-        count++;
-    }
-    bool counting = false;
-    int mul = 1;
-    for(int k = 8; k >= 0; k--)
-    {
-        int r = is[k];
-        if(r != -1)
-            counting = true;
-        if(counting)
+        double pow10 = 10.0;
+        p++;
+        while ((*p >= '0') && (*p <= '9'))
         {
-            result += r*mul;
-            mul *= 10;
+            value += (*p - '0') / pow10;
+            pow10 *= 10.0;
+            p++;
         }
     }
-    integer_part = result;
-    if(str[p+i++] == '.')
-    {
-        float divisor = 10;
-        for(; i < len; i++)
-        {
-            if((str[p+i] > '9') || (str[p+i] < '0'))
-                break;
-            fraction_part += (str[p+i]-'0')/divisor;
-            divisor *= 10;
-        }
-    }
-    return (integer_part + fraction_part) * negate;
+    // Return signed and scaled floating point result.
+    return sign * value;
 }
 
 void Rope::copy(char* c, uint32_t len) const
