@@ -19,7 +19,7 @@
 
 #include <etk/rope.h>
 #include <etk/math_util.h>
-#include <cmath>
+#include <math.h>
 
 namespace etk
 {
