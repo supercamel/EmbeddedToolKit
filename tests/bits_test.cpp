@@ -40,6 +40,7 @@ bool bits_test(std::string& subtest)
 
 	subtest = "To string";
     etk::StaticString<9> s = bits.to_string();
+    cout << s.c_str() << endl;
     if(!s.compare("10000000", 8))
         return false;
 

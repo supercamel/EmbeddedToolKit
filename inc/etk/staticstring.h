@@ -154,6 +154,14 @@ public:
         return *this;
     }
 
+    template<typename T> StaticString& operator=(T i)
+    {
+        list[0] = '\0';
+        Rope r(list.raw_memory(), L);
+        r << i;
+        return *this;
+    }
+
 	/**
 	 * \brief Appends the contents of a Rope to this.
 	 */

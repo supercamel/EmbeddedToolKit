@@ -67,16 +67,12 @@ void Rope::append(char c)
 void Rope::append(const char* s, int len)
 {
     if(len == 0)
-        len = N;
+        len = min(N-pos-1, Rope::c_strlen(s, N));
+    else
+        len = min(N-pos-1, len);
     for(int i = 0; i < len; i++)
-    {
-        append(s[i]);
-        if(s[i] == '\0')
-        {
-            pos--;
-            return;
-        }
-    }
+        str[pos++] = s[i];
+    str[pos] = '\0';
 }
 
 void Rope::append(int32_t j, uint32_t npad)
@@ -110,7 +106,6 @@ void Rope::append(uint32_t j, uint32_t npad)
         buf[8-i] = '0'+static_cast<char>(r);
     }
     i = 0;
-
     while(i < 9)
     {
         if(buf[i] != '0')
@@ -118,11 +113,8 @@ void Rope::append(uint32_t j, uint32_t npad)
         i++;
     }
 
-	i = min(i, 9-npad);
-	for(;i < 9; i++)
-		append(buf[i]);
-
-	terminate();
+    i = min(i, 9-npad);
+    append(&buf[i], 9-i);
 }
 
 void Rope::append(uint64_t j, uint32_t npad)
@@ -136,55 +128,42 @@ void Rope::append(uint64_t j, uint32_t npad)
         buf[19-i] = '0'+static_cast<char>(r);
     }
     i = 0;
-
-	while(i < 20)
+    while(i < 20)
     {
         if(buf[i] != '0')
             break;
         i++;
     }
-
-	i = min(i, 20-npad);
-	for(;i < 20; i++)
-		append(buf[i]);
-
-	terminate();
+    i = min(i, 20-npad);
+    append(&buf[i], 20-i);
+    terminate();
 }
 
 void Rope::append(float j, uint8_t precision)
 {
-	if(std::isnan(j))
-	{
-		append("nan");
-		return;
-	}
-	if(std::isinf(j))
-	{
-		append("inf");
-		return;
-	}
-
+    if(std::isnan(j))
+    {
+        append("nan", 3);
+        return;
+    }
+    if(std::isinf(j))
+    {
+        append("inf", 3);
+        return;
+    }
     uint32_t mul = 1;
     for(int i = 0; i < precision; i++)
         mul *= 10;
-
     int32_t t = static_cast<int32_t>(roundf(j*mul));
-
     char b[20];
     Rope sb(b, 20);
     sb.clear();
     sb.append(t, 3);
-	uint32_t len = max((int)sb.length()-precision, 0);
-    uint32_t i;
+    uint32_t len = max((int)sb.length()-precision, 0);
 
-	for(i = 0; i < len; i++)
-		append(sb.c_str()[i]);
-
+    append(sb.c_str(), len);
     append('.');
-
-    for(i = len; i < sb.length(); i++)
-        append(sb.c_str()[i]);
-
+    append(&sb.c_str()[len], sb.length()-len);
     terminate();
 }
 
@@ -197,8 +176,7 @@ void Rope::append(Rope sb, uint16_t len)
 {
     if(len < 1)
         len = sb.length();
-    for(int i = 0; i < len; i++)
-        append(sb.c_str()[i]);
+    append(sb.c_str(), len);
 }
 
 uint32_t Rope::length()
@@ -305,10 +283,12 @@ Rope& Rope::operator = (const char* s)
 {
     pos = 0;
     uint32_t l = c_strlen(s, N);
+    /*
     for(uint32_t i = 0; i < l; i++)
         append(s[i]);
-	terminate();
-
+    terminate();
+    */
+    append(s, l);
     return *this;
 }
 
@@ -349,8 +329,8 @@ bool Rope::compare(Rope r, uint32_t len)
 {
     if(len == 0)
     {
-		if(r.length() != length())
-			return false;
+        if(r.length() != length())
+            return false;
         len = length();
     }
     for(uint32_t i = 0; i < len; i++)
@@ -381,35 +361,35 @@ bool Rope::compare(const char* c, uint32_t len)
 
 bool Rope::compare(Rope r, uint32_t start_this, uint32_t start_that, uint32_t len)
 {
-	for(uint32_t i = 0; i < len; i++)
-	{
-		if(str[i+start_this] != r.str[start_that+i])
-			return false;
-	}
-	return true;
+    for(uint32_t i = 0; i < len; i++)
+    {
+        if(str[i+start_this] != r.str[start_that+i])
+            return false;
+    }
+    return true;
 }
 
 bool Rope::compare(const char* c, uint32_t start_this, uint32_t start_that, uint32_t len)
 {
-	for(uint32_t i = 0; i < len; i++)
-	{
-		if(str[i+start_this] != c[start_that+i])
-			return false;
-	}
-	return true;
+    for(uint32_t i = 0; i < len; i++)
+    {
+        if(str[i+start_this] != c[start_that+i])
+            return false;
+    }
+    return true;
 }
 
 void Rope::sub_string(char* buf, uint32_t start, uint32_t len)
 {
-	uint32_t i = 0;
-	for(; i < len; i++)
-		buf[i] = str[i+start];
-	buf[i] = '\0';
+    uint32_t i = 0;
+    for(; i < len; i++)
+        buf[i] = str[i+start];
+    buf[i] = '\0';
 }
 
 void Rope::sub_string(Rope& r, uint32_t start, uint32_t len)
 {
-	sub_string(r.str, start, len);
+    sub_string(r.str, start, len);
 }
 
 const char* Rope::c_str()
@@ -425,50 +405,25 @@ void Rope::clear()
 
 int Rope::atoi(uint16_t p)
 {
-    int is[9];
-    int i = 0;
-    for(; i < 9; i++)
-        is[i] = 0;
-    i = 0;
-    int result = 0;
-    int negate = 1;
-    if(str[p+0] == '-')
+    int res = 0,n=1;
+    char* pstr = &str[p];
+    if(*pstr =='-')
     {
-        negate = -1;
-        i++;
+        n=-1;
+        pstr++;
     }
-    uint32_t count = 0;
-	int len = length();
-    for(; i < len; i++)
-    {
-        if((str[p+i] > '9') || (str[p+i] < '0'))
-            break;
-        is[count] = str[p+i]-'0';
-        count++;
-    }
-    bool counting = false;
-    int mul = 1;
-    for(i = 8; i >= 0; i--)
-    {
-        int r = is[i];
-        if(r != 0)
-            counting = true;
-        if(counting)
-        {
-            result += r*mul;
-            mul *= 10;
-        }
-    }
-    return negate*result;
+    while (*pstr >= '0' && *pstr <= '9')
+        res = res * 10 + *pstr++ - '0';
+    return res*n;
+    //return ::atoi(&str[p]);
 }
 
 float Rope::atof(uint16_t p)
 {
-	if(compare("nan", 3))
-		return NAN;
-	if(compare("inf", 3))
-		return INFINITY;
-
+    if(compare("nan", 3))
+        return NAN;
+    if(compare("inf", 3))
+        return INFINITY;
     float integer_part = 0.0f;
     float fraction_part = 0.0f;
     int is[9];
@@ -484,7 +439,7 @@ float Rope::atof(uint16_t p)
         i++;
     }
     int count = 0;
-	int len = length();
+    int len = length();
     for(; i < len; i++)
     {
         if((str[p+i] > '9') || (str[p+i] < '0'))
@@ -506,7 +461,6 @@ float Rope::atof(uint16_t p)
         }
     }
     integer_part = result;
-
     if(str[p+i++] == '.')
     {
         float divisor = 10;
@@ -523,10 +477,10 @@ float Rope::atof(uint16_t p)
 
 void Rope::copy(char* c, uint32_t len) const
 {
-	if(len == 0)
-		len = N;
-	for(uint32_t i = 0; i < len; i++)
-		c[i] = str[i];
+    if(len == 0)
+        len = N;
+    for(uint32_t i = 0; i < len; i++)
+        c[i] = str[i];
 }
 
 char* Rope::get_buffer()
@@ -547,14 +501,9 @@ uint16_t Rope::c_strlen(const char* c, uint16_t maxlen)
 void Rope::terminate()
 {
     if(pos < N)
-    {
-        append('\0');
-        pos--;
-    }
+        str[pos] = '\0';
     else
-    {
         str[N-1] = '\0';
-    }
 }
 
 

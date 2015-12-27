@@ -161,15 +161,19 @@ bool test_rope(std::string& subtest)
 
 	subtest = "appending zero";
 	rope.clear();
+	cout << "appending zero" << endl;
 	rope << 0;
+	cout << "comparing zero" << endl;
 	if(!rope.compare("0"))
 		return false;
 
+    subtest = "Atoi at a place";
     rope.clear();
     rope << "Seven 7 yay!";
     if(rope.atoi(6) != 7)
         return false;
 
+    subtest = "set cursor";
     rope.set_cursor(6);
     rope << 8;
     if(rope.atoi(6) != 8)
