@@ -4,30 +4,45 @@
 #include <stdint.h>
 #include <etk/array.h>
 
+
+#include <iostream>
+using namespace std;
+
+
 namespace etk
 {
 
 template <typename P, typename T> class PoolPtr
 {
 public:
+    PoolPtr()
+    {
+    }
+
     PoolPtr(P* pool) : pData(0), pool(pool)
     {
-        pool->inc_references(pData);
+        if(pool)
+            pool->inc_references(pData);
     }
 
     PoolPtr(P* pool, T* pValue) : pData(pValue), pool(pool)
     {
-        pool->inc_references(pData);
+        if(pool)
+        {
+            pool->inc_references(pData);
+        }
     }
 
     PoolPtr(const PoolPtr<P,T>& sp) : pData(sp.pData), pool(sp.pool)
     {
-        pool->inc_references(pData);
+        if(pool)
+            pool->inc_references(pData);
     }
 
     ~PoolPtr()
     {
-        pool->dec_references(pData);
+        if(pool)
+            pool->dec_references(pData);
     }
 
     T& operator* ()
@@ -40,10 +55,24 @@ public:
         return pData;
     }
 
+    operator bool()
+    {
+        if(pData == nullptr)
+            return false;
+        return true;
+    }
+
     PoolPtr<P,T>& operator = (const PoolPtr<P,T>& sp)
     {
         if (this != &sp)
+        {
+            if(pool)
+                pool->dec_references(pData);
             pData = sp.pData;
+            pool = sp.pool;
+            if(pool)
+                pool->inc_references(pData);
+        }
 
         return *this;
     }
@@ -59,8 +88,8 @@ public:
     }
 
 private:
-    T* pData;
-    P* pool;
+    T* pData = 0;
+    P* pool = 0;
 };
 
 
@@ -93,39 +122,45 @@ public:
         return count;
     }
 
+    auto null_ptr()
+    {
+        return PoolPtr<ObjPool, T>(this);
+    }
+
     auto alloc()
     {
         for(auto& o : pool)
         {
             if(o.references == 0)
             {
-                PoolPtr<ObjPool, T> ptr(this, &o.obj);
-                return ptr;
+                 T* r = new((void*)o.data) T();
+                 return PoolPtr<ObjPool, T>(this, r);
             }
         }
-
-        return PoolPtr<ObjPool, T>(this);
+        return PoolPtr<ObjPool, T>(this, nullptr);
     }
 
-    T* raw_alloc()
+    void* raw_alloc()
     {
         for(auto& o : pool)
         {
             if(o.references == 0)
             {
                 o.references = 1;
-                return &o.obj;
+                return o.data;
             }
         }
+        return nullptr;
     }
 
-    void free(T* ptr)
+    void free(T*& ptr)
     {
         for(auto& o : pool)
         {
             if((&o.obj) == ptr)
             {
                 o.references = 0;
+                ptr = nullptr;
                 return;
             }
         }
@@ -138,7 +173,7 @@ private:
     {
         for(auto& o : pool)
         {
-            if(&o.obj == ptr)
+            if(&o.data == (void*)ptr)
             {
                 o.references++;
                 return;
@@ -150,10 +185,14 @@ private:
     {
         for(auto& o : pool)
         {
-            if(&o.obj == ptr)
+            if(&o.data == (void*)ptr)
             {
                 if(o.references > 0)
+                {
                     o.references--;
+                    if(o.references == 0)
+                        ptr->~T();
+                }
                 return;
             }
         }
@@ -163,7 +202,7 @@ private:
     {
     public:
         uint32_t references = 0;
-        T obj;
+        uint8_t data[sizeof(T)];
     };
 
     Array<tbl, N> pool;

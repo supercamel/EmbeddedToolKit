@@ -57,7 +57,7 @@ int main()
 	//th.add_module(stack_test, "Stack test");
 	//th.add_module(pool_test, "Pool test");
 	//th.add_module(linkedlist_test, "Linked lists");
-	th.add_module(pid_test, "PID test");
+	//th.add_module(pid_test, "PID test");
 	th.add_module(array_test, "Array test");
 	th.add_module(tokeniser_test, "Tokeniser test");
 	th.add_module(objpool_test, "Object pools");
