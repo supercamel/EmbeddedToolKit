@@ -45,8 +45,8 @@ namespace etk
 class Rope
 {
 public:
-    Rope(char* buf, uint16_t maxlen, const char* c);
-    Rope(char* c, uint16_t maxlen);
+    Rope(char* buf, uint32_t maxlen, const char* c);
+    Rope(char* c, uint32_t maxlen);
     Rope(Rope& r);
     Rope(const Rope& r);
 
@@ -104,13 +104,13 @@ public:
 
     void clear();
 
-    int atoi(uint16_t p=0);
-    float atof(uint16_t p=0);
+    int atoi(uint32_t p=0);
+    float atof(uint32_t p=0);
 
-    void set_cursor(uint16_t p) {
+    void set_cursor(uint32_t p) {
         pos = p;
     }
-    uint16_t get_cursor() {
+    uint32_t get_cursor() {
         return pos;
     }
 
@@ -121,12 +121,12 @@ public:
 
     void copy(char* b, uint32_t len=0) const;
 
-    static uint16_t c_strlen(const char* c, uint16_t maxlen);
+    static uint32_t c_strlen(const char* c, uint32_t maxlen);
 
 private:
     void terminate(); //appends a null terminator
-    uint16_t pos;
-    uint16_t N;
+    uint32_t pos;
+    uint32_t N;
     char* str;
 };
 

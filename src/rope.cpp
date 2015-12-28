@@ -25,17 +25,17 @@ namespace etk
 {
 
 
-Rope::Rope(char* buf, uint16_t maxlen, const char* c)
+Rope::Rope(char* buf, uint32_t maxlen, const char* c)
 {
     str = buf;
     pos = 0;
     N = maxlen;
-    for(int i = 0; i < c_strlen(c, maxlen); i++)
+    for(uint32_t i = 0; i < c_strlen(c, maxlen); i++)
         append(c[i]);
     Rope::terminate();
 }
 
-Rope::Rope(char* c, uint16_t maxlen)
+Rope::Rope(char* c, uint32_t maxlen)
 {
     pos = 0;
     N = maxlen;
@@ -61,6 +61,7 @@ void Rope::append(char c)
     if(pos < N-1)
     {
         str[pos++] = c;
+        str[pos] = '\0';
     }
 }
 
@@ -397,11 +398,11 @@ const char* Rope::c_str()
 
 void Rope::clear()
 {
-    for(int i = 0; i < N; i++) str[i] = '\0';
+    for(uint32_t i = 0; i < N; i++) str[i] = '\0';
     pos = 0;
 }
 
-int Rope::atoi(uint16_t p)
+int Rope::atoi(uint32_t p)
 {
     int res = 0,n=1;
     char* pstr = &str[p];
@@ -416,7 +417,7 @@ int Rope::atoi(uint16_t p)
     //return ::atoi(&str[p]);
 }
 
-float Rope::atof(uint16_t ps)
+float Rope::atof(uint32_t ps)
 {
     if(compare("nan", 3))
         return NAN;
@@ -467,9 +468,9 @@ char* Rope::get_buffer()
     return str;
 }
 
-uint16_t Rope::c_strlen(const char* c, uint16_t maxlen)
+uint32_t Rope::c_strlen(const char* c, uint32_t maxlen)
 {
-    for(uint16_t i = 0; i < maxlen; i++)
+    for(uint32_t i = 0; i < maxlen; i++)
     {
         if(c[i] == '\0')
             return i;

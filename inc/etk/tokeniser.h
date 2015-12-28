@@ -67,7 +67,7 @@ public:
         token = tok;
     }
 
-    bool next(auto& out, int len)
+    template <typename Tt> bool next(Tt& out, int len)
     {
         int out_counter = 0;
         if(str[count] == 0)
