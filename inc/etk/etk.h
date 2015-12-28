@@ -58,6 +58,7 @@
 #include "array.h"
 #include "pid_rater.h"
 #include "evopid.h"
+#include "objpool.h"
 
 #endif
 

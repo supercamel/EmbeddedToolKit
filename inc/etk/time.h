@@ -32,7 +32,7 @@ namespace etk
  *
  * http://www.camelsoftware.com/2015/12/24/etk-time/
  *
- * A simple 32bit systick counter with microsecond precision will roll over after about 12 hours.
+ * A simple 32bit systick counter with microsecond precision will roll over in a matter of hours.
  * The Time class counts both seconds and microseconds. This multiplies the roll over time by a million, which means it won't roll over for 120 years.
  * Some say systick roll over is easy to work around, but some haven't had to debug a fault that only occurs once per 12 hours :-).
  *

@@ -424,7 +424,6 @@ float Rope::atof(uint16_t ps)
         return INFINITY;
 
     char* p = &str[ps];
-    int frac;
     double sign, value;
 
     sign = 1.0;
