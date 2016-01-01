@@ -106,7 +106,7 @@ public:
     void normalize()
     {
         float mag = magnitude();
-        if(compare<float>(mag, 0.0f, 0.00001f))
+        if(etk::compare<float>(mag, 0.0f, 0.00001f))
             return;
 
         uint32_t i;
@@ -192,7 +192,17 @@ public:
     {
         for(uint32_t i = 0; i < N; i++)
         {
-            if(!compare<float>(p_vec[i], v.p_vec[i], 0.00001f))
+            if(!etk::compare<float>(p_vec[i], v.p_vec[i], 0.00001f))
+                return false;
+        }
+        return true;
+    }
+
+    bool compare(Vector& v, float precision = 0.00000f)
+    {
+        for(uint32_t i = 0; i < N; i++)
+        {
+            if(!etk::compare<float>(p_vec[i], v.p_vec[i], precision))
                 return false;
         }
         return true;

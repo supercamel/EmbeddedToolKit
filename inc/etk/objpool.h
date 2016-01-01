@@ -55,6 +55,12 @@ public:
         return pData;
     }
 
+    void unref()
+    {
+        if(pool)
+            pool->dec_references(pData);
+    }
+
     operator bool()
     {
         if(pData == nullptr)

@@ -180,6 +180,12 @@ bool test_rope(std::string& subtest)
     if(rope.atoi(6) != 8)
         return false;
 
+    subtest = "Appending characters";
+    rope.clear();
+    rope << 'c';
+    if(rope != "c")
+        return false;
+
     return true;
 }
 

@@ -154,6 +154,12 @@ public:
         return *this;
     }
 
+    template<uint32_t nn> StaticString& operator=(StaticString<nn> ss)
+    {
+        *this = ss.c_str();
+        return *this;
+    }
+
     template<typename T> StaticString& operator=(T i)
     {
         list[0] = '\0';
@@ -260,6 +266,14 @@ public:
         Rope r(list.raw_memory(), L);
         r.set_cursor(r.length());
         r += s;
+        return *this;
+    }
+
+    StaticString& operator += (char c)
+    {
+        Rope r(list.raw_memory(), L);
+        r.set_cursor(r.length());
+        r << c;
         return *this;
     }
 
@@ -461,6 +475,13 @@ public:
     {
         for(uint32_t i = 0; i < Rope::c_strlen(list.raw_memory(), L); i++)
             list.raw_memory()[i] = etk::to_lower(list.raw_memory()[i]);
+    }
+
+    template<uint32_t nn> operator StaticString<nn>()
+    {
+        StaticString<nn> ss;
+        ss = *this;
+        return ss;
     }
 
 	/**

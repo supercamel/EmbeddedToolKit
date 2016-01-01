@@ -159,6 +159,12 @@ bool static_string_test(std::string& subtest)
     if(ss != "G00gle")
         return false;
 
+    ss.clear();
+    subtest = "Appending characters";
+    ss += 'c';
+    if(ss != "c")
+        return false;
+
 	return true;
 }
 
