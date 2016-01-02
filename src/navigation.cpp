@@ -29,20 +29,20 @@ namespace etk
 
 Coordinate::Coordinate(float la, float ln)
 {
-    lat = la*DEG_TO_RAD;
-    lng = ln*DEG_TO_RAD;
+    lat = degrees_to_radians(la);
+    lng = degrees_to_radians(ln);
 }
 
 Coordinate::Coordinate(etk::Vector<2> v)
 {
-    lat = v.x()*DEG_TO_RAD;
-    lng = v.y()*DEG_TO_RAD;
+    lat = degrees_to_radians(v.x());
+    lng = degrees_to_radians(v.y());
 }
 
 Coordinate::Coordinate(etk::Vector<3> v)
 {
-    lat = v.x()*DEG_TO_RAD;
-    lng = v.y()*DEG_TO_RAD;
+    lat = degrees_to_radians(v.x());
+    lng = degrees_to_radians(v.y());
 }
 
 float Coordinate::bearing_to(Coordinate to)
@@ -51,7 +51,7 @@ float Coordinate::bearing_to(Coordinate to)
     float y = sin(dLon) * cos(to.lat);
     float x = cos(lat)*sin(to.lat) -
               sin(lat)*cos(to.lat)*cos(dLon);
-    return RAD_TO_DEG*(atan2(y, x));
+    return radians_to_degrees(atan2(y, x));
 }
 
 float Coordinate::distance_to(Coordinate b)
@@ -63,8 +63,8 @@ float Coordinate::cross_track_distance(Coordinate from, Coordinate to)
 {
     float d13, brng13, brng12;
     d13 = from.distance_to(*this);
-    brng13 = DEG_TO_RAD*(from.bearing_to(*this));
-    brng12 = DEG_TO_RAD*(from.bearing_to(to));
+    brng13 = degrees_to_radians(from.bearing_to(*this));
+    brng12 = degrees_to_radians(from.bearing_to(to));
     int R = 6371000.0f; //radius of the world in meters
     return asin(sin(d13/R)*sin(brng13-brng12)) * R;
 }
@@ -72,7 +72,7 @@ float Coordinate::cross_track_distance(Coordinate from, Coordinate to)
 Coordinate Coordinate::destination_from_distance_bearing(float d, float bearing)
 {
     float R = 6371000.0f; //radius of the world in meters
-    float brng = bearing * DEG_TO_RAD;
+    float brng = degrees_to_radians(bearing);
     Coordinate dest;
     dest.lat = asin(sin(lat)*cos(d/R) +
                     cos(lat)*sin(d/R)*cos(brng));
@@ -89,21 +89,21 @@ lon2: =lon1 + ATAN2(COS(d/R)-SIN(lat1)*SIN(lat2), SIN(brng)*SIN(d/R)*COS(lat1))
 
 Waypoint::Waypoint(float la, float ln)
 {
-    lat = la*DEG_TO_RAD;
-    lng = ln*DEG_TO_RAD;
+    lat = degrees_to_radians(la);
+    lng = degrees_to_radians(ln);
 }
 
 Waypoint::Waypoint(float la, float ln, float a)
 {
-    lat = la*DEG_TO_RAD;
-    lng = ln*DEG_TO_RAD;
+    lat = degrees_to_radians(la);
+    lng = degrees_to_radians(ln);
     alt = a;
 }
 
 Waypoint::Waypoint(etk::Vector<3> pos)
 {
-    lat = pos.x()*DEG_TO_RAD;
-    lng = pos.y()*DEG_TO_RAD;
+    lat = degrees_to_radians(pos.x());
+    lng = degrees_to_radians(pos.y());
     alt = pos.z();
 }
 

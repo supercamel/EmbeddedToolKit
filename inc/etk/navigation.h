@@ -91,8 +91,8 @@ public:
     operator Vector<2>()
     {
         Vector<2> ret;
-        ret.x() = lat*RAD_TO_DEG;
-        ret.y() = lng*RAD_TO_DEG;
+        ret.x() = radians_to_degrees(lat);
+        ret.y() = radians_to_degrees(lng);
         return ret;
     }
 
@@ -100,28 +100,28 @@ public:
 	 * \brief Returns latitude.
 	 */
     float get_lat() {
-        return lat*RAD_TO_DEG;
+        return radians_to_degrees(lat);
     }
 
     /**
      * \brief Sets latitude
      */
     void set_lat(float l) {
-        lat = l*DEG_TO_RAD;
+        lat = degrees_to_radians(l);
     }
 
     /**
      * \brief Returns longitude
      */
     float get_lng() {
-        return lng*RAD_TO_DEG;
+        return radians_to_degrees(lng);
     }
 
     /**
      * \brief Sets longitude.
      */
     void set_lng(float l) {
-        lng = l*DEG_TO_RAD;
+        lng = degrees_to_radians(l);
     }
 
 protected:
@@ -145,8 +145,8 @@ public:
     operator Vector<3>()
     {
         Vector<3> ret;
-        ret.x() = lat*RAD_TO_DEG;
-        ret.y() = lng*RAD_TO_DEG;
+        ret.x() = radians_to_degrees(lat);
+        ret.y() = radians_to_degrees(lng);
         ret.z() = alt;
         return ret;
     }

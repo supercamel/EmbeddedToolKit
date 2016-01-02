@@ -122,9 +122,16 @@ public:
 	/**
 	 * \brief Copies another string to this.
 	 */
-    StaticString& operator = (StaticString s)
+    StaticString& operator = (StaticString& s)
     {
         for(uint32_t i = 0; i < L; i++)
+            list.raw_memory()[i] = s.c_str()[i];
+        return *this;
+    }
+
+    template <uint32_t nn> StaticString& operator = (StaticString<nn>& s)
+    {
+        for(uint32_t i = 0; i < min(L,nn); i++)
             list.raw_memory()[i] = s.c_str()[i];
         return *this;
     }

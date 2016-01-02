@@ -1,0 +1,57 @@
+<Units>
+
+	<measurement si_base="meters">
+		<conv unit="thou" gain="39370.1"/>
+		<conv unit="inches" gain="39.3701"/>
+		<conv unit="feet" gain="3.28084"/>
+		<conv unit="yards" gain="1.09361"/>
+		<conv unit="miles" gain="0.000621371"/>
+		<conv unit="naut_miles" gain="0.000539957"/>
+		<conv unit="centimeters" gain="100"/>
+		<conv unit="millimeters" gain="1000"/>
+		<conv unit="kilometers" gain="0.001"/>
+	</measurement>
+	
+	<measurement si_base="meters_per_second">
+		<conv unit="feet_per_second" gain="3.28084"/>
+		<conv unit="yards_per_second" gain="1.09361"/>
+		<conv unit="kilometers_per_hour" gain="3.6"/>
+		<conv unit="miles_per_hour" gain="2.23694"/>
+		<conv unit="knots" gain="1.94384"/>
+	</measurement>
+	
+	<measurement si_base="meters_per_second_per_second">
+		<conv unit="mpss" gain="1.0"/>
+		<conv unit="g" gain="0.101971621"/>
+		<conv unit="feet_per_second_per_second" gain="3.2808399"/>
+		<conv unit="fpss" gain="3.2808399"/>
+	</measurement>
+	
+	<measurement si_base="kilograms">
+		<conv unit="pounds" gain="2.20462"/>
+		<conv unit="ounces" gain="35.274"/>
+		<conv unit="grams" gain="1000.0"/>
+		<conv unit="tons" gain="0.00110231"/>
+		<conv unit="tonnes" gain="0.001"/>
+		<conv unit="stone" gain="0.157473"/>
+	</measurement>
+	
+	<measurement si_base="pascals">
+		<conv unit="millibar" gain="0.01"/>
+		<conv unit="bar" gain="1e-5"/>
+		<conv unit="inhg" gain="0.0002953"/>
+		<conv unit="inh2o" gain="0.00401865"/>
+		<conv unit="meters_of_sea_water" gain="1000"/>
+	</measurement>
+	
+	<measurement si_base="kelvin">
+		<conv unit="celsius" bias="-273.15"/>
+	</measurement>
+	
+	<measurement si_base="radians">
+		<conv unit="degrees" gain="57.2958"/>
+		<conv unit="minutes" gain="3437.75"/>
+	</measurement>
+	
+</Units>
+

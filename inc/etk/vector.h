@@ -96,7 +96,7 @@ public:
         return 1;
     }
 
-    //returns angle between x and y dimensions
+    //returns angle from the origin (0,0) to the vector (x,y) in radians
     float theta()
     {
         return atan2f(y(),x());
