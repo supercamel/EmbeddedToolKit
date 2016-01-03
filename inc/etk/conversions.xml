@@ -49,8 +49,8 @@
 	</measurement>
 	
 	<measurement si_base="radians">
-		<conv unit="degrees" gain="57.2958"/>
-		<conv unit="minutes" gain="3437.75"/>
+		<conv unit="degrees" gain="57.295779513"/>
+		<conv unit="minutes" gain="3437.746770785"/>
 	</measurement>
 	
 </Units>

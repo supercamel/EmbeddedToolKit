@@ -58,9 +58,9 @@ def main():
 					
 					text += "inline float " + conversion_text + "(float in) { return in"
 					if(gain != 1.0):
-						text += "*" + str(gain)
+						text += "*" + str(gain) + "f"
 					if(bias != 0.0):
-						text +=  "+" + str(bias)
+						text +=  "+" + str(bias) + "f"
 					text += "; }\n"
 				text += "\n"
 			text += "\n"

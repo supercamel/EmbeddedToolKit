@@ -40,6 +40,7 @@ bool navigation_test(std::string& subtest)
 
 	subtest = "Bearing to";
 	coord = Coordinate(35.0f, 53.0f);
+
 	if(!compare<float>(coord.bearing_to(Coordinate(35, 54)), 89.7132f, 0.00001f))
 		return false;
 

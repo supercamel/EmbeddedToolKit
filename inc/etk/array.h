@@ -125,6 +125,11 @@ public:
             i = t;
     }
 
+    T* buffer()
+    {
+        return buf;
+    }
+
 private:
     T buf[L];
 };

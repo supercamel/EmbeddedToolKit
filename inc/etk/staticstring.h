@@ -24,12 +24,11 @@
  * The static string class uses non-dynamic memory.
  *
  * It's essentially a rope, but it doesn't need to be provided with a
- * pre-existing buffer.
+ * pre-existing buf.
  *
 */
 
 #include <stdint.h>
-#include <etk/list.h>
 #include <etk/rope.h>
 #include <etk/vector.h>
 
@@ -40,7 +39,7 @@ namespace etk
 /**
  * \class StaticString
  *
- * \brief StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns.
+ * \brief StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buf overruns.
  * StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways.
  *
  * @code
@@ -97,7 +96,7 @@ public:
     StaticString(const char* c)
     {
         clear();
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.append(c);
     }
 
@@ -107,7 +106,7 @@ public:
     StaticString(Rope r)
     {
         clear();
-        r.copy(list.raw_memory());
+        r.copy(buf);
     }
 
 	/**
@@ -115,7 +114,7 @@ public:
 	 */
     StaticString& operator = (Rope r)
     {
-        r.copy(list.raw_memory(), L);
+        r.copy(buf, L);
         return *this;
     }
 
@@ -125,14 +124,14 @@ public:
     StaticString& operator = (StaticString& s)
     {
         for(uint32_t i = 0; i < L; i++)
-            list.raw_memory()[i] = s.c_str()[i];
+            buf[i] = s.c_str()[i];
         return *this;
     }
 
     template <uint32_t nn> StaticString& operator = (StaticString<nn>& s)
     {
         for(uint32_t i = 0; i < min(L,nn); i++)
-            list.raw_memory()[i] = s.c_str()[i];
+            buf[i] = s.c_str()[i];
         return *this;
     }
 
@@ -143,9 +142,9 @@ public:
     {
         uint32_t l = Rope::c_strlen(c, L-1);
         uint32_t i = 0;
-        for(i = 0; i < l; i++)
-            list.raw_memory()[i] = c[i];
-        list.raw_memory()[i] = '\0';
+        for(; i < l; i++)
+            buf[i] = c[i];
+        buf[i] = '\0';
         return *this;
     }
 
@@ -155,9 +154,9 @@ public:
     StaticString& operator=(char* c)
     {
         uint32_t i = 0;
-        for(i = 0; i < Rope::c_strlen(c, L); i++)
-            list.raw_memory()[i] = c[i];
-        list.raw_memory()[i] = '\0';
+        for(; i < Rope::c_strlen(c, L); i++)
+            buf[i] = c[i];
+        buf[i] = '\0';
         return *this;
     }
 
@@ -169,8 +168,8 @@ public:
 
     template<typename T> StaticString& operator=(T i)
     {
-        list[0] = '\0';
-        Rope r(list.raw_memory(), L);
+        buf[0] = '\0';
+        Rope r(buf, L);
         r << i;
         return *this;
     }
@@ -180,7 +179,7 @@ public:
 	 */
     StaticString& operator + (Rope& s)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r = r + s;
         return *this;
@@ -191,7 +190,7 @@ public:
 	 */
     template <uint32_t N> StaticString& operator += (StaticString<N> & s)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r += s.c_str();
         return *this;
@@ -202,7 +201,7 @@ public:
 	 */
     template <uint32_t N> StaticString& operator += (Vector<N>& v)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         for(uint32_t i = 0; i < N-1; i++)
         {
@@ -214,7 +213,7 @@ public:
 
     StaticString& operator += (Rope& s)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r += s;
         return *this;
@@ -270,7 +269,7 @@ public:
 
     StaticString& operator + (char* s)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r += s;
         return *this;
@@ -278,7 +277,7 @@ public:
 
     StaticString& operator += (char c)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r << c;
         return *this;
@@ -286,7 +285,7 @@ public:
 
     StaticString& operator += (char* s)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r += s;
         return *this;
@@ -294,7 +293,7 @@ public:
 
     StaticString& operator + (const char* s)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r += s;
         return *this;
@@ -302,7 +301,7 @@ public:
 
     StaticString& operator += (const char* s)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.set_cursor(r.length());
         r += s;
         return *this;
@@ -311,11 +310,11 @@ public:
 	/**
 	 * \brief This operator overload allows you to access and modify individual characters in the string.
 	 */
-    char& operator [](uint16_t p)
+    char& operator [](uint32_t p)
     {
         if(p >= L)
-            return list.raw_memory()[L-1];
-        return list.raw_memory()[p];
+            return buf[L-1];
+        return buf[p];
     }
 
 	/**
@@ -326,7 +325,7 @@ public:
         uint32_t len = etk::min<uint32_t>(L, Rope::c_strlen(c, L));
         for(uint32_t i = 0; i < len; i++)
         {
-            if(c[i] != list[i])
+            if(c[i] != buf[i])
                 return false;
         }
         return true;
@@ -337,8 +336,8 @@ public:
 	 */
     template <uint32_t N> bool compare(StaticString<N>& s, uint32_t max_len)
     {
-        Rope rope(list.raw_memory(), L);
-        return rope.compare(s.list.raw_memory(), min(max_len, L));
+        Rope rope(buf, L);
+        return rope.compare(s.buf, min(max_len, L));
     }
 
 	/**
@@ -346,20 +345,20 @@ public:
 	 */
     bool compare(const char* s, uint32_t max_len)
     {
-        Rope rope(list.raw_memory(), L);
+        Rope rope(buf, L);
         return rope.compare(s, min(max_len, L));
     }
 
     template <uint32_t N> bool compare(StaticString<N>& s)
     {
         uint32_t l = min<uint32_t>(Rope::c_strlen(s.c_str(), N), length());
-        Rope rope(list.raw_memory(), L);
-        return rope.compare(s.list.raw_memory(), l);
+        Rope rope(buf, L);
+        return rope.compare(s.buf, l);
     }
 
     bool compare(const char* s)
     {
-        Rope rope(list.raw_memory(), L);
+        Rope rope(buf, L);
         return rope.compare(s, min<uint32_t>(Rope::c_strlen(s, L), L));
     }
 
@@ -373,7 +372,7 @@ public:
 	 */
     float atof(uint16_t p=0)
     {
-        Rope rope(list.raw_memory(), L);
+        Rope rope(buf, L);
         return rope.atof(p);
     }
 
@@ -387,7 +386,7 @@ public:
 	 */
     int atoi(uint16_t p=0)
     {
-        Rope rope(list.raw_memory(), L);
+        Rope rope(buf, L);
         return rope.atoi(p);
     }
 
@@ -396,7 +395,7 @@ public:
 	 */
     uint32_t length()
     {
-        Rope rope(list.raw_memory(), L);
+        Rope rope(buf, L);
         return rope.length();
     }
 
@@ -405,13 +404,13 @@ public:
 	 */
     void clear()
     {
-        Rope rope(list.raw_memory(), L);
+        Rope rope(buf, L);
         rope.clear();
     }
 
     bool operator == (Rope r)
     {
-        Rope r1(list.raw_memory(), L);
+        Rope r1(buf, L);
         return (r1 == r);
     }
 
@@ -422,13 +421,13 @@ public:
 
     bool operator != (Rope r)
     {
-        Rope r1(list.raw_memory(), L);
+        Rope r1(buf, L);
         return (r1 != r);
     }
 
     Rope get_rope()
     {
-    	Rope rope(list.raw_memory(), L);
+    	Rope rope(buf, L);
         return rope;
     }
 
@@ -437,8 +436,12 @@ public:
 	 */
     void insert(char c, uint32_t pos)
     {
-        list.set_list_end(Rope::c_strlen(list.raw_memory(), L));
-        list.insert(c, pos);
+        if(pos < L-1)
+        {
+            for(uint32_t i = length(); i != pos; i--)
+                buf[i] = buf[i-1];
+            buf[pos] = c;
+        }
     }
 
 	/**
@@ -446,8 +449,11 @@ public:
 	 */
     void remove(uint32_t pos)
     {
-        list.set_list_end(Rope::c_strlen(list.raw_memory(), L));
-        list.remove(pos, '\0');
+        if(pos < L)
+        {
+            for(uint32_t i = pos; i < L-1; i++)
+                buf[i] = buf[i+1];
+        }
     }
 
 	/**
@@ -455,14 +461,20 @@ public:
 	 */
     void erase(uint32_t pos, uint32_t len)
     {
-        list.set_list_end(Rope::c_strlen(list.raw_memory(), L));
-        list.erase(pos, len, '\0');
+        if((pos+len) < L)
+        {
+            for(uint32_t i = pos; i < L-1; i++)
+                buf[i] = buf[min(L-1, i+len)];
+        }
     }
 
     void fill(char c, uint32_t pos, uint32_t len)
     {
-        list.set_list_end(Rope::c_strlen(list.raw_memory(), L));
-        list.fill(pos, pos+len, c);
+        if((pos+len) < L)
+        {
+            for(uint32_t i = pos; i < (pos+len); i++)
+                buf[i] = c;
+        }
     }
 
 
@@ -471,8 +483,8 @@ public:
 	 */
     void to_upper()
     {
-        for(uint32_t i = 0; i < Rope::c_strlen(list.raw_memory(), L); i++)
-            list.raw_memory()[i] = etk::to_upper(list.raw_memory()[i]);
+        for(uint32_t i = 0; i < Rope::c_strlen(buf, L); i++)
+            buf[i] = etk::to_upper(buf[i]);
     }
 
 	/**
@@ -480,8 +492,8 @@ public:
 	 */
     void to_lower()
     {
-        for(uint32_t i = 0; i < Rope::c_strlen(list.raw_memory(), L); i++)
-            list.raw_memory()[i] = etk::to_lower(list.raw_memory()[i]);
+        for(uint32_t i = 0; i < Rope::c_strlen(buf, L); i++)
+            buf[i] = etk::to_lower(buf[i]);
     }
 
     template<uint32_t nn> operator StaticString<nn>()
@@ -492,11 +504,11 @@ public:
     }
 
 	/**
-	 * \brief Returns a pointer to the C-string buffer.
+	 * \brief Returns a pointer to the C-string buf.
 	 */
     const char* c_str()
     {
-        return list.buffer();
+        return buf;
     }
 
 	/**
@@ -504,7 +516,7 @@ public:
 	 */
     char* raw_memory()
     {
-        return list.raw_memory();
+        return buf;
     }
 
 	/**
@@ -512,7 +524,7 @@ public:
 	 */
     void sub_string(char* buf, uint32_t start, uint32_t len)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.sub_string(buf, start, len);
     }
 
@@ -521,7 +533,7 @@ public:
 	 */
     void sub_string(Rope& rope, uint32_t start, uint32_t len)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.sub_string(rope, start, len);
     }
 
@@ -530,12 +542,12 @@ public:
 	 */
     template <uint32_t N> void sub_string(StaticString<N>& string, uint32_t start, uint32_t len)
     {
-        Rope r(list.raw_memory(), L);
+        Rope r(buf, L);
         r.sub_string(string.raw_memory(), start, len);
     }
 
 private:
-    List<char, L> list;
+    char buf[L];
 };
 
 

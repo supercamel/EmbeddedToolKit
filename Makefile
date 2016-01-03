@@ -9,7 +9,7 @@ EXECUTABLE=bin/main
 
 all: inc/etk/version.h $(SOURCES) $(EXECUTABLE)
 	
-$(EXECUTABLE): $(HEADERS) $(OBJECTS) $(TEST_OBJECTS)
+$(EXECUTABLE): $(OBJECTS) $(TEST_OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) $(TEST_OBJECTS) -o $@
 	#./bin/main
 	ar rcs libetk.a $(OBJECTS) 
@@ -17,7 +17,7 @@ $(EXECUTABLE): $(HEADERS) $(OBJECTS) $(TEST_OBJECTS)
 .obj/%.o:src/%.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
-.obj/tests/%.o:tests/%.cpp $(HEADERS) 
+.obj/tests/%.o:tests/%.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 inc/etk/version.h:

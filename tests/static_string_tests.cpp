@@ -147,6 +147,8 @@ bool static_string_test(std::string& subtest)
     cstok.next(tbuf, 20);
     cstok.next(tbuf, 20);
 
+    subtest = "Remove and insert";
+
     StaticString<100> ss = "Hello world";
     ss.remove(0);
     ss.insert('Y', 0);
@@ -154,6 +156,7 @@ bool static_string_test(std::string& subtest)
     if(ss != "Yellow world")
         return false;
 
+    subtest = "fill";
     ss = "Giggle";
     ss.fill('0', 1, 2);
     if(ss != "G00gle")
