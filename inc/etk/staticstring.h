@@ -499,7 +499,7 @@ public:
     template<uint32_t nn> operator StaticString<nn>()
     {
         StaticString<nn> ss;
-        ss = *this;
+        ss = this->c_str();
         return ss;
     }
 
