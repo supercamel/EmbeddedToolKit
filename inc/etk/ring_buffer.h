@@ -19,7 +19,7 @@
 #ifndef RING_BUF_H
 #define RING_BUF_H
 
-#include <stdint.h>
+#include "types.h"
 
 namespace etk
 {
@@ -46,7 +46,7 @@ namespace etk
          Usart.put(ringbuf.get());
  }
  @endcode
- * @tparam T type of object that is being buffered. For a UART this would typically be a char or uint8_t.
+ * @tparam T type of object that is being buffered. For a UART this would typically be a char or uint8.
  * @tparam overwrite If overriden to true, the ring buffer will write over data when it becomes full.
  */
 
@@ -59,7 +59,7 @@ public:
 	 * @arg buffer Pointer to a writeable memory location.
 	 * @arg sz Maximum number of items that can be stored before the buffer is full.
 	 */
-    RingBuffer(T* buffer, uint16_t sz)
+    RingBuffer(T* buffer, uint16 sz)
     {
         size = sz;
         start = 0;
@@ -78,9 +78,9 @@ public:
 	/**
 	 * \brief Returns the number of items queued up in the RingBuffer.
 	 */
-    uint16_t available()
+    uint16 available()
     {
-        return (uint16_t)(size + end - start) % size;
+        return (uint16)(size + end - start) % size;
     }
 
 	/**
@@ -118,9 +118,9 @@ public:
 	/**
 	 * \brief Returns the next item from the buffer without actually removing it.
 	 */
-    T peek_ahead(uint16_t n=0)
+    T peek_ahead(uint16 n=0)
     {
-        uint16_t pos = (start+n) % size;
+        uint16 pos = (start+n) % size;
         return buf[pos];
     }
 
@@ -134,9 +134,9 @@ public:
     }
 
 private:
-    uint16_t size;
-    uint16_t start;
-    uint16_t end;
+    uint16 size;
+    uint16 start;
+    uint16 end;
     T* buf;
 };
 

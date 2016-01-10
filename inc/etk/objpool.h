@@ -1,13 +1,12 @@
 #ifndef ETK_OBJECT_POOL_H
 #define ETK_OBJECT_POOL_H
 
-#include <stdint.h>
+#include "types.h"
 #include <etk/array.h>
 
-
-#include <iostream>
-using namespace std;
-
+/*
+ * This code is still very much under development.
+ */
 
 namespace etk
 {
@@ -99,7 +98,7 @@ private:
 };
 
 
-template <typename T, uint32_t N> class ObjPool
+template <typename T, uint32 N> class ObjPool
 {
 public:
     ObjPool()
@@ -207,8 +206,8 @@ private:
     class tbl
     {
     public:
-        uint32_t references = 0;
-        uint8_t data[sizeof(T)];
+        uint32 references = 0;
+        uint8 data[sizeof(T)];
     };
 
     Array<tbl, N> pool;

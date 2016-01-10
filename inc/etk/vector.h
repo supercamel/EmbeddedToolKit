@@ -19,7 +19,7 @@
 #ifndef IMUMATH_VECTOR_HPP
 #define IMUMATH_VECTOR_HPP
 
-#include <stdint.h>
+#include "types.h"
 #include <math.h>
 #include "math_util.h"
 
@@ -27,36 +27,36 @@
 namespace etk
 {
 
-template <uint32_t N> class Vector
+template <uint32 N> class Vector
 {
 public:
     Vector()
     {
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
             p_vec[i] = 0.0f;
     }
 
-    Vector(float a)
+    Vector(real_t a)
     {
         p_vec[0] = a;
     }
 
-    Vector(float a, float b)
+    Vector(real_t a, real_t b)
     {
         p_vec[0] = a;
         p_vec[1] = b;
     }
 
-    Vector(float a, float b, float c)
+    Vector(real_t a, real_t b, real_t c)
     {
         p_vec[0] = a;
         p_vec[1] = b;
         p_vec[2] = c;
     }
 
-    Vector(float a, float b, float c, float d)
+    Vector(real_t a, real_t b, real_t c, real_t d)
     {
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
             p_vec[i] = 0.0f;
 
         p_vec[0] = a;
@@ -67,27 +67,27 @@ public:
 
     Vector(const Vector<N> &v)
     {
-        for (uint32_t x = 0; x < N; x++ )
+        for (uint32 x = 0; x < N; x++ )
             p_vec[x] = v.p_vec[x];
     }
 
 
-    uint32_t n() {
+    uint32 n() {
         return N;
     }
 
     //make a vector from magnitude and direction
-    void from_polar(float mag, float dir)
+    void from_polar(real_t mag, real_t dir)
     {
         x() = mag*cosf(dir);
         y() = mag*sinf(dir);
     }
 
     //returns length of vector
-    float magnitude()
+    real_t magnitude()
     {
-        float res = 0;
-        uint32_t i;
+        real_t res = 0;
+        uint32 i;
         for(i = 0; i < N; i++)
             res += (p_vec[i] * p_vec[i]);
 
@@ -97,7 +97,7 @@ public:
     }
 
     //returns angle from the origin (0,0) to the vector (x,y) in radians
-    float theta()
+    real_t theta()
     {
         return atan2f(y(),x());
     }
@@ -105,11 +105,11 @@ public:
     //sets magnitude to 1.0
     void normalize()
     {
-        float mag = magnitude();
-        if(etk::compare<float>(mag, 0.0f, 0.00001f))
+        real_t mag = magnitude();
+        if(etk::compare<real_t>(mag, 0.0f, 0.00001f))
             return;
 
-        uint32_t i;
+        uint32 i;
         for(i = 0; i < N; i++)
             p_vec[i] = p_vec[i]/mag;
     }
@@ -123,10 +123,10 @@ public:
     }
 
     //returns the dot product of two vectors
-    float dot(Vector v)
+    real_t dot(Vector v)
     {
-        float ret = 0;
-        uint32_t i;
+        real_t ret = 0;
+        uint32 i;
         for(i = 0; i < N; i++)
             ret += p_vec[i] * v.p_vec[i];
 
@@ -150,10 +150,10 @@ public:
     }
 
     //scales a vector. this changes the magnitude only
-    Vector scale(float scalar)
+    Vector scale(real_t scalar)
     {
         Vector ret;
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
             ret.p_vec[i] = p_vec[i] * scalar;
         return ret;
     }
@@ -162,47 +162,47 @@ public:
     Vector invert()
     {
         Vector ret;
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
             ret.p_vec[i] = -p_vec[i];
         return ret;
     }
 
-    template <uint32_t nn> Vector<nn> sub_vector(uint32_t n)
+    template <uint32 nn> Vector<nn> sub_vector(uint32 n)
     {
         Vector<nn> ret;
-        for(uint32_t i = 0; i < nn; i++)
+        for(uint32 i = 0; i < nn; i++)
             ret[i] = (*this)[i+n];
         return ret;
     }
 
-    template <uint32_t nn> void set_sub_vector(Vector<nn> v, uint32_t n)
+    template <uint32 nn> void set_sub_vector(Vector<nn> v, uint32 n)
     {
-        for(uint32_t i = 0; i < nn; i++)
+        for(uint32 i = 0; i < nn; i++)
             p_vec[i+n] = v[i];
     }
 
     Vector operator = (Vector v)
     {
-        for (uint32_t x = 0; x < N; x++ )
+        for (uint32 x = 0; x < N; x++ )
             p_vec[x] = v.p_vec[x];
         return *this;
     }
 
     bool operator == (Vector v)
     {
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
         {
-            if(!etk::compare<float>(p_vec[i], v.p_vec[i], 0.00001f))
+            if(!etk::compare<real_t>(p_vec[i], v.p_vec[i], 0.00001f))
                 return false;
         }
         return true;
     }
 
-    bool compare(Vector& v, float precision = 0.00000f)
+    bool compare(Vector& v, real_t precision = 0.00000f)
     {
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
         {
-            if(!etk::compare<float>(p_vec[i], v.p_vec[i], precision))
+            if(!etk::compare<real_t>(p_vec[i], v.p_vec[i], precision))
                 return false;
         }
         return true;
@@ -214,19 +214,19 @@ public:
         return *this;
     }
 
-    uint32_t set(uint32_t v, float value)
+    uint32 set(uint32 v, real_t value)
     {
         (*this)[v] = value;
         return v;
     }
 
-    void set(float a)
+    void set(real_t a)
     {
         (*this)[set_flag] = a;
         set_flag = 0;
     }
 
-    template<typename... Args> void set(float a, Args... args)
+    template<typename... Args> void set(real_t a, Args... args)
     {
         (*this)[set_flag++] = a;
         set(args...);
@@ -237,17 +237,17 @@ public:
         return !(operator == (v));
     }
 
-    float& operator [](uint32_t n)
+    real_t& operator [](uint32 n)
     {
         return p_vec[n];
     }
 
-    float operator [](uint32_t n) const
+    real_t operator [](uint32 n) const
     {
         return p_vec[n];
     }
 
-    float& operator ()(uint32_t n)
+    real_t& operator ()(uint32 n)
     {
         return p_vec[n];
     }
@@ -255,7 +255,7 @@ public:
     Vector operator + (Vector v)
     {
         Vector ret;
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
             ret.p_vec[i] = p_vec[i] + v.p_vec[i];
         return ret;
     }
@@ -263,20 +263,20 @@ public:
     Vector operator - (Vector v)
     {
         Vector ret;
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
             ret.p_vec[i] = p_vec[i] - v.p_vec[i];
         return ret;
     }
 
-    Vector operator * (float scalar)
+    Vector operator * (real_t scalar)
     {
         return scale(scalar);
     }
 
-    Vector operator / (float scalar)
+    Vector operator / (real_t scalar)
     {
         Vector ret;
-        for(uint32_t i = 0; i < N; i++)
+        for(uint32 i = 0; i < N; i++)
             ret.p_vec[i] = p_vec[i] / scalar;
         return ret;
     }
@@ -289,38 +289,38 @@ public:
 
     void toDegrees()
     {
-        const float radians_to_degrees = 57.2957795131f;
-        for(uint32_t i = 0; i < N; i++)
+        const real_t radians_to_degrees = 57.2957795131f;
+        for(uint32 i = 0; i < N; i++)
             p_vec[i] *= radians_to_degrees; //180/pi
     }
 
     void toRadians()
     {
-        const float degrees_to_radians = 0.01745329251f; //pi/180
-        for(uint32_t i = 0; i < N; i++)
+        const real_t degrees_to_radians = 0.01745329251f; //pi/180
+        for(uint32 i = 0; i < N; i++)
             p_vec[i] *= degrees_to_radians;  //pi/180
     }
 
-    float& x() {
+    real_t& x() {
         return p_vec[0];
     }
-    float& y() {
+    real_t& y() {
         return p_vec[1];
     }
-    float& z() {
+    real_t& z() {
         return p_vec[2];
     }
 
-    float squaredNorm()
+    real_t squaredNorm()
     {
         return dot(*this);
     }
 
 
 private:
-    float p_vec[N];
+    real_t p_vec[N];
 
-    uint32_t set_flag = 0;
+    uint32 set_flag = 0;
 };
 
 

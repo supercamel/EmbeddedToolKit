@@ -27,7 +27,7 @@
 namespace etk
 {
 
-Coordinate::Coordinate(float la, float ln)
+Coordinate::Coordinate(real_t la, real_t ln)
 {
     lat = degrees_to_radians(la);
     lng = degrees_to_radians(ln);
@@ -45,23 +45,23 @@ Coordinate::Coordinate(etk::Vector<3> v)
     lng = degrees_to_radians(v.y());
 }
 
-float Coordinate::bearing_to(Coordinate to)
+real_t Coordinate::bearing_to(Coordinate to)
 {
-    float dLon = to.lng - lng;
-    float y = sin(dLon) * cos(to.lat);
-    float x = cos(lat)*sin(to.lat) -
+    real_t dLon = to.lng - lng;
+    real_t y = sin(dLon) * cos(to.lat);
+    real_t x = cos(lat)*sin(to.lat) -
               sin(lat)*cos(to.lat)*cos(dLon);
     return radians_to_degrees(atan2(y, x));
 }
 
-float Coordinate::distance_to(Coordinate b)
+real_t Coordinate::distance_to(Coordinate b)
 {
     return acos(sin(lat)*sin(b.lat) + cos(lat)*cos(b.lat)*cos(b.lng-lng)) * 6371000.0f;
 }
 
-float Coordinate::cross_track_distance(Coordinate from, Coordinate to)
+real_t Coordinate::cross_track_distance(Coordinate from, Coordinate to)
 {
-    float d13, brng13, brng12;
+    real_t d13, brng13, brng12;
     d13 = from.distance_to(*this);
     brng13 = degrees_to_radians(from.bearing_to(*this));
     brng12 = degrees_to_radians(from.bearing_to(to));
@@ -69,10 +69,10 @@ float Coordinate::cross_track_distance(Coordinate from, Coordinate to)
     return asin(sin(d13/R)*sin(brng13-brng12)) * R;
 }
 
-Coordinate Coordinate::destination_from_distance_bearing(float d, float bearing)
+Coordinate Coordinate::destination_from_distance_bearing(real_t d, real_t bearing)
 {
-    float R = 6371000.0f; //radius of the world in meters
-    float brng = degrees_to_radians(bearing);
+    real_t R = 6371000.0f; //radius of the world in meters
+    real_t brng = degrees_to_radians(bearing);
     Coordinate dest;
     dest.lat = asin(sin(lat)*cos(d/R) +
                     cos(lat)*sin(d/R)*cos(brng));
@@ -87,13 +87,13 @@ lon2: =lon1 + ATAN2(COS(d/R)-SIN(lat1)*SIN(lat2), SIN(brng)*SIN(d/R)*COS(lat1))
 }
 
 
-Waypoint::Waypoint(float la, float ln)
+Waypoint::Waypoint(real_t la, real_t ln)
 {
     lat = degrees_to_radians(la);
     lng = degrees_to_radians(ln);
 }
 
-Waypoint::Waypoint(float la, float ln, float a)
+Waypoint::Waypoint(real_t la, real_t ln, real_t a)
 {
     lat = degrees_to_radians(la);
     lng = degrees_to_radians(ln);

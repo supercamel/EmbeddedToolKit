@@ -21,9 +21,9 @@ bool matrix_addition()
 
 	c = a + b;
 
-	for(uint32_t x = 0; x < 2; x++)
+	for(uint32 x = 0; x < 2; x++)
 	{
-		for(uint32_t y = 0; y < 3; y++)
+		for(uint32 y = 0; y < 3; y++)
 		{
 			if(c(x,y) != 10)
 				return false;
@@ -33,9 +33,9 @@ bool matrix_addition()
 	a.set(5,6,7,8,9,10);
 	b.set(5,6,7,8,9,10);
 	c = a-b;
-	for(uint32_t x = 0; x < 2; x++)
+	for(uint32 x = 0; x < 2; x++)
 	{
-		for(uint32_t y = 0; y < 3; y++)
+		for(uint32 y = 0; y < 3; y++)
 		{
 			if(c(x,y) != 0)
 				return false;
@@ -53,9 +53,9 @@ bool matrix_rows_and_columns()
 	MatrixXd b(2, 3);
 	b << 5,4,3,2,1,0;
 
-	for(uint32_t x = 0; x < 2; x++)
+	for(uint32 x = 0; x < 2; x++)
 	{
-		for(uint32_t y = 0; y < 3; y++)
+		for(uint32 y = 0; y < 3; y++)
 		{
 			if(a(x,y) != b(x,y))
 				return false;

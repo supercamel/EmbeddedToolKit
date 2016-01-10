@@ -19,13 +19,13 @@
 #ifndef ETK_ARRAY_H_INCLUDED
 #define ETK_ARRAY_H_INCLUDED
 
-#include <stdint.h>
+#include "types.h"
 #include "loop_range.h"
 
 namespace etk
 {
 
-template <typename T, uint32_t L> class Array
+template <typename T, uint32 L> class Array
 {
 public:
     Array()
@@ -83,7 +83,7 @@ public:
 
     private:
         Array* array;
-        int64_t pos;
+        int64 pos;
     };
 
 
@@ -107,14 +107,14 @@ public:
         return iter;
     }
 
-    T& operator[](uint32_t pos)
+    T& operator[](uint32 pos)
     {
         if(pos < L)
             return buf[pos];
         return buf[L-1];
     }
 
-    uint32_t size()
+    uint32 size()
     {
         return L;
     }

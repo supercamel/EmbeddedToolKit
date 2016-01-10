@@ -42,7 +42,6 @@ bool list_test(std::string& subtest)
 
 	subtest = "Insert";
 	list.insert(4, 0);
-	cout << list.raw_memory()[0] << endl;
 	if(list.raw_memory()[0] != 4)
 		return false;
 
@@ -53,9 +52,7 @@ bool list_test(std::string& subtest)
 	list.insert(0, 0);
 	list.insert(4, 0);
 
-    cout << list.size() << endl;
 	list.erase(2, 3);
-    cout << list.size() << endl;
 
 	etk::List<int, 5>::Iterator iter = list.begin();
 

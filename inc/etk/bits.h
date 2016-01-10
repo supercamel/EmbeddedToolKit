@@ -30,18 +30,18 @@ namespace etk
  * \brief Bits provides an easy way to set and read the bits of an integer individually.
  *
  * @code
-    etk::Bits<uint8_t> bits;
+    etk::Bits<uint8> bits;
     bits.set_bit(7);
     bits.set_bit(1);
 
-    uint8_t v = bits.get();
+    uint8 v = bits.get();
 
     auto str = bits.to_string();
 
     cout << "v == " << str.c_str() << endl;
     @endcode
  *
- * @tparam T An int type. For example, uint16_t which is 16 bits long.
+ * @tparam T An int type. For example, uint16 which is 16 bits long.
  */
 
 template <class T> class Bits
@@ -68,7 +68,7 @@ public:
 	 * @arg on True to set the bit to 1, false to set to 0.
 	 * @return This function returns false if n is greater than the size of T.
 	 */
-    bool set_bit(uint32_t n, bool on = true)
+    bool set_bit(uint32 n, bool on = true)
     {
         if(n < (sizeof(T)*8))
         {
@@ -87,7 +87,7 @@ public:
 	 * @arg n The bit to read.
 	 * @return true if bit is 1, false if 0
 	 */
-    bool read_bit(uint32_t n)
+    bool read_bit(uint32 n)
     {
         if(n < (sizeof(T)*8))
         {
@@ -105,7 +105,7 @@ public:
     auto to_string()
     {
         StaticString<sizeof(T)*8+1> string;
-        for(uint32_t i = 0; i < (sizeof(T)*8); i++)
+        for(uint32 i = 0; i < (sizeof(T)*8); i++)
         {
             if(read_bit(i))
                 string += "1";

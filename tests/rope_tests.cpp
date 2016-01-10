@@ -38,11 +38,12 @@ bool test_rope(std::string& subtest)
 
 	rope.clear();
 
-	subtest = "Appending float";
+	subtest = "Appending real_t";
 
-	for(float i = -10; i < 10; i += 0.01)
+	for(real_t i = -10; i < 10; i += 0.01)
 	{
-
+        if(fabs(i) < 0.005)
+            i = 0.0;
 		std::stringstream ss;
 		ss << setprecision(2) << fixed << i;
 
@@ -132,14 +133,13 @@ bool test_rope(std::string& subtest)
 	subtest = "atof";
 	rope.clear();
 	rope << 53.24;
-	cout << rope.atof() << endl;
-	if(!compare<float>(rope.atof(), 53.24f, 0.000001f))
+	if(!compare<real_t>(rope.atof(), 53.24f, 0.000001f))
 		return false;
 
 
     rope.clear();
     rope << "2710.000";
-    if(!compare<float>(rope.atof(), 2710.00, 0.0001f))
+    if(!compare<real_t>(rope.atof(), 2710.00, 0.0001f))
         return false;
 
 
@@ -157,14 +157,12 @@ bool test_rope(std::string& subtest)
 
 	rope.clear();
 	rope << 0.000000000003f;
-	if(!compare<float>(rope.atof(), 0.0f, 0.0001f))
+	if(!compare<real_t>(rope.atof(), 0.0f, 0.0001f))
 		return false;
 
 	subtest = "appending zero";
 	rope.clear();
-	cout << "appending zero" << endl;
 	rope << 0;
-	cout << "comparing zero" << endl;
 	if(!rope.compare("0"))
 		return false;
 

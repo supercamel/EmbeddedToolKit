@@ -58,7 +58,7 @@ public:
 	 * @arg f filter gain
 	 * @arg init_est initial estimate
 	 */
-    ExpoMovingAvg(float f, float init_est = 0)
+    ExpoMovingAvg(real_t f, real_t init_est = 0)
     {
         a = f;
         accumulator = init_est;
@@ -70,7 +70,7 @@ public:
 	 *
 	 * @arg factor The filter gain (0.0 - 1.0)
 	 */
-    void set_gain(float factor)
+    void set_gain(real_t factor)
     {
         a = factor;
     }
@@ -81,7 +81,7 @@ public:
      *
      * @arg measurement A raw measurement or sample to be filtered.
      */
-    void step(float measurement)
+    void step(real_t measurement)
     {
         accumulator = (a* measurement) + (1.0f - a) * accumulator;
     }
@@ -89,14 +89,14 @@ public:
 	/**
      * \brief Returns the current state of the filter.
      */
-    float get()
+    real_t get()
     {
         return accumulator;
     }
 
 private:
-    float accumulator;
-    float a;
+    real_t accumulator;
+    real_t a;
 };
 
 
@@ -123,7 +123,7 @@ public:
 	 * @arg f filter gain
 	 * @arg init_est initial estimate
 	 */
-    BrownLinearExpo(float f, float init_est)
+    BrownLinearExpo(real_t f, real_t init_est)
     {
         a = f;
         estimate = init_est;
@@ -137,7 +137,7 @@ public:
 	 *
 	 * @arg factor The filter gain (0.0 - 1.0)
 	 */
-    void set_gain(float factor)
+    void set_gain(real_t factor)
     {
         a = factor;
     }
@@ -148,27 +148,27 @@ public:
      *
      * @arg measurement A raw measurement or sample to be filtered.
      */
-    void step(float measurement)
+    void step(real_t measurement)
     {
         single_smoothed = a * measurement + (1 - a) * single_smoothed;
         double_smoothed = a * single_smoothed + (1 - a) * double_smoothed;
 
-        float est_a = (2*single_smoothed - double_smoothed);
-        float est_b = (a / (1-a) )*(single_smoothed - double_smoothed);
+        real_t est_a = (2*single_smoothed - double_smoothed);
+        real_t est_b = (a / (1-a) )*(single_smoothed - double_smoothed);
         estimate = est_a + est_b;
     }
 
     /**
      * \brief Returns the current state of the filter.
      */
-    float get()
+    real_t get()
     {
         return estimate;
     }
 
 private:
-    float estimate, double_smoothed, single_smoothed;
-    float a;
+    real_t estimate, double_smoothed, single_smoothed;
+    real_t a;
 };
 
 
@@ -180,7 +180,7 @@ private:
 class scalarLinearKalman
 {
 public:
-    scalarLinearKalman(float control_gain, float initial_state_estimate, float initial_covariance, float control_noise, float measurement_noise)
+    scalarLinearKalman(real_t control_gain, real_t initial_state_estimate, real_t initial_covariance, real_t control_noise, real_t measurement_noise)
     {
         B = control_gain;
         current_state_estimate = initial_state_estimate;
@@ -189,31 +189,31 @@ public:
         R = measurement_noise;
     }
 
-    float get_state()
+    real_t get_state()
     {
         return current_state_estimate;
     }
 
 
-    void step(float control_vector, float measurement_vector)
+    void step(real_t control_vector, real_t measurement_vector)
     {
         //prediction
-        float predicted_state_estimate = (current_state_estimate) + (B * control_vector);
-        float predicted_prob_estimate = current_prob_estimate + Q;
+        real_t predicted_state_estimate = (current_state_estimate) + (B * control_vector);
+        real_t predicted_prob_estimate = current_prob_estimate + Q;
 
         //observation
-        float innovation = measurement_vector - predicted_state_estimate;
-        float innovation_covariance = predicted_prob_estimate + R;
+        real_t innovation = measurement_vector - predicted_state_estimate;
+        real_t innovation_covariance = predicted_prob_estimate + R;
 
         //update
-        float kalman_gain = predicted_prob_estimate * innovation_covariance;
+        real_t kalman_gain = predicted_prob_estimate * innovation_covariance;
         current_state_estimate = predicted_state_estimate + kalman_gain * innovation;
         current_prob_estimate = (1 - kalman_gain) * predicted_prob_estimate;
     }
 
 private:
-    float B, current_state_estimate, current_prob_estimate;
-    float Q, R;
+    real_t B, current_state_estimate, current_prob_estimate;
+    real_t Q, R;
 };
 
 
@@ -230,7 +230,7 @@ public:
      * \brief The gain is set by the constructor. The gain must be between 0.0 and 1.0. The higher the gain, the higher the cutoff frequency.
      */
 
-    HighPassFilter(float gain) : emv(gain)
+    HighPassFilter(real_t gain) : emv(gain)
     {
         estimate = 0;
     }
@@ -241,7 +241,7 @@ public:
      *
      * @arg measurement A raw measurement or sample to be filtered.
      */
-    void step(float sample)
+    void step(real_t sample)
     {
         emv.step(sample);
 
@@ -251,14 +251,14 @@ public:
 	/**
      * \brief Returns the current state of the filter.
      */
-    float get()
+    real_t get()
     {
         return estimate;
     }
 
 private:
     ExpoMovingAvg emv;
-    float estimate;
+    real_t estimate;
 };
 
 
@@ -278,23 +278,23 @@ private:
 class RateLimiter
 {
 public:
-    RateLimiter(float max_step, float init_val)
+    RateLimiter(real_t max_step, real_t init_val)
     {
         ms = max_step;
         last_sample = init_val;
     }
 
-    float step(float sample)
+    real_t step(real_t sample)
     {
-        float delta = sample - last_sample;
+        real_t delta = sample - last_sample;
         delta = constrain(delta, -ms, ms);
         last_sample += delta;
         return last_sample;
     }
 
 private:
-    float ms;
-    float last_sample;
+    real_t ms;
+    real_t last_sample;
 };
 
 

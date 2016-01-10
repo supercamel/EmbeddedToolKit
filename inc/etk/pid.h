@@ -44,7 +44,7 @@ public:
 	 * @arg dt Time period since the last iteration.
 	 * @return Control output.
 	 */
-    float step(float error, float dt);
+    real_t step(real_t error, real_t dt);
 
     /**
 	 * \brief Perform an interation of the PID controller using a setpoint and measurement to calculate the error.
@@ -54,26 +54,26 @@ public:
 	 * @arg dt Time period since the last iteration.
 	 * @return Control output.
 	 */
-    float step(float setpoint, float measurement, float dt);
+    real_t step(real_t setpoint, real_t measurement, real_t dt);
 
     /**
      * \brief Sets the proportional gain of the controller.
      */
-	void set_kp(float kp) { Kp = kp; }
+	void set_kp(real_t kp) { Kp = kp; }
 
 	/**
 	 * \brief Sets the integral gain of the controller. This functional also scales the integral so that there is no large disturbance to the output.
 	 */
-	void set_ki(float ki);
+	void set_ki(real_t ki);
 
 	/**
 	 * \brief Sets the derivative gain.
 	 */
-	void set_kd(float kd) { Kd = kd; }
+	void set_kd(real_t kd) { Kd = kd; }
 
-	float get_kp() { return Kp; }
-	float get_ki() { return Ki; }
-	float get_kd() { return Kd; }
+	real_t get_kp() { return Kp; }
+	real_t get_ki() { return Ki; }
+	real_t get_kd() { return Kd; }
 
 	/**
 	 * \brief Sets the integral to zero.
@@ -83,31 +83,31 @@ public:
 	/**
 	 * \brief Sets a maximum size for the integral. This can help prevent integral wind up.
 	 */
-	void set_max_integral(float imax) { integral_constraint = imax; }
+	void set_max_integral(real_t imax) { integral_constraint = imax; }
 
 	/**
 	 * \brief Sets the derivative filter gain. The derivative filter is an ExpoMovingAvg filter.
 	 */
-	void set_derivative_filter_gain(float g) { der_filter.set_gain(g); }
+	void set_derivative_filter_gain(real_t g) { der_filter.set_gain(g); }
 
 	/**
 	 * \brief Returns the integral value.
 	 */
-    float get_integral() { return integral; }
+    real_t get_integral() { return integral; }
 
     /**
 	 * \brief Sets the integral value. USE WITH CAUTION. Suddenly changing the integral will suddenly change the output.
 	 */
-    void set_integral(float integ) { integral = integ; }
+    void set_integral(real_t integ) { integral = integ; }
 
 protected:
-    float integral;
-    float Kp, Ki, Kd;
-    float integral_constraint;
+    real_t integral;
+    real_t Kp, Ki, Kd;
+    real_t integral_constraint;
 
     ExpoMovingAvg der_filter;
 
-    float previous_error;
+    real_t previous_error;
 };
 
 /**
@@ -121,7 +121,7 @@ protected:
 class CircularPIDController : public PIDController
 {
 public:
-    float step(float setpoint, float measurement, float segments, float dt);
+    real_t step(real_t setpoint, real_t measurement, real_t segments, real_t dt);
 };
 
 };

@@ -22,9 +22,9 @@ namespace etk
 {
 
 static volatile Time _now;
-static uint32_t us_tick_rate = 1000;
+static uint32 us_tick_rate = 1000;
 
-void set_tick_rate(uint32_t us)
+void set_tick_rate(uint32 us)
 {
 	us_tick_rate = us;
 }
@@ -37,11 +37,11 @@ Time& Time::operator=(const Time& d) volatile
     return (Time&)*this;
 }
 
-float Time::diff_time(Time then)
+real_t Time::diff_time(Time then)
 {
-	float ret;
-	ret = (((float)mic - (float)then.micros())/1000000.0f);
-	ret += ((float)sec - (float)then.seconds());
+	real_t ret;
+	ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
+	ret += ((real_t)sec - (real_t)then.seconds());
 	return ret;
 }
 
@@ -82,19 +82,19 @@ void tick()
 	}
 }
 
-void __attribute__((weak)) sleep_ms(uint32_t ms)
+void __attribute__((weak)) sleep_ms(uint32 ms)
 {
     Time start = now();
-	float sms = ms/1000.0f;
+	real_t sms = ms/1000.0f;
 
     while(now().diff_time(start) < sms)
     { }
 }
 
-void __attribute__((weak)) sleep_us(uint32_t us)
+void __attribute__((weak)) sleep_us(uint32 us)
 {
     Time start = now();
-	float sus = us/1000000.0f;
+	real_t sus = us/1000000.0f;
 
     while(now().diff_time(start) < sus)
     { }
@@ -109,10 +109,10 @@ Time __attribute__((weak)) now()
 void Time::to_rope(Rope& r)
 {
 	r.clear();
-    int32_t days = sec / 60 / 60 / 24;
-    int32_t hours = (sec / 60 / 60) % 24;
-    int32_t minutes = (sec / 60) % 60;
-    int32_t seconds = sec % 60;
+    int32 days = sec / 60 / 60 / 24;
+    int32 hours = (sec / 60 / 60) % 24;
+    int32 minutes = (sec / 60) % 60;
+    int32 seconds = sec % 60;
 	r << days << " days, " << hours << " hours, " << minutes << " mins, " << seconds << " seconds";
 }
 

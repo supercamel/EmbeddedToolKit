@@ -15,7 +15,7 @@ using namespace etk;
 bool vector_test(std::string& subtest)
 {
 	subtest = "circular constraint";
-	float vf = 450;
+	real_t vf = 450;
 	vf = constrain_circular(vf, 360.0f);
 	if(!compare(vf, 90.0f, 0.1f))
 		return false;
@@ -86,18 +86,18 @@ bool vector_test(std::string& subtest)
 
 	subtest = "normal";
 
-	for(uint32_t i = 0; i < 100000; i++)
+	for(uint32 i = 0; i < 100000; i++)
 	{
-		float x, y, z;
-		x = ((float)rand()/(float)(RAND_MAX)) * 10.0f;
-		y = ((float)rand()/(float)(RAND_MAX)) * 10.0f;
-		z = ((float)rand()/(float)(RAND_MAX)) * 10.0f;
+		real_t x, y, z;
+		x = ((real_t)rand()/(real_t)(RAND_MAX)) * 10.0f;
+		y = ((real_t)rand()/(real_t)(RAND_MAX)) * 10.0f;
+		z = ((real_t)rand()/(real_t)(RAND_MAX)) * 10.0f;
 		/*
 		MatrixXd em(3, 1);
 	 	em << x, y, z;
 		etk::Vector<3> vn(x, y, z);
 
-		if(!compare<float>(vn.squaredNorm(), em.squaredNorm(), 0.1f))
+		if(!compare<real_t>(vn.squaredNorm(), em.squaredNorm(), 0.1f))
 			return false;
 			*/
 	}

@@ -19,7 +19,7 @@
 #ifndef IMUMATH_QUATERNION_HPP
 #define IMUMATH_QUATERNION_HPP
 
-#include <stdint.h>
+#include "types.h"
 #include "vector.h"
 
 
@@ -36,7 +36,7 @@ public:
         _x = _y = _z = 0.0f;
     }
 
-    Quaternion(float iw, float ix, float iy, float iz)
+    Quaternion(real_t iw, real_t ix, real_t iy, real_t iz)
     {
         _w = iw;
         _x = ix;
@@ -44,7 +44,7 @@ public:
         _z = iz;
     }
 
-    Quaternion(float w, Vector<3> vec)
+    Quaternion(real_t w, Vector<3> vec)
     {
         _w = w;
         _x = vec.x();
@@ -72,32 +72,32 @@ public:
         _z = v.z();
     }
 
-    float& w()
+    real_t& w()
     {
         return _w;
     }
-    float& x()
+    real_t& x()
     {
         return _x;
     }
-    float& y()
+    real_t& y()
     {
         return _y;
     }
-    float& z()
+    real_t& z()
     {
         return _z;
     }
 
-    float magnitude()
+    real_t magnitude()
     {
-        float res = (_w*_w) + (_x*_x) + (_y*_y) + (_z*_z);
+        real_t res = (_w*_w) + (_x*_x) + (_y*_y) + (_z*_z);
         return sqrtf(res);
     }
 
     void normalize()
     {
-        float mag = magnitude();
+        real_t mag = magnitude();
         *this = this->scale(1/mag);
     }
 
@@ -125,24 +125,24 @@ public:
         *this = (h*p*r);
     }
 
-    void fromAxisAngle(Vector<3> axis, float theta)
+    void fromAxisAngle(Vector<3> axis, real_t theta)
     {
         _w = cosf(theta/2.0f);
         //only need to calculate sine of half theta once
-        float sht = sinf(theta/2.0f);
+        real_t sht = sinf(theta/2.0f);
         _x = axis.x() * sht;
         _y = axis.y() * sht;
         _z = axis.z() * sht;
     }
 
-    void toAxisAngle(Vector<3>& axis, float& angle)
+    void toAxisAngle(Vector<3>& axis, real_t& angle)
     {
         normalize();
-        float sqw = sqrtf(1.0-(_w*_w));
-        if(compare<float>(sqw, 0.0f, 0.00000001f)) //it's a singularity and divide by zero, avoid
+        real_t sqw = sqrtf(1.0-(_w*_w));
+        if(compare<real_t>(sqw, 0.0f, 0.00000001f)) //it's a singularity and divide by zero, avoid
             return;
 
-        angle = 2 * acosf(float(_w));
+        angle = 2 * acosf(real_t(_w));
         axis.x() = _x / sqw;
         axis.y() = _y / sqw;
         axis.z() = _z / sqw;
@@ -152,30 +152,30 @@ public:
     void fromMatrix(Matrix<3, 3> m)
     {
         /*
-        _w = sqrtf(max<float>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
-        _x = sqrtf(max<float>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
-        _y = sqrtf(max<float>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
-        _z = sqrtf(max<float>( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
+        _w = sqrtf(max<real_t>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
+        _x = sqrtf(max<real_t>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
+        _y = sqrtf(max<real_t>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
+        _z = sqrtf(max<real_t>( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
         _x = copysign_zero(_x, m(2,1) - m(1,2));
         _y = copysign_zero(_y, m(0,2) - m(2,0));
         _z = copysign_zero(_z, m(1,0) - m(0,1));
         */
 
         //trace of matrix
-        float tr = m(0, 0) + m(1, 1) + m(2, 2);
+        real_t tr = m(0, 0) + m(1, 1) + m(2, 2);
 
-        float S = 0.0;
+        real_t S = 0.0;
         if (tr > 0)
         {
             S = sqrtf(tr+1.0f) * 2;
-            _w = float(0.25f) * S;
+            _w = real_t(0.25f) * S;
             _x = (m(2, 1) - m(1, 2)) / S;
             _y = (m(0, 2) - m(2, 0)) / S;
             _z = (m(1, 0) - m(0, 1)) / S;
         }
         else if ((m(0, 0) < m(1, 1))&(m(0, 0) < m(2, 2)))
         {
-            S = sqrtf(float(1.0) + m(0, 0) - m(1, 1) - m(2, 2)) * 2;
+            S = sqrtf(real_t(1.0) + m(0, 0) - m(1, 1) - m(2, 2)) * 2;
             _w = (m(2, 1) - m(1, 2)) / S;
             _x = 0.25f * S;
             _y = (m(0, 1) + m(1, 0)) / S;
@@ -183,7 +183,7 @@ public:
         }
         else if (m(1, 1) < m(2, 2))
         {
-            S = sqrtf(float(1.0) + m(1, 1) - m(0, 0) - m(2, 2)) * 2;
+            S = sqrtf(real_t(1.0) + m(1, 1) - m(0, 0) - m(2, 2)) * 2;
             _w = (m(0, 2) - m(2, 0)) / S;
             _x = (m(0, 1) + m(1, 0)) / S;
             _y = 0.25f * S;
@@ -191,7 +191,7 @@ public:
         }
         else
         {
-            S = sqrtf(float(1.0) + m(2, 2) - m(0, 0) - m(1, 1)) * float(2);
+            S = sqrtf(real_t(1.0) + m(2, 2) - m(0, 0) - m(1, 1)) * real_t(2);
             _w = (m(1, 0) - m(0, 1)) / S;
             _x = (m(0, 2) + m(2, 0)) / S;
             _y = (m(1, 2) + m(2, 1)) / S;
@@ -221,21 +221,21 @@ public:
     Vector<3> toEuler()
     {
         Vector<3> ret;
-        float sqw = _w*_w;
-        float sqx = _x*_x;
-        float sqy = _y*_y;
-        float sqz = _z*_z;
+        real_t sqw = _w*_w;
+        real_t sqx = _x*_x;
+        real_t sqy = _y*_y;
+        real_t sqz = _z*_z;
 
-        ret.x() = atan2f(float(float(2.0)*(_x*_y+_z*_w)),float(sqx-sqy-sqz+sqw));
-        ret.y() = asinf(float(float(-2.0)*(_x*_z-_y*_w))/float(sqx+sqy+sqz+sqw));
-        ret.z() = atan2f(float(float(2.0)*(_y*_z+_x*_w)),float(-sqx-sqy+sqz+sqw));
+        ret.x() = atan2f(real_t(real_t(2.0)*(_x*_y+_z*_w)),real_t(sqx-sqy-sqz+sqw));
+        ret.y() = asinf(real_t(real_t(-2.0)*(_x*_z-_y*_w))/real_t(sqx+sqy+sqz+sqw));
+        ret.z() = atan2f(real_t(real_t(2.0)*(_y*_z+_x*_w)),real_t(-sqx-sqy+sqz+sqw));
 
         return ret;
     }
 
 
 
-    Vector<3> toAngularVelocity(float dt)
+    Vector<3> toAngularVelocity(real_t dt)
     {
         Vector<3> ret;
         if(dt == 0)
@@ -252,14 +252,14 @@ public:
                 ret.z() = r.z();
         */
 
-        float angle = 0;
+        real_t angle = 0;
         toAxisAngle(ret, angle);
         ret = ret*angle; //finds angular displacement
         ret = ret/dt; //over dt to find angular velocity
 
         /*
         		Vector<3> v(x(), y(), z());
-        		float s = w();
+        		real_t s = w();
         		ret = (v*2.0f)/(v.magnitude()*acos(s));
 
 
@@ -280,9 +280,9 @@ public:
 
     }
 
-    void fromAngularVelocity(Vector<3> w, float dt)
+    void fromAngularVelocity(Vector<3> w, real_t dt)
     {
-        float theta = w.magnitude() * dt;
+        real_t theta = w.magnitude() * dt;
         w.normalize();
 
         fromAxisAngle(w, theta);
@@ -299,7 +299,7 @@ public:
     {
         Vector<3> qv(this->x(), this->y(), this->z());
         Vector<3> t;
-        t = qv.cross(v) * float(2.0);
+        t = qv.cross(v) * real_t(2.0);
         return v + (t * _w) + qv.cross(t);
     }
 
@@ -339,7 +339,7 @@ public:
         return ret;
     }
 
-    Quaternion operator / (float scalar)
+    Quaternion operator / (real_t scalar)
     {
         Quaternion ret;
         ret._w = this->_w/scalar;
@@ -349,7 +349,7 @@ public:
         return ret;
     }
 
-    Quaternion operator * (float scalar)
+    Quaternion operator * (real_t scalar)
     {
         Quaternion ret;
         ret._w = this->_w*scalar;
@@ -359,7 +359,7 @@ public:
         return ret;
     }
 
-    Quaternion scale(float scalar)
+    Quaternion scale(real_t scalar)
     {
         Quaternion ret;
         ret._w = this->_w*scalar;
@@ -370,7 +370,7 @@ public:
     }
 
 private:
-    float _w, _x, _y, _z;
+    real_t _w, _x, _y, _z;
 };
 
 

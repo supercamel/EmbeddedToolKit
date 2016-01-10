@@ -19,7 +19,7 @@
 #ifndef ETK_TIME_H_INCLUDED
 #define ETK_TIME_H_INCLUDED
 
-#include <stdint.h>
+#include "types.h"
 #include <etk/rope.h>
 
 namespace etk
@@ -66,22 +66,22 @@ public:
 	 *@code
 	 Time then = Time::now();
 	 Time::sleep_ms(500);
-	 float diff = Time::now().diff_time(then);
+	 real_t diff = Time::now().diff_time(then);
 	 //diff = 0.5
 	 @endcode
 	 * @args then Time to compare to.
 	 * @return Difference in times in seconds.
 	 */
-    float diff_time(Time then);
-    float diff_time(Time then) volatile;
+    real_t diff_time(Time then);
+    real_t diff_time(Time then) volatile;
 
 	/**
 	 * \brief Same as Time::diff_time but the return value is in milliseconds rather than seconds.
 	 */
-    float diff_time_ms(Time then) {
+    real_t diff_time_ms(Time then) {
         return diff_time(then)*1000.0f;
     }
-    float diff_time_ms(Time then) volatile {
+    real_t diff_time_ms(Time then) volatile {
         return diff_time(then)*1000.0f;
     }
 
@@ -100,21 +100,21 @@ public:
 	/**
 	 * \brief Returns a reference to the seconds counter.
 	 */
-    uint32_t& seconds() {
+    uint32& seconds() {
         return sec;
     }
 
     /**
      * \brief Returns a reference to the microsecond counter.
      */
-    uint32_t& micros() {
+    uint32& micros() {
         return mic;
     }
 
-    volatile uint32_t& seconds() volatile {
+    volatile uint32& seconds() volatile {
         return sec;
     }
-    volatile uint32_t& micros() volatile {
+    volatile uint32& micros() volatile {
         return mic;
     }
 
@@ -131,8 +131,8 @@ public:
 
 
 private:
-    uint32_t sec;
-    uint32_t mic;
+    uint32 sec;
+    uint32 mic;
 };
 
 /**
@@ -144,13 +144,13 @@ Time now();
 	 * \brief Sleeps for a number of milliseconds.
 	 * @arg ms Number of milliseconds to wait.
 	 */
-void sleep_ms(uint32_t ms);
+void sleep_ms(uint32 ms);
 
     /**
      * \brief Sleeps for a number of microseconds.
      * @args us Number of microseconds to wait.
      */
-void sleep_us(uint32_t us);
+void sleep_us(uint32 us);
 
     /**
      * \brief Increments the systick counter by the tick rate (set_tick_rate(); )
@@ -161,7 +161,7 @@ void tick();
      * \brief Sets the tick rate in microseconds per tick. eg for a 1ms tick rate, use set_tick_rate(1000);
      * @arg us Microseconds per tick.
      */
-void set_tick_rate(uint32_t us); //microseconds per tick
+void set_tick_rate(uint32 us); //microseconds per tick
 
 }
 

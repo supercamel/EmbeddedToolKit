@@ -48,13 +48,13 @@ namespace etk
  */
 
 
-template <typename T, uint32_t LEN> class ShortTermMemory
+template <typename T, uint32 LEN> class ShortTermMemory
 {
 public:
     class Iterator
     {
     public:
-        inline Iterator(ShortTermMemory<T,LEN>& p, uint32_t position=0) : stm(p)
+        inline Iterator(ShortTermMemory<T,LEN>& p, uint32 position=0) : stm(p)
         {
             pos = position;
         }
@@ -82,7 +82,7 @@ public:
 
     private:
         ShortTermMemory<T,LEN>& stm;
-        uint32_t pos = 0;
+        uint32 pos = 0;
     };
 
 
@@ -134,9 +134,9 @@ public:
 	/**
 	 * \brief Returns the next item without removing it from memory.
 	 */
-    T peek_ahead(uint16_t n=0)
+    T peek_ahead(uint16 n=0)
     {
-        uint16_t pos = (start+n) % LEN;
+        uint16 pos = (start+n) % LEN;
         return buf[pos];
     }
 
@@ -164,8 +164,8 @@ public:
     }
 
 private:
-    uint16_t start;
-    uint16_t buf_end;
+    uint16 start;
+    uint16 buf_end;
     T buf[LEN];
 };
 

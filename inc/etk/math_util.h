@@ -20,7 +20,7 @@
 #ifndef MATH_UTIL_H_INCLUDED
 #define MATH_UTIL_H_INCLUDED
 
-#include <stdint.h>
+#include "types.h"
 
 namespace etk
 {
@@ -51,10 +51,10 @@ auto constrain(auto x, auto a, auto b)
  * Why? Because 450 degrees is the same as 90 degrees on a map.
  * This function can be used with radians by making segments 2*PI.
  */
-auto constrain_circular(auto x, uint32_t segments)
+auto constrain_circular(auto x, uint32 segments)
 {
-    uint32_t half_segment = segments/2;
-    int64_t seg_lower = half_segment;
+    uint32 half_segment = segments/2;
+    int64 seg_lower = half_segment;
     seg_lower = -seg_lower;
 
     while(x < seg_lower)
@@ -142,12 +142,12 @@ bool compare(auto a, auto b, auto precision)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array.
  */
-template<typename T> void bubble_sort_up(T& items, uint32_t n)
+template<typename T> void bubble_sort_up(T& items, uint32 n)
 {
     while(n != 0)
     {
-        uint32_t newn = 0;
-        for(uint32_t i = 1; i < n; i++)
+        uint32 newn = 0;
+        for(uint32 i = 1; i < n; i++)
         {
             if(items[i-1] > items[i])
             {
@@ -162,12 +162,12 @@ template<typename T> void bubble_sort_up(T& items, uint32_t n)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array.
  */
-template<typename T> void bubble_sort_down(T& items, uint32_t n)
+template<typename T> void bubble_sort_down(T& items, uint32 n)
 {
     while(n != 0)
     {
-        uint32_t newn = 0;
-        for(uint32_t i = 1; i < n; i++)
+        uint32 newn = 0;
+        for(uint32 i = 1; i < n; i++)
         {
             if(items[i-1] < items[i])
             {
@@ -203,6 +203,22 @@ inline char to_lower(char c)
     return c;
 }
 
+inline bool is_alpha(char c)
+{
+    if((c >= 'A') && (c <= 'Z'))
+        return true;
+    if((c >= 'a') && (c <= 'z'))
+        return true;
+    return false;
+}
+
+inline bool is_numeric(char c)
+{
+    if((c >= '0') && (c <= '9'))
+        return true;
+    return false;
+}
+
 /**
  * \brief Returns the input parameter with a positive sign.
  */
@@ -211,6 +227,15 @@ template<typename T> T abs(T t)
     if(t < 0)
         return -t;
     return t;
+}
+
+/**
+ * \brief Little trick function used to silence warnings about unused variables that are
+ * , for whatever reason, required to be unused.
+ */
+inline void unused(auto& expr)
+{
+    (void)(expr);
 }
 
 }

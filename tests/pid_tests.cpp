@@ -14,18 +14,18 @@ using namespace std;
 class System
 {
 public:
-    float step(float in)
+    real_t step(real_t in)
     {
         position += (in*0.22f)+0.8f;
         return position;
     }
 
-    float get_pos()
+    real_t get_pos()
     {
         return position;
     }
 private:
-    float position = 0.0f;
+    real_t position = 0.0f;
 };
 
 
@@ -58,7 +58,7 @@ bool pid_test(std::string& subtest)
 
     ofstream of("pid.csv");
 
-    float sp = 100;
+    real_t sp = 100;
     for(auto j : range(10))
     {
         for(auto i : range(10000))

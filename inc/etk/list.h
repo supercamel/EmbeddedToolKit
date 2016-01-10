@@ -19,11 +19,8 @@
 #ifndef ETK_LIST_H_INCLUDED
 #define ETK_LIST_H_INCLUDED
 
-#include <stdint.h>
+#include "types.h"
 #include "math_util.h"
-
-#include <iostream>
-using namespace std;
 
 namespace etk
 {
@@ -39,7 +36,7 @@ namespace etk
  */
 
 
-template <typename T, uint32_t L> class List
+template <typename T, uint32 L> class List
 {
 public:
     List()
@@ -50,19 +47,19 @@ public:
     ~List()
     {
         T* pt = (T*)space;
-        for(uint32_t i = 0; i < size(); i++)
+        for(uint32 i = 0; i < size(); i++)
             (&pt[i])->~T();
     }
     List(List& list)
     {
-        for(uint32_t i = 0; i < sizeof(space); i++)
+        for(uint32 i = 0; i < sizeof(space); i++)
             space[i] = list.space[i];
         list_end = list.list_end;
     }
 
     List(const List& list)
     {
-        for(uint32_t i = 0; i < sizeof(space); i++)
+        for(uint32 i = 0; i < sizeof(space); i++)
             space[i] = list.space[i];
         list_end = list.list_end;
     }
@@ -121,7 +118,7 @@ public:
 
     private:
         List* list;
-        uint32_t pos;
+        uint32 pos;
     };
 
 
@@ -164,14 +161,12 @@ public:
      * @arg T the item to be inserted.
      * @arg pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list.
      */
-    void insert(T t, uint32_t pos)
+    void insert(T t, uint32 pos)
     {
-        cout << "inserting " << t << " at " << pos << endl;
         if((pos <= size()) && (size() < L))
         {
-            cout << "here" << endl;
             T* pt = (T*)space;
-            for(uint32_t i = size(); i >= (pos+1); i--)
+            for(uint32 i = size(); i >= (pos+1); i--)
                 pt[i] = pt[i-1];
 
             new(&pt[pos])T(t);
@@ -184,13 +179,13 @@ public:
      * @arg pos The position of the item to remove.
      * @arg padding A value / default object to fill in the space at the end of the list.
      */
-    void remove(uint32_t pos)
+    void remove(uint32 pos)
     {
         if((pos < L) && (size() > 0))
         {
             T* pt = (T*)space;
             (&pt[pos])->~T();
-            for(uint32_t i = pos; i < L-1; i++)
+            for(uint32 i = pos; i < L-1; i++)
                 space[i] = space[i+1];
             list_end--;
         }
@@ -199,7 +194,7 @@ public:
 
     void remove_item(auto& item)
     {
-        for(uint32_t i = 0; i < size(); i++)
+        for(uint32 i = 0; i < size(); i++)
         {
             T* pt = (T*)space;
             if(*pt[i] == item)
@@ -207,7 +202,7 @@ public:
                 remove(i);
                 /*
                 delete &pt[pos];
-                for(int32_t i = pos; i < L-1; i++)
+                for(int32 i = pos; i < L-1; i++)
                     space[i] = space[i+1];
                 list_end--;
                 */
@@ -221,9 +216,9 @@ public:
      * @arg pos The position of the first item to erase.
      * @arg len The number of items to remove.
      */
-    void erase(uint32_t pos, uint32_t len)
+    void erase(uint32 pos, uint32 len)
     {
-        for(uint32_t i = 0; i < len; i++)
+        for(uint32 i = 0; i < len; i++)
             remove(pos);
     }
 
@@ -233,7 +228,7 @@ public:
     void clear()
     {
         T* pt = (T*)space;
-        for(uint32_t i = 0; i < size(); i++)
+        for(uint32 i = 0; i < size(); i++)
             (&pt[i])->~T();
 
         list_end = -1;
@@ -244,11 +239,11 @@ public:
      * @arg t The item to count.
      * @return The number of these items in the list.
      */
-    uint32_t count(T t)
+    uint32 count(T t)
     {
-        uint32_t c = 0;
+        uint32 c = 0;
         T* pt = (T*)space;
-        for(uint32_t i = 0; i < size(); i++)
+        for(uint32 i = 0; i < size(); i++)
         {
             if(t == pt[i])
                 c++;
@@ -262,12 +257,12 @@ public:
      * @arg end The end position.
      * @arg f The item to fill with.
      */
-    void fill(uint32_t start, uint32_t end, T f)
+    void fill(uint32 start, uint32 end, T f)
     {
         T* pt = (T*)space;
         end = etk::min(end, size());
         start = etk::min(start, end);
-        for(uint32_t i = start; i < end; i++)
+        for(uint32 i = start; i < end; i++)
             pt[i] = f;
     }
 
@@ -299,7 +294,7 @@ public:
     /**
      * \brief This operator allows you to access elements of the list just like a normal array.
      */
-    T& operator[](uint32_t pos)
+    T& operator[](uint32 pos)
     {
         T* pt = (T*)space;
         if(pos < size())
@@ -310,7 +305,7 @@ public:
     /**
      * \brief Returns the number of items in the list.
      */
-    uint32_t size()
+    uint32 size()
     {
         return list_end+1;
     }
@@ -318,7 +313,7 @@ public:
     /**
      * \brief Returns the maximum possible number of items that the list can contain.
      */
-    uint32_t max_len()
+    uint32 max_len()
     {
         return L;
     }
@@ -326,7 +321,7 @@ public:
     /**
      * \brief Overrides the list end pointer. This function can be convenient but should be used with caution.
      */
-    void set_list_end(uint32_t le)
+    void set_list_end(uint32 le)
     {
         list_end = le;
     }
@@ -348,8 +343,8 @@ public:
     }
 
 private:
-    uint8_t space[sizeof(T)*L];
-    int32_t list_end;
+    uint8 space[sizeof(T)*L];
+    int32 list_end;
 };
 
 }

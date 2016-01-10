@@ -28,7 +28,7 @@
  *
 */
 
-#include <stdint.h>
+#include "types.h"
 #include <etk/rope.h>
 #include <etk/vector.h>
 
@@ -78,7 +78,7 @@ int main()
  */
 
 
-template <uint32_t L> class StaticString
+template <uint32 L> class StaticString
 {
 public:
     StaticString()
@@ -123,14 +123,14 @@ public:
 	 */
     StaticString& operator = (StaticString& s)
     {
-        for(uint32_t i = 0; i < L; i++)
+        for(uint32 i = 0; i < L; i++)
             buf[i] = s.c_str()[i];
         return *this;
     }
 
-    template <uint32_t nn> StaticString& operator = (StaticString<nn>& s)
+    template <uint32 nn> StaticString& operator = (StaticString<nn>& s)
     {
-        for(uint32_t i = 0; i < min(L,nn); i++)
+        for(uint32 i = 0; i < min(L,nn); i++)
             buf[i] = s.c_str()[i];
         return *this;
     }
@@ -140,8 +140,8 @@ public:
 	 */
     StaticString& operator=(const char* c)
     {
-        uint32_t l = Rope::c_strlen(c, L-1);
-        uint32_t i = 0;
+        uint32 l = Rope::c_strlen(c, L-1);
+        uint32 i = 0;
         for(; i < l; i++)
             buf[i] = c[i];
         buf[i] = '\0';
@@ -153,14 +153,14 @@ public:
 	 */
     StaticString& operator=(char* c)
     {
-        uint32_t i = 0;
+        uint32 i = 0;
         for(; i < Rope::c_strlen(c, L); i++)
             buf[i] = c[i];
         buf[i] = '\0';
         return *this;
     }
 
-    template<uint32_t nn> StaticString& operator=(StaticString<nn> ss)
+    template<uint32 nn> StaticString& operator=(StaticString<nn> ss)
     {
         *this = ss.c_str();
         return *this;
@@ -188,7 +188,7 @@ public:
 	/**
 	 * \brief Appends the contents of another string to this.
 	 */
-    template <uint32_t N> StaticString& operator += (StaticString<N> & s)
+    template <uint32 N> StaticString& operator += (StaticString<N> & s)
     {
         Rope r(buf, L);
         r.set_cursor(r.length());
@@ -199,11 +199,11 @@ public:
 	/**
 	 * \brief Appends and nicely formats an etk::Vector to this.
 	 */
-    template <uint32_t N> StaticString& operator += (Vector<N>& v)
+    template <uint32 N> StaticString& operator += (Vector<N>& v)
     {
         Rope r(buf, L);
         r.set_cursor(r.length());
-        for(uint32_t i = 0; i < N-1; i++)
+        for(uint32 i = 0; i < N-1; i++)
         {
             r << v[i] << ", ";
         }
@@ -244,9 +244,9 @@ public:
     }
 
 	/**
-	 * \brief Appends an int32_t to this.
+	 * \brief Appends an int32 to this.
 	 */
-    StaticString& operator += (int32_t f)
+    StaticString& operator += (int32 f)
     {
         char temp[20];
         Rope r(temp, 20);
@@ -256,9 +256,9 @@ public:
     }
 
 	/**
-	 * \brief Appends a uint32_t to this.
+	 * \brief Appends a uint32 to this.
 	 */
-    StaticString& operator += (uint32_t f)
+    StaticString& operator += (uint32 f)
     {
         char temp[20];
         Rope r(temp, 20);
@@ -310,7 +310,7 @@ public:
 	/**
 	 * \brief This operator overload allows you to access and modify individual characters in the string.
 	 */
-    char& operator [](uint32_t p)
+    char& operator [](uint32 p)
     {
         if(p >= L)
             return buf[L-1];
@@ -322,8 +322,12 @@ public:
 	 */
     bool operator == (const char* c)
     {
-        uint32_t len = etk::min<uint32_t>(L, Rope::c_strlen(c, L));
-        for(uint32_t i = 0; i < len; i++)
+        uint32 len = etk::min<uint32>(L, Rope::c_strlen(c, L));
+
+        if(len != Rope::c_strlen(buf, L))
+            return false;
+
+        for(uint32 i = 0; i < len; i++)
         {
             if(c[i] != buf[i])
                 return false;
@@ -334,7 +338,7 @@ public:
 	/**
 	 * \brief Compares this to another StaticString up to max_len characters.
 	 */
-    template <uint32_t N> bool compare(StaticString<N>& s, uint32_t max_len)
+    template <uint32 N> bool compare(StaticString<N>& s, uint32 max_len)
     {
         Rope rope(buf, L);
         return rope.compare(s.buf, min(max_len, L));
@@ -343,15 +347,15 @@ public:
 	/**
 	 * \brief Compares this to const C-string up to max_len characters.
 	 */
-    bool compare(const char* s, uint32_t max_len)
+    bool compare(const char* s, uint32 max_len)
     {
         Rope rope(buf, L);
         return rope.compare(s, min(max_len, L));
     }
 
-    template <uint32_t N> bool compare(StaticString<N>& s)
+    template <uint32 N> bool compare(StaticString<N>& s)
     {
-        uint32_t l = min<uint32_t>(Rope::c_strlen(s.c_str(), N), length());
+        uint32 l = min<uint32>(Rope::c_strlen(s.c_str(), N), length());
         Rope rope(buf, L);
         return rope.compare(s.buf, l);
     }
@@ -359,7 +363,7 @@ public:
     bool compare(const char* s)
     {
         Rope rope(buf, L);
-        return rope.compare(s, min<uint32_t>(Rope::c_strlen(s, L), L));
+        return rope.compare(s, min<uint32>(Rope::c_strlen(s, L), L));
     }
 
 	/**
@@ -370,7 +374,7 @@ public:
 	 //f == 20.65f
 	 @endcode
 	 */
-    float atof(uint16_t p=0)
+    float atof(uint16 p=0)
     {
         Rope rope(buf, L);
         return rope.atof(p);
@@ -384,7 +388,7 @@ public:
 	 //f == 20
 	 @endcode
 	 */
-    int atoi(uint16_t p=0)
+    int atoi(uint16 p=0)
     {
         Rope rope(buf, L);
         return rope.atoi(p);
@@ -393,7 +397,7 @@ public:
 	/**
 	 * \brief Returns the number of characters in the string.
 	 */
-    uint32_t length()
+    uint32 length()
     {
         Rope rope(buf, L);
         return rope.length();
@@ -434,11 +438,11 @@ public:
 	/**
 	 * \brief Inserts a character in a position.
 	 */
-    void insert(char c, uint32_t pos)
+    void insert(char c, uint32 pos)
     {
         if(pos < L-1)
         {
-            for(uint32_t i = length(); i != pos; i--)
+            for(uint32 i = length(); i != pos; i--)
                 buf[i] = buf[i-1];
             buf[pos] = c;
         }
@@ -447,11 +451,11 @@ public:
 	/**
 	 * \brief Removes a character rom position pos
 	 */
-    void remove(uint32_t pos)
+    void remove(uint32 pos)
     {
         if(pos < L)
         {
-            for(uint32_t i = pos; i < L-1; i++)
+            for(uint32 i = pos; i < L-1; i++)
                 buf[i] = buf[i+1];
         }
     }
@@ -459,20 +463,20 @@ public:
 	/**
 	 * \brief Erases a number of characters starting at position pos.
 	 */
-    void erase(uint32_t pos, uint32_t len)
+    void erase(uint32 pos, uint32 len)
     {
         if((pos+len) < L)
         {
-            for(uint32_t i = pos; i < L-1; i++)
+            for(uint32 i = pos; i < L-1; i++)
                 buf[i] = buf[min(L-1, i+len)];
         }
     }
 
-    void fill(char c, uint32_t pos, uint32_t len)
+    void fill(char c, uint32 pos, uint32 len)
     {
         if((pos+len) < L)
         {
-            for(uint32_t i = pos; i < (pos+len); i++)
+            for(uint32 i = pos; i < (pos+len); i++)
                 buf[i] = c;
         }
     }
@@ -483,7 +487,7 @@ public:
 	 */
     void to_upper()
     {
-        for(uint32_t i = 0; i < Rope::c_strlen(buf, L); i++)
+        for(uint32 i = 0; i < Rope::c_strlen(buf, L); i++)
             buf[i] = etk::to_upper(buf[i]);
     }
 
@@ -492,11 +496,11 @@ public:
 	 */
     void to_lower()
     {
-        for(uint32_t i = 0; i < Rope::c_strlen(buf, L); i++)
+        for(uint32 i = 0; i < Rope::c_strlen(buf, L); i++)
             buf[i] = etk::to_lower(buf[i]);
     }
 
-    template<uint32_t nn> operator StaticString<nn>()
+    template<uint32 nn> operator StaticString<nn>()
     {
         StaticString<nn> ss;
         ss = this->c_str();
@@ -522,7 +526,7 @@ public:
 	/**
 	 * \bried Extracts a section of text from the string and assigns it to buf.
 	 */
-    void sub_string(char* buf, uint32_t start, uint32_t len)
+    void sub_string(char* buf, uint32 start, uint32 len)
     {
         Rope r(buf, L);
         r.sub_string(buf, start, len);
@@ -531,7 +535,7 @@ public:
 	/**
 	 * \bried Extracts a section of text from the string and assigns it to rope.
 	 */
-    void sub_string(Rope& rope, uint32_t start, uint32_t len)
+    void sub_string(Rope& rope, uint32 start, uint32 len)
     {
         Rope r(buf, L);
         r.sub_string(rope, start, len);
@@ -540,7 +544,7 @@ public:
 	/**
 	 * \bried Extracts a section of text from the string and assigns it to string.
 	 */
-    template <uint32_t N> void sub_string(StaticString<N>& string, uint32_t start, uint32_t len)
+    template <uint32 N> void sub_string(StaticString<N>& string, uint32 start, uint32 len)
     {
         Rope r(buf, L);
         r.sub_string(string.raw_memory(), start, len);

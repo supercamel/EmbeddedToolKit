@@ -20,21 +20,21 @@
 #ifndef IMUMATH_MATRIX_HPP
 #define IMUMATH_MATRIX_HPP
 
-#include <stdint.h>
+#include "types.h"
 #include "vector.h"
 
 namespace etk
 {
 
 
-template <uint32_t MAX_X, uint32_t MAX_Y> class Matrix
+template <uint32 MAX_X, uint32 MAX_Y> class Matrix
 {
 public:
     Matrix()
     {
-        for (uint32_t x = 0; x < MAX_X; x++ )
+        for (uint32 x = 0; x < MAX_X; x++ )
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 _cell[x][y] = 0.0f;
             }
@@ -43,9 +43,9 @@ public:
 
     Matrix(const Matrix &v)
     {
-        for (uint32_t x = 0; x < MAX_X; x++ )
+        for (uint32 x = 0; x < MAX_X; x++ )
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 _cell[x][y] = v._cell[x][y];
             }
@@ -54,10 +54,10 @@ public:
 
     Matrix(const Vector<MAX_X*MAX_Y>& v)
     {
-        uint32_t c = 0;
-        for (uint32_t x = 0; x < MAX_X; x++ )
+        uint32 c = 0;
+        for (uint32 x = 0; x < MAX_X; x++ )
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 _cell[x][y] = v[c];
                 c++;
@@ -65,9 +65,9 @@ public:
         }
     }
 
-    template<typename... Args> Matrix(float a, Args... args)
+    template<typename... Args> Matrix(real_t a, Args... args)
     {
-        float* pcell = &_cell[0][0];
+        real_t* pcell = &_cell[0][0];
         *(pcell+set_flag++) = a;
         set(args...);
     }
@@ -75,117 +75,117 @@ public:
 
     void operator = (Matrix m)
     {
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 cell(x, y) = m.cell(x, y);
             }
         }
     }
 
-    Vector<MAX_Y> row_to_vector(uint32_t y)
+    Vector<MAX_Y> row_to_vector(uint32 y)
     {
         Vector<MAX_Y> ret;
-        for(uint32_t i = 0; i < MAX_Y; i++)
+        for(uint32 i = 0; i < MAX_Y; i++)
         {
             ret[i] = _cell[i][y];
         }
         return ret;
     }
 
-    Vector<MAX_X> col_to_vector(uint32_t x)
+    Vector<MAX_X> col_to_vector(uint32 x)
     {
         Vector<MAX_X> ret;
-        for(uint32_t i = 0; i < MAX_X; i++)
+        for(uint32 i = 0; i < MAX_X; i++)
         {
             ret[i] = _cell[x][i];
         }
         return ret;
     }
 
-    void vector_to_row(Vector<MAX_Y> v, uint32_t row)
+    void vector_to_row(Vector<MAX_Y> v, uint32 row)
     {
-        for(uint32_t i = 0; i < MAX_X; i++)
+        for(uint32 i = 0; i < MAX_X; i++)
         {
             cell(i, row) = v(i);
         }
     }
 
-    void vector_to_col(Vector<MAX_X> v, uint32_t col)
+    void vector_to_col(Vector<MAX_X> v, uint32 col)
     {
-        for(uint32_t i = 0; i < MAX_Y; i++)
+        for(uint32 i = 0; i < MAX_Y; i++)
         {
             cell(col, i) = v(i);
         }
     }
 
-    template <uint32_t nn> Vector<nn> sub_vector(uint32_t n)
+    template <uint32 nn> Vector<nn> sub_vector(uint32 n)
     {
-        float* pcell = &_cell[0][0];
+        real_t* pcell = &_cell[0][0];
         pcell += n;
         Vector<nn> ret;
-        for(uint32_t i = 0; i < nn; i++)
+        for(uint32 i = 0; i < nn; i++)
             ret[i] = *pcell++;
         return ret;
     }
 
-    float& operator ()(uint32_t x, uint32_t y)
+    real_t& operator ()(uint32 x, uint32 y)
     {
         return _cell[x][y];
     }
 
-    uint32_t set(uint32_t v, float value)
+    uint32 set(uint32 v, real_t value)
     {
-        float* pcell = _cell;
+        real_t* pcell = _cell;
         *(pcell+v) = value;
         return v;
     }
 
-    void set(float a)
+    void set(real_t a)
     {
-        float* pcell = &_cell[0][0];
+        real_t* pcell = &_cell[0][0];
         *(pcell+set_flag) = a;
         set_flag = 0;
     }
 
-    template<typename... Args> void set(float a, Args... args)
+    template<typename... Args> void set(real_t a, Args... args)
     {
-        float* pcell = &_cell[0][0];
+        real_t* pcell = &_cell[0][0];
         *(pcell+set_flag++) = a;
         set(args...);
     }
 
-    void set_diagonal(float a)
+    void set_diagonal(real_t a)
     {
         (*this)(set_flag, set_y_flag) = a;
         set_flag = set_y_flag = 0;
     }
 
-    template<typename... Args> void set_diagonal(float a, Args... args)
+    template<typename... Args> void set_diagonal(real_t a, Args... args)
     {
         (*this)(set_flag++, set_y_flag++) = a;
         set_diagonal(args...);
     }
 
-    template<uint32_t N> void set_diagonal(Vector<N> v)
+    template<uint32 N> void set_diagonal(Vector<N> v)
     {
-        uint32_t n = etk::min<uint32_t>(MAX_X, MAX_Y);
-        for(uint32_t i = 0; i < n; i++)
+        uint32 n = etk::min<uint32>(MAX_X, MAX_Y);
+        for(uint32 i = 0; i < n; i++)
             _cell[i][i] = v[i];
     }
 
-    template<uint32_t N> Vector<N> get_diagonal_vector()
+    template<uint32 N> Vector<N> get_diagonal_vector()
     {
-        Vector<etk::min<uint32_t>(MAX_X, MAX_Y)> v;
-        uint32_t n = etk::min<uint32_t>(MAX_X, MAX_Y);
-        for(uint32_t i = 0; i < n; i++)
+        Vector<etk::min<uint32>(MAX_X, MAX_Y)> v;
+        uint32 n = etk::min<uint32>(MAX_X, MAX_Y);
+        for(uint32 i = 0; i < n; i++)
             v[i] = _cell[i][i];
         return v;
     }
 
 
-    float& cell(uint32_t x, uint32_t y)
+    real_t& cell(uint32 x, uint32 y)
     {
         return _cell[x][y];
     }
@@ -194,9 +194,9 @@ public:
     Matrix operator + (Matrix m)
     {
         Matrix ret;
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 ret._cell[x][y] = _cell[x][y] + m._cell[x][y];
             }
@@ -207,9 +207,9 @@ public:
     Matrix operator - (Matrix m)
     {
         Matrix ret;
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 ret._cell[x][y] = _cell[x][y] - m._cell[x][y];
             }
@@ -217,12 +217,12 @@ public:
         return ret;
     }
 
-    Matrix operator * (float scalar)
+    Matrix operator * (real_t scalar)
     {
         Matrix ret;
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 ret._cell[x][y] = _cell[x][y] * scalar;
             }
@@ -230,12 +230,12 @@ public:
         return ret;
     }
 
-    template <uint32_t N> Matrix operator * (Matrix<N, MAX_X> m)
+    template <uint32 N> Matrix operator * (Matrix<N, MAX_X> m)
     {
         Matrix<N,MAX_X> ret;
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < N; y++)
+            for(uint32 y = 0; y < N; y++)
             {
                 Vector<N> row = row_to_vector(x);
                 Vector<N> col = m.col_to_vector(y);
@@ -248,9 +248,9 @@ public:
     Matrix<MAX_Y,MAX_X> transpose()
     {
         Matrix<MAX_Y,MAX_X> ret;
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 ret.cell(y, x) = cell(x, y);
             }
@@ -258,15 +258,15 @@ public:
         return ret;
     }
 
-    Matrix<MAX_Y-1,MAX_X-1> minor_matrix(uint32_t row, uint32_t col)
+    Matrix<MAX_Y-1,MAX_X-1> minor_matrix(uint32 row, uint32 col)
     {
-        uint32_t colCount = 0, rowCount = 0;
+        uint32 colCount = 0, rowCount = 0;
         Matrix<MAX_Y-1,MAX_X-1> ret;
-        for(uint32_t i = 0; i < MAX_X; i++ )
+        for(uint32 i = 0; i < MAX_X; i++ )
         {
             if( i != row )
             {
-                for(uint32_t j = 0; j < MAX_Y; j++ )
+                for(uint32 j = 0; j < MAX_Y; j++ )
                 {
                     if( j != col )
                     {
@@ -280,13 +280,13 @@ public:
         return ret;
     }
 
-    float determinant()
+    real_t determinant()
     {
         if(MAX_X == 1)
             return cell(0, 0);
 
-        float det = 0.0;
-        for(uint32_t i = 0; i < MAX_X; i++ )
+        real_t det = 0.0;
+        for(uint32 i = 0; i < MAX_X; i++ )
         {
             Matrix<MAX_Y-1,MAX_X-1> minor = minor_matrix(0, i);
             det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
@@ -297,11 +297,11 @@ public:
     Matrix invert()
     {
         Matrix ret;
-        float det = determinant();
+        real_t det = determinant();
 
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 Matrix<MAX_Y-1,MAX_X-1> minor = minor_matrix(y, x);
                 ret(x, y) = det*minor.determinant();
@@ -314,24 +314,24 @@ public:
 
     void load_identity()
     {
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = 0; y < MAX_Y; y++)
+            for(uint32 y = 0; y < MAX_Y; y++)
             {
                 cell(x, y) = 0;
             }
         }
 
-        for(uint32_t i = 0; i < etk::min<uint32_t>(MAX_X, MAX_Y); i++)
+        for(uint32 i = 0; i < etk::min<uint32>(MAX_X, MAX_Y); i++)
             cell(i, i) = 1;
     }
 
     Matrix lower_triangle()
     {
         Matrix m = *this;
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = x+1; y < MAX_Y; y++)
+            for(uint32 y = x+1; y < MAX_Y; y++)
                 m.cell(x, y) = 0;
         }
         return m;
@@ -340,9 +340,9 @@ public:
     Matrix upper_triangle()
     {
         Matrix m = *this;
-        for(uint32_t x = 0; x < MAX_X; x++)
+        for(uint32 x = 0; x < MAX_X; x++)
         {
-            for(uint32_t y = MAX_X-x; y < MAX_Y; y++)
+            for(uint32 y = MAX_X-x; y < MAX_Y; y++)
                 m.cell(x, MAX_Y-y-1) = 0;
         }
         return m;
@@ -357,11 +357,11 @@ public:
         {
             for (int j = 0; j < (i+1); j++)
             {
-                float s = 0;
+                real_t s = 0;
                 for (int k = 0; k < j; k++)
                     s += L(i,k) * L(j,k);
 
-                float v = 0;
+                real_t v = 0;
                 if(i == j)
                     v = sqrtf(A(i,i)-s);
                 else
@@ -376,9 +376,9 @@ public:
     }
 
 private:
-    float _cell[MAX_X][MAX_Y];
-    uint32_t set_flag = 0;
-    uint32_t set_y_flag = 0;
+    real_t _cell[MAX_X][MAX_Y];
+    uint32 set_flag = 0;
+    uint32 set_y_flag = 0;
 };
 
 

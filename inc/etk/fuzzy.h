@@ -35,7 +35,7 @@ namespace etk
  */
 
 
-template <uint16_t N> class Fuzzy
+template <uint16 N> class Fuzzy
 {
 public:
 
@@ -59,7 +59,7 @@ public:
 		 * @arg p2 middle/peak of triangle
 		 * @arg p3 maximum point
 		 */
-        void set_points(float p1, float p2, float p3)
+        void set_points(real_t p1, real_t p2, real_t p3)
         {
             min = p1;
             mid = p2;
@@ -73,7 +73,7 @@ public:
 		 * @arg crisp_in The crisp input
 		 * @return The degree of membership. This will be a number between 0.0 and 1.0
 		 */
-        float get_dom(float crisp_in)
+        real_t get_dom(real_t crisp_in)
         {
             if(pos == MID)
             {
@@ -96,13 +96,13 @@ public:
 
             if(crisp_in > mid)
             {
-                float range = max-mid;
+                real_t range = max-mid;
                 crisp_in -= mid;
                 crisp_in /= range;
             }
             else
             {
-                float range = mid-min;
+                real_t range = mid-min;
                 crisp_in -= mid;
                 crisp_in /= range;
             }
@@ -118,7 +118,7 @@ public:
         /**
          * \brief Sets the value of this set.
          */
-        void set_value(float v)
+        void set_value(real_t v)
         {
         	val = v;
         }
@@ -126,7 +126,7 @@ public:
 		/**
 		 * \brief Returns the degree of membership of a crisp input, multiplied by the value of the set.
 		 */
-        float get_result(float crisp_in)
+        real_t get_result(real_t crisp_in)
         {
             return get_dom(crisp_in)*val;
         }
@@ -134,7 +134,7 @@ public:
         /**
          * \brief Returns the minimum point.
          */
-        float get_min()
+        real_t get_min()
         {
         	return min;
         }
@@ -142,7 +142,7 @@ public:
         /**
          * \brief Returns the middle point / triangle peak.
          */
-        float get_mid()
+        real_t get_mid()
         {
         	return mid;
         }
@@ -150,7 +150,7 @@ public:
         /**
          * \brief Returns the maximum point.
          */
-        float get_max()
+        real_t get_max()
         {
         	return max;
         }
@@ -164,9 +164,9 @@ public:
         }
 
 	private:
-        float min, mid, max;
+        real_t min, mid, max;
         FUZZY_POINT pos;
-        float val;
+        real_t val;
     };
 
 
@@ -177,7 +177,7 @@ public:
     {
         sets.append(f);
         sets[0].set_position(Set::START);
-        int32_t end = sets.size()-1;
+        int32 end = sets.size()-1;
         for (auto i : range(end))
             sets[i].set_position(Set::MID);
         sets[sets.size()-1].set_position(Set::END);
@@ -186,7 +186,7 @@ public:
 	/**
 	 * \brief Returns the number of sets.
 	 */
-    uint32_t get_n_sets()
+    uint32 get_n_sets()
     {
         return sets.size();
     }
@@ -204,7 +204,7 @@ public:
 	 * @arg crisp_in A crisp input.
 	 * @return A crisp output.
 	 */
-    float crisp_out(float crisp_in)
+    real_t crisp_out(real_t crisp_in)
     {
         auto out = 0.0f;
         for(auto set : sets)
@@ -224,9 +224,9 @@ public:
     	auto ret = *this;
     	for(auto& set : ret.sets)
     	{
-    		float set_min = set.get_min();
-    		float set_mid = set.get_mid();
-    		float set_max = set.get_max();
+    		real_t set_min = set.get_min();
+    		real_t set_mid = set.get_mid();
+    		real_t set_max = set.get_max();
     		set.set_points(crisp_out(set_min), crisp_out(set_mid), crisp_out(set_max));
     		set.set_value(set_mid);
     	}

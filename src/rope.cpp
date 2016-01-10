@@ -25,17 +25,17 @@ namespace etk
 {
 
 
-Rope::Rope(char* buf, uint32_t maxlen, const char* c)
+Rope::Rope(char* buf, uint32 maxlen, const char* c)
 {
     str = buf;
     pos = 0;
     N = maxlen;
-    for(uint32_t i = 0; i < c_strlen(c, maxlen); i++)
+    for(uint32 i = 0; i < c_strlen(c, maxlen); i++)
         append(c[i]);
     Rope::terminate();
 }
 
-Rope::Rope(char* c, uint32_t maxlen)
+Rope::Rope(char* c, uint32 maxlen)
 {
     pos = 0;
     N = maxlen;
@@ -76,30 +76,30 @@ void Rope::append(const char* s, int len)
     str[pos] = '\0';
 }
 
-void Rope::append(int32_t j, uint32_t npad)
+void Rope::append(int32 j, uint32 npad)
 {
     if(j < 0)
     {
         append('-');
         j *= -1;
     }
-    append((uint32_t)j, npad);
+    append((uint32)j, npad);
 }
 
-void Rope::append(int64_t j, uint32_t npad)
+void Rope::append(int64 j, uint32 npad)
 {
     if(j < 0)
     {
         append('-');
         j *= -1;
     }
-    append((uint64_t)j, npad);
+    append((uint64)j, npad);
 }
 
-void Rope::append(uint32_t j, uint32_t npad)
+void Rope::append(uint32 j, uint32 npad)
 {
     char buf[9];
-    uint32_t i = 0;
+    uint32 i = 0;
     for(i = 0; i < 9; i++)
     {
         int r = j%10;
@@ -117,10 +117,10 @@ void Rope::append(uint32_t j, uint32_t npad)
     append(&buf[i], 9-i);
 }
 
-void Rope::append(uint64_t j, uint32_t npad)
+void Rope::append(uint64 j, uint32 npad)
 {
     char buf[20];
-    uint32_t i = 0;
+    uint32 i = 0;
     for(i = 0; i < 20; i++)
     {
         int r = j%10;
@@ -139,7 +139,7 @@ void Rope::append(uint64_t j, uint32_t npad)
     terminate();
 }
 
-void Rope::append(float j, uint8_t precision)
+void Rope::append(float j, uint8 precision)
 {
     if(isnan(j))
     {
@@ -151,36 +151,36 @@ void Rope::append(float j, uint8_t precision)
         append("inf", 3);
         return;
     }
-    uint32_t mul = 1;
+    uint32 mul = 1;
     for(int i = 0; i < precision; i++)
         mul *= 10;
-    int32_t t = static_cast<int32_t>(roundf(j*mul));
+    int32 t = static_cast<int32>(roundf(j*mul));
     char b[20];
     Rope sb(b, 20);
     sb.clear();
     sb.append(t, 3);
-    uint32_t len = max((int)sb.length()-precision, 0);
+    uint32 len = max((int)sb.length()-precision, 0);
     append(sb.c_str(), len);
     append('.');
     append(&sb.c_str()[len], sb.length()-len);
     terminate();
 }
 
-void Rope::append(double d, uint8_t precision)
+void Rope::append(double d, uint8 precision)
 {
     append(static_cast<float>(d), precision);
 }
 
-void Rope::append(Rope sb, uint16_t len)
+void Rope::append(Rope sb, uint16 len)
 {
     if(len < 1)
         len = sb.length();
     append(sb.c_str(), len);
 }
 
-uint32_t Rope::length()
+uint32 Rope::length()
 {
-    for(uint32_t i = 0; i < N; i++)
+    for(uint32 i = 0; i < N; i++)
     {
         if(str[i] == '\0')
             return i;
@@ -194,25 +194,25 @@ Rope& Rope::operator << (const char* s)
     return *this;
 }
 
-Rope& Rope::operator << (int32_t i)
+Rope& Rope::operator << (int32 i)
 {
     append(i);
     return *this;
 }
 
-Rope& Rope::operator << (uint32_t i)
+Rope& Rope::operator << (uint32 i)
 {
     append(i);
     return *this;
 }
 
-Rope& Rope::operator << (int64_t i)
+Rope& Rope::operator << (int64 i)
 {
     append(i);
     return *this;
 }
 
-Rope& Rope::operator << (uint64_t i)
+Rope& Rope::operator << (uint64 i)
 {
     append(i);
     return *this;
@@ -281,9 +281,9 @@ Rope& Rope::operator += (const char* s)
 Rope& Rope::operator = (const char* s)
 {
     pos = 0;
-    uint32_t l = c_strlen(s, N);
+    uint32 l = c_strlen(s, N);
     /*
-    for(uint32_t i = 0; i < l; i++)
+    for(uint32 i = 0; i < l; i++)
         append(s[i]);
     terminate();
     */
@@ -299,7 +299,7 @@ Rope Rope::operator = (Rope r)
     return *this;
 }
 
-char& Rope::operator [](uint16_t p)
+char& Rope::operator [](uint16 p)
 {
     return str[p];
 }
@@ -324,7 +324,7 @@ bool Rope::operator != (const char* r)
     return (!compare(r));
 }
 
-bool Rope::compare(Rope r, uint32_t len)
+bool Rope::compare(Rope r, uint32 len)
 {
     if(len == 0)
     {
@@ -332,7 +332,7 @@ bool Rope::compare(Rope r, uint32_t len)
             return false;
         len = length();
     }
-    for(uint32_t i = 0; i < len; i++)
+    for(uint32 i = 0; i < len; i++)
     {
         if(str[i] != r.str[i])
             return false;
@@ -340,17 +340,17 @@ bool Rope::compare(Rope r, uint32_t len)
     return true;
 }
 
-bool Rope::compare(const char* c, uint32_t len)
+bool Rope::compare(const char* c, uint32 len)
 {
     if(len == 0)
     {
-        len = static_cast<int>(c_strlen(c, static_cast<uint16_t>(length()+2)));
+        len = static_cast<int>(c_strlen(c, static_cast<uint16>(length()+2)));
         if(len != length())
         {
             return false; //strings are different lengths, so they aren't the same
         }
     }
-    for(uint32_t i = 0; i < len; i++)
+    for(uint32 i = 0; i < len; i++)
     {
         if(str[i] != c[i])
             return false;
@@ -358,9 +358,9 @@ bool Rope::compare(const char* c, uint32_t len)
     return true;
 }
 
-bool Rope::compare(Rope r, uint32_t start_this, uint32_t start_that, uint32_t len)
+bool Rope::compare(Rope r, uint32 start_this, uint32 start_that, uint32 len)
 {
-    for(uint32_t i = 0; i < len; i++)
+    for(uint32 i = 0; i < len; i++)
     {
         if(str[i+start_this] != r.str[start_that+i])
             return false;
@@ -368,9 +368,9 @@ bool Rope::compare(Rope r, uint32_t start_this, uint32_t start_that, uint32_t le
     return true;
 }
 
-bool Rope::compare(const char* c, uint32_t start_this, uint32_t start_that, uint32_t len)
+bool Rope::compare(const char* c, uint32 start_this, uint32 start_that, uint32 len)
 {
-    for(uint32_t i = 0; i < len; i++)
+    for(uint32 i = 0; i < len; i++)
     {
         if(str[i+start_this] != c[start_that+i])
             return false;
@@ -378,15 +378,15 @@ bool Rope::compare(const char* c, uint32_t start_this, uint32_t start_that, uint
     return true;
 }
 
-void Rope::sub_string(char* buf, uint32_t start, uint32_t len)
+void Rope::sub_string(char* buf, uint32 start, uint32 len)
 {
-    uint32_t i = 0;
+    uint32 i = 0;
     for(; i < len; i++)
         buf[i] = str[i+start];
     buf[i] = '\0';
 }
 
-void Rope::sub_string(Rope& r, uint32_t start, uint32_t len)
+void Rope::sub_string(Rope& r, uint32 start, uint32 len)
 {
     sub_string(r.str, start, len);
 }
@@ -398,11 +398,11 @@ const char* Rope::c_str()
 
 void Rope::clear()
 {
-    for(uint32_t i = 0; i < N; i++) str[i] = '\0';
+    for(uint32 i = 0; i < N; i++) str[i] = '\0';
     pos = 0;
 }
 
-int Rope::atoi(uint32_t p)
+int Rope::atoi(uint32 p)
 {
     int res = 0,n=1;
     char* pstr = &str[p];
@@ -417,7 +417,7 @@ int Rope::atoi(uint32_t p)
     //return ::atoi(&str[p]);
 }
 
-float Rope::atof(uint32_t ps)
+float Rope::atof(uint32 ps)
 {
     if(compare("nan", 3))
         return NAN;
@@ -455,11 +455,11 @@ float Rope::atof(uint32_t ps)
     return sign * value;
 }
 
-void Rope::copy(char* c, uint32_t len) const
+void Rope::copy(char* c, uint32 len) const
 {
     if(len == 0)
         len = N;
-    for(uint32_t i = 0; i < len; i++)
+    for(uint32 i = 0; i < len; i++)
         c[i] = str[i];
 }
 
@@ -468,9 +468,9 @@ char* Rope::get_buffer()
     return str;
 }
 
-uint32_t Rope::c_strlen(const char* c, uint32_t maxlen)
+uint32 Rope::c_strlen(const char* c, uint32 maxlen)
 {
-    for(uint32_t i = 0; i < maxlen; i++)
+    for(uint32 i = 0; i < maxlen; i++)
     {
         if(c[i] == '\0')
             return i;

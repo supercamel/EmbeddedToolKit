@@ -20,7 +20,7 @@
 #define ETK_NAVIGATION_H_INCLUDED
 
 
-#include <stdint.h>
+#include "types.h"
 #include <etk/vector.h>
 #include <etk/conversions.h>
 
@@ -41,7 +41,7 @@ public:
      * @arg la latitude
      * @arg ln longitude
      */
-    Coordinate(float la, float ln);
+    Coordinate(real_t la, real_t ln);
     /**
      * \brief Creates a Coordinate.
      * @arg v A two dimensional vector with lat as x and lng as y.
@@ -56,20 +56,20 @@ public:
 	/**
 	 * \brief Calculates the bearing to a coordinate.
 	 */
-    float bearing_to(Coordinate to);
+    real_t bearing_to(Coordinate to);
 
     /**
      * \brief Calculates the distance to a coordinate.
      * @return Distance to a coordinate in meters.
      */
-    float distance_to(Coordinate b);
+    real_t distance_to(Coordinate b);
 
     /**
      * \brief Calculates cross track distance (how far off course you are).
      * \image html http://www.firetailuav.com/img/xtrack.png
      * @return Cross track distance in meters.
      */
-    float cross_track_distance(Coordinate from, Coordinate to);
+    real_t cross_track_distance(Coordinate from, Coordinate to);
 
     /**
      * \brief Given a distance and a bearing, this function calculates the destination coordinate.
@@ -77,7 +77,7 @@ public:
      * @arg bearing Direction to destination.
      * @return Coordinate that represents the destination.
      */
-    Coordinate destination_from_distance_bearing(float dist, float bearing);
+    Coordinate destination_from_distance_bearing(real_t dist, real_t bearing);
 
 	/**
      * \brief Coordinate can be seamlessly cast to a two dimensional vector.
@@ -99,33 +99,33 @@ public:
 	/**
 	 * \brief Returns latitude.
 	 */
-    float get_lat() {
+    real_t get_lat() {
         return radians_to_degrees(lat);
     }
 
     /**
      * \brief Sets latitude
      */
-    void set_lat(float l) {
+    void set_lat(real_t l) {
         lat = degrees_to_radians(l);
     }
 
     /**
      * \brief Returns longitude
      */
-    float get_lng() {
+    real_t get_lng() {
         return radians_to_degrees(lng);
     }
 
     /**
      * \brief Sets longitude.
      */
-    void set_lng(float l) {
+    void set_lng(real_t l) {
         lng = degrees_to_radians(l);
     }
 
 protected:
-    float lat = 0, lng = 0;
+    real_t lat = 0, lng = 0;
 };
 
 
@@ -138,8 +138,8 @@ class Waypoint : public Coordinate
 {
 public:
     Waypoint() { }
-    Waypoint(float la, float ln);
-    Waypoint(float la, float ln, float a);
+    Waypoint(real_t la, real_t ln);
+    Waypoint(real_t la, real_t ln, real_t a);
     Waypoint(etk::Vector<3> pos);
 
     operator Vector<3>()
@@ -151,14 +151,14 @@ public:
         return ret;
     }
 
-    float get_alt() {
+    real_t get_alt() {
         return alt;
     }
-    void set_alt(float a) {
+    void set_alt(real_t a) {
         alt = a;
     }
 protected:
-    float alt = 0;
+    real_t alt = 0;
 };
 
 }

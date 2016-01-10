@@ -41,7 +41,7 @@ public:
     {
     public:
         PIDGain() { }
-        PIDGain(float p, float i, float d)
+        PIDGain(real_t p, real_t i, real_t d)
         {
             kp = p;
             ki = i;
@@ -57,28 +57,28 @@ public:
         {
             return score < pg.score;
         }
-        float kp, ki, kd;
-        float score;
+        real_t kp, ki, kd;
+        real_t score;
     };
 
 
     EvoPid(PIDRater& rater);
 
-    float step(float setpoint, float measurement, float dt);
+    real_t step(real_t setpoint, real_t measurement, real_t dt);
 
     void repopulate(PIDGain& p);
 
-    void set_max_mutation(float mutation_max)
+    void set_max_mutation(real_t mutation_max)
     {
         max_mutation = mutation_max;
     }
 
-    void set_min_mutation(float mute_min)
+    void set_min_mutation(real_t mute_min)
     {
         min_mutation = mute_min;
     }
 
-    void set_mutation_rate(float mute_rate)
+    void set_mutation_rate(real_t mute_rate)
     {
         mutation_rate = mute_rate;
     }
@@ -97,12 +97,12 @@ public:
     {
         auto line_tok = make_tokeniser(s, s.length());
         StaticString<120> line;
-        uint32_t line_count = 0;
+        uint32 line_count = 0;
         while(line_tok.next(line, 120))
         {
             auto gain_tok = make_tokeniser(line, line.length());
             StaticString<20> val_str;
-            uint32_t gain_count = 0;
+            uint32 gain_count = 0;
             while(gain_tok.next(val_str, 20))
             {
                 if(gain_count == 0)
@@ -121,12 +121,12 @@ public:
         }
     }
 
-    void set_integral_constraint(float ic)
+    void set_integral_constraint(real_t ic)
     {
         integral_constraint = ic;
     }
 
-    void set_kd_filter_gain(float g)
+    void set_kd_filter_gain(real_t g)
     {
         der_filter.set_gain(g);
     }
@@ -136,7 +136,7 @@ public:
         return best_ever;
     }
 
-    uint32_t get_generation_count()
+    uint32 get_generation_count()
     {
         return generation_counter;
     }
@@ -145,20 +145,20 @@ private:
     void breed(PIDGain& mother, PIDGain& father);
     void apply_mutation(PIDGain& mutant);
 
-    static const uint32_t POPULATION = 8;
+    static const uint32 POPULATION = 8;
     Array<PIDGain, POPULATION> pids;
     PIDRater& rater;
 
-    uint32_t generation_counter = 0;
+    uint32 generation_counter = 0;
 
-    uint8_t current_pid;
-    float mutation_rate = 10.0f;
-    float max_mutation = 1.0f;
-    float min_mutation = 0.1f;
+    uint8 current_pid;
+    real_t mutation_rate = 10.0f;
+    real_t max_mutation = 1.0f;
+    real_t min_mutation = 0.1f;
 
-    float integral = 0.0f;
-    float integral_constraint = 10.0f;
-    float previous_error = 0.0f;
+    real_t integral = 0.0f;
+    real_t integral_constraint = 10.0f;
+    real_t previous_error = 0.0f;
     etk::ExpoMovingAvg der_filter;
 
     PIDGain best_ever;

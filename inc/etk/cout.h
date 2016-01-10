@@ -42,9 +42,9 @@ public:
     Cout& operator << (char i);
     Cout& operator << (Cout& s);
 
-    template<uint32_t n> Cout& operator << (Vector<n> v)
+    template<uint32 n> Cout& operator << (Vector<n> v)
     {
-        for(uint32_t i = 0; i < n-1; i++)
+        for(uint32 i = 0; i < n-1; i++)
             operator<<(v[i]), operator<<(", ");
 
         operator<<(v[n-1]);
@@ -52,11 +52,11 @@ public:
         return *this;
     }
 
-    template<uint32_t max_x, uint32_t max_y> Cout& operator << (Matrix<max_x, max_y> v)
+    template<uint32 max_x, uint32 max_y> Cout& operator << (Matrix<max_x, max_y> v)
     {
-        for(uint32_t x = 0; x < max_x; x++)
+        for(uint32 x = 0; x < max_x; x++)
         {
-            for(uint32_t y = 0; y < max_y-1; y++)
+            for(uint32 y = 0; y < max_y-1; y++)
                 operator<<(v(x, y)), operator<<("\t");
             operator<<(v(x, max_y-1));
             put('\n');

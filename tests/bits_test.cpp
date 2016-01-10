@@ -6,7 +6,7 @@ bool bits_test(std::string& subtest)
 {
 	subtest = "Setting bits";
     //create an 8bit bits object
-    etk::Bits<uint8_t> bits;
+    etk::Bits<uint8> bits;
 
     //set the first bit to ON
     //set_bit only returns false if the bit to set is out of range
@@ -40,7 +40,6 @@ bool bits_test(std::string& subtest)
 
 	subtest = "To string";
     etk::StaticString<9> s = bits.to_string();
-    cout << s.c_str() << endl;
     if(!s.compare("10000000", 8))
         return false;
 

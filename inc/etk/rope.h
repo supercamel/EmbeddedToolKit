@@ -19,7 +19,7 @@
 #ifndef ROPE_H_INCLUDED
 #define ROPE_H_INCLUDED
 
-#include <stdint.h>
+#include "types.h"
 
 namespace etk
 {
@@ -45,29 +45,31 @@ namespace etk
 class Rope
 {
 public:
-    Rope(char* buf, uint32_t maxlen, const char* c);
-    Rope(char* c, uint32_t maxlen);
+    Rope(char* buf, uint32 maxlen, const char* c);
+    Rope(char* c, uint32 maxlen);
     Rope(Rope& r);
     Rope(const Rope& r);
 
 
     void append(char c);
     void append(const char* s, int len = 0);
-    void append(int32_t j, uint32_t npad = 1);
-    void append(uint32_t j, uint32_t npad = 1);
-    void append(int64_t j, uint32_t npad = 1);
-    void append(uint64_t j, uint32_t npad = 1);
-    void append(float j, uint8_t precision = 2);
-    void append(double d, uint8_t precision = 2);
-    void append(Rope sb, uint16_t len = 0);
+    //void append(int i, uint32 npad = 1);
+    //void append(unsigned int i, uint32 npad = 1);
+    void append(int32 j, uint32 npad = 1);
+    void append(uint32 j, uint32 npad = 1);
+    void append(int64 j, uint32 npad = 1);
+    void append(uint64 j, uint32 npad = 1);
+    void append(float j, uint8 precision = 2);
+    void append(double d, uint8 precision = 2);
+    void append(Rope sb, uint16 len = 0);
 
-    uint32_t length();
+    uint32 length();
 
     Rope& operator << (const char* s);
-    Rope& operator << (int32_t i);
-    Rope& operator << (uint32_t i);
-    Rope& operator << (int64_t i);
-    Rope& operator << (uint64_t i);
+    Rope& operator << (int32 i);
+    Rope& operator << (uint32 i);
+    Rope& operator << (int64 i);
+    Rope& operator << (uint64 i);
     Rope& operator << (float i);
     Rope& operator << (double d);
     Rope& operator << (char i);
@@ -85,32 +87,32 @@ public:
     Rope& operator = (const char*);
     Rope operator = (Rope r);
 
-    char& operator [](uint16_t p);
+    char& operator [](uint16 p);
 
     bool operator == (Rope r);
     bool operator != (Rope r);
     bool operator == (const char* r);
     bool operator != (const char* r);
 
-    bool compare(Rope r, uint32_t len = 0);
-    bool compare(const char* c, uint32_t len = 0);
-    bool compare(Rope r, uint32_t start_this, uint32_t start_that, uint32_t len);
-    bool compare(const char* c, uint32_t start_this, uint32_t start_that, uint32_t len);
+    bool compare(Rope r, uint32 len = 0);
+    bool compare(const char* c, uint32 len = 0);
+    bool compare(Rope r, uint32 start_this, uint32 start_that, uint32 len);
+    bool compare(const char* c, uint32 start_this, uint32 start_that, uint32 len);
 
-    void sub_string(char* buf, uint32_t start, uint32_t len);
-    void sub_string(Rope& r, uint32_t start, uint32_t len);
+    void sub_string(char* buf, uint32 start, uint32 len);
+    void sub_string(Rope& r, uint32 start, uint32 len);
 
     const char* c_str();
 
     void clear();
 
-    int atoi(uint32_t p=0);
-    float atof(uint32_t p=0);
+    int atoi(uint32 p=0);
+    float atof(uint32 p=0);
 
-    void set_cursor(uint32_t p) {
+    void set_cursor(uint32 p) {
         pos = p;
     }
-    uint32_t get_cursor() {
+    uint32 get_cursor() {
         return pos;
     }
 
@@ -119,14 +121,14 @@ public:
         str = b;
     }
 
-    void copy(char* b, uint32_t len=0) const;
+    void copy(char* b, uint32 len=0) const;
 
-    static uint32_t c_strlen(const char* c, uint32_t maxlen);
+    static uint32 c_strlen(const char* c, uint32 maxlen);
 
 private:
     void terminate(); //appends a null terminator
-    uint32_t pos;
-    uint32_t N;
+    uint32 pos;
+    uint32 N;
     char* str;
 };
 

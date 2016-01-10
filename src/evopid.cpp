@@ -27,12 +27,12 @@ namespace etk
 
 static inline float rand_one()
 {
-    return ((float) rand() / (RAND_MAX));
+    return ((real_t) rand() / (RAND_MAX));
 }
 
-static inline float rand_one_range()
+static inline real_t rand_one_range()
 {
-    return ((float) rand() / ((RAND_MAX)))-0.5f;
+    return ((real_t) rand() / ((RAND_MAX)))-0.5f;
 }
 
 
@@ -44,7 +44,7 @@ EvoPid::EvoPid(PIDRater& rater) : rater(rater)
     best_ever.score = INFINITY;
 }
 
-float EvoPid::step(float setpoint, float measurement, float dt)
+real_t EvoPid::step(real_t setpoint, real_t measurement, real_t dt)
 {
     if(rater.rate(setpoint, measurement))
     {
@@ -67,7 +67,7 @@ float EvoPid::step(float setpoint, float measurement, float dt)
             /*
             if(rand_one() > 0.3)
             {
-                uint8_t m[3];
+                uint8 m[3];
                 m[0] = (rand_one()*3)+1.0f;
                 m[1] = (rand_one()*2)+1.0f;
                 m[2] = 1.0f;
@@ -77,7 +77,7 @@ float EvoPid::step(float setpoint, float measurement, float dt)
             else
                 mother = best_ever;
             */
-            uint8_t m[2];
+            uint8 m[2];
             m[0] = (rand_one()*2)+1.0f;
             m[1] = 1.0f;
             int v = m[int(rand_one()*2)];
@@ -89,11 +89,11 @@ float EvoPid::step(float setpoint, float measurement, float dt)
             breed(mother, father);
         }
     }
-    float error = setpoint - measurement;
+    real_t error = setpoint - measurement;
     integral += error*dt;
     integral = constrain(integral, -integral_constraint, integral_constraint);
     der_filter.step((error - previous_error)/dt);
-    float output = pids[current_pid].kp*error + pids[current_pid].ki*integral + pids[current_pid].kd*der_filter.get();
+    real_t output = pids[current_pid].kp*error + pids[current_pid].ki*integral + pids[current_pid].kd*der_filter.get();
     previous_error = error;
     return output;
 }
@@ -142,7 +142,7 @@ void EvoPid::apply_mutation(PIDGain& mutant)
 
 void EvoPid::repopulate(PIDGain& p)
 {
-    float tmp_mute = mutation_rate;
+    real_t tmp_mute = mutation_rate;
     mutation_rate = 1.0f;
     for(auto& i : pids)
     {
