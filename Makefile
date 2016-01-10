@@ -18,7 +18,7 @@ $(EXECUTABLE): $(OBJECTS) $(TEST_OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 .obj/tests/%.o:tests/%.cpp
-	mkdir .obj/tests
+	mkdir -p .obj/tests
 	$(CC) $(CFLAGS) $< -o $@
 
 inc/etk/version.h:
