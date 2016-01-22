@@ -4,15 +4,12 @@
 #include <etk/etk.h>
 #include <iostream>
 
-class Out : public etk::Cout
+class Out : public etk::Stream<Out>
 {
 public:
-	Out() { }
-	~Out() { flush(); }
-
-	void write(const char* buf)
+	void put(char c)
 	{
-		std::cout << buf << std::flush;
+	    std::cout << c;
 	}
 private:
 

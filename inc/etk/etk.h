@@ -36,7 +36,7 @@
  */
 
 
-#include "cout.h"
+#include "stream.h"
 #include "rope.h"
 #include "tokeniser.h"
 #include "matrix.h"
