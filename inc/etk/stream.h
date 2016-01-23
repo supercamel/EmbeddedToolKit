@@ -21,7 +21,7 @@
 #define STREAM_H_INCLUDED
 
 #include "rope.h"
-#include "string.h"
+#include "staticstring.h"
 #include "vector.h"
 #include "matrix.h"
 
@@ -35,6 +35,12 @@ public:
     {
         while(*cstr != '\0')
             static_cast<derived*>(this)->put(*cstr++);
+    }
+
+    template<uint32 L> void print(StaticString<L>& ss)
+    {
+        for(uint32 i = 0; i < ss.length(); i++)
+            static_cast<derived*>(this)->put(ss[i]);
     }
 
     template<typename T> void print(T v)
