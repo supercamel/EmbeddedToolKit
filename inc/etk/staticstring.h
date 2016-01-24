@@ -550,6 +550,14 @@ public:
         r.sub_string(string.raw_memory(), start, len);
     }
 
+    void reverse()
+    {
+        uint32 hlen = length()/2;
+        uint32 len = length()-1;
+        for(uint32 i = 0; i < hlen; i++)
+            swap(buf[i], buf[len-i]);
+    }
+
 private:
     char buf[L];
 };

@@ -173,6 +173,17 @@ bool static_string_test(std::string& subtest)
     if(ss == "")
         return false;
 
+    subtest = "Reverse string";
+    ss = "Help";
+    ss.reverse();
+    if(ss != "pleH")
+        return false;
+
+    ss = "Help!";
+    ss.reverse();
+    if(ss != "!pleH")
+        return false;
+
 	return true;
 }
 
