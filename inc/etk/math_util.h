@@ -229,6 +229,13 @@ template<typename T> T abs(T t)
     return t;
 }
 
+
+void set_array(auto& ar, auto item, uint32 len)
+{
+    for(uint32 i = 0; i < len; i++)
+        ar[i] = item;
+}
+
 /**
  * \brief Little trick function used to silence warnings about unused variables that are
  * , for whatever reason, required to be unused.
