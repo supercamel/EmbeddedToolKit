@@ -43,6 +43,13 @@ public:
             static_cast<derived*>(this)->put(ss[i]);
     }
 
+    template<uint32 L> void print(StaticString<L> ss)
+    {
+        for(uint32 i = 0; i < ss.length(); i++)
+            static_cast<derived*>(this)->put(ss[i]);
+    }
+
+
     template<typename T> void print(T v)
     {
         char buf[20];
