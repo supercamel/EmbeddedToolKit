@@ -13,15 +13,14 @@ An exponential moving average low-\/pass filter.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classetk_1_1_expo_moving_avg_a764f074a90b4d376aeeb545ab3b03f3f}{Expo\-Moving\-Avg} ()
-\item 
-\hyperlink{classetk_1_1_expo_moving_avg_a33465de8293f5f2b6574b4f05850e28e}{Expo\-Moving\-Avg} (float f, float init\-\_\-est=0)
+\hyperlink{classetk_1_1_expo_moving_avg_a5194c9b3142d409ae109b66285c4fa60}{Expo\-Moving\-Avg} (real\-\_\-t f, real\-\_\-t init\-\_\-est=0)
 \begin{DoxyCompactList}\small\item\em This constructor allows you to set the filter gain and initial estimate. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_expo_moving_avg_a2b53f8e3138304f9a2ea40d386cc445e}{set\-\_\-gain} (float factor)
+void \hyperlink{classetk_1_1_expo_moving_avg_a772862fd59a243bba42d244311ee2643}{set\-\_\-gain} (real\-\_\-t factor)
 \begin{DoxyCompactList}\small\item\em The gain controls the responsiveness of the filter. It should be a value between 0.\-0 and 1.\-0. A higher value makes the filter more responsive and allows more noise through. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_expo_moving_avg_a34781b6d18a0e66d47a3006d567452f9}{step} (float measurement)
+void \hyperlink{classetk_1_1_expo_moving_avg_a9e769e6b6f298d99f4329e1155fbe8bd}{step} (real\-\_\-t measurement)
 \begin{DoxyCompactList}\small\item\em Performs a single iteration of the filter. Raw samples are entered into the filter using this function. \end{DoxyCompactList}\item 
-float \hyperlink{classetk_1_1_expo_moving_avg_ab9b907437d2d2862c64459c34fc35939}{get} ()
+\hypertarget{classetk_1_1_expo_moving_avg_a9a0fd1042f0a73282e3dbd4ef6d0353c}{real\-\_\-t \hyperlink{classetk_1_1_expo_moving_avg_a9a0fd1042f0a73282e3dbd4ef6d0353c}{get} ()}\label{classetk_1_1_expo_moving_avg_a9a0fd1042f0a73282e3dbd4ef6d0353c}
+
 \begin{DoxyCompactList}\small\item\em Returns the current state of the filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -41,21 +40,14 @@ An exponential moving average low-\/pass filter.
  
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classetk_1_1_expo_moving_avg_a764f074a90b4d376aeeb545ab3b03f3f}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!Expo\-Moving\-Avg@{Expo\-Moving\-Avg}}
+\hypertarget{classetk_1_1_expo_moving_avg_a5194c9b3142d409ae109b66285c4fa60}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!Expo\-Moving\-Avg@{Expo\-Moving\-Avg}}
 \index{Expo\-Moving\-Avg@{Expo\-Moving\-Avg}!etk::ExpoMovingAvg@{etk\-::\-Expo\-Moving\-Avg}}
 \subsubsection[{Expo\-Moving\-Avg}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Expo\-Moving\-Avg\-::\-Expo\-Moving\-Avg (
 \begin{DoxyParamCaption}
-{}
+\item[{real\-\_\-t}]{f, }
+\item[{real\-\_\-t}]{init\-\_\-est = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_a764f074a90b4d376aeeb545ab3b03f3f}
-\hypertarget{classetk_1_1_expo_moving_avg_a33465de8293f5f2b6574b4f05850e28e}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!Expo\-Moving\-Avg@{Expo\-Moving\-Avg}}
-\index{Expo\-Moving\-Avg@{Expo\-Moving\-Avg}!etk::ExpoMovingAvg@{etk\-::\-Expo\-Moving\-Avg}}
-\subsubsection[{Expo\-Moving\-Avg}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Expo\-Moving\-Avg\-::\-Expo\-Moving\-Avg (
-\begin{DoxyParamCaption}
-\item[{float}]{f, }
-\item[{float}]{init\-\_\-est = {\ttfamily 0}}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_a33465de8293f5f2b6574b4f05850e28e}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_a5194c9b3142d409ae109b66285c4fa60}
 
 
 This constructor allows you to set the filter gain and initial estimate. 
@@ -65,37 +57,26 @@ This constructor allows you to set the filter gain and initial estimate.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classetk_1_1_expo_moving_avg_ab9b907437d2d2862c64459c34fc35939}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!get@{get}}
-\index{get@{get}!etk::ExpoMovingAvg@{etk\-::\-Expo\-Moving\-Avg}}
-\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}float etk\-::\-Expo\-Moving\-Avg\-::get (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_ab9b907437d2d2862c64459c34fc35939}
-
-
-Returns the current state of the filter. 
-
-\hypertarget{classetk_1_1_expo_moving_avg_a2b53f8e3138304f9a2ea40d386cc445e}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!set\-\_\-gain@{set\-\_\-gain}}
+\hypertarget{classetk_1_1_expo_moving_avg_a772862fd59a243bba42d244311ee2643}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!set\-\_\-gain@{set\-\_\-gain}}
 \index{set\-\_\-gain@{set\-\_\-gain}!etk::ExpoMovingAvg@{etk\-::\-Expo\-Moving\-Avg}}
 \subsubsection[{set\-\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Expo\-Moving\-Avg\-::set\-\_\-gain (
 \begin{DoxyParamCaption}
-\item[{float}]{factor}
+\item[{real\-\_\-t}]{factor}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_a2b53f8e3138304f9a2ea40d386cc445e}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_a772862fd59a243bba42d244311ee2643}
 
 
 The gain controls the responsiveness of the filter. It should be a value between 0.\-0 and 1.\-0. A higher value makes the filter more responsive and allows more noise through. 
 
 \begin{DoxyItemize}
 \item factor The filter gain (0.\-0 -\/ 1.\-0) \end{DoxyItemize}
-\hypertarget{classetk_1_1_expo_moving_avg_a34781b6d18a0e66d47a3006d567452f9}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!step@{step}}
+\hypertarget{classetk_1_1_expo_moving_avg_a9e769e6b6f298d99f4329e1155fbe8bd}{\index{etk\-::\-Expo\-Moving\-Avg@{etk\-::\-Expo\-Moving\-Avg}!step@{step}}
 \index{step@{step}!etk::ExpoMovingAvg@{etk\-::\-Expo\-Moving\-Avg}}
 \subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::\-Expo\-Moving\-Avg\-::step (
 \begin{DoxyParamCaption}
-\item[{float}]{measurement}
+\item[{real\-\_\-t}]{measurement}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_a34781b6d18a0e66d47a3006d567452f9}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_expo_moving_avg_a9e769e6b6f298d99f4329e1155fbe8bd}
 
 
 Performs a single iteration of the filter. Raw samples are entered into the filter using this function. 
@@ -106,4 +87,4 @@ Performs a single iteration of the filter. Raw samples are entered into the filt
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-inc/etk/\hyperlink{filters_8h}{filters.\-h}\end{DoxyCompactItemize}
+inc/etk/filters.\-h\end{DoxyCompactItemize}

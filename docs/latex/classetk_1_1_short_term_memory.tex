@@ -18,28 +18,34 @@ class \hyperlink{classetk_1_1_short_term_memory_1_1_iterator}{Iterator}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classetk_1_1_short_term_memory_ae67c5592845e9b5a3b1478785f5d4733}{Short\-Term\-Memory} ()
+\hypertarget{classetk_1_1_short_term_memory_a2a2d18853489aaa9f4462b73109a5441}{\hyperlink{classetk_1_1_short_term_memory_1_1_iterator}{Iterator} {\bfseries begin} ()}\label{classetk_1_1_short_term_memory_a2a2d18853489aaa9f4462b73109a5441}
+
 \item 
-\hyperlink{classetk_1_1_short_term_memory_1_1_iterator}{Iterator} \hyperlink{classetk_1_1_short_term_memory_a2a2d18853489aaa9f4462b73109a5441}{begin} ()
+\hypertarget{classetk_1_1_short_term_memory_acf6db78d7b713ea53bc12ede90018ee5}{\hyperlink{classetk_1_1_short_term_memory_1_1_iterator}{Iterator} {\bfseries end} ()}\label{classetk_1_1_short_term_memory_acf6db78d7b713ea53bc12ede90018ee5}
+
 \item 
-\hyperlink{classetk_1_1_short_term_memory_1_1_iterator}{Iterator} \hyperlink{classetk_1_1_short_term_memory_acf6db78d7b713ea53bc12ede90018ee5}{end} ()
-\item 
-void \hyperlink{classetk_1_1_short_term_memory_a960b35e4870eba7f21446816b0762357}{put} (T b)
+\hypertarget{classetk_1_1_short_term_memory_a960b35e4870eba7f21446816b0762357}{void \hyperlink{classetk_1_1_short_term_memory_a960b35e4870eba7f21446816b0762357}{put} (T b)}\label{classetk_1_1_short_term_memory_a960b35e4870eba7f21446816b0762357}
+
 \begin{DoxyCompactList}\small\item\em Add an item to memory. \end{DoxyCompactList}\item 
-bool \hyperlink{classetk_1_1_short_term_memory_a1f4bb161b90b3afefb5ed3906cafceb0}{is\-\_\-full} ()
+\hypertarget{classetk_1_1_short_term_memory_a1f4bb161b90b3afefb5ed3906cafceb0}{bool \hyperlink{classetk_1_1_short_term_memory_a1f4bb161b90b3afefb5ed3906cafceb0}{is\-\_\-full} ()}\label{classetk_1_1_short_term_memory_a1f4bb161b90b3afefb5ed3906cafceb0}
+
 \begin{DoxyCompactList}\small\item\em Returns true if memory is full. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_short_term_memory_adb7d21b91f38eaee4da9be13b4eaf5f9}{increment} ()
+\hypertarget{classetk_1_1_short_term_memory_adb7d21b91f38eaee4da9be13b4eaf5f9}{void \hyperlink{classetk_1_1_short_term_memory_adb7d21b91f38eaee4da9be13b4eaf5f9}{increment} ()}\label{classetk_1_1_short_term_memory_adb7d21b91f38eaee4da9be13b4eaf5f9}
+
 \begin{DoxyCompactList}\small\item\em Umm . . . actually not sure what this function could possibly be used for. \end{DoxyCompactList}\item 
-T \hyperlink{classetk_1_1_short_term_memory_a127b78910d95882aeb29df31d1ae7243}{peek\-\_\-ahead} (uint16\-\_\-t n=0)
+\hypertarget{classetk_1_1_short_term_memory_a65be8def78928c4fabf56ee1f612f782}{T \hyperlink{classetk_1_1_short_term_memory_a65be8def78928c4fabf56ee1f612f782}{peek\-\_\-ahead} (uint16 n=0)}\label{classetk_1_1_short_term_memory_a65be8def78928c4fabf56ee1f612f782}
+
 \begin{DoxyCompactList}\small\item\em Returns the next item without removing it from memory. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_short_term_memory_a7a8b7aa0f74d5163b304b03f27dc7fed}{empty} ()
+\hypertarget{classetk_1_1_short_term_memory_a7a8b7aa0f74d5163b304b03f27dc7fed}{void \hyperlink{classetk_1_1_short_term_memory_a7a8b7aa0f74d5163b304b03f27dc7fed}{empty} ()}\label{classetk_1_1_short_term_memory_a7a8b7aa0f74d5163b304b03f27dc7fed}
+
 \begin{DoxyCompactList}\small\item\em Empties memory. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_short_term_memory_a69bbdd78237057d731fea8895d2df7e8}{fill} (T t)
+\hypertarget{classetk_1_1_short_term_memory_a69bbdd78237057d731fea8895d2df7e8}{void \hyperlink{classetk_1_1_short_term_memory_a69bbdd78237057d731fea8895d2df7e8}{fill} (T t)}\label{classetk_1_1_short_term_memory_a69bbdd78237057d731fea8895d2df7e8}
+
 \begin{DoxyCompactList}\small\item\em Fills the entire memory with a value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\subsubsection*{template$<$typename T, uint32\-\_\-t L\-E\-N$>$class etk\-::\-Short\-Term\-Memory$<$ T, L\-E\-N $>$}
+\subsubsection*{template$<$typename T, uint32 L\-E\-N$>$class etk\-::\-Short\-Term\-Memory$<$ T, L\-E\-N $>$}
 
 \hyperlink{classetk_1_1_short_term_memory}{Short\-Term\-Memory} stores a data in a buffer. As more data is received, the old data is eventually overwritten and forgotten. It has some uses in digital signal processing, adaptive control and filtering. 
 
@@ -65,99 +71,6 @@ stm.\hyperlink{classetk_1_1_short_term_memory_a69bbdd78237057d731fea8895d2df7e8}
 \end{DoxyTemplParams}
 
 
-\subsection{Constructor \& Destructor Documentation}
-\hypertarget{classetk_1_1_short_term_memory_ae67c5592845e9b5a3b1478785f5d4733}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!Short\-Term\-Memory@{Short\-Term\-Memory}}
-\index{Short\-Term\-Memory@{Short\-Term\-Memory}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{Short\-Term\-Memory}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::{\bf Short\-Term\-Memory} (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_ae67c5592845e9b5a3b1478785f5d4733}
-
-
-\subsection{Member Function Documentation}
-\hypertarget{classetk_1_1_short_term_memory_a2a2d18853489aaa9f4462b73109a5441}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!begin@{begin}}
-\index{begin@{begin}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ {\bf Iterator} {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::begin (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_a2a2d18853489aaa9f4462b73109a5441}
-\hypertarget{classetk_1_1_short_term_memory_a7a8b7aa0f74d5163b304b03f27dc7fed}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!empty@{empty}}
-\index{empty@{empty}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ void {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::empty (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_a7a8b7aa0f74d5163b304b03f27dc7fed}
-
-
-Empties memory. 
-
-\hypertarget{classetk_1_1_short_term_memory_acf6db78d7b713ea53bc12ede90018ee5}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!end@{end}}
-\index{end@{end}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ {\bf Iterator} {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::end (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_acf6db78d7b713ea53bc12ede90018ee5}
-\hypertarget{classetk_1_1_short_term_memory_a69bbdd78237057d731fea8895d2df7e8}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!fill@{fill}}
-\index{fill@{fill}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{fill}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ void {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::fill (
-\begin{DoxyParamCaption}
-\item[{T}]{t}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_a69bbdd78237057d731fea8895d2df7e8}
-
-
-Fills the entire memory with a value. 
-
-\hypertarget{classetk_1_1_short_term_memory_adb7d21b91f38eaee4da9be13b4eaf5f9}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!increment@{increment}}
-\index{increment@{increment}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ void {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::increment (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_adb7d21b91f38eaee4da9be13b4eaf5f9}
-
-
-Umm . . . actually not sure what this function could possibly be used for. 
-
-\hypertarget{classetk_1_1_short_term_memory_a1f4bb161b90b3afefb5ed3906cafceb0}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!is\-\_\-full@{is\-\_\-full}}
-\index{is\-\_\-full@{is\-\_\-full}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{is\-\_\-full}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ bool {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::is\-\_\-full (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_a1f4bb161b90b3afefb5ed3906cafceb0}
-
-
-Returns true if memory is full. 
-
-\hypertarget{classetk_1_1_short_term_memory_a127b78910d95882aeb29df31d1ae7243}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!peek\-\_\-ahead@{peek\-\_\-ahead}}
-\index{peek\-\_\-ahead@{peek\-\_\-ahead}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{peek\-\_\-ahead}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ T {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::peek\-\_\-ahead (
-\begin{DoxyParamCaption}
-\item[{uint16\-\_\-t}]{n = {\ttfamily 0}}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_a127b78910d95882aeb29df31d1ae7243}
-
-
-Returns the next item without removing it from memory. 
-
-\hypertarget{classetk_1_1_short_term_memory_a960b35e4870eba7f21446816b0762357}{\index{etk\-::\-Short\-Term\-Memory@{etk\-::\-Short\-Term\-Memory}!put@{put}}
-\index{put@{put}!etk::ShortTermMemory@{etk\-::\-Short\-Term\-Memory}}
-\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32\-\_\-t L\-E\-N$>$ void {\bf etk\-::\-Short\-Term\-Memory}$<$ T, L\-E\-N $>$\-::put (
-\begin{DoxyParamCaption}
-\item[{T}]{b}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_short_term_memory_a960b35e4870eba7f21446816b0762357}
-
-
-Add an item to memory. 
-
-
-
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-inc/etk/\hyperlink{stm_8h}{stm.\-h}\end{DoxyCompactItemize}
+inc/etk/stm.\-h\end{DoxyCompactItemize}

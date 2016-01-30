@@ -1,382 +1,128 @@
 \hypertarget{classetk_1_1_vector}{\section{etk\-:\-:Vector$<$ N $>$ Class Template Reference}
 \label{classetk_1_1_vector}\index{etk\-::\-Vector$<$ N $>$@{etk\-::\-Vector$<$ N $>$}}
 }
-
-
-{\ttfamily \#include $<$vector.\-h$>$}
-
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classetk_1_1_vector_ab1d972a722bbec81c523e157e2190131}{Vector} ()
+\hypertarget{classetk_1_1_vector_a6b7a5ed810f0d3dbafd40d84b8026064}{{\bfseries Vector} (real\-\_\-t a)}\label{classetk_1_1_vector_a6b7a5ed810f0d3dbafd40d84b8026064}
+
 \item 
-\hyperlink{classetk_1_1_vector_a14326a5c9a22841c14c807b706de55a7}{Vector} (float a)
+\hypertarget{classetk_1_1_vector_a3afdaaee9d9bd8eac6ae080057f92bea}{{\bfseries Vector} (real\-\_\-t a, real\-\_\-t b)}\label{classetk_1_1_vector_a3afdaaee9d9bd8eac6ae080057f92bea}
+
 \item 
-\hyperlink{classetk_1_1_vector_aeac80a1eb4747783c2bb583132d530fa}{Vector} (float a, float b)
+\hypertarget{classetk_1_1_vector_ae8b64c865822eb6d8cbc592ae18fcb0d}{{\bfseries Vector} (real\-\_\-t a, real\-\_\-t b, real\-\_\-t c)}\label{classetk_1_1_vector_ae8b64c865822eb6d8cbc592ae18fcb0d}
+
 \item 
-\hyperlink{classetk_1_1_vector_abaf5f91e99c86a524a63a2ef2b3e343a}{Vector} (float a, float b, float c)
+\hypertarget{classetk_1_1_vector_ab78f640e7097301342793dee4cde47ce}{{\bfseries Vector} (real\-\_\-t a, real\-\_\-t b, real\-\_\-t c, real\-\_\-t d)}\label{classetk_1_1_vector_ab78f640e7097301342793dee4cde47ce}
+
 \item 
-\hyperlink{classetk_1_1_vector_a2f0d81e6bf1759d050aa71489d2db816}{Vector} (float a, float b, float c, float d)
+\hypertarget{classetk_1_1_vector_a481e7f68fc0703cc25a337e2ba20fd62}{{\bfseries Vector} (const \hyperlink{classetk_1_1_vector}{Vector}$<$ N $>$ \&v)}\label{classetk_1_1_vector_a481e7f68fc0703cc25a337e2ba20fd62}
+
 \item 
-\hyperlink{classetk_1_1_vector_a481e7f68fc0703cc25a337e2ba20fd62}{Vector} (const \hyperlink{classetk_1_1_vector}{Vector}$<$ N $>$ \&v)
+\hypertarget{classetk_1_1_vector_a91d0d6ca60f0f394eb73aea335169584}{uint32 {\bfseries n} ()}\label{classetk_1_1_vector_a91d0d6ca60f0f394eb73aea335169584}
+
 \item 
-uint32\-\_\-t \hyperlink{classetk_1_1_vector_adc7028cab173d941591af508a7611325}{n} ()
+\hypertarget{classetk_1_1_vector_a9b23ec41375868f1d38697c6f335672f}{void {\bfseries from\-\_\-polar} (real\-\_\-t mag, real\-\_\-t dir)}\label{classetk_1_1_vector_a9b23ec41375868f1d38697c6f335672f}
+
 \item 
-void \hyperlink{classetk_1_1_vector_a7be874bc2760b72d2d0233fcb378577b}{from\-\_\-polar} (float mag, float dir)
+\hypertarget{classetk_1_1_vector_a3e0b749c5a48e99e1d2a2d8c02c03c2e}{real\-\_\-t {\bfseries magnitude} ()}\label{classetk_1_1_vector_a3e0b749c5a48e99e1d2a2d8c02c03c2e}
+
 \item 
-float \hyperlink{classetk_1_1_vector_a6a317e470cbbf7124509e3a3f3c2ded0}{magnitude} ()
+\hypertarget{classetk_1_1_vector_ad341fc0a23b2c8cb734beed314f9f17a}{real\-\_\-t {\bfseries theta} ()}\label{classetk_1_1_vector_ad341fc0a23b2c8cb734beed314f9f17a}
+
 \item 
-float \hyperlink{classetk_1_1_vector_ae5d960a3fa9572c1754e2aed9c1378cf}{theta} ()
+\hypertarget{classetk_1_1_vector_ae7f3db6458bd9a6e03dd8b24f2770dc5}{void {\bfseries normalize} ()}\label{classetk_1_1_vector_ae7f3db6458bd9a6e03dd8b24f2770dc5}
+
 \item 
-void \hyperlink{classetk_1_1_vector_ae7f3db6458bd9a6e03dd8b24f2770dc5}{normalize} ()
+\hypertarget{classetk_1_1_vector_aea85c6a2ccfa94d6591d226deefdf515}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries normalized} ()}\label{classetk_1_1_vector_aea85c6a2ccfa94d6591d226deefdf515}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_aea85c6a2ccfa94d6591d226deefdf515}{normalized} ()
+\hypertarget{classetk_1_1_vector_a836a830d76aa7fff1f902e99814502bd}{real\-\_\-t {\bfseries dot} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_a836a830d76aa7fff1f902e99814502bd}
+
 \item 
-float \hyperlink{classetk_1_1_vector_aba724addf2789f07bddd047a9949ed8e}{dot} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_aa9ab624901a330e48c44e5e16d5c5b4a}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries cross} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_aa9ab624901a330e48c44e5e16d5c5b4a}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_aa9ab624901a330e48c44e5e16d5c5b4a}{cross} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_afd94e371cb2080dfc5c713885f3eed9c}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries scale} (real\-\_\-t scalar)}\label{classetk_1_1_vector_afd94e371cb2080dfc5c713885f3eed9c}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_a0cc9e62beeb30398ab5102a8a21d3ad0}{scale} (float scalar)
+\hypertarget{classetk_1_1_vector_aaf944f75926a97454beffc04250f3a7e}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries invert} ()}\label{classetk_1_1_vector_aaf944f75926a97454beffc04250f3a7e}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_aaf944f75926a97454beffc04250f3a7e}{invert} ()
+\hypertarget{classetk_1_1_vector_ad7f7d3a14f074933d09ad3abc07f9019}{{\footnotesize template$<$uint32 nn$>$ }\\\hyperlink{classetk_1_1_vector}{Vector}$<$ nn $>$ {\bfseries sub\-\_\-vector} (uint32 n)}\label{classetk_1_1_vector_ad7f7d3a14f074933d09ad3abc07f9019}
+
 \item 
-{\footnotesize template$<$uint32\-\_\-t nn$>$ }\\\hyperlink{classetk_1_1_vector}{Vector}$<$ nn $>$ \hyperlink{classetk_1_1_vector_a917188a6ce6041488c60d24e6f49b891}{sub\-\_\-vector} (uint32\-\_\-t \hyperlink{classetk_1_1_vector_adc7028cab173d941591af508a7611325}{n})
+\hypertarget{classetk_1_1_vector_a94a274e82d99f4e94d0628804f2cdf1d}{{\footnotesize template$<$uint32 nn$>$ }\\void {\bfseries set\-\_\-sub\-\_\-vector} (\hyperlink{classetk_1_1_vector}{Vector}$<$ nn $>$ v, uint32 n)}\label{classetk_1_1_vector_a94a274e82d99f4e94d0628804f2cdf1d}
+
 \item 
-{\footnotesize template$<$uint32\-\_\-t nn$>$ }\\void \hyperlink{classetk_1_1_vector_a31d290f05c2722bd5b8f7c9ab15680cc}{set\-\_\-sub\-\_\-vector} (\hyperlink{classetk_1_1_vector}{Vector}$<$ nn $>$ v, uint32\-\_\-t \hyperlink{classetk_1_1_vector_adc7028cab173d941591af508a7611325}{n})
+\hypertarget{classetk_1_1_vector_ab1d80b27412c4a4e4c5db82deaf93a5a}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries operator=} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_ab1d80b27412c4a4e4c5db82deaf93a5a}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_ab1d80b27412c4a4e4c5db82deaf93a5a}{operator=} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_a7467a01d00015cfccacbdeca107dc224}{bool {\bfseries operator==} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_a7467a01d00015cfccacbdeca107dc224}
+
 \item 
-bool \hyperlink{classetk_1_1_vector_a7467a01d00015cfccacbdeca107dc224}{operator==} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_aabd2758f5e256f7467ee4bbc632d9a04}{bool {\bfseries compare} (\hyperlink{classetk_1_1_vector}{Vector} \&v, real\-\_\-t precision=0.\-00000f)}\label{classetk_1_1_vector_aabd2758f5e256f7467ee4bbc632d9a04}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \& \hyperlink{classetk_1_1_vector_a15fc3f99b711d1b17920c658a204b783}{operator$<$$<$} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_a15fc3f99b711d1b17920c658a204b783}{\hyperlink{classetk_1_1_vector}{Vector} \& {\bfseries operator$<$$<$} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_a15fc3f99b711d1b17920c658a204b783}
+
 \item 
-uint32\-\_\-t \hyperlink{classetk_1_1_vector_a8f64090a4fd857cc2769e4803f8159c0}{set} (uint32\-\_\-t v, float value)
+\hypertarget{classetk_1_1_vector_a793a60ded702fe9ea3213e035ce12eba}{uint32 {\bfseries set} (uint32 v, real\-\_\-t value)}\label{classetk_1_1_vector_a793a60ded702fe9ea3213e035ce12eba}
+
 \item 
-void \hyperlink{classetk_1_1_vector_aea42c446a666b7897dd1ed547505cd08}{set} (float a)
+\hypertarget{classetk_1_1_vector_a3090ae1eca76c56e8985b042885d6a28}{void {\bfseries set} (real\-\_\-t a)}\label{classetk_1_1_vector_a3090ae1eca76c56e8985b042885d6a28}
+
 \item 
-{\footnotesize template$<$typename... Args$>$ }\\void \hyperlink{classetk_1_1_vector_a2798a7d73170fc7cfa74e9d37b6127be}{set} (float a, Args...\-args)
+\hypertarget{classetk_1_1_vector_a1671c31013cdfa7ba0dc92fe393d0f8d}{{\footnotesize template$<$typename... Args$>$ }\\void {\bfseries set} (real\-\_\-t a, Args...\-args)}\label{classetk_1_1_vector_a1671c31013cdfa7ba0dc92fe393d0f8d}
+
 \item 
-bool \hyperlink{classetk_1_1_vector_a7bafdba4ca50aa40d06dfd6fd99db339}{operator!=} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_a7bafdba4ca50aa40d06dfd6fd99db339}{bool {\bfseries operator!=} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_a7bafdba4ca50aa40d06dfd6fd99db339}
+
 \item 
-float \& \hyperlink{classetk_1_1_vector_a683b1cdef47aa3b7c49c9ea03ac9d4e2}{operator\mbox{[}$\,$\mbox{]}} (uint32\-\_\-t \hyperlink{classetk_1_1_vector_adc7028cab173d941591af508a7611325}{n})
+\hypertarget{classetk_1_1_vector_a1b9cc9f89a9cdbd7679fb2013216e422}{real\-\_\-t \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (uint32 n)}\label{classetk_1_1_vector_a1b9cc9f89a9cdbd7679fb2013216e422}
+
 \item 
-float \hyperlink{classetk_1_1_vector_af2cc0f853874e3abd3fe8ef9881a9d26}{operator\mbox{[}$\,$\mbox{]}} (uint32\-\_\-t \hyperlink{classetk_1_1_vector_adc7028cab173d941591af508a7611325}{n}) const 
+\hypertarget{classetk_1_1_vector_af3fc409b675aeff472288ebbb5e4caa1}{real\-\_\-t {\bfseries operator\mbox{[}$\,$\mbox{]}} (uint32 n) const }\label{classetk_1_1_vector_af3fc409b675aeff472288ebbb5e4caa1}
+
 \item 
-float \& \hyperlink{classetk_1_1_vector_afbb5e4e8fc9a74d512bfc72395dc7782}{operator()} (uint32\-\_\-t \hyperlink{classetk_1_1_vector_adc7028cab173d941591af508a7611325}{n})
+\hypertarget{classetk_1_1_vector_aef780aec6db135cc393e584182eedbc8}{real\-\_\-t \& {\bfseries operator()} (uint32 n)}\label{classetk_1_1_vector_aef780aec6db135cc393e584182eedbc8}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_a37676cc9633a54eb66b57b930d989616}{operator+} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_a37676cc9633a54eb66b57b930d989616}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries operator+} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_a37676cc9633a54eb66b57b930d989616}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_a7ca59a3d3ca4e2ca21e180f9a13e5d34}{operator-\/} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_a7ca59a3d3ca4e2ca21e180f9a13e5d34}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries operator-\/} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_a7ca59a3d3ca4e2ca21e180f9a13e5d34}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_ae180a03be2a66d2bd23c9ad1d49075c2}{operator$\ast$} (float scalar)
+\hypertarget{classetk_1_1_vector_a66eced566664f9cb99d29f13060eb844}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries operator$\ast$} (real\-\_\-t scalar)}\label{classetk_1_1_vector_a66eced566664f9cb99d29f13060eb844}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_a4a88b37e3592669c58c57fb002f9ec92}{operator/} (float scalar)
+\hypertarget{classetk_1_1_vector_a884a4ce2687c88ac5f695a3068e61398}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries operator/} (real\-\_\-t scalar)}\label{classetk_1_1_vector_a884a4ce2687c88ac5f695a3068e61398}
+
 \item 
-\hyperlink{classetk_1_1_vector}{Vector} \hyperlink{classetk_1_1_vector_a6fc0ba048c368beca0491cf1070c486f}{operator+=} (\hyperlink{classetk_1_1_vector}{Vector} v)
+\hypertarget{classetk_1_1_vector_a6fc0ba048c368beca0491cf1070c486f}{\hyperlink{classetk_1_1_vector}{Vector} {\bfseries operator+=} (\hyperlink{classetk_1_1_vector}{Vector} v)}\label{classetk_1_1_vector_a6fc0ba048c368beca0491cf1070c486f}
+
 \item 
-void \hyperlink{classetk_1_1_vector_a8393123737e8d605ed21dba56e091fd0}{to\-Degrees} ()
+\hypertarget{classetk_1_1_vector_a8393123737e8d605ed21dba56e091fd0}{void {\bfseries to\-Degrees} ()}\label{classetk_1_1_vector_a8393123737e8d605ed21dba56e091fd0}
+
 \item 
-void \hyperlink{classetk_1_1_vector_aad015afc5c7487af13febd726866f1b5}{to\-Radians} ()
+\hypertarget{classetk_1_1_vector_aad015afc5c7487af13febd726866f1b5}{void {\bfseries to\-Radians} ()}\label{classetk_1_1_vector_aad015afc5c7487af13febd726866f1b5}
+
 \item 
-float \& \hyperlink{classetk_1_1_vector_ac80693c21c2bc6d9e96e8c9e72a27351}{x} ()
+\hypertarget{classetk_1_1_vector_af70c693a2e3097536ca8d2c154dd8749}{real\-\_\-t \& {\bfseries x} ()}\label{classetk_1_1_vector_af70c693a2e3097536ca8d2c154dd8749}
+
 \item 
-float \& \hyperlink{classetk_1_1_vector_ac93ae69d7ad392faddb90386857097f8}{y} ()
+\hypertarget{classetk_1_1_vector_ab313621c7c844e15d3146ddd0aa4242e}{real\-\_\-t \& {\bfseries y} ()}\label{classetk_1_1_vector_ab313621c7c844e15d3146ddd0aa4242e}
+
 \item 
-float \& \hyperlink{classetk_1_1_vector_a71d458d6fd4f21836d73d02fd242f610}{z} ()
+\hypertarget{classetk_1_1_vector_abd580f04a12c3162d299b77581425a5d}{real\-\_\-t \& {\bfseries z} ()}\label{classetk_1_1_vector_abd580f04a12c3162d299b77581425a5d}
+
 \item 
-float \hyperlink{classetk_1_1_vector_a4ba1162279fdf4b621a8ce62ee56e644}{squared\-Norm} ()
+\hypertarget{classetk_1_1_vector_a3b3848f4c15364b8c91b23b9ad177dd9}{real\-\_\-t {\bfseries squared\-Norm} ()}\label{classetk_1_1_vector_a3b3848f4c15364b8c91b23b9ad177dd9}
+
 \end{DoxyCompactItemize}
-
-
-\subsection{Constructor \& Destructor Documentation}
-\hypertarget{classetk_1_1_vector_ab1d972a722bbec81c523e157e2190131}{\index{etk\-::\-Vector@{etk\-::\-Vector}!Vector@{Vector}}
-\index{Vector@{Vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf etk\-::\-Vector}$<$ N $>$\-::{\bf Vector} (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_ab1d972a722bbec81c523e157e2190131}
-\hypertarget{classetk_1_1_vector_a14326a5c9a22841c14c807b706de55a7}{\index{etk\-::\-Vector@{etk\-::\-Vector}!Vector@{Vector}}
-\index{Vector@{Vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf etk\-::\-Vector}$<$ N $>$\-::{\bf Vector} (
-\begin{DoxyParamCaption}
-\item[{float}]{a}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a14326a5c9a22841c14c807b706de55a7}
-\hypertarget{classetk_1_1_vector_aeac80a1eb4747783c2bb583132d530fa}{\index{etk\-::\-Vector@{etk\-::\-Vector}!Vector@{Vector}}
-\index{Vector@{Vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf etk\-::\-Vector}$<$ N $>$\-::{\bf Vector} (
-\begin{DoxyParamCaption}
-\item[{float}]{a, }
-\item[{float}]{b}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_aeac80a1eb4747783c2bb583132d530fa}
-\hypertarget{classetk_1_1_vector_abaf5f91e99c86a524a63a2ef2b3e343a}{\index{etk\-::\-Vector@{etk\-::\-Vector}!Vector@{Vector}}
-\index{Vector@{Vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf etk\-::\-Vector}$<$ N $>$\-::{\bf Vector} (
-\begin{DoxyParamCaption}
-\item[{float}]{a, }
-\item[{float}]{b, }
-\item[{float}]{c}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_abaf5f91e99c86a524a63a2ef2b3e343a}
-\hypertarget{classetk_1_1_vector_a2f0d81e6bf1759d050aa71489d2db816}{\index{etk\-::\-Vector@{etk\-::\-Vector}!Vector@{Vector}}
-\index{Vector@{Vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf etk\-::\-Vector}$<$ N $>$\-::{\bf Vector} (
-\begin{DoxyParamCaption}
-\item[{float}]{a, }
-\item[{float}]{b, }
-\item[{float}]{c, }
-\item[{float}]{d}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a2f0d81e6bf1759d050aa71489d2db816}
-\hypertarget{classetk_1_1_vector_a481e7f68fc0703cc25a337e2ba20fd62}{\index{etk\-::\-Vector@{etk\-::\-Vector}!Vector@{Vector}}
-\index{Vector@{Vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf etk\-::\-Vector}$<$ N $>$\-::{\bf Vector} (
-\begin{DoxyParamCaption}
-\item[{const {\bf Vector}$<$ N $>$ \&}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a481e7f68fc0703cc25a337e2ba20fd62}
-
-
-\subsection{Member Function Documentation}
-\hypertarget{classetk_1_1_vector_aa9ab624901a330e48c44e5e16d5c5b4a}{\index{etk\-::\-Vector@{etk\-::\-Vector}!cross@{cross}}
-\index{cross@{cross}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{cross}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::cross (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_aa9ab624901a330e48c44e5e16d5c5b4a}
-\hypertarget{classetk_1_1_vector_aba724addf2789f07bddd047a9949ed8e}{\index{etk\-::\-Vector@{etk\-::\-Vector}!dot@{dot}}
-\index{dot@{dot}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{dot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float {\bf etk\-::\-Vector}$<$ N $>$\-::dot (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_aba724addf2789f07bddd047a9949ed8e}
-\hypertarget{classetk_1_1_vector_a7be874bc2760b72d2d0233fcb378577b}{\index{etk\-::\-Vector@{etk\-::\-Vector}!from\-\_\-polar@{from\-\_\-polar}}
-\index{from\-\_\-polar@{from\-\_\-polar}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{from\-\_\-polar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ void {\bf etk\-::\-Vector}$<$ N $>$\-::from\-\_\-polar (
-\begin{DoxyParamCaption}
-\item[{float}]{mag, }
-\item[{float}]{dir}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a7be874bc2760b72d2d0233fcb378577b}
-\hypertarget{classetk_1_1_vector_aaf944f75926a97454beffc04250f3a7e}{\index{etk\-::\-Vector@{etk\-::\-Vector}!invert@{invert}}
-\index{invert@{invert}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{invert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::invert (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_aaf944f75926a97454beffc04250f3a7e}
-\hypertarget{classetk_1_1_vector_a6a317e470cbbf7124509e3a3f3c2ded0}{\index{etk\-::\-Vector@{etk\-::\-Vector}!magnitude@{magnitude}}
-\index{magnitude@{magnitude}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{magnitude}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float {\bf etk\-::\-Vector}$<$ N $>$\-::magnitude (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a6a317e470cbbf7124509e3a3f3c2ded0}
-\hypertarget{classetk_1_1_vector_adc7028cab173d941591af508a7611325}{\index{etk\-::\-Vector@{etk\-::\-Vector}!n@{n}}
-\index{n@{n}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ uint32\-\_\-t {\bf etk\-::\-Vector}$<$ N $>$\-::n (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_adc7028cab173d941591af508a7611325}
-\hypertarget{classetk_1_1_vector_ae7f3db6458bd9a6e03dd8b24f2770dc5}{\index{etk\-::\-Vector@{etk\-::\-Vector}!normalize@{normalize}}
-\index{normalize@{normalize}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ void {\bf etk\-::\-Vector}$<$ N $>$\-::normalize (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_ae7f3db6458bd9a6e03dd8b24f2770dc5}
-\hypertarget{classetk_1_1_vector_aea85c6a2ccfa94d6591d226deefdf515}{\index{etk\-::\-Vector@{etk\-::\-Vector}!normalized@{normalized}}
-\index{normalized@{normalized}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{normalized}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::normalized (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_aea85c6a2ccfa94d6591d226deefdf515}
-\hypertarget{classetk_1_1_vector_a7bafdba4ca50aa40d06dfd6fd99db339}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator!=@{operator!=}}
-\index{operator!=@{operator!=}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ bool {\bf etk\-::\-Vector}$<$ N $>$\-::operator!= (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a7bafdba4ca50aa40d06dfd6fd99db339}
-\hypertarget{classetk_1_1_vector_afbb5e4e8fc9a74d512bfc72395dc7782}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator()@{operator()}}
-\index{operator()@{operator()}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float\& {\bf etk\-::\-Vector}$<$ N $>$\-::operator() (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{n}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_afbb5e4e8fc9a74d512bfc72395dc7782}
-\hypertarget{classetk_1_1_vector_ae180a03be2a66d2bd23c9ad1d49075c2}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::operator$\ast$ (
-\begin{DoxyParamCaption}
-\item[{float}]{scalar}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_ae180a03be2a66d2bd23c9ad1d49075c2}
-\hypertarget{classetk_1_1_vector_a37676cc9633a54eb66b57b930d989616}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator+@{operator+}}
-\index{operator+@{operator+}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::operator+ (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a37676cc9633a54eb66b57b930d989616}
-\hypertarget{classetk_1_1_vector_a6fc0ba048c368beca0491cf1070c486f}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a6fc0ba048c368beca0491cf1070c486f}
-\hypertarget{classetk_1_1_vector_a7ca59a3d3ca4e2ca21e180f9a13e5d34}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator-\/@{operator-\/}}
-\index{operator-\/@{operator-\/}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::operator-\/ (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a7ca59a3d3ca4e2ca21e180f9a13e5d34}
-\hypertarget{classetk_1_1_vector_a4a88b37e3592669c58c57fb002f9ec92}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator/@{operator/}}
-\index{operator/@{operator/}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::operator/ (
-\begin{DoxyParamCaption}
-\item[{float}]{scalar}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a4a88b37e3592669c58c57fb002f9ec92}
-\hypertarget{classetk_1_1_vector_a15fc3f99b711d1b17920c658a204b783}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector}\& {\bf etk\-::\-Vector}$<$ N $>$\-::operator$<$$<$ (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a15fc3f99b711d1b17920c658a204b783}
-\hypertarget{classetk_1_1_vector_ab1d80b27412c4a4e4c5db82deaf93a5a}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator=@{operator=}}
-\index{operator=@{operator=}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::operator= (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_ab1d80b27412c4a4e4c5db82deaf93a5a}
-\hypertarget{classetk_1_1_vector_a7467a01d00015cfccacbdeca107dc224}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator==@{operator==}}
-\index{operator==@{operator==}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ bool {\bf etk\-::\-Vector}$<$ N $>$\-::operator== (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a7467a01d00015cfccacbdeca107dc224}
-\hypertarget{classetk_1_1_vector_a683b1cdef47aa3b7c49c9ea03ac9d4e2}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
-\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float\& {\bf etk\-::\-Vector}$<$ N $>$\-::operator\mbox{[}$\,$\mbox{]} (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{n}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a683b1cdef47aa3b7c49c9ea03ac9d4e2}
-\hypertarget{classetk_1_1_vector_af2cc0f853874e3abd3fe8ef9881a9d26}{\index{etk\-::\-Vector@{etk\-::\-Vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
-\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float {\bf etk\-::\-Vector}$<$ N $>$\-::operator\mbox{[}$\,$\mbox{]} (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{n}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_af2cc0f853874e3abd3fe8ef9881a9d26}
-\hypertarget{classetk_1_1_vector_a0cc9e62beeb30398ab5102a8a21d3ad0}{\index{etk\-::\-Vector@{etk\-::\-Vector}!scale@{scale}}
-\index{scale@{scale}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{scale}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ {\bf Vector} {\bf etk\-::\-Vector}$<$ N $>$\-::scale (
-\begin{DoxyParamCaption}
-\item[{float}]{scalar}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a0cc9e62beeb30398ab5102a8a21d3ad0}
-\hypertarget{classetk_1_1_vector_a8f64090a4fd857cc2769e4803f8159c0}{\index{etk\-::\-Vector@{etk\-::\-Vector}!set@{set}}
-\index{set@{set}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ uint32\-\_\-t {\bf etk\-::\-Vector}$<$ N $>$\-::set (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{v, }
-\item[{float}]{value}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a8f64090a4fd857cc2769e4803f8159c0}
-\hypertarget{classetk_1_1_vector_aea42c446a666b7897dd1ed547505cd08}{\index{etk\-::\-Vector@{etk\-::\-Vector}!set@{set}}
-\index{set@{set}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ void {\bf etk\-::\-Vector}$<$ N $>$\-::set (
-\begin{DoxyParamCaption}
-\item[{float}]{a}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_aea42c446a666b7897dd1ed547505cd08}
-\hypertarget{classetk_1_1_vector_a2798a7d73170fc7cfa74e9d37b6127be}{\index{etk\-::\-Vector@{etk\-::\-Vector}!set@{set}}
-\index{set@{set}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ template$<$typename... Args$>$ void {\bf etk\-::\-Vector}$<$ N $>$\-::set (
-\begin{DoxyParamCaption}
-\item[{float}]{a, }
-\item[{Args...}]{args}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a2798a7d73170fc7cfa74e9d37b6127be}
-\hypertarget{classetk_1_1_vector_a31d290f05c2722bd5b8f7c9ab15680cc}{\index{etk\-::\-Vector@{etk\-::\-Vector}!set\-\_\-sub\-\_\-vector@{set\-\_\-sub\-\_\-vector}}
-\index{set\-\_\-sub\-\_\-vector@{set\-\_\-sub\-\_\-vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{set\-\_\-sub\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ template$<$uint32\-\_\-t nn$>$ void {\bf etk\-::\-Vector}$<$ N $>$\-::set\-\_\-sub\-\_\-vector (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ nn $>$}]{v, }
-\item[{uint32\-\_\-t}]{n}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a31d290f05c2722bd5b8f7c9ab15680cc}
-\hypertarget{classetk_1_1_vector_a4ba1162279fdf4b621a8ce62ee56e644}{\index{etk\-::\-Vector@{etk\-::\-Vector}!squared\-Norm@{squared\-Norm}}
-\index{squared\-Norm@{squared\-Norm}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{squared\-Norm}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float {\bf etk\-::\-Vector}$<$ N $>$\-::squared\-Norm (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a4ba1162279fdf4b621a8ce62ee56e644}
-\hypertarget{classetk_1_1_vector_a917188a6ce6041488c60d24e6f49b891}{\index{etk\-::\-Vector@{etk\-::\-Vector}!sub\-\_\-vector@{sub\-\_\-vector}}
-\index{sub\-\_\-vector@{sub\-\_\-vector}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{sub\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ template$<$uint32\-\_\-t nn$>$ {\bf Vector}$<$nn$>$ {\bf etk\-::\-Vector}$<$ N $>$\-::sub\-\_\-vector (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{n}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a917188a6ce6041488c60d24e6f49b891}
-\hypertarget{classetk_1_1_vector_ae5d960a3fa9572c1754e2aed9c1378cf}{\index{etk\-::\-Vector@{etk\-::\-Vector}!theta@{theta}}
-\index{theta@{theta}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{theta}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float {\bf etk\-::\-Vector}$<$ N $>$\-::theta (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_ae5d960a3fa9572c1754e2aed9c1378cf}
-\hypertarget{classetk_1_1_vector_a8393123737e8d605ed21dba56e091fd0}{\index{etk\-::\-Vector@{etk\-::\-Vector}!to\-Degrees@{to\-Degrees}}
-\index{to\-Degrees@{to\-Degrees}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{to\-Degrees}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ void {\bf etk\-::\-Vector}$<$ N $>$\-::to\-Degrees (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a8393123737e8d605ed21dba56e091fd0}
-\hypertarget{classetk_1_1_vector_aad015afc5c7487af13febd726866f1b5}{\index{etk\-::\-Vector@{etk\-::\-Vector}!to\-Radians@{to\-Radians}}
-\index{to\-Radians@{to\-Radians}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{to\-Radians}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ void {\bf etk\-::\-Vector}$<$ N $>$\-::to\-Radians (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_aad015afc5c7487af13febd726866f1b5}
-\hypertarget{classetk_1_1_vector_ac80693c21c2bc6d9e96e8c9e72a27351}{\index{etk\-::\-Vector@{etk\-::\-Vector}!x@{x}}
-\index{x@{x}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float\& {\bf etk\-::\-Vector}$<$ N $>$\-::x (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_ac80693c21c2bc6d9e96e8c9e72a27351}
-\hypertarget{classetk_1_1_vector_ac93ae69d7ad392faddb90386857097f8}{\index{etk\-::\-Vector@{etk\-::\-Vector}!y@{y}}
-\index{y@{y}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float\& {\bf etk\-::\-Vector}$<$ N $>$\-::y (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_ac93ae69d7ad392faddb90386857097f8}
-\hypertarget{classetk_1_1_vector_a71d458d6fd4f21836d73d02fd242f610}{\index{etk\-::\-Vector@{etk\-::\-Vector}!z@{z}}
-\index{z@{z}!etk::Vector@{etk\-::\-Vector}}
-\subsubsection[{z}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t N$>$ float\& {\bf etk\-::\-Vector}$<$ N $>$\-::z (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_vector_a71d458d6fd4f21836d73d02fd242f610}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-inc/etk/\hyperlink{vector_8h}{vector.\-h}\end{DoxyCompactItemize}
+inc/etk/vector.\-h\end{DoxyCompactItemize}

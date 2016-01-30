@@ -21,7 +21,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Embedded Tool Kit
    </div>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,313 +111,95 @@ Inheritance diagram for etk::PIDController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae0b3ccadf13c06f32429a769ef816351"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#ae0b3ccadf13c06f32429a769ef816351">PIDController</a> ()</td></tr>
-<tr class="separator:ae0b3ccadf13c06f32429a769ef816351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb92773f41ad5b1650653417f91e0528"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#abb92773f41ad5b1650653417f91e0528">step</a> (float error, float dt)</td></tr>
-<tr class="memdesc:abb92773f41ad5b1650653417f91e0528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an interation of the PID controller by supplying your own error value.  <a href="#abb92773f41ad5b1650653417f91e0528">More...</a><br/></td></tr>
-<tr class="separator:abb92773f41ad5b1650653417f91e0528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9877d3e02bc8935b568f778e683b8633"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a9877d3e02bc8935b568f778e683b8633">step</a> (float setpoint, float measurement, float dt)</td></tr>
-<tr class="memdesc:a9877d3e02bc8935b568f778e683b8633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an interation of the PID controller using a setpoint and measurement to calculate the error.  <a href="#a9877d3e02bc8935b568f778e683b8633">More...</a><br/></td></tr>
-<tr class="separator:a9877d3e02bc8935b568f778e683b8633"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a38573051513d5615fc3c553e307c3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a9a38573051513d5615fc3c553e307c3f">set_kp</a> (float kp)</td></tr>
-<tr class="memdesc:a9a38573051513d5615fc3c553e307c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the proportional gain of the controller.  <a href="#a9a38573051513d5615fc3c553e307c3f">More...</a><br/></td></tr>
-<tr class="separator:a9a38573051513d5615fc3c553e307c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a76b07f655128e9a45dce2297c6ad8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a3a76b07f655128e9a45dce2297c6ad8c">set_ki</a> (float ki)</td></tr>
-<tr class="memdesc:a3a76b07f655128e9a45dce2297c6ad8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the integral gain of the controller. WARNING: changing the integral gain can result in unstable behaviour - similar to integral windup. This could be fixed by mapping the old integral and Ki to the new Ki. TODO.  <a href="#a3a76b07f655128e9a45dce2297c6ad8c">More...</a><br/></td></tr>
-<tr class="separator:a3a76b07f655128e9a45dce2297c6ad8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69337b2053e22fe3de8ecdcc93169579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a69337b2053e22fe3de8ecdcc93169579">set_kd</a> (float kd)</td></tr>
-<tr class="memdesc:a69337b2053e22fe3de8ecdcc93169579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the derivative gain.  <a href="#a69337b2053e22fe3de8ecdcc93169579">More...</a><br/></td></tr>
-<tr class="separator:a69337b2053e22fe3de8ecdcc93169579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac7e4d36115040c886e246c9d12ae162"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#aac7e4d36115040c886e246c9d12ae162">get_kp</a> ()</td></tr>
-<tr class="separator:aac7e4d36115040c886e246c9d12ae162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fe8587acf149580d35b30d2b83755c2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a8fe8587acf149580d35b30d2b83755c2">get_ki</a> ()</td></tr>
-<tr class="separator:a8fe8587acf149580d35b30d2b83755c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48e86408c7eb812974312161cea797a0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a48e86408c7eb812974312161cea797a0">get_kd</a> ()</td></tr>
-<tr class="separator:a48e86408c7eb812974312161cea797a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02af725f99fb1e0131674f7602fd635e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a02af725f99fb1e0131674f7602fd635e">reset_integral</a> ()</td></tr>
-<tr class="memdesc:a02af725f99fb1e0131674f7602fd635e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the integral to zero.  <a href="#a02af725f99fb1e0131674f7602fd635e">More...</a><br/></td></tr>
+<tr class="memitem:af9e7e48086781b0060dd14ed6c9e135b"><td class="memItemLeft" align="right" valign="top">real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#af9e7e48086781b0060dd14ed6c9e135b">step</a> (real_t error, real_t dt)</td></tr>
+<tr class="memdesc:af9e7e48086781b0060dd14ed6c9e135b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an interation of the PID controller by supplying your own error value.  <a href="#af9e7e48086781b0060dd14ed6c9e135b">More...</a><br/></td></tr>
+<tr class="separator:af9e7e48086781b0060dd14ed6c9e135b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17af5228b2cb3817cf72faccbdc4cd0"><td class="memItemLeft" align="right" valign="top">real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#ac17af5228b2cb3817cf72faccbdc4cd0">step</a> (real_t setpoint, real_t measurement, real_t dt)</td></tr>
+<tr class="memdesc:ac17af5228b2cb3817cf72faccbdc4cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an interation of the PID controller using a setpoint and measurement to calculate the error.  <a href="#ac17af5228b2cb3817cf72faccbdc4cd0">More...</a><br/></td></tr>
+<tr class="separator:ac17af5228b2cb3817cf72faccbdc4cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73aecfcfe6e450178af4ec276abe8086"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73aecfcfe6e450178af4ec276abe8086"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a73aecfcfe6e450178af4ec276abe8086">set_kp</a> (real_t kp)</td></tr>
+<tr class="memdesc:a73aecfcfe6e450178af4ec276abe8086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the proportional gain of the controller. <br/></td></tr>
+<tr class="separator:a73aecfcfe6e450178af4ec276abe8086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6112e212a37ed7a2950c62f558cc489c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6112e212a37ed7a2950c62f558cc489c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a6112e212a37ed7a2950c62f558cc489c">set_ki</a> (real_t ki)</td></tr>
+<tr class="memdesc:a6112e212a37ed7a2950c62f558cc489c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the integral gain of the controller. This functional also scales the integral so that there is no large disturbance to the output. <br/></td></tr>
+<tr class="separator:a6112e212a37ed7a2950c62f558cc489c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e5de9c92d5ceb2d1a94c87e1f118631"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e5de9c92d5ceb2d1a94c87e1f118631"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a1e5de9c92d5ceb2d1a94c87e1f118631">set_kd</a> (real_t kd)</td></tr>
+<tr class="memdesc:a1e5de9c92d5ceb2d1a94c87e1f118631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the derivative gain. <br/></td></tr>
+<tr class="separator:a1e5de9c92d5ceb2d1a94c87e1f118631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438f51c529a8171b3c18d564461add26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a438f51c529a8171b3c18d564461add26"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_kp</b> ()</td></tr>
+<tr class="separator:a438f51c529a8171b3c18d564461add26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6d39b029c8ad621acbabf36425268dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6d39b029c8ad621acbabf36425268dd"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_ki</b> ()</td></tr>
+<tr class="separator:af6d39b029c8ad621acbabf36425268dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69fd9c40b85ddba301a7acc5ba658255"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69fd9c40b85ddba301a7acc5ba658255"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_kd</b> ()</td></tr>
+<tr class="separator:a69fd9c40b85ddba301a7acc5ba658255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02af725f99fb1e0131674f7602fd635e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02af725f99fb1e0131674f7602fd635e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a02af725f99fb1e0131674f7602fd635e">reset_integral</a> ()</td></tr>
+<tr class="memdesc:a02af725f99fb1e0131674f7602fd635e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the integral to zero. <br/></td></tr>
 <tr class="separator:a02af725f99fb1e0131674f7602fd635e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a803cdc7e6e9a2cf9f6216380bbc2c524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a803cdc7e6e9a2cf9f6216380bbc2c524">set_max_integral</a> (float imax)</td></tr>
-<tr class="memdesc:a803cdc7e6e9a2cf9f6216380bbc2c524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a maximum size for the integral. This can help prevent integral wind up.  <a href="#a803cdc7e6e9a2cf9f6216380bbc2c524">More...</a><br/></td></tr>
-<tr class="separator:a803cdc7e6e9a2cf9f6216380bbc2c524"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b1f378dc6c1b235c70df6703c9d293d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a3b1f378dc6c1b235c70df6703c9d293d">set_derivative_filter_gain</a> (float g)</td></tr>
-<tr class="memdesc:a3b1f378dc6c1b235c70df6703c9d293d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the derivative filter gain. The derivative filter is an <a class="el" href="classetk_1_1_expo_moving_avg.html" title="An exponential moving average low-pass filter. ">ExpoMovingAvg</a> filter.  <a href="#a3b1f378dc6c1b235c70df6703c9d293d">More...</a><br/></td></tr>
-<tr class="separator:a3b1f378dc6c1b235c70df6703c9d293d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b27067a3b56846245b8ca14919e98b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19b27067a3b56846245b8ca14919e98b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a19b27067a3b56846245b8ca14919e98b">set_max_integral</a> (real_t imax)</td></tr>
+<tr class="memdesc:a19b27067a3b56846245b8ca14919e98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a maximum size for the integral. This can help prevent integral wind up. <br/></td></tr>
+<tr class="separator:a19b27067a3b56846245b8ca14919e98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a023f411018741e4c1265284de78b5f53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a023f411018741e4c1265284de78b5f53"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a023f411018741e4c1265284de78b5f53">set_derivative_filter_gain</a> (real_t g)</td></tr>
+<tr class="memdesc:a023f411018741e4c1265284de78b5f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the derivative filter gain. The derivative filter is an <a class="el" href="classetk_1_1_expo_moving_avg.html" title="An exponential moving average low-pass filter. ">ExpoMovingAvg</a> filter. <br/></td></tr>
+<tr class="separator:a023f411018741e4c1265284de78b5f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ba04e64f94802a65bc464e3b364595"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25ba04e64f94802a65bc464e3b364595"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a25ba04e64f94802a65bc464e3b364595">get_integral</a> ()</td></tr>
+<tr class="memdesc:a25ba04e64f94802a65bc464e3b364595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the integral value. <br/></td></tr>
+<tr class="separator:a25ba04e64f94802a65bc464e3b364595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb730031d516c2324ea5f735ae5b438d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb730031d516c2324ea5f735ae5b438d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#acb730031d516c2324ea5f735ae5b438d">set_integral</a> (real_t integ)</td></tr>
+<tr class="memdesc:acb730031d516c2324ea5f735ae5b438d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the integral value. USE WITH CAUTION. Suddenly changing the integral will suddenly change the output. <br/></td></tr>
+<tr class="separator:acb730031d516c2324ea5f735ae5b438d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3aed53bb90e1600d440e236ab0d6f4b9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a3aed53bb90e1600d440e236ab0d6f4b9">integral</a></td></tr>
-<tr class="separator:a3aed53bb90e1600d440e236ab0d6f4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6c1bf5a48b506990dfc8fbf47010a5c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#ad6c1bf5a48b506990dfc8fbf47010a5c">Kp</a></td></tr>
-<tr class="separator:ad6c1bf5a48b506990dfc8fbf47010a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36cff2f631d3efb194f3e392927cb543"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a36cff2f631d3efb194f3e392927cb543">Ki</a></td></tr>
-<tr class="separator:a36cff2f631d3efb194f3e392927cb543"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36051f342bbadb57693b941e4eb9e353"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a36051f342bbadb57693b941e4eb9e353">Kd</a></td></tr>
-<tr class="separator:a36051f342bbadb57693b941e4eb9e353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33d2b8813eea388174ca01d4fd7ec148"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a33d2b8813eea388174ca01d4fd7ec148">integral_constraint</a></td></tr>
-<tr class="separator:a33d2b8813eea388174ca01d4fd7ec148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e3b7bc002861712facbb017bfe6e6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_expo_moving_avg.html">etk::ExpoMovingAvg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a73e3b7bc002861712facbb017bfe6e6d">der_filter</a></td></tr>
-<tr class="separator:a73e3b7bc002861712facbb017bfe6e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6798422061ebe557fc4a48bf7da41dff"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_p_i_d_controller.html#a6798422061ebe557fc4a48bf7da41dff">previous_error</a></td></tr>
-<tr class="separator:a6798422061ebe557fc4a48bf7da41dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e71515e4e16b112002214af79c11a1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e71515e4e16b112002214af79c11a1a"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>integral</b></td></tr>
+<tr class="separator:a8e71515e4e16b112002214af79c11a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b46ebbea3393181e911e8e58fdeddb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19b46ebbea3393181e911e8e58fdeddb"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>Kp</b></td></tr>
+<tr class="separator:a19b46ebbea3393181e911e8e58fdeddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8250f45b88af74887e8e35074a558d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8250f45b88af74887e8e35074a558d5"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>Ki</b></td></tr>
+<tr class="separator:aa8250f45b88af74887e8e35074a558d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24c0abfcf440a7198c70fa7591299daf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24c0abfcf440a7198c70fa7591299daf"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>Kd</b></td></tr>
+<tr class="separator:a24c0abfcf440a7198c70fa7591299daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad94c73ac49a5ab7dc0792d0856319c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ad94c73ac49a5ab7dc0792d0856319c"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>integral_constraint</b></td></tr>
+<tr class="separator:a5ad94c73ac49a5ab7dc0792d0856319c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c791c5663de648256850318f89b70c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c791c5663de648256850318f89b70c1"></a>
+<a class="el" href="classetk_1_1_expo_moving_avg.html">ExpoMovingAvg</a>&#160;</td><td class="memItemRight" valign="bottom"><b>der_filter</b></td></tr>
+<tr class="separator:a0c791c5663de648256850318f89b70c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d7c2dd196497f2543965e4473e017d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52d7c2dd196497f2543965e4473e017d"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><b>previous_error</b></td></tr>
+<tr class="separator:a52d7c2dd196497f2543965e4473e017d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A generic <a class="el" href="classetk_1_1_p_i_d_controller.html" title="A generic PIDController. https://en.wikipedia.org/wiki/PID_controller. ">PIDController</a>. <a href="https://en.wikipedia.org/wiki/PID_controller">https://en.wikipedia.org/wiki/PID_controller</a>. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae0b3ccadf13c06f32429a769ef816351"></a>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af9e7e48086781b0060dd14ed6c9e135b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">etk::PIDController::PIDController </td>
+          <td class="memname">real_t etk::PIDController::step </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a48e86408c7eb812974312161cea797a0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::get_kd </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8fe8587acf149580d35b30d2b83755c2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::get_ki </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aac7e4d36115040c886e246c9d12ae162"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::get_kp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a02af725f99fb1e0131674f7602fd635e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void etk::PIDController::reset_integral </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the integral to zero. </p>
-
-</div>
-</div>
-<a class="anchor" id="a3b1f378dc6c1b235c70df6703c9d293d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void etk::PIDController::set_derivative_filter_gain </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>g</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the derivative filter gain. The derivative filter is an <a class="el" href="classetk_1_1_expo_moving_avg.html" title="An exponential moving average low-pass filter. ">ExpoMovingAvg</a> filter. </p>
-
-</div>
-</div>
-<a class="anchor" id="a69337b2053e22fe3de8ecdcc93169579"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void etk::PIDController::set_kd </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>kd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the derivative gain. </p>
-
-</div>
-</div>
-<a class="anchor" id="a3a76b07f655128e9a45dce2297c6ad8c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void etk::PIDController::set_ki </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>ki</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the integral gain of the controller. WARNING: changing the integral gain can result in unstable behaviour - similar to integral windup. This could be fixed by mapping the old integral and Ki to the new Ki. TODO. </p>
-
-</div>
-</div>
-<a class="anchor" id="a9a38573051513d5615fc3c553e307c3f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void etk::PIDController::set_kp </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>kp</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the proportional gain of the controller. </p>
-
-</div>
-</div>
-<a class="anchor" id="a803cdc7e6e9a2cf9f6216380bbc2c524"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void etk::PIDController::set_max_integral </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>imax</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets a maximum size for the integral. This can help prevent integral wind up. </p>
-
-</div>
-</div>
-<a class="anchor" id="abb92773f41ad5b1650653417f91e0528"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::step </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>error</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>dt</em>&#160;</td>
         </tr>
         <tr>
@@ -438,26 +219,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9877d3e02bc8935b568f778e683b8633"></a>
+<a class="anchor" id="ac17af5228b2cb3817cf72faccbdc4cd0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float etk::PIDController::step </td>
+          <td class="memname">real_t etk::PIDController::step </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>setpoint</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>measurement</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>dt</em>&#160;</td>
         </tr>
         <tr>
@@ -478,154 +259,13 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a73e3b7bc002861712facbb017bfe6e6d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_expo_moving_avg.html">etk::ExpoMovingAvg</a> etk::PIDController::der_filter</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3aed53bb90e1600d440e236ab0d6f4b9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::integral</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a33d2b8813eea388174ca01d4fd7ec148"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::integral_constraint</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a36051f342bbadb57693b941e4eb9e353"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::Kd</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a36cff2f631d3efb194f3e392927cb543"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::Ki</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad6c1bf5a48b506990dfc8fbf47010a5c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::Kp</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6798422061ebe557fc4a48bf7da41dff"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float etk::PIDController::previous_error</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>inc/etk/<a class="el" href="pid_8h_source.html">pid.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 20:04:43 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

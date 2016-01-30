@@ -21,7 +21,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Embedded Tool Kit
    </div>
@@ -62,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,124 +87,128 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">navigation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="navigation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ETK_NAVIGATION_H_INCLUDED</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ETK_NAVIGATION_H_INCLUDED</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="vector_8h.html">etk/vector.h</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="conversions_8h.html">etk/conversions.h</a>&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>etk</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classetk_1_1_coordinate.html">Coordinate</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#a6f5e7ae3e170f4ced2e6917c4e59c9c9">   20</a></span>&#160;    <a class="code" href="classetk_1_1_coordinate.html#a6f5e7ae3e170f4ced2e6917c4e59c9c9">Coordinate</a>() { }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html#a6f5e7ae3e170f4ced2e6917c4e59c9c9">Coordinate</a>(<span class="keywordtype">float</span> la, <span class="keywordtype">float</span> ln);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html#a6f5e7ae3e170f4ced2e6917c4e59c9c9">Coordinate</a>(<a class="code" href="classetk_1_1_vector.html">etk::Vector&lt;2&gt;</a> v);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html#a6f5e7ae3e170f4ced2e6917c4e59c9c9">Coordinate</a>(<a class="code" href="classetk_1_1_vector.html">etk::Vector&lt;3&gt;</a> v);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_coordinate.html#ad8e63194003e876f7e52e85d09a15cbb">bearing_to</a>(<a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> to);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_coordinate.html#afdc37e37396d5efd0ed16f76ee3df46d">distance_to</a>(<a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> b);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_coordinate.html#a342706a6ba36f2d4349fd1b2eb32bd41">cross_track_distance</a>(<a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> from, <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> to);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> <a class="code" href="classetk_1_1_coordinate.html#a11c15abf41756430aff34d666d8d13da">destination_from_distance_bearing</a>(<span class="keywordtype">float</span> dist, <span class="keywordtype">float</span> bearing);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#af0e3972f8bf38253cf2b40c79ac51300">   73</a></span>&#160;    <span class="keyword">operator</span> <a class="code" href="classetk_1_1_vector.html">Vector&lt;2&gt;</a>()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="classetk_1_1_vector.html">Vector&lt;2&gt;</a> ret;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        ret.<a class="code" href="classetk_1_1_vector.html#ac80693c21c2bc6d9e96e8c9e72a27351">x</a>() = <a class="code" href="classetk_1_1_coordinate.html#af261adfd9bac16c80b17046726d20c28">lat</a>*<a class="code" href="conversions_8h.html#a374e8373687339ac309e4f02b305fb0f">RAD_TO_DEG</a>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ret.<a class="code" href="classetk_1_1_vector.html#ac93ae69d7ad392faddb90386857097f8">y</a>() = <a class="code" href="classetk_1_1_coordinate.html#a87145d8d5f3fb09f0cfc9e0d085aeda7">lng</a>*<a class="code" href="conversions_8h.html#a374e8373687339ac309e4f02b305fb0f">RAD_TO_DEG</a>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#afc991b2d2ba9e61e28c6784530f5b6ec">   84</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_coordinate.html#afc991b2d2ba9e61e28c6784530f5b6ec">get_lat</a>() {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classetk_1_1_coordinate.html#af261adfd9bac16c80b17046726d20c28">lat</a>*<a class="code" href="conversions_8h.html#a374e8373687339ac309e4f02b305fb0f">RAD_TO_DEG</a>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#aa9d7b6dbfdb4da3b788b88896edb6354">   91</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_coordinate.html#aa9d7b6dbfdb4da3b788b88896edb6354">set_lat</a>(<span class="keywordtype">float</span> l) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="classetk_1_1_coordinate.html#af261adfd9bac16c80b17046726d20c28">lat</a> = l*<a class="code" href="conversions_8h.html#a82c16156ec36c277a82b4c0bb8a11bd0">DEG_TO_RAD</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#ad59acdadf6fa7c597885f2248706c559">   98</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_coordinate.html#ad59acdadf6fa7c597885f2248706c559">get_lng</a>() {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classetk_1_1_coordinate.html#a87145d8d5f3fb09f0cfc9e0d085aeda7">lng</a>*<a class="code" href="conversions_8h.html#a374e8373687339ac309e4f02b305fb0f">RAD_TO_DEG</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#a19d3ce4dab1e00903c0b609b4cf29fa2">  105</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_coordinate.html#a19d3ce4dab1e00903c0b609b4cf29fa2">set_lng</a>(<span class="keywordtype">float</span> l) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="classetk_1_1_coordinate.html#a87145d8d5f3fb09f0cfc9e0d085aeda7">lng</a> = l*<a class="code" href="conversions_8h.html#a82c16156ec36c277a82b4c0bb8a11bd0">DEG_TO_RAD</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#a87145d8d5f3fb09f0cfc9e0d085aeda7">  110</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_coordinate.html#af261adfd9bac16c80b17046726d20c28">lat</a> = 0, <a class="code" href="classetk_1_1_coordinate.html#a87145d8d5f3fb09f0cfc9e0d085aeda7">lng</a> = 0;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    Embedded Tool Kit</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    Copyright (C) 2015 Samuel Cowen</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">    This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    it under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    (at your option) any later version.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">    This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef ETK_NAVIGATION_H_INCLUDED</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ETK_NAVIGATION_H_INCLUDED</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;types.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;etk/vector.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;etk/conversions.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>etk</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classetk_1_1_coordinate.html">Coordinate</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a>() { }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a>(real_t la, real_t ln);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a>(<a class="code" href="classetk_1_1_vector.html">etk::Vector&lt;2&gt;</a> v);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a>(<a class="code" href="classetk_1_1_vector.html">etk::Vector&lt;3&gt;</a> v);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    real_t <a class="code" href="classetk_1_1_coordinate.html#abe7d769367d70357a8157f11718866ac">bearing_to</a>(<a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> to);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    real_t <a class="code" href="classetk_1_1_coordinate.html#aab7ff3621f3db25502ce2de8ae7939a3">distance_to</a>(<a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> b);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    real_t <a class="code" href="classetk_1_1_coordinate.html#a9b4cd72b2c6da705ad512bb3b0d8d87a">cross_track_distance</a>(<a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> from, <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> to);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a> <a class="code" href="classetk_1_1_coordinate.html#a6fa7af357fa8256c3e280557cbe440ae">destination_from_distance_bearing</a>(real_t dist, real_t bearing);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#af0e3972f8bf38253cf2b40c79ac51300">   91</a></span>&#160;    <span class="keyword">operator</span> <a class="code" href="classetk_1_1_vector.html">Vector&lt;2&gt;</a>()</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="classetk_1_1_vector.html">Vector&lt;2&gt;</a> ret;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        ret.x() = radians_to_degrees(lat);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        ret.y() = radians_to_degrees(lng);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#a5a42cf3900fb33cd937d38ed5d311cdc">  102</a></span>&#160;    real_t <a class="code" href="classetk_1_1_coordinate.html#a5a42cf3900fb33cd937d38ed5d311cdc">get_lat</a>() {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> radians_to_degrees(lat);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#a69e4918c11dcc467bc32533d0f5dc947">  109</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_coordinate.html#a69e4918c11dcc467bc32533d0f5dc947">set_lat</a>(real_t l) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        lat = degrees_to_radians(l);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classetk_1_1_waypoint.html">  119</a></span>&#160;<span class="keyword">class </span><a class="code" href="classetk_1_1_waypoint.html">Waypoint</a> : <span class="keyword">public</span> <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classetk_1_1_waypoint.html#ae32da48fa23083a1e1e185405d9e724d">  122</a></span>&#160;    <a class="code" href="classetk_1_1_waypoint.html#ae32da48fa23083a1e1e185405d9e724d">Waypoint</a>() { }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="classetk_1_1_waypoint.html#ae32da48fa23083a1e1e185405d9e724d">Waypoint</a>(<span class="keywordtype">float</span> la, <span class="keywordtype">float</span> ln);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="classetk_1_1_waypoint.html#ae32da48fa23083a1e1e185405d9e724d">Waypoint</a>(<span class="keywordtype">float</span> la, <span class="keywordtype">float</span> ln, <span class="keywordtype">float</span> a);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="classetk_1_1_waypoint.html#ae32da48fa23083a1e1e185405d9e724d">Waypoint</a>(<a class="code" href="classetk_1_1_vector.html">etk::Vector&lt;3&gt;</a> pos);</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#a88658854589edbbd0e4a062e69475e83">  116</a></span>&#160;    real_t <a class="code" href="classetk_1_1_coordinate.html#a88658854589edbbd0e4a062e69475e83">get_lng</a>() {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> radians_to_degrees(lng);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classetk_1_1_coordinate.html#acf9b4c3954120dd08000e8ac3bc8ac91">  123</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_coordinate.html#acf9b4c3954120dd08000e8ac3bc8ac91">set_lng</a>(real_t l) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        lng = degrees_to_radians(l);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classetk_1_1_waypoint.html#a713be7c1b38ef8b77bcdf976caa69aa5">  127</a></span>&#160;    <span class="keyword">operator</span> <a class="code" href="classetk_1_1_vector.html">Vector&lt;3&gt;</a>()</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="classetk_1_1_vector.html">Vector&lt;3&gt;</a> ret;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        ret.<a class="code" href="classetk_1_1_vector.html#ac80693c21c2bc6d9e96e8c9e72a27351">x</a>() = <a class="code" href="classetk_1_1_coordinate.html#af261adfd9bac16c80b17046726d20c28">lat</a>*<a class="code" href="conversions_8h.html#a374e8373687339ac309e4f02b305fb0f">RAD_TO_DEG</a>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        ret.<a class="code" href="classetk_1_1_vector.html#ac93ae69d7ad392faddb90386857097f8">y</a>() = <a class="code" href="classetk_1_1_coordinate.html#a87145d8d5f3fb09f0cfc9e0d085aeda7">lng</a>*<a class="code" href="conversions_8h.html#a374e8373687339ac309e4f02b305fb0f">RAD_TO_DEG</a>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        ret.<a class="code" href="classetk_1_1_vector.html#a71d458d6fd4f21836d73d02fd242f610">z</a>() = <a class="code" href="classetk_1_1_waypoint.html#a9602058eaab556f8db26b663fae161e9">alt</a>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classetk_1_1_waypoint.html#a60478ff0da6acbc2f117ebb47dc3f90e">  136</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_waypoint.html#a60478ff0da6acbc2f117ebb47dc3f90e">get_alt</a>() {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classetk_1_1_waypoint.html#a9602058eaab556f8db26b663fae161e9">alt</a>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classetk_1_1_waypoint.html#aeed0028f88e5380a457604c609a7620c">  139</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_waypoint.html#aeed0028f88e5380a457604c609a7620c">set_alt</a>(<span class="keywordtype">float</span> a) {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <a class="code" href="classetk_1_1_waypoint.html#a9602058eaab556f8db26b663fae161e9">alt</a> = a;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classetk_1_1_waypoint.html#a9602058eaab556f8db26b663fae161e9">  143</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classetk_1_1_waypoint.html#a9602058eaab556f8db26b663fae161e9">alt</a> = 0;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;};</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="ttc" id="classetk_1_1_vector_html_ac93ae69d7ad392faddb90386857097f8"><div class="ttname"><a href="classetk_1_1_vector.html#ac93ae69d7ad392faddb90386857097f8">etk::Vector::y</a></div><div class="ttdeci">float &amp; y()</div><div class="ttdef"><b>Definition:</b> vector.h:280</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_a342706a6ba36f2d4349fd1b2eb32bd41"><div class="ttname"><a href="classetk_1_1_coordinate.html#a342706a6ba36f2d4349fd1b2eb32bd41">etk::Coordinate::cross_track_distance</a></div><div class="ttdeci">float cross_track_distance(Coordinate from, Coordinate to)</div><div class="ttdoc">Calculates cross track distance (how far off course you are). </div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_afdc37e37396d5efd0ed16f76ee3df46d"><div class="ttname"><a href="classetk_1_1_coordinate.html#afdc37e37396d5efd0ed16f76ee3df46d">etk::Coordinate::distance_to</a></div><div class="ttdeci">float distance_to(Coordinate b)</div><div class="ttdoc">Calculates the distance to a coordinate. </div></div>
-<div class="ttc" id="conversions_8h_html_a82c16156ec36c277a82b4c0bb8a11bd0"><div class="ttname"><a href="conversions_8h.html#a82c16156ec36c277a82b4c0bb8a11bd0">DEG_TO_RAD</a></div><div class="ttdeci">const float DEG_TO_RAD</div><div class="ttdef"><b>Definition:</b> conversions.h:20</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_ad8e63194003e876f7e52e85d09a15cbb"><div class="ttname"><a href="classetk_1_1_coordinate.html#ad8e63194003e876f7e52e85d09a15cbb">etk::Coordinate::bearing_to</a></div><div class="ttdeci">float bearing_to(Coordinate to)</div><div class="ttdoc">Calculates the bearing to a coordinate. </div></div>
-<div class="ttc" id="classetk_1_1_vector_html_ac80693c21c2bc6d9e96e8c9e72a27351"><div class="ttname"><a href="classetk_1_1_vector.html#ac80693c21c2bc6d9e96e8c9e72a27351">etk::Vector::x</a></div><div class="ttdeci">float &amp; x()</div><div class="ttdef"><b>Definition:</b> vector.h:277</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_afc991b2d2ba9e61e28c6784530f5b6ec"><div class="ttname"><a href="classetk_1_1_coordinate.html#afc991b2d2ba9e61e28c6784530f5b6ec">etk::Coordinate::get_lat</a></div><div class="ttdeci">float get_lat()</div><div class="ttdoc">Returns latitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:84</div></div>
-<div class="ttc" id="classetk_1_1_vector_html"><div class="ttname"><a href="classetk_1_1_vector.html">etk::Vector</a></div><div class="ttdef"><b>Definition:</b> vector.h:13</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_a11c15abf41756430aff34d666d8d13da"><div class="ttname"><a href="classetk_1_1_coordinate.html#a11c15abf41756430aff34d666d8d13da">etk::Coordinate::destination_from_distance_bearing</a></div><div class="ttdeci">Coordinate destination_from_distance_bearing(float dist, float bearing)</div><div class="ttdoc">Given a distance and a bearing, this function calculates the destination coordinate. </div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_ad59acdadf6fa7c597885f2248706c559"><div class="ttname"><a href="classetk_1_1_coordinate.html#ad59acdadf6fa7c597885f2248706c559">etk::Coordinate::get_lng</a></div><div class="ttdeci">float get_lng()</div><div class="ttdoc">Returns longitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:98</div></div>
-<div class="ttc" id="classetk_1_1_waypoint_html_a9602058eaab556f8db26b663fae161e9"><div class="ttname"><a href="classetk_1_1_waypoint.html#a9602058eaab556f8db26b663fae161e9">etk::Waypoint::alt</a></div><div class="ttdeci">float alt</div><div class="ttdef"><b>Definition:</b> navigation.h:143</div></div>
-<div class="ttc" id="conversions_8h_html"><div class="ttname"><a href="conversions_8h.html">conversions.h</a></div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_aa9d7b6dbfdb4da3b788b88896edb6354"><div class="ttname"><a href="classetk_1_1_coordinate.html#aa9d7b6dbfdb4da3b788b88896edb6354">etk::Coordinate::set_lat</a></div><div class="ttdeci">void set_lat(float l)</div><div class="ttdoc">Sets latitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:91</div></div>
-<div class="ttc" id="classetk_1_1_waypoint_html"><div class="ttname"><a href="classetk_1_1_waypoint.html">etk::Waypoint</a></div><div class="ttdoc">A Waypoint IS_A coordinate, but it has an extra dimension to store altitude. It provides get and set ...</div><div class="ttdef"><b>Definition:</b> navigation.h:119</div></div>
-<div class="ttc" id="conversions_8h_html_a374e8373687339ac309e4f02b305fb0f"><div class="ttname"><a href="conversions_8h.html#a374e8373687339ac309e4f02b305fb0f">RAD_TO_DEG</a></div><div class="ttdeci">const float RAD_TO_DEG</div><div class="ttdef"><b>Definition:</b> conversions.h:19</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_af261adfd9bac16c80b17046726d20c28"><div class="ttname"><a href="classetk_1_1_coordinate.html#af261adfd9bac16c80b17046726d20c28">etk::Coordinate::lat</a></div><div class="ttdeci">float lat</div><div class="ttdef"><b>Definition:</b> navigation.h:110</div></div>
-<div class="ttc" id="classetk_1_1_waypoint_html_a60478ff0da6acbc2f117ebb47dc3f90e"><div class="ttname"><a href="classetk_1_1_waypoint.html#a60478ff0da6acbc2f117ebb47dc3f90e">etk::Waypoint::get_alt</a></div><div class="ttdeci">float get_alt()</div><div class="ttdef"><b>Definition:</b> navigation.h:136</div></div>
-<div class="ttc" id="vector_8h_html"><div class="ttname"><a href="vector_8h.html">vector.h</a></div></div>
-<div class="ttc" id="classetk_1_1_waypoint_html_ae32da48fa23083a1e1e185405d9e724d"><div class="ttname"><a href="classetk_1_1_waypoint.html#ae32da48fa23083a1e1e185405d9e724d">etk::Waypoint::Waypoint</a></div><div class="ttdeci">Waypoint()</div><div class="ttdef"><b>Definition:</b> navigation.h:122</div></div>
-<div class="ttc" id="classetk_1_1_vector_html_a71d458d6fd4f21836d73d02fd242f610"><div class="ttname"><a href="classetk_1_1_vector.html#a71d458d6fd4f21836d73d02fd242f610">etk::Vector::z</a></div><div class="ttdeci">float &amp; z()</div><div class="ttdef"><b>Definition:</b> vector.h:283</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html"><div class="ttname"><a href="classetk_1_1_coordinate.html">etk::Coordinate</a></div><div class="ttdoc">Represents latitude and longitude coordinates. Units are in degrees unless stated otherwise...</div><div class="ttdef"><b>Definition:</b> navigation.h:17</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_a19d3ce4dab1e00903c0b609b4cf29fa2"><div class="ttname"><a href="classetk_1_1_coordinate.html#a19d3ce4dab1e00903c0b609b4cf29fa2">etk::Coordinate::set_lng</a></div><div class="ttdeci">void set_lng(float l)</div><div class="ttdoc">Sets longitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:105</div></div>
-<div class="ttc" id="classetk_1_1_waypoint_html_aeed0028f88e5380a457604c609a7620c"><div class="ttname"><a href="classetk_1_1_waypoint.html#aeed0028f88e5380a457604c609a7620c">etk::Waypoint::set_alt</a></div><div class="ttdeci">void set_alt(float a)</div><div class="ttdef"><b>Definition:</b> navigation.h:139</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_a6f5e7ae3e170f4ced2e6917c4e59c9c9"><div class="ttname"><a href="classetk_1_1_coordinate.html#a6f5e7ae3e170f4ced2e6917c4e59c9c9">etk::Coordinate::Coordinate</a></div><div class="ttdeci">Coordinate()</div><div class="ttdef"><b>Definition:</b> navigation.h:20</div></div>
-<div class="ttc" id="classetk_1_1_coordinate_html_a87145d8d5f3fb09f0cfc9e0d085aeda7"><div class="ttname"><a href="classetk_1_1_coordinate.html#a87145d8d5f3fb09f0cfc9e0d085aeda7">etk::Coordinate::lng</a></div><div class="ttdeci">float lng</div><div class="ttdef"><b>Definition:</b> navigation.h:110</div></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    real_t lat = 0, lng = 0;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;};</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classetk_1_1_waypoint.html">  137</a></span>&#160;<span class="keyword">class </span><a class="code" href="classetk_1_1_waypoint.html">Waypoint</a> : <span class="keyword">public</span> <a class="code" href="classetk_1_1_coordinate.html">Coordinate</a></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="classetk_1_1_waypoint.html">Waypoint</a>() { }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="classetk_1_1_waypoint.html">Waypoint</a>(real_t la, real_t ln);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="classetk_1_1_waypoint.html">Waypoint</a>(real_t la, real_t ln, real_t a);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="classetk_1_1_waypoint.html">Waypoint</a>(<a class="code" href="classetk_1_1_vector.html">etk::Vector&lt;3&gt;</a> pos);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">operator</span> <a class="code" href="classetk_1_1_vector.html">Vector&lt;3&gt;</a>()</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="classetk_1_1_vector.html">Vector&lt;3&gt;</a> ret;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        ret.x() = radians_to_degrees(lat);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        ret.y() = radians_to_degrees(lng);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        ret.z() = alt;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    real_t get_alt() {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span> alt;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> set_alt(real_t a) {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        alt = a;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    real_t alt = 0;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;};</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="ttc" id="classetk_1_1_coordinate_html_aab7ff3621f3db25502ce2de8ae7939a3"><div class="ttname"><a href="classetk_1_1_coordinate.html#aab7ff3621f3db25502ce2de8ae7939a3">etk::Coordinate::distance_to</a></div><div class="ttdeci">real_t distance_to(Coordinate b)</div><div class="ttdoc">Calculates the distance to a coordinate. </div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html_a5a42cf3900fb33cd937d38ed5d311cdc"><div class="ttname"><a href="classetk_1_1_coordinate.html#a5a42cf3900fb33cd937d38ed5d311cdc">etk::Coordinate::get_lat</a></div><div class="ttdeci">real_t get_lat()</div><div class="ttdoc">Returns latitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:102</div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html_a69e4918c11dcc467bc32533d0f5dc947"><div class="ttname"><a href="classetk_1_1_coordinate.html#a69e4918c11dcc467bc32533d0f5dc947">etk::Coordinate::set_lat</a></div><div class="ttdeci">void set_lat(real_t l)</div><div class="ttdoc">Sets latitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:109</div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html_a6fa7af357fa8256c3e280557cbe440ae"><div class="ttname"><a href="classetk_1_1_coordinate.html#a6fa7af357fa8256c3e280557cbe440ae">etk::Coordinate::destination_from_distance_bearing</a></div><div class="ttdeci">Coordinate destination_from_distance_bearing(real_t dist, real_t bearing)</div><div class="ttdoc">Given a distance and a bearing, this function calculates the destination coordinate. </div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html_abe7d769367d70357a8157f11718866ac"><div class="ttname"><a href="classetk_1_1_coordinate.html#abe7d769367d70357a8157f11718866ac">etk::Coordinate::bearing_to</a></div><div class="ttdeci">real_t bearing_to(Coordinate to)</div><div class="ttdoc">Calculates the bearing to a coordinate. </div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html_a88658854589edbbd0e4a062e69475e83"><div class="ttname"><a href="classetk_1_1_coordinate.html#a88658854589edbbd0e4a062e69475e83">etk::Coordinate::get_lng</a></div><div class="ttdeci">real_t get_lng()</div><div class="ttdoc">Returns longitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:116</div></div>
+<div class="ttc" id="classetk_1_1_vector_html"><div class="ttname"><a href="classetk_1_1_vector.html">etk::Vector</a></div><div class="ttdef"><b>Definition:</b> vector.h:30</div></div>
+<div class="ttc" id="classetk_1_1_waypoint_html"><div class="ttname"><a href="classetk_1_1_waypoint.html">etk::Waypoint</a></div><div class="ttdoc">A Waypoint IS_A coordinate, but it has an extra dimension to store altitude. It provides get and set ...</div><div class="ttdef"><b>Definition:</b> navigation.h:137</div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html_a9b4cd72b2c6da705ad512bb3b0d8d87a"><div class="ttname"><a href="classetk_1_1_coordinate.html#a9b4cd72b2c6da705ad512bb3b0d8d87a">etk::Coordinate::cross_track_distance</a></div><div class="ttdeci">real_t cross_track_distance(Coordinate from, Coordinate to)</div><div class="ttdoc">Calculates cross track distance (how far off course you are). </div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html"><div class="ttname"><a href="classetk_1_1_coordinate.html">etk::Coordinate</a></div><div class="ttdoc">Represents latitude and longitude coordinates. Units are in degrees unless stated otherwise...</div><div class="ttdef"><b>Definition:</b> navigation.h:35</div></div>
+<div class="ttc" id="classetk_1_1_coordinate_html_acf9b4c3954120dd08000e8ac3bc8ac91"><div class="ttname"><a href="classetk_1_1_coordinate.html#acf9b4c3954120dd08000e8ac3bc8ac91">etk::Coordinate::set_lng</a></div><div class="ttdeci">void set_lng(real_t l)</div><div class="ttdoc">Sets longitude. </div><div class="ttdef"><b>Definition:</b> navigation.h:123</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 20:04:43 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

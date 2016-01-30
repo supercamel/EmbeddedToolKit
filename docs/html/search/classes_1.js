@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['circularpidcontroller',['CircularPIDController',['../classetk_1_1_circular_p_i_d_controller.html',1,'etk']]],
-  ['coordinate',['Coordinate',['../classetk_1_1_coordinate.html',1,'etk']]],
-  ['cout',['Cout',['../classetk_1_1_cout.html',1,'etk']]]
+  ['basicpidrater',['BasicPIDRater',['../classetk_1_1_basic_p_i_d_rater.html',1,'etk']]],
+  ['bits',['Bits',['../classetk_1_1_bits.html',1,'etk']]],
+  ['brownlinearexpo',['BrownLinearExpo',['../classetk_1_1_brown_linear_expo.html',1,'etk']]]
 ];

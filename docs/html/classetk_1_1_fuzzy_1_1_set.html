@@ -21,7 +21,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Embedded Tool Kit
    </div>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,96 +104,72 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af3d525a63382b697559aff3a3f70ea65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#af3d525a63382b697559aff3a3f70ea65">set_points</a> (float p1, float p2, float p3)</td></tr>
-<tr class="memdesc:af3d525a63382b697559aff3a3f70ea65"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle.  <a href="#af3d525a63382b697559aff3a3f70ea65">More...</a><br/></td></tr>
-<tr class="separator:af3d525a63382b697559aff3a3f70ea65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dac2b7d03e467b8b22a806e82adec59"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a7dac2b7d03e467b8b22a806e82adec59">get_dom</a> (float crisp_in)</td></tr>
-<tr class="memdesc:a7dac2b7d03e467b8b22a806e82adec59"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the DOM is zero. Otherwise, the DOM represents how close the crisp is to the mid point.  <a href="#a7dac2b7d03e467b8b22a806e82adec59">More...</a><br/></td></tr>
-<tr class="separator:a7dac2b7d03e467b8b22a806e82adec59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca2ae652a087e109f032e7e82db6f6b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#aca2ae652a087e109f032e7e82db6f6b5">set_value</a> (float v)</td></tr>
-<tr class="memdesc:aca2ae652a087e109f032e7e82db6f6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of this set.  <a href="#aca2ae652a087e109f032e7e82db6f6b5">More...</a><br/></td></tr>
-<tr class="separator:aca2ae652a087e109f032e7e82db6f6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2a4f2ace143666060977617d51c4f45"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#ae2a4f2ace143666060977617d51c4f45">get_result</a> (float crisp_in)</td></tr>
-<tr class="memdesc:ae2a4f2ace143666060977617d51c4f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the degree of membership of a crisp input, multiplied by the value of the set.  <a href="#ae2a4f2ace143666060977617d51c4f45">More...</a><br/></td></tr>
-<tr class="separator:ae2a4f2ace143666060977617d51c4f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a31cd40458aa086bdb21f1d4fd5768a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a2a31cd40458aa086bdb21f1d4fd5768a">get_min</a> ()</td></tr>
-<tr class="memdesc:a2a31cd40458aa086bdb21f1d4fd5768a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum point.  <a href="#a2a31cd40458aa086bdb21f1d4fd5768a">More...</a><br/></td></tr>
-<tr class="separator:a2a31cd40458aa086bdb21f1d4fd5768a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aace726f2405de59678bfaf1124e41def"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#aace726f2405de59678bfaf1124e41def">get_mid</a> ()</td></tr>
-<tr class="memdesc:aace726f2405de59678bfaf1124e41def"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the middle point / triangle peak.  <a href="#aace726f2405de59678bfaf1124e41def">More...</a><br/></td></tr>
-<tr class="separator:aace726f2405de59678bfaf1124e41def"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade3e255cd25f7b2944fbd8ee3c28434d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#ade3e255cd25f7b2944fbd8ee3c28434d">get_max</a> ()</td></tr>
-<tr class="memdesc:ade3e255cd25f7b2944fbd8ee3c28434d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum point.  <a href="#ade3e255cd25f7b2944fbd8ee3c28434d">More...</a><br/></td></tr>
-<tr class="separator:ade3e255cd25f7b2944fbd8ee3c28434d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e0d7c7387af6967af45fad4830ff6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a25e0d7c7387af6967af45fad4830ff6e">set_points</a> (real_t p1, real_t p2, real_t p3)</td></tr>
+<tr class="memdesc:a25e0d7c7387af6967af45fad4830ff6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle.  <a href="#a25e0d7c7387af6967af45fad4830ff6e">More...</a><br/></td></tr>
+<tr class="separator:a25e0d7c7387af6967af45fad4830ff6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00eea0cf95bc9b740e431e924f51c700"><td class="memItemLeft" align="right" valign="top">real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a00eea0cf95bc9b740e431e924f51c700">get_dom</a> (real_t crisp_in)</td></tr>
+<tr class="memdesc:a00eea0cf95bc9b740e431e924f51c700"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the DOM is zero. Otherwise, the DOM represents how close the crisp is to the mid point.  <a href="#a00eea0cf95bc9b740e431e924f51c700">More...</a><br/></td></tr>
+<tr class="separator:a00eea0cf95bc9b740e431e924f51c700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59cab70b072060b45a476615134f7e39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59cab70b072060b45a476615134f7e39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a59cab70b072060b45a476615134f7e39">set_value</a> (real_t v)</td></tr>
+<tr class="memdesc:a59cab70b072060b45a476615134f7e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of this set. <br/></td></tr>
+<tr class="separator:a59cab70b072060b45a476615134f7e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e85261c9d694909f48df074b3f9a01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81e85261c9d694909f48df074b3f9a01"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a81e85261c9d694909f48df074b3f9a01">get_result</a> (real_t crisp_in)</td></tr>
+<tr class="memdesc:a81e85261c9d694909f48df074b3f9a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the degree of membership of a crisp input, multiplied by the value of the set. <br/></td></tr>
+<tr class="separator:a81e85261c9d694909f48df074b3f9a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a45ccb7c5190fe712135739239e2eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79a45ccb7c5190fe712135739239e2eb"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a79a45ccb7c5190fe712135739239e2eb">get_min</a> ()</td></tr>
+<tr class="memdesc:a79a45ccb7c5190fe712135739239e2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum point. <br/></td></tr>
+<tr class="separator:a79a45ccb7c5190fe712135739239e2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f19df747f340b262df0dc4a351e808d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f19df747f340b262df0dc4a351e808d"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a7f19df747f340b262df0dc4a351e808d">get_mid</a> ()</td></tr>
+<tr class="memdesc:a7f19df747f340b262df0dc4a351e808d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the middle point / triangle peak. <br/></td></tr>
+<tr class="separator:a7f19df747f340b262df0dc4a351e808d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787987508e5d9f23c1d066979d01ec61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a787987508e5d9f23c1d066979d01ec61"></a>
+real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a787987508e5d9f23c1d066979d01ec61">get_max</a> ()</td></tr>
+<tr class="memdesc:a787987508e5d9f23c1d066979d01ec61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum point. <br/></td></tr>
+<tr class="separator:a787987508e5d9f23c1d066979d01ec61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a458bba0e19aa05ab891962a705243a97"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a458bba0e19aa05ab891962a705243a97">FUZZY_POINT</a> { <a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a458bba0e19aa05ab891962a705243a97ac8fc7790d2c5d6719b755e21658d60f5">START</a>, 
-<a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a458bba0e19aa05ab891962a705243a97a622f9b497afa3b59681c1875936788ee">MID</a>, 
-<a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a458bba0e19aa05ab891962a705243a97a58517baf34b39d08da1c1a184d872856">END</a>
+<tr class="memitem:a458bba0e19aa05ab891962a705243a97"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>FUZZY_POINT</b> { <b>START</b>, 
+<b>MID</b>, 
+<b>END</b>
  }</td></tr>
 <tr class="separator:a458bba0e19aa05ab891962a705243a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac02bbfc5d8a4388cdedc2a172cab9209"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#ac02bbfc5d8a4388cdedc2a172cab9209">set_position</a> (<a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a458bba0e19aa05ab891962a705243a97">FUZZY_POINT</a> p)</td></tr>
+<tr class="memitem:ac02bbfc5d8a4388cdedc2a172cab9209"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac02bbfc5d8a4388cdedc2a172cab9209"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_position</b> (FUZZY_POINT p)</td></tr>
 <tr class="separator:ac02bbfc5d8a4388cdedc2a172cab9209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:adea15307855814ee46c7bb9177a6bac2"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#adea15307855814ee46c7bb9177a6bac2">Fuzzy&lt; N &gt;</a></td></tr>
+<tr class="memitem:adea15307855814ee46c7bb9177a6bac2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adea15307855814ee46c7bb9177a6bac2"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Fuzzy&lt; N &gt;</b></td></tr>
 <tr class="separator:adea15307855814ee46c7bb9177a6bac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;uint16_t N&gt;<br/>
+<div class="textblock"><h3>template&lt;uint16 N&gt;<br/>
 class etk::Fuzzy&lt; N &gt;::Set</h3>
 
 <p>A fuzzy logic set. </p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a class="anchor" id="a458bba0e19aa05ab891962a705243a97"></a>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a00eea0cf95bc9b740e431e924f51c700"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
+template&lt;uint16 N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a458bba0e19aa05ab891962a705243a97">etk::Fuzzy::Set::FUZZY_POINT</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a458bba0e19aa05ab891962a705243a97ac8fc7790d2c5d6719b755e21658d60f5"></a>START</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a458bba0e19aa05ab891962a705243a97a622f9b497afa3b59681c1875936788ee"></a>MID</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a458bba0e19aa05ab891962a705243a97a58517baf34b39d08da1c1a184d872856"></a>END</em>&#160;</td><td class="fielddoc">
-</td></tr>
-</table>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7dac2b7d03e467b8b22a806e82adec59"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::get_dom </td>
+          <td class="memname">real_t <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::get_dom </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>crisp_in</em></td><td>)</td>
           <td></td>
         </tr>
@@ -214,120 +189,11 @@ template&lt;uint16_t N&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ade3e255cd25f7b2944fbd8ee3c28434d"></a>
+<a class="anchor" id="a25e0d7c7387af6967af45fad4830ff6e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::get_max </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the maximum point. </p>
-
-</div>
-</div>
-<a class="anchor" id="aace726f2405de59678bfaf1124e41def"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::get_mid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the middle point / triangle peak. </p>
-
-</div>
-</div>
-<a class="anchor" id="a2a31cd40458aa086bdb21f1d4fd5768a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::get_min </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the minimum point. </p>
-
-</div>
-</div>
-<a class="anchor" id="ae2a4f2ace143666060977617d51c4f45"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::get_result </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>crisp_in</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the degree of membership of a crisp input, multiplied by the value of the set. </p>
-
-</div>
-</div>
-<a class="anchor" id="af3d525a63382b697559aff3a3f70ea65"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
+template&lt;uint16 N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -335,19 +201,19 @@ template&lt;uint16_t N&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::set_points </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>p1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>p2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">real_t&#160;</td>
           <td class="paramname"><em>p3</em>&#160;</td>
         </tr>
         <tr>
@@ -372,90 +238,13 @@ template&lt;uint16_t N&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac02bbfc5d8a4388cdedc2a172cab9209"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::set_position </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_fuzzy_1_1_set.html#a458bba0e19aa05ab891962a705243a97">FUZZY_POINT</a>&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aca2ae652a087e109f032e7e82db6f6b5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_fuzzy.html">etk::Fuzzy</a>&lt; N &gt;::Set::set_value </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the value of this set. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="adea15307855814ee46c7bb9177a6bac2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="classetk_1_1_fuzzy.html">Fuzzy</a>&lt; N &gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>inc/etk/<a class="el" href="fuzzy_8h_source.html">fuzzy.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 20:04:43 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

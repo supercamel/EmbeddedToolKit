@@ -3,7 +3,7 @@
 }
 
 
-Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are immune to buffer overruns. Static\-Strings also provide a lot of the convenience of std\-::strings, although they do differ from std\-::strings in a number of ways.  
+Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are immune to buf overruns. Static\-Strings also provide a lot of the convenience of std\-::strings, although they do differ from std\-::strings in a number of ways.  
 
 
 
@@ -13,102 +13,156 @@ Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are im
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classetk_1_1_static_string_a1f83e4dfbd9d0d890b55bd6a8d847c71}{Static\-String} ()
-\item 
 \hyperlink{classetk_1_1_static_string_a981a44c389ceafb80a62fe4fe395e126}{Static\-String} (const char $\ast$c)
 \begin{DoxyCompactList}\small\item\em Initialises the string with some text. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string_a0e35289bf9413c495bc99d369b37840a}{Static\-String} (\hyperlink{classetk_1_1_rope}{Rope} r)
+\hypertarget{classetk_1_1_static_string_a0e35289bf9413c495bc99d369b37840a}{\hyperlink{classetk_1_1_static_string_a0e35289bf9413c495bc99d369b37840a}{Static\-String} (\hyperlink{classetk_1_1_rope}{Rope} r)}\label{classetk_1_1_static_string_a0e35289bf9413c495bc99d369b37840a}
+
 \begin{DoxyCompactList}\small\item\em Initialises the string from a \hyperlink{classetk_1_1_rope}{Rope}. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_ab77524b899b77838dc7b88fe31506bf9}{operator=} (\hyperlink{classetk_1_1_rope}{Rope} r)
+\hypertarget{classetk_1_1_static_string_ab77524b899b77838dc7b88fe31506bf9}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_ab77524b899b77838dc7b88fe31506bf9}{operator=} (\hyperlink{classetk_1_1_rope}{Rope} r)}\label{classetk_1_1_static_string_ab77524b899b77838dc7b88fe31506bf9}
+
 \begin{DoxyCompactList}\small\item\em Assigns the contents of a \hyperlink{classetk_1_1_rope}{Rope} to the string. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a8722a4de7f47236f259a4563cfddc7f8}{operator=} (\hyperlink{classetk_1_1_static_string}{Static\-String} s)
+\hypertarget{classetk_1_1_static_string_a93930b4532feb2646fdf766bbf4af446}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a93930b4532feb2646fdf766bbf4af446}{operator=} (\hyperlink{classetk_1_1_static_string}{Static\-String} \&s)}\label{classetk_1_1_static_string_a93930b4532feb2646fdf766bbf4af446}
+
 \begin{DoxyCompactList}\small\item\em Copies another string to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_ae01ca97fe3e5c6ed095668266c62dea3}{operator=} (const char $\ast$c)
+\hypertarget{classetk_1_1_static_string_abd07ea1a80fac1e4d13ffe91e8ce2218}{{\footnotesize template$<$uint32 nn$>$ }\\\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator=} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ nn $>$ \&s)}\label{classetk_1_1_static_string_abd07ea1a80fac1e4d13ffe91e8ce2218}
+
+\item 
+\hypertarget{classetk_1_1_static_string_ae01ca97fe3e5c6ed095668266c62dea3}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_ae01ca97fe3e5c6ed095668266c62dea3}{operator=} (const char $\ast$c)}\label{classetk_1_1_static_string_ae01ca97fe3e5c6ed095668266c62dea3}
+
 \begin{DoxyCompactList}\small\item\em Copies a const C-\/string to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a9d867b3fa673e549c7ec3e316432858e}{operator=} (char $\ast$c)
+\hypertarget{classetk_1_1_static_string_a9d867b3fa673e549c7ec3e316432858e}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a9d867b3fa673e549c7ec3e316432858e}{operator=} (char $\ast$c)}\label{classetk_1_1_static_string_a9d867b3fa673e549c7ec3e316432858e}
+
 \begin{DoxyCompactList}\small\item\em Copies a C-\/string to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a4360f55c0003eac4b2bfc4b536034df1}{operator+} (\hyperlink{classetk_1_1_rope}{Rope} \&s)
+\hypertarget{classetk_1_1_static_string_a61069b2faabd7c28cf36e29fbbf6fd42}{{\footnotesize template$<$uint32 nn$>$ }\\\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator=} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ nn $>$ ss)}\label{classetk_1_1_static_string_a61069b2faabd7c28cf36e29fbbf6fd42}
+
+\item 
+\hypertarget{classetk_1_1_static_string_abc80029dbca1e23cfed40b619ba23226}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator=} (T i)}\label{classetk_1_1_static_string_abc80029dbca1e23cfed40b619ba23226}
+
+\item 
+\hypertarget{classetk_1_1_static_string_a4360f55c0003eac4b2bfc4b536034df1}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a4360f55c0003eac4b2bfc4b536034df1}{operator+} (\hyperlink{classetk_1_1_rope}{Rope} \&s)}\label{classetk_1_1_static_string_a4360f55c0003eac4b2bfc4b536034df1}
+
 \begin{DoxyCompactList}\small\item\em Appends the contents of a \hyperlink{classetk_1_1_rope}{Rope} to this. \end{DoxyCompactList}\item 
-{\footnotesize template$<$uint32\-\_\-t N$>$ }\\\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_abb7639e5db2fadf0f75c11279d56c012}{operator+=} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&s)
+\hypertarget{classetk_1_1_static_string_abb7639e5db2fadf0f75c11279d56c012}{{\footnotesize template$<$uint32 N$>$ }\\\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_abb7639e5db2fadf0f75c11279d56c012}{operator+=} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&s)}\label{classetk_1_1_static_string_abb7639e5db2fadf0f75c11279d56c012}
+
 \begin{DoxyCompactList}\small\item\em Appends the contents of another string to this. \end{DoxyCompactList}\item 
-{\footnotesize template$<$uint32\-\_\-t N$>$ }\\\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a5652d2ae09bac5f0f7dacb5d198f126d}{operator+=} (\hyperlink{classetk_1_1_vector}{Vector}$<$ N $>$ \&v)
+\hypertarget{classetk_1_1_static_string_a5652d2ae09bac5f0f7dacb5d198f126d}{{\footnotesize template$<$uint32 N$>$ }\\\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a5652d2ae09bac5f0f7dacb5d198f126d}{operator+=} (\hyperlink{classetk_1_1_vector}{Vector}$<$ N $>$ \&v)}\label{classetk_1_1_static_string_a5652d2ae09bac5f0f7dacb5d198f126d}
+
 \begin{DoxyCompactList}\small\item\em Appends and nicely formats an \hyperlink{classetk_1_1_vector}{etk\-::\-Vector} to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a4989ff63067111d9febd227619417c2d}{operator+=} (\hyperlink{classetk_1_1_rope}{Rope} \&s)
+\hypertarget{classetk_1_1_static_string_a4989ff63067111d9febd227619417c2d}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator+=} (\hyperlink{classetk_1_1_rope}{Rope} \&s)}\label{classetk_1_1_static_string_a4989ff63067111d9febd227619417c2d}
+
 \item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_af554e70798b8deee951fa22d3b73c08f}{operator+=} (float f)
+\hypertarget{classetk_1_1_static_string_af554e70798b8deee951fa22d3b73c08f}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_af554e70798b8deee951fa22d3b73c08f}{operator+=} (float f)}\label{classetk_1_1_static_string_af554e70798b8deee951fa22d3b73c08f}
+
 \begin{DoxyCompactList}\small\item\em Appends a float to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_aa40e2bed504c072623e6a656b3dc2cf8}{operator+=} (double f)
+\hypertarget{classetk_1_1_static_string_aa40e2bed504c072623e6a656b3dc2cf8}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_aa40e2bed504c072623e6a656b3dc2cf8}{operator+=} (double f)}\label{classetk_1_1_static_string_aa40e2bed504c072623e6a656b3dc2cf8}
+
 \begin{DoxyCompactList}\small\item\em Appends a double to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_abbc2d25d1e5fb10024ada928e847dba6}{operator+=} (int32\-\_\-t f)
-\begin{DoxyCompactList}\small\item\em Appends an int32\-\_\-t to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a8bb75ede8fa54143ced44cc04df5a55a}{operator+=} (uint32\-\_\-t f)
-\begin{DoxyCompactList}\small\item\em Appends a uint32\-\_\-t to this. \end{DoxyCompactList}\item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_abfc7bb9a1599d93a57ff082e3b598401}{operator+} (char $\ast$s)
+\hypertarget{classetk_1_1_static_string_a4766b095db2cd11e90d7f9615e5a88e9}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a4766b095db2cd11e90d7f9615e5a88e9}{operator+=} (int32 f)}\label{classetk_1_1_static_string_a4766b095db2cd11e90d7f9615e5a88e9}
+
+\begin{DoxyCompactList}\small\item\em Appends an int32 to this. \end{DoxyCompactList}\item 
+\hypertarget{classetk_1_1_static_string_aa61c8ded294faaddc6794fa5add9c8f5}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_aa61c8ded294faaddc6794fa5add9c8f5}{operator+=} (uint32 f)}\label{classetk_1_1_static_string_aa61c8ded294faaddc6794fa5add9c8f5}
+
+\begin{DoxyCompactList}\small\item\em Appends a uint32 to this. \end{DoxyCompactList}\item 
+\hypertarget{classetk_1_1_static_string_abfc7bb9a1599d93a57ff082e3b598401}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator+} (char $\ast$s)}\label{classetk_1_1_static_string_abfc7bb9a1599d93a57ff082e3b598401}
+
 \item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_a8951fba8877efcb79cd492d5b33eebc0}{operator+=} (char $\ast$s)
+\hypertarget{classetk_1_1_static_string_a2ab627c84480262d218a89662b3b06ce}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator+=} (char c)}\label{classetk_1_1_static_string_a2ab627c84480262d218a89662b3b06ce}
+
 \item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_ad15a9bdbb3ad0933b5425aaa6872bd10}{operator+} (const char $\ast$s)
+\hypertarget{classetk_1_1_static_string_a8951fba8877efcb79cd492d5b33eebc0}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator+=} (char $\ast$s)}\label{classetk_1_1_static_string_a8951fba8877efcb79cd492d5b33eebc0}
+
 \item 
-\hyperlink{classetk_1_1_static_string}{Static\-String} \& \hyperlink{classetk_1_1_static_string_af9684711c18de43451599bb490fd548b}{operator+=} (const char $\ast$s)
+\hypertarget{classetk_1_1_static_string_ad15a9bdbb3ad0933b5425aaa6872bd10}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator+} (const char $\ast$s)}\label{classetk_1_1_static_string_ad15a9bdbb3ad0933b5425aaa6872bd10}
+
 \item 
-char \& \hyperlink{classetk_1_1_static_string_a382c19ae16972a29ec1b17e46c1f9a68}{operator\mbox{[}$\,$\mbox{]}} (uint16\-\_\-t p)
+\hypertarget{classetk_1_1_static_string_af9684711c18de43451599bb490fd548b}{\hyperlink{classetk_1_1_static_string}{Static\-String} \& {\bfseries operator+=} (const char $\ast$s)}\label{classetk_1_1_static_string_af9684711c18de43451599bb490fd548b}
+
+\item 
+\hypertarget{classetk_1_1_static_string_a2d00c56fe2e91c019ba5732c7e6d17eb}{char \& \hyperlink{classetk_1_1_static_string_a2d00c56fe2e91c019ba5732c7e6d17eb}{operator\mbox{[}$\,$\mbox{]}} (uint32 p)}\label{classetk_1_1_static_string_a2d00c56fe2e91c019ba5732c7e6d17eb}
+
 \begin{DoxyCompactList}\small\item\em This operator overload allows you to access and modify individual characters in the string. \end{DoxyCompactList}\item 
-bool \hyperlink{classetk_1_1_static_string_ac9392fc07494ee308d271717c250d3cf}{operator==} (const char $\ast$c)
+\hypertarget{classetk_1_1_static_string_ac9392fc07494ee308d271717c250d3cf}{bool \hyperlink{classetk_1_1_static_string_ac9392fc07494ee308d271717c250d3cf}{operator==} (const char $\ast$c)}\label{classetk_1_1_static_string_ac9392fc07494ee308d271717c250d3cf}
+
 \begin{DoxyCompactList}\small\item\em Compares this to a const C-\/string. \end{DoxyCompactList}\item 
-{\footnotesize template$<$uint32\-\_\-t N$>$ }\\bool \hyperlink{classetk_1_1_static_string_aa1ec650a682fbbbfe89a625a5e997fb1}{compare} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&s, uint32\-\_\-t max\-\_\-len)
+\hypertarget{classetk_1_1_static_string_abb40d72d70ffadd308e325165730b86f}{{\footnotesize template$<$uint32 N$>$ }\\bool \hyperlink{classetk_1_1_static_string_abb40d72d70ffadd308e325165730b86f}{compare} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&s, uint32 max\-\_\-len)}\label{classetk_1_1_static_string_abb40d72d70ffadd308e325165730b86f}
+
 \begin{DoxyCompactList}\small\item\em Compares this to another \hyperlink{classetk_1_1_static_string}{Static\-String} up to max\-\_\-len characters. \end{DoxyCompactList}\item 
-bool \hyperlink{classetk_1_1_static_string_a660c00de50b340316ca9f91b7b95103a}{compare} (const char $\ast$s, uint32\-\_\-t max\-\_\-len)
+\hypertarget{classetk_1_1_static_string_a2c4026d012626c7ea92e3e14b30c5739}{bool \hyperlink{classetk_1_1_static_string_a2c4026d012626c7ea92e3e14b30c5739}{compare} (const char $\ast$s, uint32 max\-\_\-len)}\label{classetk_1_1_static_string_a2c4026d012626c7ea92e3e14b30c5739}
+
 \begin{DoxyCompactList}\small\item\em Compares this to const C-\/string up to max\-\_\-len characters. \end{DoxyCompactList}\item 
-{\footnotesize template$<$uint32\-\_\-t N$>$ }\\bool \hyperlink{classetk_1_1_static_string_ae67693e7f2226f2bbbfdd3841c56abe5}{compare} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&s)
+\hypertarget{classetk_1_1_static_string_ae67693e7f2226f2bbbfdd3841c56abe5}{{\footnotesize template$<$uint32 N$>$ }\\bool {\bfseries compare} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&s)}\label{classetk_1_1_static_string_ae67693e7f2226f2bbbfdd3841c56abe5}
+
 \item 
-bool \hyperlink{classetk_1_1_static_string_a0ed58658bfa5e77ca4609fa213d6fc0d}{compare} (const char $\ast$s)
+\hypertarget{classetk_1_1_static_string_a0ed58658bfa5e77ca4609fa213d6fc0d}{bool {\bfseries compare} (const char $\ast$s)}\label{classetk_1_1_static_string_a0ed58658bfa5e77ca4609fa213d6fc0d}
+
 \item 
-float \hyperlink{classetk_1_1_static_string_a97a8dd70c2cc5a59a38315a36e315cb9}{atof} ()
+float \hyperlink{classetk_1_1_static_string_afd19d4edc8dd7c8439129268c4cf5eee}{atof} (uint16 p=0)
 \begin{DoxyCompactList}\small\item\em Converts the string to a floating point number. \end{DoxyCompactList}\item 
-int \hyperlink{classetk_1_1_static_string_a3104728d8f19ece98d28d014f8f786d4}{atoi} ()
+int \hyperlink{classetk_1_1_static_string_ac250c25e8e6ebadb802e48702abbc3cb}{atoi} (uint16 p=0)
 \begin{DoxyCompactList}\small\item\em Converts the string to an integer. \end{DoxyCompactList}\item 
-uint32\-\_\-t \hyperlink{classetk_1_1_static_string_a35ecab4b0438711fa106689f0bc5929b}{length} ()
+\hypertarget{classetk_1_1_static_string_a30f58ade28fd14f3c30c42147cc8245f}{uint32 \hyperlink{classetk_1_1_static_string_a30f58ade28fd14f3c30c42147cc8245f}{length} ()}\label{classetk_1_1_static_string_a30f58ade28fd14f3c30c42147cc8245f}
+
 \begin{DoxyCompactList}\small\item\em Returns the number of characters in the string. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}{clear} ()
+\hypertarget{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}{void \hyperlink{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}{clear} ()}\label{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}
+
 \begin{DoxyCompactList}\small\item\em Sets all characters to null. \end{DoxyCompactList}\item 
-bool \hyperlink{classetk_1_1_static_string_a21e9cc28db85354111ec1081e4f96400}{operator==} (\hyperlink{classetk_1_1_rope}{Rope} r)
+\hypertarget{classetk_1_1_static_string_a21e9cc28db85354111ec1081e4f96400}{bool {\bfseries operator==} (\hyperlink{classetk_1_1_rope}{Rope} r)}\label{classetk_1_1_static_string_a21e9cc28db85354111ec1081e4f96400}
+
 \item 
-bool \hyperlink{classetk_1_1_static_string_aa9905dea14fe61bbb43074b6844c1715}{operator!=} (const char $\ast$c)
+\hypertarget{classetk_1_1_static_string_aa9905dea14fe61bbb43074b6844c1715}{bool {\bfseries operator!=} (const char $\ast$c)}\label{classetk_1_1_static_string_aa9905dea14fe61bbb43074b6844c1715}
+
 \item 
-bool \hyperlink{classetk_1_1_static_string_ab91fc0104f2fc206bd62249d4364f205}{operator!=} (\hyperlink{classetk_1_1_rope}{Rope} r)
+\hypertarget{classetk_1_1_static_string_ab91fc0104f2fc206bd62249d4364f205}{bool {\bfseries operator!=} (\hyperlink{classetk_1_1_rope}{Rope} r)}\label{classetk_1_1_static_string_ab91fc0104f2fc206bd62249d4364f205}
+
 \item 
-\hyperlink{classetk_1_1_rope}{Rope} \hyperlink{classetk_1_1_static_string_a154223efd5135ba6ea4e553494d88753}{get\-\_\-rope} ()
+\hypertarget{classetk_1_1_static_string_a154223efd5135ba6ea4e553494d88753}{\hyperlink{classetk_1_1_rope}{Rope} {\bfseries get\-\_\-rope} ()}\label{classetk_1_1_static_string_a154223efd5135ba6ea4e553494d88753}
+
 \item 
-void \hyperlink{classetk_1_1_static_string_a8ae54d52d386cf3817388a4ea6742f40}{insert} (char c, uint32\-\_\-t pos)
+\hypertarget{classetk_1_1_static_string_af33799da9ffff7ea36a26e8323f7a01a}{void \hyperlink{classetk_1_1_static_string_af33799da9ffff7ea36a26e8323f7a01a}{insert} (char c, uint32 pos)}\label{classetk_1_1_static_string_af33799da9ffff7ea36a26e8323f7a01a}
+
 \begin{DoxyCompactList}\small\item\em Inserts a character in a position. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_static_string_a6d9a7ff340f49a308770c1d45c7b96e4}{remove} (uint32\-\_\-t pos)
-\begin{DoxyCompactList}\small\item\em Removes a particular from positon pos. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_static_string_a0d3fb4e9dd789f9ab90fdd20d31fa683}{erase} (uint32\-\_\-t pos, uint32\-\_\-t len)
+\hypertarget{classetk_1_1_static_string_a9b9c0fc0830278d0fdc7da0735d19d49}{void \hyperlink{classetk_1_1_static_string_a9b9c0fc0830278d0fdc7da0735d19d49}{remove} (uint32 pos)}\label{classetk_1_1_static_string_a9b9c0fc0830278d0fdc7da0735d19d49}
+
+\begin{DoxyCompactList}\small\item\em Removes a character rom position pos. \end{DoxyCompactList}\item 
+\hypertarget{classetk_1_1_static_string_aebe736486f4bee17a3baebe58a11561c}{void \hyperlink{classetk_1_1_static_string_aebe736486f4bee17a3baebe58a11561c}{erase} (uint32 pos, uint32 len)}\label{classetk_1_1_static_string_aebe736486f4bee17a3baebe58a11561c}
+
 \begin{DoxyCompactList}\small\item\em Erases a number of characters starting at position pos. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_static_string_a1bfd64eb5df0f7162e3ee57542c23ba3}{to\-\_\-upper} ()
+\hypertarget{classetk_1_1_static_string_a6a1ac1c4e3b0388694949c98ee05cf2d}{void {\bfseries fill} (char c, uint32 pos, uint32 len)}\label{classetk_1_1_static_string_a6a1ac1c4e3b0388694949c98ee05cf2d}
+
+\item 
+\hypertarget{classetk_1_1_static_string_a1bfd64eb5df0f7162e3ee57542c23ba3}{void \hyperlink{classetk_1_1_static_string_a1bfd64eb5df0f7162e3ee57542c23ba3}{to\-\_\-upper} ()}\label{classetk_1_1_static_string_a1bfd64eb5df0f7162e3ee57542c23ba3}
+
 \begin{DoxyCompactList}\small\item\em Converts the string to upper case. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_static_string_a2d09b6cf3621102f7a5c3e0fea06591b}{to\-\_\-lower} ()
+\hypertarget{classetk_1_1_static_string_a2d09b6cf3621102f7a5c3e0fea06591b}{void \hyperlink{classetk_1_1_static_string_a2d09b6cf3621102f7a5c3e0fea06591b}{to\-\_\-lower} ()}\label{classetk_1_1_static_string_a2d09b6cf3621102f7a5c3e0fea06591b}
+
 \begin{DoxyCompactList}\small\item\em Converts the string to lower case. \end{DoxyCompactList}\item 
-const char $\ast$ \hyperlink{classetk_1_1_static_string_aa775f517938685482baa772fb6cb1734}{c\-\_\-str} ()
-\begin{DoxyCompactList}\small\item\em Returns a pointer to the C-\/string buffer. \end{DoxyCompactList}\item 
+\hypertarget{classetk_1_1_static_string_a63047d1ab54d84e4fda48b8e7bfd88fd}{{\footnotesize template$<$uint32 nn$>$ }\\{\bfseries operator Static\-String$<$ nn $>$} ()}\label{classetk_1_1_static_string_a63047d1ab54d84e4fda48b8e7bfd88fd}
+
+\item 
+\hypertarget{classetk_1_1_static_string_aa775f517938685482baa772fb6cb1734}{const char $\ast$ \hyperlink{classetk_1_1_static_string_aa775f517938685482baa772fb6cb1734}{c\-\_\-str} ()}\label{classetk_1_1_static_string_aa775f517938685482baa772fb6cb1734}
+
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the C-\/string buf. \end{DoxyCompactList}\item 
 char $\ast$ \hyperlink{classetk_1_1_static_string_ac305f5f280538b783ef70865c173b14a}{raw\-\_\-memory} ()
 \item 
-void \hyperlink{classetk_1_1_static_string_a003d54ec39d1a35ef5b1c3ba7c88dee2}{sub\-\_\-string} (char $\ast$buf, uint32\-\_\-t start, uint32\-\_\-t len)
+void \hyperlink{classetk_1_1_static_string_af253b76226aefea02ab75f29ee674c5e}{sub\-\_\-string} (char $\ast$buf, uint32 start, uint32 len)
 \item 
-void \hyperlink{classetk_1_1_static_string_a58b9a096ce1d77c2c13df89418dacd22}{sub\-\_\-string} (\hyperlink{classetk_1_1_rope}{Rope} \&rope, uint32\-\_\-t start, uint32\-\_\-t len)
+void \hyperlink{classetk_1_1_static_string_a42a2a9793853352a96b2522ab7938132}{sub\-\_\-string} (\hyperlink{classetk_1_1_rope}{Rope} \&rope, uint32 start, uint32 len)
 \item 
-{\footnotesize template$<$uint32\-\_\-t N$>$ }\\void \hyperlink{classetk_1_1_static_string_a262a8ed592e1ab95151c6ee9f3ab149c}{sub\-\_\-string} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&string, uint32\-\_\-t start, uint32\-\_\-t len)
+{\footnotesize template$<$uint32 N$>$ }\\void \hyperlink{classetk_1_1_static_string_ab1bddc20910d512e0fe79823a3675697}{sub\-\_\-string} (\hyperlink{classetk_1_1_static_string}{Static\-String}$<$ N $>$ \&string, uint32 start, uint32 len)
+\item 
+\hypertarget{classetk_1_1_static_string_a9caee6af911467e670a539af39117648}{void {\bfseries reverse} ()}\label{classetk_1_1_static_string_a9caee6af911467e670a539af39117648}
+
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\subsubsection*{template$<$uint32\-\_\-t L$>$class etk\-::\-Static\-String$<$ L $>$}
+\subsubsection*{template$<$uint32 L$>$class etk\-::\-Static\-String$<$ L $>$}
 
-Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are immune to buffer overruns. Static\-Strings also provide a lot of the convenience of std\-::strings, although they do differ from std\-::strings in a number of ways. 
+Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are immune to buf overruns. Static\-Strings also provide a lot of the convenience of std\-::strings, although they do differ from std\-::strings in a number of ways. 
 
 
 \begin{DoxyCode}
-\textcolor{preprocessor}{ #include <\hyperlink{etk_8h}{etk/etk.h}>}
+\textcolor{preprocessor}{ #include <etk/etk.h>}
 \textcolor{preprocessor}{#include <iostream>}
 
 \textcolor{keyword}{using namespace }std;
@@ -118,7 +172,7 @@ Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are im
 \{
     \hyperlink{classetk_1_1_static_string}{etk::StaticString<100>} ss;
     ss = \textcolor{stringliteral}{"Hello world!"}; \textcolor{comment}{//basic string assignment}
-    
+
     ss.\hyperlink{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}{clear}(); \textcolor{comment}{//clear string and start again}
     \textcolor{comment}{//assign a bunch of stuff.}
     ss += 56;
@@ -126,16 +180,16 @@ Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are im
     ss += 5.4;
     ss += \textcolor{stringliteral}{" = "};
     ss += 56+5.4;
-    
+
     \textcolor{comment}{//that's a big clunky. here's another option.}
     ss.\hyperlink{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}{clear}();
-    ss.\hyperlink{classetk_1_1_static_string_a154223efd5135ba6ea4e553494d88753}{get\_rope}() << 56 << \textcolor{stringliteral}{" + "} << 5.4  << \textcolor{stringliteral}{" = "} << 56+5.4;
+    ss.get\_rope() << 56 << \textcolor{stringliteral}{" + "} << 5.4  << \textcolor{stringliteral}{" = "} << 56+5.4;
     cout << ss.\hyperlink{classetk_1_1_static_string_aa775f517938685482baa772fb6cb1734}{c\_str}() << endl;
-    
+
     \hyperlink{classetk_1_1_static_string}{etk::StaticString<20>} sub;
-    ss.\hyperlink{classetk_1_1_static_string_a003d54ec39d1a35ef5b1c3ba7c88dee2}{sub\_string}(sub, 5, 4);
+    ss.\hyperlink{classetk_1_1_static_string_af253b76226aefea02ab75f29ee674c5e}{sub\_string}(sub, 5, 4);
     \textcolor{comment}{//sub now contains "5.40"}
-    \textcolor{keywordtype}{float} f = sub.\hyperlink{classetk_1_1_static_string_a97a8dd70c2cc5a59a38315a36e315cb9}{atof}();
+    \textcolor{keywordtype}{float} f = sub.\hyperlink{classetk_1_1_static_string_afd19d4edc8dd7c8439129268c4cf5eee}{atof}();
     cout << f << endl;
 \}
 \end{DoxyCode}
@@ -147,16 +201,9 @@ Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are im
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classetk_1_1_static_string_a1f83e4dfbd9d0d890b55bd6a8d847c71}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!Static\-String@{Static\-String}}
-\index{Static\-String@{Static\-String}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{Static\-String}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf etk\-::\-Static\-String}$<$ L $>$\-::{\bf Static\-String} (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a1f83e4dfbd9d0d890b55bd6a8d847c71}
 \hypertarget{classetk_1_1_static_string_a981a44c389ceafb80a62fe4fe395e126}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!Static\-String@{Static\-String}}
 \index{Static\-String@{Static\-String}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{Static\-String}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf etk\-::\-Static\-String}$<$ L $>$\-::{\bf Static\-String} (
+\subsubsection[{Static\-String}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 L$>$ {\bf etk\-::\-Static\-String}$<$ L $>$\-::{\bf Static\-String} (
 \begin{DoxyParamCaption}
 \item[{const char $\ast$}]{c}
 \end{DoxyParamCaption}
@@ -170,27 +217,16 @@ Initialises the string with some text.
 StaticString<20> ss(\textcolor{stringliteral}{"Hello world!"});
 \textcolor{comment}{//ss now contains 'Hello world!'}
 \end{DoxyCode}
- \hypertarget{classetk_1_1_static_string_a0e35289bf9413c495bc99d369b37840a}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!Static\-String@{Static\-String}}
-\index{Static\-String@{Static\-String}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{Static\-String}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf etk\-::\-Static\-String}$<$ L $>$\-::{\bf Static\-String} (
-\begin{DoxyParamCaption}
-\item[{{\bf Rope}}]{r}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a0e35289bf9413c495bc99d369b37840a}
-
-
-Initialises the string from a \hyperlink{classetk_1_1_rope}{Rope}. 
-
-
+ 
 
 \subsection{Member Function Documentation}
-\hypertarget{classetk_1_1_static_string_a97a8dd70c2cc5a59a38315a36e315cb9}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!atof@{atof}}
+\hypertarget{classetk_1_1_static_string_afd19d4edc8dd7c8439129268c4cf5eee}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!atof@{atof}}
 \index{atof@{atof}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{atof}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ float {\bf etk\-::\-Static\-String}$<$ L $>$\-::atof (
+\subsubsection[{atof}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 L$>$ float {\bf etk\-::\-Static\-String}$<$ L $>$\-::atof (
 \begin{DoxyParamCaption}
-{}
+\item[{uint16}]{p = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a97a8dd70c2cc5a59a38315a36e315cb9}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_afd19d4edc8dd7c8439129268c4cf5eee}
 
 
 Converts the string to a floating point number. 
@@ -198,16 +234,16 @@ Converts the string to a floating point number.
 
 \begin{DoxyCode}
 \hyperlink{classetk_1_1_static_string}{etk::StaticString<20>} ss(\textcolor{stringliteral}{"20.65"});
-\textcolor{keywordtype}{float} f = ss.\hyperlink{classetk_1_1_static_string_a97a8dd70c2cc5a59a38315a36e315cb9}{atof}();
+\textcolor{keywordtype}{float} f = ss.\hyperlink{classetk_1_1_static_string_afd19d4edc8dd7c8439129268c4cf5eee}{atof}();
 \textcolor{comment}{//f == 20.65f}
 \end{DoxyCode}
- \hypertarget{classetk_1_1_static_string_a3104728d8f19ece98d28d014f8f786d4}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!atoi@{atoi}}
+ \hypertarget{classetk_1_1_static_string_ac250c25e8e6ebadb802e48702abbc3cb}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!atoi@{atoi}}
 \index{atoi@{atoi}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{atoi}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ int {\bf etk\-::\-Static\-String}$<$ L $>$\-::atoi (
+\subsubsection[{atoi}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 L$>$ int {\bf etk\-::\-Static\-String}$<$ L $>$\-::atoi (
 \begin{DoxyParamCaption}
-{}
+\item[{uint16}]{p = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a3104728d8f19ece98d28d014f8f786d4}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ac250c25e8e6ebadb802e48702abbc3cb}
 
 
 Converts the string to an integer. 
@@ -215,379 +251,45 @@ Converts the string to an integer.
 
 \begin{DoxyCode}
 \hyperlink{classetk_1_1_static_string}{etk::StaticString<20>} ss(\textcolor{stringliteral}{"20.65"});
-\textcolor{keywordtype}{int} f = ss.\hyperlink{classetk_1_1_static_string_a97a8dd70c2cc5a59a38315a36e315cb9}{atof}();
+\textcolor{keywordtype}{int} f = ss.\hyperlink{classetk_1_1_static_string_afd19d4edc8dd7c8439129268c4cf5eee}{atof}();
 \textcolor{comment}{//f == 20}
 \end{DoxyCode}
- \hypertarget{classetk_1_1_static_string_aa775f517938685482baa772fb6cb1734}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!c\-\_\-str@{c\-\_\-str}}
-\index{c\-\_\-str@{c\-\_\-str}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{c\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ const char$\ast$ {\bf etk\-::\-Static\-String}$<$ L $>$\-::c\-\_\-str (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_aa775f517938685482baa772fb6cb1734}
-
-
-Returns a pointer to the C-\/string buffer. 
-
-\hypertarget{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!clear@{clear}}
-\index{clear@{clear}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::clear (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a5ddc4131a3eb881f56860cd563d1e537}
-
-
-Sets all characters to null. 
-
-\hypertarget{classetk_1_1_static_string_aa1ec650a682fbbbfe89a625a5e997fb1}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!compare@{compare}}
-\index{compare@{compare}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ template$<$uint32\-\_\-t N$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::compare (
-\begin{DoxyParamCaption}
-\item[{{\bf Static\-String}$<$ N $>$ \&}]{s, }
-\item[{uint32\-\_\-t}]{max\-\_\-len}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_aa1ec650a682fbbbfe89a625a5e997fb1}
-
-
-Compares this to another \hyperlink{classetk_1_1_static_string}{Static\-String} up to max\-\_\-len characters. 
-
-\hypertarget{classetk_1_1_static_string_a660c00de50b340316ca9f91b7b95103a}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!compare@{compare}}
-\index{compare@{compare}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::compare (
-\begin{DoxyParamCaption}
-\item[{const char $\ast$}]{s, }
-\item[{uint32\-\_\-t}]{max\-\_\-len}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a660c00de50b340316ca9f91b7b95103a}
-
-
-Compares this to const C-\/string up to max\-\_\-len characters. 
-
-\hypertarget{classetk_1_1_static_string_ae67693e7f2226f2bbbfdd3841c56abe5}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!compare@{compare}}
-\index{compare@{compare}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ template$<$uint32\-\_\-t N$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::compare (
-\begin{DoxyParamCaption}
-\item[{{\bf Static\-String}$<$ N $>$ \&}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ae67693e7f2226f2bbbfdd3841c56abe5}
-\hypertarget{classetk_1_1_static_string_a0ed58658bfa5e77ca4609fa213d6fc0d}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!compare@{compare}}
-\index{compare@{compare}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::compare (
-\begin{DoxyParamCaption}
-\item[{const char $\ast$}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a0ed58658bfa5e77ca4609fa213d6fc0d}
-\hypertarget{classetk_1_1_static_string_a0d3fb4e9dd789f9ab90fdd20d31fa683}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!erase@{erase}}
-\index{erase@{erase}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::erase (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{pos, }
-\item[{uint32\-\_\-t}]{len}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a0d3fb4e9dd789f9ab90fdd20d31fa683}
-
-
-Erases a number of characters starting at position pos. 
-
-\hypertarget{classetk_1_1_static_string_a154223efd5135ba6ea4e553494d88753}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!get\-\_\-rope@{get\-\_\-rope}}
-\index{get\-\_\-rope@{get\-\_\-rope}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{get\-\_\-rope}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Rope} {\bf etk\-::\-Static\-String}$<$ L $>$\-::get\-\_\-rope (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a154223efd5135ba6ea4e553494d88753}
-\hypertarget{classetk_1_1_static_string_a8ae54d52d386cf3817388a4ea6742f40}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!insert@{insert}}
-\index{insert@{insert}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::insert (
-\begin{DoxyParamCaption}
-\item[{char}]{c, }
-\item[{uint32\-\_\-t}]{pos}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a8ae54d52d386cf3817388a4ea6742f40}
-
-
-Inserts a character in a position. 
-
-\hypertarget{classetk_1_1_static_string_a35ecab4b0438711fa106689f0bc5929b}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!length@{length}}
-\index{length@{length}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ uint32\-\_\-t {\bf etk\-::\-Static\-String}$<$ L $>$\-::length (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a35ecab4b0438711fa106689f0bc5929b}
-
-
-Returns the number of characters in the string. 
-
-\hypertarget{classetk_1_1_static_string_aa9905dea14fe61bbb43074b6844c1715}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator!=@{operator!=}}
-\index{operator!=@{operator!=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator!= (
-\begin{DoxyParamCaption}
-\item[{const char $\ast$}]{c}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_aa9905dea14fe61bbb43074b6844c1715}
-\hypertarget{classetk_1_1_static_string_ab91fc0104f2fc206bd62249d4364f205}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator!=@{operator!=}}
-\index{operator!=@{operator!=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator!= (
-\begin{DoxyParamCaption}
-\item[{{\bf Rope}}]{r}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ab91fc0104f2fc206bd62249d4364f205}
-\hypertarget{classetk_1_1_static_string_a4360f55c0003eac4b2bfc4b536034df1}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+@{operator+}}
-\index{operator+@{operator+}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+ (
-\begin{DoxyParamCaption}
-\item[{{\bf Rope} \&}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a4360f55c0003eac4b2bfc4b536034df1}
-
-
-Appends the contents of a \hyperlink{classetk_1_1_rope}{Rope} to this. 
-
-\hypertarget{classetk_1_1_static_string_abfc7bb9a1599d93a57ff082e3b598401}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+@{operator+}}
-\index{operator+@{operator+}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+ (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_abfc7bb9a1599d93a57ff082e3b598401}
-\hypertarget{classetk_1_1_static_string_ad15a9bdbb3ad0933b5425aaa6872bd10}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+@{operator+}}
-\index{operator+@{operator+}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+ (
-\begin{DoxyParamCaption}
-\item[{const char $\ast$}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ad15a9bdbb3ad0933b5425aaa6872bd10}
-\hypertarget{classetk_1_1_static_string_abb7639e5db2fadf0f75c11279d56c012}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ template$<$uint32\-\_\-t N$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{{\bf Static\-String}$<$ N $>$ \&}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_abb7639e5db2fadf0f75c11279d56c012}
-
-
-Appends the contents of another string to this. 
-
-\hypertarget{classetk_1_1_static_string_a5652d2ae09bac5f0f7dacb5d198f126d}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ template$<$uint32\-\_\-t N$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ N $>$ \&}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a5652d2ae09bac5f0f7dacb5d198f126d}
-
-
-Appends and nicely formats an \hyperlink{classetk_1_1_vector}{etk\-::\-Vector} to this. 
-
-\hypertarget{classetk_1_1_static_string_a4989ff63067111d9febd227619417c2d}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{{\bf Rope} \&}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a4989ff63067111d9febd227619417c2d}
-\hypertarget{classetk_1_1_static_string_af554e70798b8deee951fa22d3b73c08f}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{float}]{f}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_af554e70798b8deee951fa22d3b73c08f}
-
-
-Appends a float to this. 
-
-\hypertarget{classetk_1_1_static_string_aa40e2bed504c072623e6a656b3dc2cf8}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{double}]{f}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_aa40e2bed504c072623e6a656b3dc2cf8}
-
-
-Appends a double to this. 
-
-\hypertarget{classetk_1_1_static_string_abbc2d25d1e5fb10024ada928e847dba6}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{int32\-\_\-t}]{f}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_abbc2d25d1e5fb10024ada928e847dba6}
-
-
-Appends an int32\-\_\-t to this. 
-
-\hypertarget{classetk_1_1_static_string_a8bb75ede8fa54143ced44cc04df5a55a}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{f}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a8bb75ede8fa54143ced44cc04df5a55a}
-
-
-Appends a uint32\-\_\-t to this. 
-
-\hypertarget{classetk_1_1_static_string_a8951fba8877efcb79cd492d5b33eebc0}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a8951fba8877efcb79cd492d5b33eebc0}
-\hypertarget{classetk_1_1_static_string_af9684711c18de43451599bb490fd548b}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator+= (
-\begin{DoxyParamCaption}
-\item[{const char $\ast$}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_af9684711c18de43451599bb490fd548b}
-\hypertarget{classetk_1_1_static_string_ab77524b899b77838dc7b88fe31506bf9}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator=@{operator=}}
-\index{operator=@{operator=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator= (
-\begin{DoxyParamCaption}
-\item[{{\bf Rope}}]{r}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ab77524b899b77838dc7b88fe31506bf9}
-
-
-Assigns the contents of a \hyperlink{classetk_1_1_rope}{Rope} to the string. 
-
-\hypertarget{classetk_1_1_static_string_a8722a4de7f47236f259a4563cfddc7f8}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator=@{operator=}}
-\index{operator=@{operator=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator= (
-\begin{DoxyParamCaption}
-\item[{{\bf Static\-String}$<$ L $>$}]{s}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a8722a4de7f47236f259a4563cfddc7f8}
-
-
-Copies another string to this. 
-
-\hypertarget{classetk_1_1_static_string_ae01ca97fe3e5c6ed095668266c62dea3}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator=@{operator=}}
-\index{operator=@{operator=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator= (
-\begin{DoxyParamCaption}
-\item[{const char $\ast$}]{c}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ae01ca97fe3e5c6ed095668266c62dea3}
-
-
-Copies a const C-\/string to this. 
-
-\hypertarget{classetk_1_1_static_string_a9d867b3fa673e549c7ec3e316432858e}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator=@{operator=}}
-\index{operator=@{operator=}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ {\bf Static\-String}\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator= (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{c}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a9d867b3fa673e549c7ec3e316432858e}
-
-
-Copies a C-\/string to this. 
-
-\hypertarget{classetk_1_1_static_string_ac9392fc07494ee308d271717c250d3cf}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator==@{operator==}}
-\index{operator==@{operator==}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator== (
-\begin{DoxyParamCaption}
-\item[{const char $\ast$}]{c}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ac9392fc07494ee308d271717c250d3cf}
-
-
-Compares this to a const C-\/string. 
-
-\hypertarget{classetk_1_1_static_string_a21e9cc28db85354111ec1081e4f96400}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator==@{operator==}}
-\index{operator==@{operator==}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ bool {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator== (
-\begin{DoxyParamCaption}
-\item[{{\bf Rope}}]{r}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a21e9cc28db85354111ec1081e4f96400}
-\hypertarget{classetk_1_1_static_string_a382c19ae16972a29ec1b17e46c1f9a68}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
-\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ char\& {\bf etk\-::\-Static\-String}$<$ L $>$\-::operator\mbox{[}$\,$\mbox{]} (
-\begin{DoxyParamCaption}
-\item[{uint16\-\_\-t}]{p}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a382c19ae16972a29ec1b17e46c1f9a68}
-
-
-This operator overload allows you to access and modify individual characters in the string. 
-
-\hypertarget{classetk_1_1_static_string_ac305f5f280538b783ef70865c173b14a}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!raw\-\_\-memory@{raw\-\_\-memory}}
+ \hypertarget{classetk_1_1_static_string_ac305f5f280538b783ef70865c173b14a}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!raw\-\_\-memory@{raw\-\_\-memory}}
 \index{raw\-\_\-memory@{raw\-\_\-memory}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{raw\-\_\-memory}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ char$\ast$ {\bf etk\-::\-Static\-String}$<$ L $>$\-::raw\-\_\-memory (
+\subsubsection[{raw\-\_\-memory}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 L$>$ char$\ast$ {\bf etk\-::\-Static\-String}$<$ L $>$\-::raw\-\_\-memory (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ac305f5f280538b783ef70865c173b14a}
-Returns a pointer to the raw memory used by \hyperlink{classetk_1_1_static_string}{Static\-String} \hypertarget{classetk_1_1_static_string_a6d9a7ff340f49a308770c1d45c7b96e4}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!remove@{remove}}
-\index{remove@{remove}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::remove (
-\begin{DoxyParamCaption}
-\item[{uint32\-\_\-t}]{pos}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a6d9a7ff340f49a308770c1d45c7b96e4}
-
-
-Removes a particular from positon pos. 
-
-\hypertarget{classetk_1_1_static_string_a003d54ec39d1a35ef5b1c3ba7c88dee2}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!sub\-\_\-string@{sub\-\_\-string}}
+Returns a pointer to the raw memory used by \hyperlink{classetk_1_1_static_string}{Static\-String} \hypertarget{classetk_1_1_static_string_af253b76226aefea02ab75f29ee674c5e}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!sub\-\_\-string@{sub\-\_\-string}}
 \index{sub\-\_\-string@{sub\-\_\-string}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{sub\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::sub\-\_\-string (
+\subsubsection[{sub\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::sub\-\_\-string (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{buf, }
-\item[{uint32\-\_\-t}]{start, }
-\item[{uint32\-\_\-t}]{len}
+\item[{uint32}]{start, }
+\item[{uint32}]{len}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a003d54ec39d1a35ef5b1c3ba7c88dee2}
-Extracts a section of text from the string and assigns it to buf. \hypertarget{classetk_1_1_static_string_a58b9a096ce1d77c2c13df89418dacd22}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!sub\-\_\-string@{sub\-\_\-string}}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_af253b76226aefea02ab75f29ee674c5e}
+Extracts a section of text from the string and assigns it to buf. \hypertarget{classetk_1_1_static_string_a42a2a9793853352a96b2522ab7938132}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!sub\-\_\-string@{sub\-\_\-string}}
 \index{sub\-\_\-string@{sub\-\_\-string}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{sub\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::sub\-\_\-string (
+\subsubsection[{sub\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::sub\-\_\-string (
 \begin{DoxyParamCaption}
 \item[{{\bf Rope} \&}]{rope, }
-\item[{uint32\-\_\-t}]{start, }
-\item[{uint32\-\_\-t}]{len}
+\item[{uint32}]{start, }
+\item[{uint32}]{len}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a58b9a096ce1d77c2c13df89418dacd22}
-Extracts a section of text from the string and assigns it to rope. \hypertarget{classetk_1_1_static_string_a262a8ed592e1ab95151c6ee9f3ab149c}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!sub\-\_\-string@{sub\-\_\-string}}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a42a2a9793853352a96b2522ab7938132}
+Extracts a section of text from the string and assigns it to rope. \hypertarget{classetk_1_1_static_string_ab1bddc20910d512e0fe79823a3675697}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!sub\-\_\-string@{sub\-\_\-string}}
 \index{sub\-\_\-string@{sub\-\_\-string}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{sub\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ template$<$uint32\-\_\-t N$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::sub\-\_\-string (
+\subsubsection[{sub\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32 L$>$ template$<$uint32 N$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::sub\-\_\-string (
 \begin{DoxyParamCaption}
 \item[{{\bf Static\-String}$<$ N $>$ \&}]{string, }
-\item[{uint32\-\_\-t}]{start, }
-\item[{uint32\-\_\-t}]{len}
+\item[{uint32}]{start, }
+\item[{uint32}]{len}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a262a8ed592e1ab95151c6ee9f3ab149c}
-Extracts a section of text from the string and assigns it to string. \hypertarget{classetk_1_1_static_string_a2d09b6cf3621102f7a5c3e0fea06591b}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!to\-\_\-lower@{to\-\_\-lower}}
-\index{to\-\_\-lower@{to\-\_\-lower}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{to\-\_\-lower}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::to\-\_\-lower (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a2d09b6cf3621102f7a5c3e0fea06591b}
-
-
-Converts the string to lower case. 
-
-\hypertarget{classetk_1_1_static_string_a1bfd64eb5df0f7162e3ee57542c23ba3}{\index{etk\-::\-Static\-String@{etk\-::\-Static\-String}!to\-\_\-upper@{to\-\_\-upper}}
-\index{to\-\_\-upper@{to\-\_\-upper}!etk::StaticString@{etk\-::\-Static\-String}}
-\subsubsection[{to\-\_\-upper}]{\setlength{\rightskip}{0pt plus 5cm}template$<$uint32\-\_\-t L$>$ void {\bf etk\-::\-Static\-String}$<$ L $>$\-::to\-\_\-upper (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_a1bfd64eb5df0f7162e3ee57542c23ba3}
-
-
-Converts the string to upper case. 
-
-
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_static_string_ab1bddc20910d512e0fe79823a3675697}
+Extracts a section of text from the string and assigns it to string. 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-inc/etk/\hyperlink{staticstring_8h}{staticstring.\-h}\end{DoxyCompactItemize}
+inc/etk/staticstring.\-h\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fuzzy_3c_20n_20_3e',['Fuzzy&lt; N &gt;',['../classetk_1_1_fuzzy_1_1_set.html#adea15307855814ee46c7bb9177a6bac2',1,'etk::Fuzzy::Set']]]
+  ['tick',['tick',['../classetk_1_1_time.html#a873dd91783f9efb4a590aded1f70d6b0',1,'etk::Time']]]
 ];

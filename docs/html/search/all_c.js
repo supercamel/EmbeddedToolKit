@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['n',['n',['../classetk_1_1_vector.html#adc7028cab173d941591af508a7611325',1,'etk::Vector']]],
-  ['navigation_2eh',['navigation.h',['../navigation_8h.html',1,'']]],
-  ['next',['next',['../classetk_1_1_tokeniser.html#ad2fc672e9143525962ea1f48eba6bed7',1,'etk::Tokeniser']]],
-  ['normalize',['normalize',['../classetk_1_1_quaternion.html#a2fea07c80f64acf916c4141068d4dc4d',1,'etk::Quaternion::normalize()'],['../classetk_1_1_vector.html#ae7f3db6458bd9a6e03dd8b24f2770dc5',1,'etk::Vector::normalize()']]],
-  ['normalized',['normalized',['../classetk_1_1_vector.html#aea85c6a2ccfa94d6591d226deefdf515',1,'etk::Vector']]],
-  ['now',['now',['../classetk_1_1_time.html#a62994c716032a82f6a468edeae96b804',1,'etk::Time']]]
+  ['objpool',['ObjPool',['../classetk_1_1_obj_pool.html',1,'etk']]],
+  ['operator_20vector_3c_202_20_3e',['operator Vector&lt; 2 &gt;',['../classetk_1_1_coordinate.html#af0e3972f8bf38253cf2b40c79ac51300',1,'etk::Coordinate']]],
+  ['operator_2b',['operator+',['../classetk_1_1_static_string.html#a4360f55c0003eac4b2bfc4b536034df1',1,'etk::StaticString']]],
+  ['operator_2b_3d',['operator+=',['../classetk_1_1_static_string.html#abb7639e5db2fadf0f75c11279d56c012',1,'etk::StaticString::operator+=(StaticString&lt; N &gt; &amp;s)'],['../classetk_1_1_static_string.html#a5652d2ae09bac5f0f7dacb5d198f126d',1,'etk::StaticString::operator+=(Vector&lt; N &gt; &amp;v)'],['../classetk_1_1_static_string.html#af554e70798b8deee951fa22d3b73c08f',1,'etk::StaticString::operator+=(float f)'],['../classetk_1_1_static_string.html#aa40e2bed504c072623e6a656b3dc2cf8',1,'etk::StaticString::operator+=(double f)'],['../classetk_1_1_static_string.html#a4766b095db2cd11e90d7f9615e5a88e9',1,'etk::StaticString::operator+=(int32 f)'],['../classetk_1_1_static_string.html#aa61c8ded294faaddc6794fa5add9c8f5',1,'etk::StaticString::operator+=(uint32 f)']]],
+  ['operator_3d',['operator=',['../classetk_1_1_static_string.html#ab77524b899b77838dc7b88fe31506bf9',1,'etk::StaticString::operator=(Rope r)'],['../classetk_1_1_static_string.html#a93930b4532feb2646fdf766bbf4af446',1,'etk::StaticString::operator=(StaticString &amp;s)'],['../classetk_1_1_static_string.html#ae01ca97fe3e5c6ed095668266c62dea3',1,'etk::StaticString::operator=(const char *c)'],['../classetk_1_1_static_string.html#a9d867b3fa673e549c7ec3e316432858e',1,'etk::StaticString::operator=(char *c)']]],
+  ['operator_3d_3d',['operator==',['../classetk_1_1_static_string.html#ac9392fc07494ee308d271717c250d3cf',1,'etk::StaticString']]],
+  ['operator_5b_5d',['operator[]',['../classetk_1_1_list.html#aa9d8b7be2e23788eed66bf63e8c6e461',1,'etk::List::operator[](int32_t pos)'],['../classetk_1_1_list.html#acc341d1d8b1b29b7868024777ef15b04',1,'etk::List::operator[](uint32 pos)'],['../classetk_1_1_static_string.html#a2d00c56fe2e91c019ba5732c7e6d17eb',1,'etk::StaticString::operator[]()']]]
 ];

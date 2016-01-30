@@ -1,5 +1,5 @@
-\hypertarget{classetk_1_1_tokeniser}{\section{etk\-:\-:Tokeniser Class Reference}
-\label{classetk_1_1_tokeniser}\index{etk\-::\-Tokeniser@{etk\-::\-Tokeniser}}
+\hypertarget{classetk_1_1_tokeniser}{\section{etk\-:\-:Tokeniser$<$ T $>$ Class Template Reference}
+\label{classetk_1_1_tokeniser}\index{etk\-::\-Tokeniser$<$ T $>$@{etk\-::\-Tokeniser$<$ T $>$}}
 }
 
 
@@ -13,16 +13,20 @@ The tokeniser moves along a string and breaks it into tokens.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classetk_1_1_tokeniser_a4c296b7ff45ca4d5fdee4a7870b350a8}{Tokeniser} (char $\ast$str, char token)
+\hypertarget{classetk_1_1_tokeniser_a3f382739ae90860a09ac122a56a0bb52}{{\bfseries Tokeniser} (T \&\-\_\-str, char tok)}\label{classetk_1_1_tokeniser_a3f382739ae90860a09ac122a56a0bb52}
+
 \item 
-bool \hyperlink{classetk_1_1_tokeniser_ad2fc672e9143525962ea1f48eba6bed7}{next} (char $\ast$out, int len)
+\hypertarget{classetk_1_1_tokeniser_adc30009214035f3ba25091a0c87416a6}{{\footnotesize template$<$typename Tt $>$ }\\bool {\bfseries next} (Tt \&out, int len)}\label{classetk_1_1_tokeniser_adc30009214035f3ba25091a0c87416a6}
+
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class etk\-::\-Tokeniser$<$ T $>$}
+
 The tokeniser moves along a string and breaks it into tokens. 
 
-\href{http://www.camelsoftware.com/blog/2015/12/11/splitting-strings-a-c-string-tokeniser/}{\tt http\-://www.\-camelsoftware.\-com/blog/2015/12/11/splitting-\/strings-\/a-\/c-\/string-\/tokeniser/}
+\href{http://www.camelsoftware.com/2015/12/24/embedded-string-programming/}{\tt http\-://www.\-camelsoftware.\-com/2015/12/24/embedded-\/string-\/programming/}
 
 These are all comma separated tokens 
 \begin{DoxyPre}
@@ -42,7 +46,7 @@ include <iostream>
     \textcolor{keywordtype}{char} nmea[] = \textcolor{stringliteral}{"$POW0,12,135*F5"};
 
     \textcolor{keywordtype}{char} token[20]; \textcolor{comment}{//buffer to store token}
-    \hyperlink{classetk_1_1_tokeniser}{etk::Tokeniser} tok(nmea, \textcolor{charliteral}{','});
+    \textcolor{keyword}{auto} tok = etk::make\_tokeniser(nmea, \textcolor{charliteral}{','});
     \textcolor{keywordflow}{while}(tok.next(token, 20))
         cout << token << \textcolor{stringliteral}{" "};
     cout << endl;
@@ -50,28 +54,6 @@ include <iostream>
 \end{DoxyCode}
  Result\-: \$\-P\-O\-W0 12 135$\ast$\-F5 
 
-\subsection{Constructor \& Destructor Documentation}
-\hypertarget{classetk_1_1_tokeniser_a4c296b7ff45ca4d5fdee4a7870b350a8}{\index{etk\-::\-Tokeniser@{etk\-::\-Tokeniser}!Tokeniser@{Tokeniser}}
-\index{Tokeniser@{Tokeniser}!etk::Tokeniser@{etk\-::\-Tokeniser}}
-\subsubsection[{Tokeniser}]{\setlength{\rightskip}{0pt plus 5cm}etk\-::\-Tokeniser\-::\-Tokeniser (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{str, }
-\item[{char}]{token}
-\end{DoxyParamCaption}
-)}}\label{classetk_1_1_tokeniser_a4c296b7ff45ca4d5fdee4a7870b350a8}
-
-
-\subsection{Member Function Documentation}
-\hypertarget{classetk_1_1_tokeniser_ad2fc672e9143525962ea1f48eba6bed7}{\index{etk\-::\-Tokeniser@{etk\-::\-Tokeniser}!next@{next}}
-\index{next@{next}!etk::Tokeniser@{etk\-::\-Tokeniser}}
-\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}bool etk\-::\-Tokeniser\-::next (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{out, }
-\item[{int}]{len}
-\end{DoxyParamCaption}
-)}}\label{classetk_1_1_tokeniser_ad2fc672e9143525962ea1f48eba6bed7}
-
-
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-inc/etk/\hyperlink{tokeniser_8h}{tokeniser.\-h}\end{DoxyCompactItemize}
+inc/etk/tokeniser.\-h\end{DoxyCompactItemize}

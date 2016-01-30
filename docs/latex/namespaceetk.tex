@@ -1,18 +1,15 @@
 \hypertarget{namespaceetk}{\section{etk Namespace Reference}
 \label{namespaceetk}\index{etk@{etk}}
 }
-\subsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{namespaceetk_1_1_version}{Version}
-\end{DoxyCompactItemize}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \hyperlink{classetk_1_1_array}{Array}
+\item 
 class \hyperlink{classetk_1_1_bits}{Bits}
 \begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_bits}{Bits} provides an easy way to set and read the bits of an integer individually. \end{DoxyCompactList}\item 
-class \hyperlink{classetk_1_1_cout}{Cout}
-\item 
+class \hyperlink{classetk_1_1_evo_pid}{Evo\-Pid}
+\begin{DoxyCompactList}\small\item\em A self tuning P\-I\-D controller that uses Evolutionary Algorithms to search for optimal P\-I\-D gains. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_expo_moving_avg}{Expo\-Moving\-Avg}
 \begin{DoxyCompactList}\small\item\em An exponential moving average low-\/pass filter. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_brown_linear_expo}{Brown\-Linear\-Expo}
@@ -25,6 +22,8 @@ class \hyperlink{classetk_1_1_rate_limiter}{Rate\-Limiter}
 \begin{DoxyCompactList}\small\item\em The \hyperlink{classetk_1_1_rate_limiter}{Rate\-Limiter} limits the rate of change of a signal to a given step size. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_fuzzy}{Fuzzy}
 \begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic class. \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic can be used for function approximation, control applications, signal process, A\-I and so on. Here is a tutorial on using \hyperlink{classetk_1_1_fuzzy}{Fuzzy} logic with E\-T\-K \href{http://www.camelsoftware.com/blog/2015/12/12/fuzzy-logic-control-part-1/}{\tt http\-://www.\-camelsoftware.\-com/blog/2015/12/12/fuzzy-\/logic-\/control-\/part-\/1/}. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_linked_list}{Linked\-List}
+\item 
 class \hyperlink{classetk_1_1_list}{List}
 \begin{DoxyCompactList}\small\item\em The list class is an iterable container object. A list can contain up to a maximum number of items determined by the template parameter L. \hyperlink{classetk_1_1_list}{List} is supposed to provide a similar look and feel to std\-::vector, but without using dynamic memory allocation. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_loop_range_iterator}{Loop\-Range\-Iterator}
@@ -37,10 +36,28 @@ class \hyperlink{classetk_1_1_coordinate}{Coordinate}
 \begin{DoxyCompactList}\small\item\em Represents latitude and longitude coordinates. Units are in degrees unless stated otherwise. All navigation functions use great circle mathematics and are, in theory, suitable for long distances and navigation in polar regions. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_waypoint}{Waypoint}
 \begin{DoxyCompactList}\small\item\em A \hyperlink{classetk_1_1_waypoint}{Waypoint} I\-S\-\_\-\-A coordinate, but it has an extra dimension to store altitude. It provides get and set methods for altitude, and it can be cast to a 3 dimensional \hyperlink{classetk_1_1_vector}{etk\-::\-Vector}. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1forward__list}{forward\-\_\-list}
+\item 
+class \hyperlink{classetk_1_1linked__list}{linked\-\_\-list}
+\item 
+class \hyperlink{classetk_1_1_mem_pool}{Mem\-Pool}
+\item 
+class \hyperlink{classetk_1_1_stack}{Stack}
+\item 
+class \hyperlink{classetk_1_1_string}{String}
+\item 
+class \hyperlink{classetk_1_1_pool_ptr}{Pool\-Ptr}
+\item 
+class \hyperlink{classetk_1_1_obj_pool}{Obj\-Pool}
+\item 
 class \hyperlink{classetk_1_1_p_i_d_controller}{P\-I\-D\-Controller}
 \begin{DoxyCompactList}\small\item\em A generic \hyperlink{classetk_1_1_p_i_d_controller}{P\-I\-D\-Controller}. \href{https://en.wikipedia.org/wiki/PID_controller}{\tt https\-://en.\-wikipedia.\-org/wiki/\-P\-I\-D\-\_\-controller}. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_circular_p_i_d_controller}{Circular\-P\-I\-D\-Controller}
-\begin{DoxyCompactList}\small\item\em A Circular P\-I\-D Controller. This controller uses \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\-\_\-circular()}; to keep it's inputs and error within a circular range. If segments was set to 360, the setpoint was 175 and the measurement was -\/175, the resulting error would be -\/10 degrees. This makes the circular P\-I\-D controller suitable for controlling the heading of a vehicle, for example. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A Circular P\-I\-D Controller. This controller uses \hyperlink{namespaceetk_a77f395cb44512ab4a95d08b01b3c7f20}{constrain\-\_\-circular()}; to keep it's inputs and error within a circular range. If segments was set to 360, the setpoint was 175 and the measurement was -\/175, the resulting error would be -\/10 degrees. This makes the circular P\-I\-D controller suitable for controlling the heading of a vehicle, for example. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_p_i_d_rater}{P\-I\-D\-Rater}
+\item 
+class \hyperlink{classetk_1_1_basic_p_i_d_rater}{Basic\-P\-I\-D\-Rater}
+\item 
 class \hyperlink{classetk_1_1_quaternion}{Quaternion}
 \item 
 class \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer}
@@ -50,9 +67,11 @@ class \hyperlink{classetk_1_1_ring_buffer}{Ring\-Buffer}
 class \hyperlink{classetk_1_1_rope}{Rope}
 \begin{DoxyCompactList}\small\item\em W\-H\-Y R\-O\-P\-E? It's like a string, only more robust. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_static_string}{Static\-String}
-\begin{DoxyCompactList}\small\item\em Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are immune to buffer overruns. Static\-Strings also provide a lot of the convenience of std\-::strings, although they do differ from std\-::strings in a number of ways. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Static\-Strings are a safer alternative to C-\/strings as Static\-Strings are immune to buf overruns. Static\-Strings also provide a lot of the convenience of std\-::strings, although they do differ from std\-::strings in a number of ways. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_short_term_memory}{Short\-Term\-Memory}
 \begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_short_term_memory}{Short\-Term\-Memory} stores a data in a buffer. As more data is received, the old data is eventually overwritten and forgotten. It has some uses in digital signal processing, adaptive control and filtering. \end{DoxyCompactList}\item 
+class \hyperlink{classetk_1_1_stream}{Stream}
+\item 
 class \hyperlink{classetk_1_1_time}{Time}
 \begin{DoxyCompactList}\small\item\em \hyperlink{classetk_1_1_time}{Time} is a class that can be used to perform time related functions such as counting systicks. \end{DoxyCompactList}\item 
 class \hyperlink{classetk_1_1_tokeniser}{Tokeniser}
@@ -62,89 +81,747 @@ class \hyperlink{classetk_1_1_vector}{Vector}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{namespaceetk_aa6ae80824f49d6eeb0844c75a39f584e}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_aa6ae80824f49d6eeb0844c75a39f584e}
+
+\item 
+\hypertarget{namespaceetk_a0c7a1335f96a9454e0607ffc76f24c5d}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_a0c7a1335f96a9454e0607ffc76f24c5d}
+
+\item 
+\hypertarget{namespaceetk_ad7353d22d4703de87f6f328f10efb6c8}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_ad7353d22d4703de87f6f328f10efb6c8}
+
+\item 
+\hypertarget{namespaceetk_aaef13ec5daa78a2db8f8171d5ae1866c}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_aaef13ec5daa78a2db8f8171d5ae1866c}
+
+\item 
+\hypertarget{namespaceetk_ad482b6f7d12c8c91fe8c57a97dd056f4}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_ad482b6f7d12c8c91fe8c57a97dd056f4}
+
+\item 
+\hypertarget{namespaceetk_adb0ed9407403f8d9344d2ae364a53891}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_adb0ed9407403f8d9344d2ae364a53891}
+
+\item 
+\hypertarget{namespaceetk_ab51481f880444ad2c1cd58a2472eaa17}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_ab51481f880444ad2c1cd58a2472eaa17}
+
+\item 
+\hypertarget{namespaceetk_a19b0ae5f16f57a91ed9db639a02dd4d7}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_a19b0ae5f16f57a91ed9db639a02dd4d7}
+
+\item 
+\hypertarget{namespaceetk_a46426be3bca42f084ae7e2d5ac81aceb}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-meters} (real\-\_\-t in)}\label{namespaceetk_a46426be3bca42f084ae7e2d5ac81aceb}
+
+\item 
+\hypertarget{namespaceetk_a35349ad24f632025bf0ae26e37c924ff}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_a35349ad24f632025bf0ae26e37c924ff}
+
+\item 
+\hypertarget{namespaceetk_a5f22a2845a521c74cc575cddd2015e92}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_a5f22a2845a521c74cc575cddd2015e92}
+
+\item 
+\hypertarget{namespaceetk_a8aed63ea7f4598193ccd039d9ec14897}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_a8aed63ea7f4598193ccd039d9ec14897}
+
+\item 
+\hypertarget{namespaceetk_af76ec55fc1f32ec0bc9ee0285f1c15a2}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_af76ec55fc1f32ec0bc9ee0285f1c15a2}
+
+\item 
+\hypertarget{namespaceetk_a27401490692081a9f30aa064e5cbf336}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_a27401490692081a9f30aa064e5cbf336}
+
+\item 
+\hypertarget{namespaceetk_a5ab81e0f6e72b7ffe49689bd5d16a51a}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_a5ab81e0f6e72b7ffe49689bd5d16a51a}
+
+\item 
+\hypertarget{namespaceetk_aacc56fa19412972dd4e4ba8433f21f9a}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_aacc56fa19412972dd4e4ba8433f21f9a}
+
+\item 
+\hypertarget{namespaceetk_a83b38f33b76f70f1877d34963087943c}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_a83b38f33b76f70f1877d34963087943c}
+
+\item 
+\hypertarget{namespaceetk_ad8aa5096d1539cf2564133bea14f4d41}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-thou} (real\-\_\-t in)}\label{namespaceetk_ad8aa5096d1539cf2564133bea14f4d41}
+
+\item 
+\hypertarget{namespaceetk_af579c5a9dfcc3a0819eac1f9c17d50c4}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_af579c5a9dfcc3a0819eac1f9c17d50c4}
+
+\item 
+\hypertarget{namespaceetk_acfd01f0b4409adc6187bc70151448ef3}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_acfd01f0b4409adc6187bc70151448ef3}
+
+\item 
+\hypertarget{namespaceetk_ac10aa6a71da561e922bdce3692f463ff}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_ac10aa6a71da561e922bdce3692f463ff}
+
+\item 
+\hypertarget{namespaceetk_aca3201b91cb8eaf56e1bbe0dc778132a}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_aca3201b91cb8eaf56e1bbe0dc778132a}
+
+\item 
+\hypertarget{namespaceetk_abe12d6354c9043009d0fb7b470b89f7a}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_abe12d6354c9043009d0fb7b470b89f7a}
+
+\item 
+\hypertarget{namespaceetk_a4ad9b88c07f187bc033e70b1e7001158}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_a4ad9b88c07f187bc033e70b1e7001158}
+
+\item 
+\hypertarget{namespaceetk_ad0659533f713fea578f0939aadcded22}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_ad0659533f713fea578f0939aadcded22}
+
+\item 
+\hypertarget{namespaceetk_a25beede35ab81e94f6e156a532aebe15}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_a25beede35ab81e94f6e156a532aebe15}
+
+\item 
+\hypertarget{namespaceetk_a399a9846243439060bf890d03a74e03d}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-inches} (real\-\_\-t in)}\label{namespaceetk_a399a9846243439060bf890d03a74e03d}
+
+\item 
+\hypertarget{namespaceetk_aeb8f787ac7912d65c22282909ca4efcd}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_aeb8f787ac7912d65c22282909ca4efcd}
+
+\item 
+\hypertarget{namespaceetk_a229f52a8dbe9fb43c8a69c7006ee0f0e}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_a229f52a8dbe9fb43c8a69c7006ee0f0e}
+
+\item 
+\hypertarget{namespaceetk_af6c08111df13326628f1840b387d655b}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_af6c08111df13326628f1840b387d655b}
+
+\item 
+\hypertarget{namespaceetk_a20ec66072578a71bab2c2f8d738b3f4c}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_a20ec66072578a71bab2c2f8d738b3f4c}
+
+\item 
+\hypertarget{namespaceetk_a52e01efafb70d81a82e1cb0040d77071}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_a52e01efafb70d81a82e1cb0040d77071}
+
+\item 
+\hypertarget{namespaceetk_a4c38130a31a6da33bd6f21687d42665d}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_a4c38130a31a6da33bd6f21687d42665d}
+
+\item 
+\hypertarget{namespaceetk_aec0a8eb5a6639e8d891dc9a7d9d1b9bf}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_aec0a8eb5a6639e8d891dc9a7d9d1b9bf}
+
+\item 
+\hypertarget{namespaceetk_ae9887039c30f1284bb39d159b03b339c}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_ae9887039c30f1284bb39d159b03b339c}
+
+\item 
+\hypertarget{namespaceetk_a31c1da9e8736eb0dd45212e33047a41c}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-feet} (real\-\_\-t in)}\label{namespaceetk_a31c1da9e8736eb0dd45212e33047a41c}
+
+\item 
+\hypertarget{namespaceetk_a841d303a247487a35ecc91027f7ffbed}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_a841d303a247487a35ecc91027f7ffbed}
+
+\item 
+\hypertarget{namespaceetk_a339027a63694c28429a05c46b9ab792b}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_a339027a63694c28429a05c46b9ab792b}
+
+\item 
+\hypertarget{namespaceetk_adba0d02d1b9bd6276e858fa352e2aa67}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_adba0d02d1b9bd6276e858fa352e2aa67}
+
+\item 
+\hypertarget{namespaceetk_a0a37f195cddec05a991bfaefd3f7166b}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_a0a37f195cddec05a991bfaefd3f7166b}
+
+\item 
+\hypertarget{namespaceetk_a6108c39246b0a67f22dc63bf5e2579cc}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_a6108c39246b0a67f22dc63bf5e2579cc}
+
+\item 
+\hypertarget{namespaceetk_a60f2395b9b78ccdaab45c3b8ce91cc26}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_a60f2395b9b78ccdaab45c3b8ce91cc26}
+
+\item 
+\hypertarget{namespaceetk_a49aa0478e0bb236f2e880e8b0768d262}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_a49aa0478e0bb236f2e880e8b0768d262}
+
+\item 
+\hypertarget{namespaceetk_ae57725fed973849e9b9b4afbdc7e8205}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_ae57725fed973849e9b9b4afbdc7e8205}
+
+\item 
+\hypertarget{namespaceetk_aa0260a4ba8f8c70aab6a18edf621dd4c}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-yards} (real\-\_\-t in)}\label{namespaceetk_aa0260a4ba8f8c70aab6a18edf621dd4c}
+
+\item 
+\hypertarget{namespaceetk_a31134544d80fbfd63475ec1ee9b34879}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a31134544d80fbfd63475ec1ee9b34879}
+
+\item 
+\hypertarget{namespaceetk_a615bb34ada6c7f0a95f19db3afd172fe}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a615bb34ada6c7f0a95f19db3afd172fe}
+
+\item 
+\hypertarget{namespaceetk_a788a33d62943e759cd78fb01853a8376}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a788a33d62943e759cd78fb01853a8376}
+
+\item 
+\hypertarget{namespaceetk_a2596779fc75cea264cef3e2c24c547cd}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a2596779fc75cea264cef3e2c24c547cd}
+
+\item 
+\hypertarget{namespaceetk_a2813e26e0e9944cccd3139ebab64fb93}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a2813e26e0e9944cccd3139ebab64fb93}
+
+\item 
+\hypertarget{namespaceetk_a6ba80c1dec0e2371093f13a53d3d08aa}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a6ba80c1dec0e2371093f13a53d3d08aa}
+
+\item 
+\hypertarget{namespaceetk_a4e732ac35f4b69c50816e913cf052b47}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a4e732ac35f4b69c50816e913cf052b47}
+
+\item 
+\hypertarget{namespaceetk_af2bd2cc77399bb90f202f11d7fc5fe0d}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_af2bd2cc77399bb90f202f11d7fc5fe0d}
+
+\item 
+\hypertarget{namespaceetk_a385b323cb7978412a55a0a8f493628eb}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a385b323cb7978412a55a0a8f493628eb}
+
+\item 
+\hypertarget{namespaceetk_a2c280eb40fe227a77688a68e0d08713b}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a2c280eb40fe227a77688a68e0d08713b}
+
+\item 
+\hypertarget{namespaceetk_acca63219f0aefee35c31dddd5ada86ca}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_acca63219f0aefee35c31dddd5ada86ca}
+
+\item 
+\hypertarget{namespaceetk_a87644071ea04b27866fa85ae1c7946cc}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a87644071ea04b27866fa85ae1c7946cc}
+
+\item 
+\hypertarget{namespaceetk_a195e47c2a00c5f165a392717d293e88d}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a195e47c2a00c5f165a392717d293e88d}
+
+\item 
+\hypertarget{namespaceetk_ad421b10d2b2c0c523d57b6e8570e635e}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_ad421b10d2b2c0c523d57b6e8570e635e}
+
+\item 
+\hypertarget{namespaceetk_a541ee8a7b8ff4ce4dbc0b100c99ea220}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a541ee8a7b8ff4ce4dbc0b100c99ea220}
+
+\item 
+\hypertarget{namespaceetk_ac949efacc3806bf28f903609f93919d1}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_ac949efacc3806bf28f903609f93919d1}
+
+\item 
+\hypertarget{namespaceetk_afec1782de787985f1db61457eadca1e8}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_afec1782de787985f1db61457eadca1e8}
+
+\item 
+\hypertarget{namespaceetk_a13255db094b2f03cb50439ffaeb9af36}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-naut\-\_\-miles} (real\-\_\-t in)}\label{namespaceetk_a13255db094b2f03cb50439ffaeb9af36}
+
+\item 
+\hypertarget{namespaceetk_adfff0bcf4f8e75474fb1e2d5ad4aaffe}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_adfff0bcf4f8e75474fb1e2d5ad4aaffe}
+
+\item 
+\hypertarget{namespaceetk_a42b0c0d560eb35f3485b4ab7002a8667}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_a42b0c0d560eb35f3485b4ab7002a8667}
+
+\item 
+\hypertarget{namespaceetk_a5040c09fb2be46e80151464104d876ef}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_a5040c09fb2be46e80151464104d876ef}
+
+\item 
+\hypertarget{namespaceetk_a6d423f330d7df09fe4637dc829bd882e}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_a6d423f330d7df09fe4637dc829bd882e}
+
+\item 
+\hypertarget{namespaceetk_a21049ed5a01546364a70db1b19f3a2cd}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_a21049ed5a01546364a70db1b19f3a2cd}
+
+\item 
+\hypertarget{namespaceetk_a2a8911afa4dec0813cea90ddb4de28b9}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_a2a8911afa4dec0813cea90ddb4de28b9}
+
+\item 
+\hypertarget{namespaceetk_af0ac70213f7e16be4819ab8c6295e04b}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_af0ac70213f7e16be4819ab8c6295e04b}
+
+\item 
+\hypertarget{namespaceetk_a8cf1438652c4a9dbca79e2bf40dff00e}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_a8cf1438652c4a9dbca79e2bf40dff00e}
+
+\item 
+\hypertarget{namespaceetk_a3da8d2ae55079130059b1c4fd0f8c0a1}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-centimeters} (real\-\_\-t in)}\label{namespaceetk_a3da8d2ae55079130059b1c4fd0f8c0a1}
+
+\item 
+\hypertarget{namespaceetk_a4ecf19af3872759551127e751caf7ec6}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_a4ecf19af3872759551127e751caf7ec6}
+
+\item 
+\hypertarget{namespaceetk_ad199c17d083c48a7841ed3c4fd806b09}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_ad199c17d083c48a7841ed3c4fd806b09}
+
+\item 
+\hypertarget{namespaceetk_a11eec8cfb4094d58e66afb29f55a2723}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_a11eec8cfb4094d58e66afb29f55a2723}
+
+\item 
+\hypertarget{namespaceetk_a5411b5b381d919a267c2fc86b696c8e2}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_a5411b5b381d919a267c2fc86b696c8e2}
+
+\item 
+\hypertarget{namespaceetk_a386b1274305cafabc3be380351846d5c}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_a386b1274305cafabc3be380351846d5c}
+
+\item 
+\hypertarget{namespaceetk_acc02179570c39e1451856609021cf4e3}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_acc02179570c39e1451856609021cf4e3}
+
+\item 
+\hypertarget{namespaceetk_a8dea2fb3ef1398818b82b1d732c4fdcd}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_a8dea2fb3ef1398818b82b1d732c4fdcd}
+
+\item 
+\hypertarget{namespaceetk_ad0edffd934e35c259815d7ea483540d3}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_ad0edffd934e35c259815d7ea483540d3}
+
+\item 
+\hypertarget{namespaceetk_ad5dc7b48e945f925413fa470a04c4dc4}{real\-\_\-t {\bfseries kilometers\-\_\-to\-\_\-millimeters} (real\-\_\-t in)}\label{namespaceetk_ad5dc7b48e945f925413fa470a04c4dc4}
+
+\item 
+\hypertarget{namespaceetk_ad473e6e791bbc2cdf2fea7c8588bbe99}{real\-\_\-t {\bfseries meters\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_ad473e6e791bbc2cdf2fea7c8588bbe99}
+
+\item 
+\hypertarget{namespaceetk_a75e8b0886f844ae3b32480e2f7329399}{real\-\_\-t {\bfseries thou\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_a75e8b0886f844ae3b32480e2f7329399}
+
+\item 
+\hypertarget{namespaceetk_a4f5cb8c8c80acaf6cdf555c9cafed97f}{real\-\_\-t {\bfseries inches\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_a4f5cb8c8c80acaf6cdf555c9cafed97f}
+
+\item 
+\hypertarget{namespaceetk_a6f2a405c924a4be8edbcd7a7ccc2813e}{real\-\_\-t {\bfseries feet\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_a6f2a405c924a4be8edbcd7a7ccc2813e}
+
+\item 
+\hypertarget{namespaceetk_ab113c90a1bde2d9fba5cea04207ab35f}{real\-\_\-t {\bfseries yards\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_ab113c90a1bde2d9fba5cea04207ab35f}
+
+\item 
+\hypertarget{namespaceetk_aea6601208276c32cabfa2f8ee68e0beb}{real\-\_\-t {\bfseries miles\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_aea6601208276c32cabfa2f8ee68e0beb}
+
+\item 
+\hypertarget{namespaceetk_a9f1c9daaf430be1981e0ec9e49d6fa79}{real\-\_\-t {\bfseries naut\-\_\-miles\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_a9f1c9daaf430be1981e0ec9e49d6fa79}
+
+\item 
+\hypertarget{namespaceetk_a742461d0df269dab3cf3cd131749c7ff}{real\-\_\-t {\bfseries centimeters\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_a742461d0df269dab3cf3cd131749c7ff}
+
+\item 
+\hypertarget{namespaceetk_ac0d802c89a5f3f3f03f784b41ace0a6a}{real\-\_\-t {\bfseries millimeters\-\_\-to\-\_\-kilometers} (real\-\_\-t in)}\label{namespaceetk_ac0d802c89a5f3f3f03f784b41ace0a6a}
+
+\item 
+\hypertarget{namespaceetk_a45d0b18cd1d45168889b657b80882a1a}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-to\-\_\-meters\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a45d0b18cd1d45168889b657b80882a1a}
+
+\item 
+\hypertarget{namespaceetk_aec816378de0d170ada718d231e6471bf}{real\-\_\-t {\bfseries yards\-\_\-per\-\_\-second\-\_\-to\-\_\-meters\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_aec816378de0d170ada718d231e6471bf}
+
+\item 
+\hypertarget{namespaceetk_a059cd1d516d20a25521595b1d6b55faa}{real\-\_\-t {\bfseries kilometers\-\_\-per\-\_\-hour\-\_\-to\-\_\-meters\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a059cd1d516d20a25521595b1d6b55faa}
+
+\item 
+\hypertarget{namespaceetk_ad967ce680465a5b0facb8965fc170fc7}{real\-\_\-t {\bfseries miles\-\_\-per\-\_\-hour\-\_\-to\-\_\-meters\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_ad967ce680465a5b0facb8965fc170fc7}
+
+\item 
+\hypertarget{namespaceetk_ab8021b4aa3c8e0afe41c8a1b82b8d584}{real\-\_\-t {\bfseries knots\-\_\-to\-\_\-meters\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_ab8021b4aa3c8e0afe41c8a1b82b8d584}
+
+\item 
+\hypertarget{namespaceetk_aebd831e9e62d11c65ee7c4e375b3b978}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-to\-\_\-feet\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_aebd831e9e62d11c65ee7c4e375b3b978}
+
+\item 
+\hypertarget{namespaceetk_aa137aadb04166308a245baf914b62ddc}{real\-\_\-t {\bfseries yards\-\_\-per\-\_\-second\-\_\-to\-\_\-feet\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_aa137aadb04166308a245baf914b62ddc}
+
+\item 
+\hypertarget{namespaceetk_a636968d74cdd49cc8af75c15a9b99d01}{real\-\_\-t {\bfseries kilometers\-\_\-per\-\_\-hour\-\_\-to\-\_\-feet\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a636968d74cdd49cc8af75c15a9b99d01}
+
+\item 
+\hypertarget{namespaceetk_a2ed30f738af5f663fd3b39b14605a980}{real\-\_\-t {\bfseries miles\-\_\-per\-\_\-hour\-\_\-to\-\_\-feet\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a2ed30f738af5f663fd3b39b14605a980}
+
+\item 
+\hypertarget{namespaceetk_aea9eb556072d4a75ae08536ba8879689}{real\-\_\-t {\bfseries knots\-\_\-to\-\_\-feet\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_aea9eb556072d4a75ae08536ba8879689}
+
+\item 
+\hypertarget{namespaceetk_a31feadbed4d05ff5fcf271fc08efdb99}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-to\-\_\-yards\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a31feadbed4d05ff5fcf271fc08efdb99}
+
+\item 
+\hypertarget{namespaceetk_a5a8941319f5359a4c6894733a0c890ef}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-to\-\_\-yards\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a5a8941319f5359a4c6894733a0c890ef}
+
+\item 
+\hypertarget{namespaceetk_ac5915afaf40bfb6e0c02cf1764383334}{real\-\_\-t {\bfseries kilometers\-\_\-per\-\_\-hour\-\_\-to\-\_\-yards\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_ac5915afaf40bfb6e0c02cf1764383334}
+
+\item 
+\hypertarget{namespaceetk_a86a907635ec955b203971763872312a1}{real\-\_\-t {\bfseries miles\-\_\-per\-\_\-hour\-\_\-to\-\_\-yards\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a86a907635ec955b203971763872312a1}
+
+\item 
+\hypertarget{namespaceetk_a544ae62be69f2a6595957d3a095bc2b3}{real\-\_\-t {\bfseries knots\-\_\-to\-\_\-yards\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a544ae62be69f2a6595957d3a095bc2b3}
+
+\item 
+\hypertarget{namespaceetk_a42ea95a4cd47517eaeb0d9a5229cf5fe}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-to\-\_\-kilometers\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_a42ea95a4cd47517eaeb0d9a5229cf5fe}
+
+\item 
+\hypertarget{namespaceetk_ae59831a9a73bfbbdcdb7e2f4e9a3d418}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-to\-\_\-kilometers\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_ae59831a9a73bfbbdcdb7e2f4e9a3d418}
+
+\item 
+\hypertarget{namespaceetk_af5952232344ccfc0f50e3d65b4b2bd6a}{real\-\_\-t {\bfseries yards\-\_\-per\-\_\-second\-\_\-to\-\_\-kilometers\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_af5952232344ccfc0f50e3d65b4b2bd6a}
+
+\item 
+\hypertarget{namespaceetk_aaf066eb03de288cd16ce8e725cfe85c6}{real\-\_\-t {\bfseries miles\-\_\-per\-\_\-hour\-\_\-to\-\_\-kilometers\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_aaf066eb03de288cd16ce8e725cfe85c6}
+
+\item 
+\hypertarget{namespaceetk_a94a223d087477bca96539bf7debd49f6}{real\-\_\-t {\bfseries knots\-\_\-to\-\_\-kilometers\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_a94a223d087477bca96539bf7debd49f6}
+
+\item 
+\hypertarget{namespaceetk_ab61ea044e7bb1ce5dd36906e5bbb2aa9}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-to\-\_\-miles\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_ab61ea044e7bb1ce5dd36906e5bbb2aa9}
+
+\item 
+\hypertarget{namespaceetk_a5e5e82d10c4b32f5455093366711efd6}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-to\-\_\-miles\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_a5e5e82d10c4b32f5455093366711efd6}
+
+\item 
+\hypertarget{namespaceetk_a7c612163672be56f68dfb59a84c4cd86}{real\-\_\-t {\bfseries yards\-\_\-per\-\_\-second\-\_\-to\-\_\-miles\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_a7c612163672be56f68dfb59a84c4cd86}
+
+\item 
+\hypertarget{namespaceetk_a40b61c7683d9e8a4a9552ea9082b9d7e}{real\-\_\-t {\bfseries kilometers\-\_\-per\-\_\-hour\-\_\-to\-\_\-miles\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_a40b61c7683d9e8a4a9552ea9082b9d7e}
+
+\item 
+\hypertarget{namespaceetk_a8eace57ad7b3e88384d91b0932605dfc}{real\-\_\-t {\bfseries knots\-\_\-to\-\_\-miles\-\_\-per\-\_\-hour} (real\-\_\-t in)}\label{namespaceetk_a8eace57ad7b3e88384d91b0932605dfc}
+
+\item 
+\hypertarget{namespaceetk_a58d1d3ee9f7f41b3c23562398860245a}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-to\-\_\-knots} (real\-\_\-t in)}\label{namespaceetk_a58d1d3ee9f7f41b3c23562398860245a}
+
+\item 
+\hypertarget{namespaceetk_abbb73c7b79ff942e3ea9f02e482d6e4c}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-to\-\_\-knots} (real\-\_\-t in)}\label{namespaceetk_abbb73c7b79ff942e3ea9f02e482d6e4c}
+
+\item 
+\hypertarget{namespaceetk_a96de548fcb22f7d0fe3c8ce206cb0313}{real\-\_\-t {\bfseries yards\-\_\-per\-\_\-second\-\_\-to\-\_\-knots} (real\-\_\-t in)}\label{namespaceetk_a96de548fcb22f7d0fe3c8ce206cb0313}
+
+\item 
+\hypertarget{namespaceetk_a36a120c0d36f5f42311f54661a42e147}{real\-\_\-t {\bfseries kilometers\-\_\-per\-\_\-hour\-\_\-to\-\_\-knots} (real\-\_\-t in)}\label{namespaceetk_a36a120c0d36f5f42311f54661a42e147}
+
+\item 
+\hypertarget{namespaceetk_ad10fd2c2681b21dead694ebbd082f705}{real\-\_\-t {\bfseries miles\-\_\-per\-\_\-hour\-\_\-to\-\_\-knots} (real\-\_\-t in)}\label{namespaceetk_ad10fd2c2681b21dead694ebbd082f705}
+
+\item 
+\hypertarget{namespaceetk_a6b8b1d373be1b86ddd4745e7d8b94e7a}{real\-\_\-t {\bfseries mpss\-\_\-to\-\_\-meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a6b8b1d373be1b86ddd4745e7d8b94e7a}
+
+\item 
+\hypertarget{namespaceetk_a7fc2d372cb36fb2a4c11b3d8cfe25372}{real\-\_\-t {\bfseries g\-\_\-to\-\_\-meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a7fc2d372cb36fb2a4c11b3d8cfe25372}
+
+\item 
+\hypertarget{namespaceetk_ab3f8f59bd3bb142f71c2c576c64ef116}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_ab3f8f59bd3bb142f71c2c576c64ef116}
+
+\item 
+\hypertarget{namespaceetk_a7f0ae6411057e5447b0b1d2b8b3b8a4e}{real\-\_\-t {\bfseries fpss\-\_\-to\-\_\-meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a7f0ae6411057e5447b0b1d2b8b3b8a4e}
+
+\item 
+\hypertarget{namespaceetk_a833f668b6bea2be46a1b32bbb8aac7a1}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-mpss} (real\-\_\-t in)}\label{namespaceetk_a833f668b6bea2be46a1b32bbb8aac7a1}
+
+\item 
+\hypertarget{namespaceetk_a0295af7b089f4283327fa995ed7296a0}{real\-\_\-t {\bfseries g\-\_\-to\-\_\-mpss} (real\-\_\-t in)}\label{namespaceetk_a0295af7b089f4283327fa995ed7296a0}
+
+\item 
+\hypertarget{namespaceetk_a7c155b7a95885361674413f2333edf7b}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-mpss} (real\-\_\-t in)}\label{namespaceetk_a7c155b7a95885361674413f2333edf7b}
+
+\item 
+\hypertarget{namespaceetk_aceab3854560cd801132110e745ee7380}{real\-\_\-t {\bfseries fpss\-\_\-to\-\_\-mpss} (real\-\_\-t in)}\label{namespaceetk_aceab3854560cd801132110e745ee7380}
+
+\item 
+\hypertarget{namespaceetk_a25cf2af1e063c70d6824ec936bb17d65}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-g} (real\-\_\-t in)}\label{namespaceetk_a25cf2af1e063c70d6824ec936bb17d65}
+
+\item 
+\hypertarget{namespaceetk_a58c03c9bb325bc97b75469563aff0918}{real\-\_\-t {\bfseries mpss\-\_\-to\-\_\-g} (real\-\_\-t in)}\label{namespaceetk_a58c03c9bb325bc97b75469563aff0918}
+
+\item 
+\hypertarget{namespaceetk_a5bd5a3ee4c360fb31d7ca2b582f1bd19}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-g} (real\-\_\-t in)}\label{namespaceetk_a5bd5a3ee4c360fb31d7ca2b582f1bd19}
+
+\item 
+\hypertarget{namespaceetk_a5f7f716511b5ae516f07eab3f6869579}{real\-\_\-t {\bfseries fpss\-\_\-to\-\_\-g} (real\-\_\-t in)}\label{namespaceetk_a5f7f716511b5ae516f07eab3f6869579}
+
+\item 
+\hypertarget{namespaceetk_ad2a38448884741abaa692c0271e73b4f}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_ad2a38448884741abaa692c0271e73b4f}
+
+\item 
+\hypertarget{namespaceetk_a4415880b845f3b3df8162abe8df57322}{real\-\_\-t {\bfseries mpss\-\_\-to\-\_\-feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a4415880b845f3b3df8162abe8df57322}
+
+\item 
+\hypertarget{namespaceetk_a91d3c5e95351c5d4b3038c86a2853ca3}{real\-\_\-t {\bfseries g\-\_\-to\-\_\-feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_a91d3c5e95351c5d4b3038c86a2853ca3}
+
+\item 
+\hypertarget{namespaceetk_ac7a7656bfc10a9c6f0ed93af3353df37}{real\-\_\-t {\bfseries fpss\-\_\-to\-\_\-feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second} (real\-\_\-t in)}\label{namespaceetk_ac7a7656bfc10a9c6f0ed93af3353df37}
+
+\item 
+\hypertarget{namespaceetk_adc531a1d882fe48cc8e69a2f7222edbe}{real\-\_\-t {\bfseries meters\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-fpss} (real\-\_\-t in)}\label{namespaceetk_adc531a1d882fe48cc8e69a2f7222edbe}
+
+\item 
+\hypertarget{namespaceetk_ac0d65c73de3f62bbc58d0408c937541f}{real\-\_\-t {\bfseries mpss\-\_\-to\-\_\-fpss} (real\-\_\-t in)}\label{namespaceetk_ac0d65c73de3f62bbc58d0408c937541f}
+
+\item 
+\hypertarget{namespaceetk_aa36cf3b1c72052ba8456c2a2b851ba69}{real\-\_\-t {\bfseries g\-\_\-to\-\_\-fpss} (real\-\_\-t in)}\label{namespaceetk_aa36cf3b1c72052ba8456c2a2b851ba69}
+
+\item 
+\hypertarget{namespaceetk_a2c14ae15df8a92090d762463829a258d}{real\-\_\-t {\bfseries feet\-\_\-per\-\_\-second\-\_\-per\-\_\-second\-\_\-to\-\_\-fpss} (real\-\_\-t in)}\label{namespaceetk_a2c14ae15df8a92090d762463829a258d}
+
+\item 
+\hypertarget{namespaceetk_a5b1c278baf7e38abac4472d532172f13}{real\-\_\-t {\bfseries pounds\-\_\-to\-\_\-kilograms} (real\-\_\-t in)}\label{namespaceetk_a5b1c278baf7e38abac4472d532172f13}
+
+\item 
+\hypertarget{namespaceetk_a27705f82247a707fe336353694d9524b}{real\-\_\-t {\bfseries ounces\-\_\-to\-\_\-kilograms} (real\-\_\-t in)}\label{namespaceetk_a27705f82247a707fe336353694d9524b}
+
+\item 
+\hypertarget{namespaceetk_a0cb8deb6e85c5db58849113c4576e778}{real\-\_\-t {\bfseries grams\-\_\-to\-\_\-kilograms} (real\-\_\-t in)}\label{namespaceetk_a0cb8deb6e85c5db58849113c4576e778}
+
+\item 
+\hypertarget{namespaceetk_a42849cc5a9e06d2272d948035d30f39a}{real\-\_\-t {\bfseries tons\-\_\-to\-\_\-kilograms} (real\-\_\-t in)}\label{namespaceetk_a42849cc5a9e06d2272d948035d30f39a}
+
+\item 
+\hypertarget{namespaceetk_aece52b83faf3796b71ef2e6dcda6e1ca}{real\-\_\-t {\bfseries tonnes\-\_\-to\-\_\-kilograms} (real\-\_\-t in)}\label{namespaceetk_aece52b83faf3796b71ef2e6dcda6e1ca}
+
+\item 
+\hypertarget{namespaceetk_a4aae47d2130c1f56b4b44fa3d62a0b72}{real\-\_\-t {\bfseries stone\-\_\-to\-\_\-kilograms} (real\-\_\-t in)}\label{namespaceetk_a4aae47d2130c1f56b4b44fa3d62a0b72}
+
+\item 
+\hypertarget{namespaceetk_ae5398b6ee1fe810cc250c24afff1d819}{real\-\_\-t {\bfseries kilograms\-\_\-to\-\_\-pounds} (real\-\_\-t in)}\label{namespaceetk_ae5398b6ee1fe810cc250c24afff1d819}
+
+\item 
+\hypertarget{namespaceetk_aa4b7b39b530e8e8e1fd7f7104bdd56d4}{real\-\_\-t {\bfseries ounces\-\_\-to\-\_\-pounds} (real\-\_\-t in)}\label{namespaceetk_aa4b7b39b530e8e8e1fd7f7104bdd56d4}
+
+\item 
+\hypertarget{namespaceetk_a2bf56ff369f6fb9cc4ce1d1f464887f7}{real\-\_\-t {\bfseries grams\-\_\-to\-\_\-pounds} (real\-\_\-t in)}\label{namespaceetk_a2bf56ff369f6fb9cc4ce1d1f464887f7}
+
+\item 
+\hypertarget{namespaceetk_a477f03ba9910cc954f0abe719d653c78}{real\-\_\-t {\bfseries tons\-\_\-to\-\_\-pounds} (real\-\_\-t in)}\label{namespaceetk_a477f03ba9910cc954f0abe719d653c78}
+
+\item 
+\hypertarget{namespaceetk_a7689548075e7697970d867c2bafe3486}{real\-\_\-t {\bfseries tonnes\-\_\-to\-\_\-pounds} (real\-\_\-t in)}\label{namespaceetk_a7689548075e7697970d867c2bafe3486}
+
+\item 
+\hypertarget{namespaceetk_a58cdf9fb31dc6de93af01ef15c85b31f}{real\-\_\-t {\bfseries stone\-\_\-to\-\_\-pounds} (real\-\_\-t in)}\label{namespaceetk_a58cdf9fb31dc6de93af01ef15c85b31f}
+
+\item 
+\hypertarget{namespaceetk_ac2835971767c1cb5c013d36acbc5013d}{real\-\_\-t {\bfseries kilograms\-\_\-to\-\_\-ounces} (real\-\_\-t in)}\label{namespaceetk_ac2835971767c1cb5c013d36acbc5013d}
+
+\item 
+\hypertarget{namespaceetk_ace77e4b765a8b4e602dea455f76afe37}{real\-\_\-t {\bfseries pounds\-\_\-to\-\_\-ounces} (real\-\_\-t in)}\label{namespaceetk_ace77e4b765a8b4e602dea455f76afe37}
+
+\item 
+\hypertarget{namespaceetk_ac967abf83353f42e93595b2409d3eddd}{real\-\_\-t {\bfseries grams\-\_\-to\-\_\-ounces} (real\-\_\-t in)}\label{namespaceetk_ac967abf83353f42e93595b2409d3eddd}
+
+\item 
+\hypertarget{namespaceetk_a4a34f7b6f1fe9e82f0ecce7350c31249}{real\-\_\-t {\bfseries tons\-\_\-to\-\_\-ounces} (real\-\_\-t in)}\label{namespaceetk_a4a34f7b6f1fe9e82f0ecce7350c31249}
+
+\item 
+\hypertarget{namespaceetk_a03ae32e391c9e7d58b358b1feacf251e}{real\-\_\-t {\bfseries tonnes\-\_\-to\-\_\-ounces} (real\-\_\-t in)}\label{namespaceetk_a03ae32e391c9e7d58b358b1feacf251e}
+
+\item 
+\hypertarget{namespaceetk_ac174e95d021cc55347d8ec0b9c1ec8bc}{real\-\_\-t {\bfseries stone\-\_\-to\-\_\-ounces} (real\-\_\-t in)}\label{namespaceetk_ac174e95d021cc55347d8ec0b9c1ec8bc}
+
+\item 
+\hypertarget{namespaceetk_a0160eadd25586da782303b4a8935c958}{real\-\_\-t {\bfseries kilograms\-\_\-to\-\_\-grams} (real\-\_\-t in)}\label{namespaceetk_a0160eadd25586da782303b4a8935c958}
+
+\item 
+\hypertarget{namespaceetk_abd8dc1fb6136365e76993c9bce001358}{real\-\_\-t {\bfseries pounds\-\_\-to\-\_\-grams} (real\-\_\-t in)}\label{namespaceetk_abd8dc1fb6136365e76993c9bce001358}
+
+\item 
+\hypertarget{namespaceetk_aea8edb0624e7e70ed8bb7e9b39fb09f8}{real\-\_\-t {\bfseries ounces\-\_\-to\-\_\-grams} (real\-\_\-t in)}\label{namespaceetk_aea8edb0624e7e70ed8bb7e9b39fb09f8}
+
+\item 
+\hypertarget{namespaceetk_a2a77a82693139e102279471f45103ed1}{real\-\_\-t {\bfseries tons\-\_\-to\-\_\-grams} (real\-\_\-t in)}\label{namespaceetk_a2a77a82693139e102279471f45103ed1}
+
+\item 
+\hypertarget{namespaceetk_a4f87120504b18e993d5d650ecfaf9b53}{real\-\_\-t {\bfseries tonnes\-\_\-to\-\_\-grams} (real\-\_\-t in)}\label{namespaceetk_a4f87120504b18e993d5d650ecfaf9b53}
+
+\item 
+\hypertarget{namespaceetk_aa0b6a182d5596eb84db15a607a554cf3}{real\-\_\-t {\bfseries stone\-\_\-to\-\_\-grams} (real\-\_\-t in)}\label{namespaceetk_aa0b6a182d5596eb84db15a607a554cf3}
+
+\item 
+\hypertarget{namespaceetk_aa6fe917b99c6d514f47af27142327dcb}{real\-\_\-t {\bfseries kilograms\-\_\-to\-\_\-tons} (real\-\_\-t in)}\label{namespaceetk_aa6fe917b99c6d514f47af27142327dcb}
+
+\item 
+\hypertarget{namespaceetk_a1feb38e7861a1c03cc7aa8de7a663e5a}{real\-\_\-t {\bfseries pounds\-\_\-to\-\_\-tons} (real\-\_\-t in)}\label{namespaceetk_a1feb38e7861a1c03cc7aa8de7a663e5a}
+
+\item 
+\hypertarget{namespaceetk_abc0ac02aecb11e3977769a87fed54f43}{real\-\_\-t {\bfseries ounces\-\_\-to\-\_\-tons} (real\-\_\-t in)}\label{namespaceetk_abc0ac02aecb11e3977769a87fed54f43}
+
+\item 
+\hypertarget{namespaceetk_ae535b41bc6ea134875dd63b2e47cc7cf}{real\-\_\-t {\bfseries grams\-\_\-to\-\_\-tons} (real\-\_\-t in)}\label{namespaceetk_ae535b41bc6ea134875dd63b2e47cc7cf}
+
+\item 
+\hypertarget{namespaceetk_a60dae3de4d838a20397569d76ea14f4e}{real\-\_\-t {\bfseries tonnes\-\_\-to\-\_\-tons} (real\-\_\-t in)}\label{namespaceetk_a60dae3de4d838a20397569d76ea14f4e}
+
+\item 
+\hypertarget{namespaceetk_a9f0b5eca6b61a83948d20bbc82ffc6ed}{real\-\_\-t {\bfseries stone\-\_\-to\-\_\-tons} (real\-\_\-t in)}\label{namespaceetk_a9f0b5eca6b61a83948d20bbc82ffc6ed}
+
+\item 
+\hypertarget{namespaceetk_a7587c2fa9b116206c6e92bc996b68e4e}{real\-\_\-t {\bfseries kilograms\-\_\-to\-\_\-tonnes} (real\-\_\-t in)}\label{namespaceetk_a7587c2fa9b116206c6e92bc996b68e4e}
+
+\item 
+\hypertarget{namespaceetk_aa188511c025ea71f147f00cf12ca76a2}{real\-\_\-t {\bfseries pounds\-\_\-to\-\_\-tonnes} (real\-\_\-t in)}\label{namespaceetk_aa188511c025ea71f147f00cf12ca76a2}
+
+\item 
+\hypertarget{namespaceetk_a2e7424ed312f03cf004c0592a056cd3e}{real\-\_\-t {\bfseries ounces\-\_\-to\-\_\-tonnes} (real\-\_\-t in)}\label{namespaceetk_a2e7424ed312f03cf004c0592a056cd3e}
+
+\item 
+\hypertarget{namespaceetk_ad68d4e497ec3d576ca4e7259a276dd55}{real\-\_\-t {\bfseries grams\-\_\-to\-\_\-tonnes} (real\-\_\-t in)}\label{namespaceetk_ad68d4e497ec3d576ca4e7259a276dd55}
+
+\item 
+\hypertarget{namespaceetk_a9138d0d6c0d85525903fa90990aa76bb}{real\-\_\-t {\bfseries tons\-\_\-to\-\_\-tonnes} (real\-\_\-t in)}\label{namespaceetk_a9138d0d6c0d85525903fa90990aa76bb}
+
+\item 
+\hypertarget{namespaceetk_af2424f3ccc850934f23dedabd3bc8be5}{real\-\_\-t {\bfseries stone\-\_\-to\-\_\-tonnes} (real\-\_\-t in)}\label{namespaceetk_af2424f3ccc850934f23dedabd3bc8be5}
+
+\item 
+\hypertarget{namespaceetk_a84c78fda588d3cc8dd0d24ed6c5dd93a}{real\-\_\-t {\bfseries kilograms\-\_\-to\-\_\-stone} (real\-\_\-t in)}\label{namespaceetk_a84c78fda588d3cc8dd0d24ed6c5dd93a}
+
+\item 
+\hypertarget{namespaceetk_a044e137e7af3ea72bcc31b260e07bdd8}{real\-\_\-t {\bfseries pounds\-\_\-to\-\_\-stone} (real\-\_\-t in)}\label{namespaceetk_a044e137e7af3ea72bcc31b260e07bdd8}
+
+\item 
+\hypertarget{namespaceetk_ae5152badd860d9a582ebf0962efb3420}{real\-\_\-t {\bfseries ounces\-\_\-to\-\_\-stone} (real\-\_\-t in)}\label{namespaceetk_ae5152badd860d9a582ebf0962efb3420}
+
+\item 
+\hypertarget{namespaceetk_a86f93b3ae99492872585e7c9ee513c4a}{real\-\_\-t {\bfseries grams\-\_\-to\-\_\-stone} (real\-\_\-t in)}\label{namespaceetk_a86f93b3ae99492872585e7c9ee513c4a}
+
+\item 
+\hypertarget{namespaceetk_a22e483470603f1340270fe8c77782e22}{real\-\_\-t {\bfseries tons\-\_\-to\-\_\-stone} (real\-\_\-t in)}\label{namespaceetk_a22e483470603f1340270fe8c77782e22}
+
+\item 
+\hypertarget{namespaceetk_a1ef59c327c116a42311bd26201b25826}{real\-\_\-t {\bfseries tonnes\-\_\-to\-\_\-stone} (real\-\_\-t in)}\label{namespaceetk_a1ef59c327c116a42311bd26201b25826}
+
+\item 
+\hypertarget{namespaceetk_a01292b55ebc772c8b7dc8ce9fe99f964}{real\-\_\-t {\bfseries millibar\-\_\-to\-\_\-pascals} (real\-\_\-t in)}\label{namespaceetk_a01292b55ebc772c8b7dc8ce9fe99f964}
+
+\item 
+\hypertarget{namespaceetk_a6d769c30deec5429d11f1ba069475739}{real\-\_\-t {\bfseries bar\-\_\-to\-\_\-pascals} (real\-\_\-t in)}\label{namespaceetk_a6d769c30deec5429d11f1ba069475739}
+
+\item 
+\hypertarget{namespaceetk_a9a648baae265cb37b570d11ad6cc768c}{real\-\_\-t {\bfseries inhg\-\_\-to\-\_\-pascals} (real\-\_\-t in)}\label{namespaceetk_a9a648baae265cb37b570d11ad6cc768c}
+
+\item 
+\hypertarget{namespaceetk_ac76427f06ac4002553e8800a112e9649}{real\-\_\-t {\bfseries inh2o\-\_\-to\-\_\-pascals} (real\-\_\-t in)}\label{namespaceetk_ac76427f06ac4002553e8800a112e9649}
+
+\item 
+\hypertarget{namespaceetk_a31f7e73822764b34257b64a3e74661d8}{real\-\_\-t {\bfseries meters\-\_\-of\-\_\-sea\-\_\-water\-\_\-to\-\_\-pascals} (real\-\_\-t in)}\label{namespaceetk_a31f7e73822764b34257b64a3e74661d8}
+
+\item 
+\hypertarget{namespaceetk_af03f898d241479c3a5588829b70dec4e}{real\-\_\-t {\bfseries pascals\-\_\-to\-\_\-millibar} (real\-\_\-t in)}\label{namespaceetk_af03f898d241479c3a5588829b70dec4e}
+
+\item 
+\hypertarget{namespaceetk_a291170ce781d4ba42cebde03d6a2fcbe}{real\-\_\-t {\bfseries bar\-\_\-to\-\_\-millibar} (real\-\_\-t in)}\label{namespaceetk_a291170ce781d4ba42cebde03d6a2fcbe}
+
+\item 
+\hypertarget{namespaceetk_a5fce250bdb7471c47d1070fb6eb89dc7}{real\-\_\-t {\bfseries inhg\-\_\-to\-\_\-millibar} (real\-\_\-t in)}\label{namespaceetk_a5fce250bdb7471c47d1070fb6eb89dc7}
+
+\item 
+\hypertarget{namespaceetk_a4b493c3cdc8afba0d52c44539c915450}{real\-\_\-t {\bfseries inh2o\-\_\-to\-\_\-millibar} (real\-\_\-t in)}\label{namespaceetk_a4b493c3cdc8afba0d52c44539c915450}
+
+\item 
+\hypertarget{namespaceetk_a08788376aa204faccc622518dbb5bca9}{real\-\_\-t {\bfseries meters\-\_\-of\-\_\-sea\-\_\-water\-\_\-to\-\_\-millibar} (real\-\_\-t in)}\label{namespaceetk_a08788376aa204faccc622518dbb5bca9}
+
+\item 
+\hypertarget{namespaceetk_a624e50082bc6dcaf7d6ff99b5149a3af}{real\-\_\-t {\bfseries pascals\-\_\-to\-\_\-bar} (real\-\_\-t in)}\label{namespaceetk_a624e50082bc6dcaf7d6ff99b5149a3af}
+
+\item 
+\hypertarget{namespaceetk_a5d77cad2b1dd3278d68a5182acc056bd}{real\-\_\-t {\bfseries millibar\-\_\-to\-\_\-bar} (real\-\_\-t in)}\label{namespaceetk_a5d77cad2b1dd3278d68a5182acc056bd}
+
+\item 
+\hypertarget{namespaceetk_a5ad4931c48bddf063df7b1c5369a4146}{real\-\_\-t {\bfseries inhg\-\_\-to\-\_\-bar} (real\-\_\-t in)}\label{namespaceetk_a5ad4931c48bddf063df7b1c5369a4146}
+
+\item 
+\hypertarget{namespaceetk_a6b1e6c50f02831bc488ab62187d1272c}{real\-\_\-t {\bfseries inh2o\-\_\-to\-\_\-bar} (real\-\_\-t in)}\label{namespaceetk_a6b1e6c50f02831bc488ab62187d1272c}
+
+\item 
+\hypertarget{namespaceetk_af28fb2f510d27226b372fec3dbb7708b}{real\-\_\-t {\bfseries meters\-\_\-of\-\_\-sea\-\_\-water\-\_\-to\-\_\-bar} (real\-\_\-t in)}\label{namespaceetk_af28fb2f510d27226b372fec3dbb7708b}
+
+\item 
+\hypertarget{namespaceetk_ad0dabe238faba27b117c5554cd018e28}{real\-\_\-t {\bfseries pascals\-\_\-to\-\_\-inhg} (real\-\_\-t in)}\label{namespaceetk_ad0dabe238faba27b117c5554cd018e28}
+
+\item 
+\hypertarget{namespaceetk_a29bec157541c8ab4ce0932150321124e}{real\-\_\-t {\bfseries millibar\-\_\-to\-\_\-inhg} (real\-\_\-t in)}\label{namespaceetk_a29bec157541c8ab4ce0932150321124e}
+
+\item 
+\hypertarget{namespaceetk_a1fe6a4e3de597e98832e83e51cbcb21f}{real\-\_\-t {\bfseries bar\-\_\-to\-\_\-inhg} (real\-\_\-t in)}\label{namespaceetk_a1fe6a4e3de597e98832e83e51cbcb21f}
+
+\item 
+\hypertarget{namespaceetk_a0f0101ee43949bd76fc837a18c63e01c}{real\-\_\-t {\bfseries inh2o\-\_\-to\-\_\-inhg} (real\-\_\-t in)}\label{namespaceetk_a0f0101ee43949bd76fc837a18c63e01c}
+
+\item 
+\hypertarget{namespaceetk_af86b26be978bd668a2fe267a6e3c57fe}{real\-\_\-t {\bfseries meters\-\_\-of\-\_\-sea\-\_\-water\-\_\-to\-\_\-inhg} (real\-\_\-t in)}\label{namespaceetk_af86b26be978bd668a2fe267a6e3c57fe}
+
+\item 
+\hypertarget{namespaceetk_ab1bc6015cd35040455ec6ea55c5ffd27}{real\-\_\-t {\bfseries pascals\-\_\-to\-\_\-inh2o} (real\-\_\-t in)}\label{namespaceetk_ab1bc6015cd35040455ec6ea55c5ffd27}
+
+\item 
+\hypertarget{namespaceetk_a089db80bdc06d8cbfff7617310badec7}{real\-\_\-t {\bfseries millibar\-\_\-to\-\_\-inh2o} (real\-\_\-t in)}\label{namespaceetk_a089db80bdc06d8cbfff7617310badec7}
+
+\item 
+\hypertarget{namespaceetk_a43272da95ece0903f1d148e188cf5445}{real\-\_\-t {\bfseries bar\-\_\-to\-\_\-inh2o} (real\-\_\-t in)}\label{namespaceetk_a43272da95ece0903f1d148e188cf5445}
+
+\item 
+\hypertarget{namespaceetk_a5e89ee01fa8db8458808b4a7b57d3a86}{real\-\_\-t {\bfseries inhg\-\_\-to\-\_\-inh2o} (real\-\_\-t in)}\label{namespaceetk_a5e89ee01fa8db8458808b4a7b57d3a86}
+
+\item 
+\hypertarget{namespaceetk_a0a5de6f89493c737d141582f78f2d373}{real\-\_\-t {\bfseries meters\-\_\-of\-\_\-sea\-\_\-water\-\_\-to\-\_\-inh2o} (real\-\_\-t in)}\label{namespaceetk_a0a5de6f89493c737d141582f78f2d373}
+
+\item 
+\hypertarget{namespaceetk_a67cf7367836704d69d177b0c2da1d7cc}{real\-\_\-t {\bfseries pascals\-\_\-to\-\_\-meters\-\_\-of\-\_\-sea\-\_\-water} (real\-\_\-t in)}\label{namespaceetk_a67cf7367836704d69d177b0c2da1d7cc}
+
+\item 
+\hypertarget{namespaceetk_a278be941dcaed72aee984f63980103a3}{real\-\_\-t {\bfseries millibar\-\_\-to\-\_\-meters\-\_\-of\-\_\-sea\-\_\-water} (real\-\_\-t in)}\label{namespaceetk_a278be941dcaed72aee984f63980103a3}
+
+\item 
+\hypertarget{namespaceetk_a7a7c345682d9e90aebf0b1dae83e678b}{real\-\_\-t {\bfseries bar\-\_\-to\-\_\-meters\-\_\-of\-\_\-sea\-\_\-water} (real\-\_\-t in)}\label{namespaceetk_a7a7c345682d9e90aebf0b1dae83e678b}
+
+\item 
+\hypertarget{namespaceetk_a235b84bf49127e2c5b3e86cb7c61dfb1}{real\-\_\-t {\bfseries inhg\-\_\-to\-\_\-meters\-\_\-of\-\_\-sea\-\_\-water} (real\-\_\-t in)}\label{namespaceetk_a235b84bf49127e2c5b3e86cb7c61dfb1}
+
+\item 
+\hypertarget{namespaceetk_a295ed6a7f27098924cb8628e2bf5636c}{real\-\_\-t {\bfseries inh2o\-\_\-to\-\_\-meters\-\_\-of\-\_\-sea\-\_\-water} (real\-\_\-t in)}\label{namespaceetk_a295ed6a7f27098924cb8628e2bf5636c}
+
+\item 
+\hypertarget{namespaceetk_a01b19536b6a9a4b252e019072d83ecd8}{real\-\_\-t {\bfseries celsius\-\_\-to\-\_\-kelvin} (real\-\_\-t in)}\label{namespaceetk_a01b19536b6a9a4b252e019072d83ecd8}
+
+\item 
+\hypertarget{namespaceetk_a85711a9ae09634593961eacae0748fdf}{real\-\_\-t {\bfseries kelvin\-\_\-to\-\_\-celsius} (real\-\_\-t in)}\label{namespaceetk_a85711a9ae09634593961eacae0748fdf}
+
+\item 
+\hypertarget{namespaceetk_a30b4bc865d03e2c27e01dd26c7cfc6a1}{real\-\_\-t {\bfseries degrees\-\_\-to\-\_\-radians} (real\-\_\-t in)}\label{namespaceetk_a30b4bc865d03e2c27e01dd26c7cfc6a1}
+
+\item 
+\hypertarget{namespaceetk_ad6261a6f8a6c9fe2a9a8b4876101f378}{real\-\_\-t {\bfseries minutes\-\_\-to\-\_\-radians} (real\-\_\-t in)}\label{namespaceetk_ad6261a6f8a6c9fe2a9a8b4876101f378}
+
+\item 
+\hypertarget{namespaceetk_af2f61eedaec992f7a01c16a1470e5983}{real\-\_\-t {\bfseries radians\-\_\-to\-\_\-degrees} (real\-\_\-t in)}\label{namespaceetk_af2f61eedaec992f7a01c16a1470e5983}
+
+\item 
+\hypertarget{namespaceetk_aecbd41fbc191814b064d10d3b2141c15}{real\-\_\-t {\bfseries minutes\-\_\-to\-\_\-degrees} (real\-\_\-t in)}\label{namespaceetk_aecbd41fbc191814b064d10d3b2141c15}
+
+\item 
+\hypertarget{namespaceetk_a8a3d66ade07f726595dacd1e0a911f15}{real\-\_\-t {\bfseries radians\-\_\-to\-\_\-minutes} (real\-\_\-t in)}\label{namespaceetk_a8a3d66ade07f726595dacd1e0a911f15}
+
+\item 
+\hypertarget{namespaceetk_ac31355205190308612097db76b824d43}{real\-\_\-t {\bfseries degrees\-\_\-to\-\_\-minutes} (real\-\_\-t in)}\label{namespaceetk_ac31355205190308612097db76b824d43}
+
+\item 
 {\footnotesize template$<$typename T $>$ }\\\hyperlink{classetk_1_1_loop_range}{Loop\-Range}$<$ T $>$ \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range} (T from, T to)
 \begin{DoxyCompactList}\small\item\em Like \hyperlink{namespaceetk_a65f1ea4495206c62f285e48ffd2f677e}{range(\-T to)}, except the start value can be specified. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\\hyperlink{classetk_1_1_loop_range}{Loop\-Range}$<$ T $>$ \hyperlink{namespaceetk_a65f1ea4495206c62f285e48ffd2f677e}{range} (T to)
 \begin{DoxyCompactList}\small\item\em The range function constructs and returns a loop range iterator. It's purpose is to exploit C++11 ranged look syntax and provide a cleaner and less verbose way to iterate over a range of numbers. \end{DoxyCompactList}\item 
 auto \hyperlink{namespaceetk_a3b8ba4e0ed638ad07a7ab4f6cfc22c26}{constrain} (auto x, auto a, auto b)
 \begin{DoxyCompactList}\small\item\em Used to keep a number within a particular range. \end{DoxyCompactList}\item 
-auto \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\-\_\-circular} (auto x, uint32\-\_\-t segments)
+auto \hyperlink{namespaceetk_a77f395cb44512ab4a95d08b01b3c7f20}{constrain\-\_\-circular} (auto x, uint32 segments)
 \begin{DoxyCompactList}\small\item\em Used to constrain a number to within a circular range. For example,. \end{DoxyCompactList}\item 
-auto \hyperlink{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}{min} (auto a, auto b)
-\begin{DoxyCompactList}\small\item\em Returns the smaller of two values. \end{DoxyCompactList}\item 
-auto \hyperlink{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}{max} (auto a, auto b)
-\begin{DoxyCompactList}\small\item\em Returns the larger of two values. \end{DoxyCompactList}\item 
-auto \hyperlink{namespaceetk_a5c4722af8a58319b06077130fe759644}{map} (auto x, auto in\-\_\-min, auto in\-\_\-max, auto out\-\_\-min, auto out\-\_\-max)
-\begin{DoxyCompactList}\small\item\em Converts a value from one scale to another. For example, a control functions returns a value between -\/1.\-0 and 1.\-0. The servo requires an input from 0 -\/ 90. ctrl\-\_\-val = map(ctrl\-\_\-val, -\/1.\-0, 1.\-0, 0.\-0, 90.\-0);. \end{DoxyCompactList}\item 
-auto \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign} (auto x, auto y)
-\begin{DoxyCompactList}\small\item\em Returns a number with the value of x and the sign of y. \end{DoxyCompactList}\item 
-auto \hyperlink{namespaceetk_a784f32aa2a3661196e1cf73218c53670}{copysign\-\_\-zero} (auto x, auto y)
-\begin{DoxyCompactList}\small\item\em Same as \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign()}, but if y is zero then zero will be returned regardless of x. \end{DoxyCompactList}\item 
-void \hyperlink{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}{swap} (auto \&a, auto \&b)
-\begin{DoxyCompactList}\small\item\em Moves a to b and b to a. \end{DoxyCompactList}\item 
-bool \hyperlink{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}{compare} (auto a, auto b, auto precision)
-\begin{DoxyCompactList}\small\item\em Compares two values. Returns true if their difference is less than precision. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceetk_abc861c6adcc9b0a83ccca68458756e4d}{bubble\-\_\-sort\-\_\-up} (T $\ast$items, uint32\-\_\-t n)
-\begin{DoxyCompactList}\small\item\em Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceetk_a413ad16607a0b44d5a90ca11b3bec5bc}{bubble\-\_\-sort\-\_\-down} (T $\ast$items, uint32\-\_\-t n)
-\begin{DoxyCompactList}\small\item\em Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array. \end{DoxyCompactList}\item 
-char \hyperlink{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}{to\-\_\-upper} (char c)
-\begin{DoxyCompactList}\small\item\em Converts a character to its uppercase A\-S\-C\-I\-I equivalent. \end{DoxyCompactList}\item 
-char \hyperlink{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}{to\-\_\-lower} (char c)
-\begin{DoxyCompactList}\small\item\em Converts a character to its lowercase A\-S\-C\-I\-I equivalent. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceetk_af4854b73ae0591651e39ab85b52fc454}{abs} (T t)
-\begin{DoxyCompactList}\small\item\em Returns the input parameter with a positive sign. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hypertarget{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}{auto \hyperlink{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}{min} (auto a, auto b)}\label{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}
 
+\begin{DoxyCompactList}\small\item\em Returns the smaller of two values. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}{auto \hyperlink{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}{max} (auto a, auto b)}\label{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}
+
+\begin{DoxyCompactList}\small\item\em Returns the larger of two values. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a5c4722af8a58319b06077130fe759644}{auto \hyperlink{namespaceetk_a5c4722af8a58319b06077130fe759644}{map} (auto x, auto in\-\_\-min, auto in\-\_\-max, auto out\-\_\-min, auto out\-\_\-max)}\label{namespaceetk_a5c4722af8a58319b06077130fe759644}
+
+\begin{DoxyCompactList}\small\item\em Converts a value from one scale to another. For example, a control functions returns a value between -\/1.\-0 and 1.\-0. The servo requires an input from 0 -\/ 90. ctrl\-\_\-val = map(ctrl\-\_\-val, -\/1.\-0, 1.\-0, 0.\-0, 90.\-0);. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{auto \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign} (auto x, auto y)}\label{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}
+
+\begin{DoxyCompactList}\small\item\em Returns a number with the value of x and the sign of y. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a784f32aa2a3661196e1cf73218c53670}{auto \hyperlink{namespaceetk_a784f32aa2a3661196e1cf73218c53670}{copysign\-\_\-zero} (auto x, auto y)}\label{namespaceetk_a784f32aa2a3661196e1cf73218c53670}
+
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign()}, but if y is zero then zero will be returned regardless of x. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}{void \hyperlink{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}{swap} (auto \&a, auto \&b)}\label{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}
+
+\begin{DoxyCompactList}\small\item\em Moves a to b and b to a. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}{bool \hyperlink{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}{compare} (auto a, auto b, auto precision)}\label{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}
+
+\begin{DoxyCompactList}\small\item\em Compares two values. Returns true if their difference is less than precision. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_abce7b99a2170d49035d832c6d42cb67b}{{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceetk_abce7b99a2170d49035d832c6d42cb67b}{bubble\-\_\-sort\-\_\-up} (T \&items, uint32 n)}\label{namespaceetk_abce7b99a2170d49035d832c6d42cb67b}
+
+\begin{DoxyCompactList}\small\item\em Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a7cc5047a4712f2e9a2fe5de4053b30c1}{{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespaceetk_a7cc5047a4712f2e9a2fe5de4053b30c1}{bubble\-\_\-sort\-\_\-down} (T \&items, uint32 n)}\label{namespaceetk_a7cc5047a4712f2e9a2fe5de4053b30c1}
+
+\begin{DoxyCompactList}\small\item\em Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}{char \hyperlink{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}{to\-\_\-upper} (char c)}\label{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}
+
+\begin{DoxyCompactList}\small\item\em Converts a character to its uppercase A\-S\-C\-I\-I equivalent. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}{char \hyperlink{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}{to\-\_\-lower} (char c)}\label{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}
+
+\begin{DoxyCompactList}\small\item\em Converts a character to its lowercase A\-S\-C\-I\-I equivalent. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a7f93a3f2917442bf148e5110d784dcc8}{bool {\bfseries is\-\_\-alpha} (char c)}\label{namespaceetk_a7f93a3f2917442bf148e5110d784dcc8}
+
+\item 
+\hypertarget{namespaceetk_a6915371a9b13694ed6a71f03cb929ce2}{bool {\bfseries is\-\_\-numeric} (char c)}\label{namespaceetk_a6915371a9b13694ed6a71f03cb929ce2}
+
+\item 
+\hypertarget{namespaceetk_af4854b73ae0591651e39ab85b52fc454}{{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceetk_af4854b73ae0591651e39ab85b52fc454}{abs} (T t)}\label{namespaceetk_af4854b73ae0591651e39ab85b52fc454}
+
+\begin{DoxyCompactList}\small\item\em Returns the input parameter with a positive sign. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_ab8516b85204e74836dce3912f84b5c99}{void {\bfseries set\-\_\-array} (auto \&ar, auto item, uint32 len)}\label{namespaceetk_ab8516b85204e74836dce3912f84b5c99}
+
+\item 
+\hypertarget{namespaceetk_a75727099fdbe4ad245ec9309c2909c82}{void {\bfseries zero\-\_\-object} (auto \&obj)}\label{namespaceetk_a75727099fdbe4ad245ec9309c2909c82}
+
+\item 
+\hypertarget{namespaceetk_a056214e88dcad64089b2038ac534ab7d}{void \hyperlink{namespaceetk_a056214e88dcad64089b2038ac534ab7d}{unused} (auto \&expr)}\label{namespaceetk_a056214e88dcad64089b2038ac534ab7d}
+
+\begin{DoxyCompactList}\small\item\em Little trick function used to silence warnings about unused variables that are , for whatever reason, required to be unused. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a7a4a7ecbe90351343cacfe5838433436}{\hyperlink{classetk_1_1_time}{Time} \hyperlink{namespaceetk_a7a4a7ecbe90351343cacfe5838433436}{now} ()}\label{namespaceetk_a7a4a7ecbe90351343cacfe5838433436}
+
+\begin{DoxyCompactList}\small\item\em Returns the current time. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceetk_a79ddc21fd043dd193576bef72c352057}{sleep\-\_\-ms} (uint32 ms)
+\begin{DoxyCompactList}\small\item\em Sleeps for a number of milliseconds. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a7ed2926aac480d0b7f9b94f19e19afaa}{void \hyperlink{namespaceetk_a7ed2926aac480d0b7f9b94f19e19afaa}{sleep\-\_\-us} (uint32 us)}\label{namespaceetk_a7ed2926aac480d0b7f9b94f19e19afaa}
+
+\begin{DoxyCompactList}\small\item\em Sleeps for a number of microseconds.  us Number of microseconds to wait. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_aa5be5fe37a6c33106e3e95bef5e09933}{void \hyperlink{namespaceetk_aa5be5fe37a6c33106e3e95bef5e09933}{tick} ()}\label{namespaceetk_aa5be5fe37a6c33106e3e95bef5e09933}
+
+\begin{DoxyCompactList}\small\item\em Increments the systick counter by the tick rate (\hyperlink{namespaceetk_a67a8e6e6151a851c1709268b8eff2aa4}{set\-\_\-tick\-\_\-rate()}; ) \end{DoxyCompactList}\item 
+void \hyperlink{namespaceetk_a67a8e6e6151a851c1709268b8eff2aa4}{set\-\_\-tick\-\_\-rate} (uint32 us)
+\begin{DoxyCompactList}\small\item\em Sets the tick rate in microseconds per tick. eg for a 1ms tick rate, use set\-\_\-tick\-\_\-rate(1000);. \end{DoxyCompactList}\item 
+\hypertarget{namespaceetk_a83431125796f176d4589c57385298041}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{classetk_1_1_tokeniser}{Tokeniser}$<$ T $>$ {\bfseries make\-\_\-tokeniser} (T \&l, char t)}\label{namespaceetk_a83431125796f176d4589c57385298041}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generated by E\-T\-K Unit Conversion Generator script. 
 
 \subsection{Function Documentation}
-\hypertarget{namespaceetk_af4854b73ae0591651e39ab85b52fc454}{\index{etk@{etk}!abs@{abs}}
-\index{abs@{abs}!etk@{etk}}
-\subsubsection[{abs}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T etk\-::abs (
-\begin{DoxyParamCaption}
-\item[{T}]{t}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_af4854b73ae0591651e39ab85b52fc454}
-
-
-Returns the input parameter with a positive sign. 
-
-\hypertarget{namespaceetk_a413ad16607a0b44d5a90ca11b3bec5bc}{\index{etk@{etk}!bubble\-\_\-sort\-\_\-down@{bubble\-\_\-sort\-\_\-down}}
-\index{bubble\-\_\-sort\-\_\-down@{bubble\-\_\-sort\-\_\-down}!etk@{etk}}
-\subsubsection[{bubble\-\_\-sort\-\_\-down}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void etk\-::bubble\-\_\-sort\-\_\-down (
-\begin{DoxyParamCaption}
-\item[{T $\ast$}]{items, }
-\item[{uint32\-\_\-t}]{n}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_a413ad16607a0b44d5a90ca11b3bec5bc}
-
-
-Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array. 
-
-\hypertarget{namespaceetk_abc861c6adcc9b0a83ccca68458756e4d}{\index{etk@{etk}!bubble\-\_\-sort\-\_\-up@{bubble\-\_\-sort\-\_\-up}}
-\index{bubble\-\_\-sort\-\_\-up@{bubble\-\_\-sort\-\_\-up}!etk@{etk}}
-\subsubsection[{bubble\-\_\-sort\-\_\-up}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void etk\-::bubble\-\_\-sort\-\_\-up (
-\begin{DoxyParamCaption}
-\item[{T $\ast$}]{items, }
-\item[{uint32\-\_\-t}]{n}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_abc861c6adcc9b0a83ccca68458756e4d}
-
-
-Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array. 
-
-\hypertarget{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}{\index{etk@{etk}!compare@{compare}}
-\index{compare@{compare}!etk@{etk}}
-\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}bool etk\-::compare (
-\begin{DoxyParamCaption}
-\item[{auto}]{a, }
-\item[{auto}]{b, }
-\item[{auto}]{precision}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_a445cf4f2d0d126c0a1b67891f03408a6}
-
-
-Compares two values. Returns true if their difference is less than precision. 
-
 \hypertarget{namespaceetk_a3b8ba4e0ed638ad07a7ab4f6cfc22c26}{\index{etk@{etk}!constrain@{constrain}}
 \index{constrain@{constrain}!etk@{etk}}
 \subsubsection[{constrain}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::constrain (
@@ -163,86 +840,23 @@ Used to keep a number within a particular range.
 x, if x is between a and b. If x is smaller than a, then a. If x is larger than b, then b. 
 \end{DoxyReturn}
 \end{DoxyItemize}
-\hypertarget{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{\index{etk@{etk}!constrain\-\_\-circular@{constrain\-\_\-circular}}
+\hypertarget{namespaceetk_a77f395cb44512ab4a95d08b01b3c7f20}{\index{etk@{etk}!constrain\-\_\-circular@{constrain\-\_\-circular}}
 \index{constrain\-\_\-circular@{constrain\-\_\-circular}!etk@{etk}}
 \subsubsection[{constrain\-\_\-circular}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::constrain\-\_\-circular (
 \begin{DoxyParamCaption}
 \item[{auto}]{x, }
-\item[{uint32\-\_\-t}]{segments}
+\item[{uint32}]{segments}
 \end{DoxyParamCaption}
-)}}\label{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}
+)}}\label{namespaceetk_a77f395cb44512ab4a95d08b01b3c7f20}
 
 
 Used to constrain a number to within a circular range. For example,. 
 
 
 \begin{DoxyCode}
-cout << \hyperlink{namespaceetk_a0bb96bed2b97ddb4eba560684c0e050a}{constrain\_circular}(450, 360);
+cout << \hyperlink{namespaceetk_a77f395cb44512ab4a95d08b01b3c7f20}{constrain\_circular}(450, 360);
 \end{DoxyCode}
- Output\-: 90 Why? Because 450 degrees is the same as 90 degrees on a map. This function can be used with radians by making segments 2$\ast$\-P\-I. \hypertarget{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{\index{etk@{etk}!copysign@{copysign}}
-\index{copysign@{copysign}!etk@{etk}}
-\subsubsection[{copysign}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::copysign (
-\begin{DoxyParamCaption}
-\item[{auto}]{x, }
-\item[{auto}]{y}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}
-
-
-Returns a number with the value of x and the sign of y. 
-
-\hypertarget{namespaceetk_a784f32aa2a3661196e1cf73218c53670}{\index{etk@{etk}!copysign\-\_\-zero@{copysign\-\_\-zero}}
-\index{copysign\-\_\-zero@{copysign\-\_\-zero}!etk@{etk}}
-\subsubsection[{copysign\-\_\-zero}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::copysign\-\_\-zero (
-\begin{DoxyParamCaption}
-\item[{auto}]{x, }
-\item[{auto}]{y}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_a784f32aa2a3661196e1cf73218c53670}
-
-
-Same as \hyperlink{namespaceetk_a29b7cb3d14a2ff168ee94a40797577fe}{copysign()}, but if y is zero then zero will be returned regardless of x. 
-
-\hypertarget{namespaceetk_a5c4722af8a58319b06077130fe759644}{\index{etk@{etk}!map@{map}}
-\index{map@{map}!etk@{etk}}
-\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::map (
-\begin{DoxyParamCaption}
-\item[{auto}]{x, }
-\item[{auto}]{in\-\_\-min, }
-\item[{auto}]{in\-\_\-max, }
-\item[{auto}]{out\-\_\-min, }
-\item[{auto}]{out\-\_\-max}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_a5c4722af8a58319b06077130fe759644}
-
-
-Converts a value from one scale to another. For example, a control functions returns a value between -\/1.\-0 and 1.\-0. The servo requires an input from 0 -\/ 90. ctrl\-\_\-val = map(ctrl\-\_\-val, -\/1.\-0, 1.\-0, 0.\-0, 90.\-0);. 
-
-\hypertarget{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}{\index{etk@{etk}!max@{max}}
-\index{max@{max}!etk@{etk}}
-\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::max (
-\begin{DoxyParamCaption}
-\item[{auto}]{a, }
-\item[{auto}]{b}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_a0b90340a93fcebfc57cb7c5f30bed26d}
-
-
-Returns the larger of two values. 
-
-\hypertarget{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}{\index{etk@{etk}!min@{min}}
-\index{min@{min}!etk@{etk}}
-\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}auto etk\-::min (
-\begin{DoxyParamCaption}
-\item[{auto}]{a, }
-\item[{auto}]{b}
-\end{DoxyParamCaption}
-)}}\label{namespaceetk_a6643ab662d2d880d937a8adfea183ac6}
-
-
-Returns the smaller of two values. 
-
-\hypertarget{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{\index{etk@{etk}!range@{range}}
+ Output\-: 90 Why? Because 450 degrees is the same as 90 degrees on a map. This function can be used with radians by making segments 2$\ast$\-P\-I. \hypertarget{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{\index{etk@{etk}!range@{range}}
 \index{range@{range}!etk@{etk}}
 \subsubsection[{range}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Loop\-Range}$<$T$>$ etk\-::range (
 \begin{DoxyParamCaption}
@@ -275,37 +889,29 @@ The range function constructs and returns a loop range iterator. It's purpose is
 \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i : \hyperlink{namespaceetk_aff39b0f367ee4d947e2e7d297ffd506b}{range}(4))
     cout << i << \textcolor{stringliteral}{" "};
 \end{DoxyCode}
- Output\-: 0 1 2 3 \hypertarget{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}{\index{etk@{etk}!swap@{swap}}
-\index{swap@{swap}!etk@{etk}}
-\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::swap (
+ Output\-: 0 1 2 3 \hypertarget{namespaceetk_a67a8e6e6151a851c1709268b8eff2aa4}{\index{etk@{etk}!set\-\_\-tick\-\_\-rate@{set\-\_\-tick\-\_\-rate}}
+\index{set\-\_\-tick\-\_\-rate@{set\-\_\-tick\-\_\-rate}!etk@{etk}}
+\subsubsection[{set\-\_\-tick\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::set\-\_\-tick\-\_\-rate (
 \begin{DoxyParamCaption}
-\item[{auto \&}]{a, }
-\item[{auto \&}]{b}
+\item[{uint32}]{us}
 \end{DoxyParamCaption}
-)}}\label{namespaceetk_ad6c98a88251cf3ccfeabc675507ee871}
+)}}\label{namespaceetk_a67a8e6e6151a851c1709268b8eff2aa4}
 
 
-Moves a to b and b to a. 
+Sets the tick rate in microseconds per tick. eg for a 1ms tick rate, use set\-\_\-tick\-\_\-rate(1000);. 
 
-\hypertarget{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}{\index{etk@{etk}!to\-\_\-lower@{to\-\_\-lower}}
-\index{to\-\_\-lower@{to\-\_\-lower}!etk@{etk}}
-\subsubsection[{to\-\_\-lower}]{\setlength{\rightskip}{0pt plus 5cm}char etk\-::to\-\_\-lower (
+\begin{DoxyItemize}
+\item us Microseconds per tick. \end{DoxyItemize}
+\hypertarget{namespaceetk_a79ddc21fd043dd193576bef72c352057}{\index{etk@{etk}!sleep\-\_\-ms@{sleep\-\_\-ms}}
+\index{sleep\-\_\-ms@{sleep\-\_\-ms}!etk@{etk}}
+\subsubsection[{sleep\-\_\-ms}]{\setlength{\rightskip}{0pt plus 5cm}void etk\-::sleep\-\_\-ms (
 \begin{DoxyParamCaption}
-\item[{char}]{c}
+\item[{uint32}]{ms}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceetk_a1f7495cf6a81da129ebfe05faaa35295}
+)}}\label{namespaceetk_a79ddc21fd043dd193576bef72c352057}
 
 
-Converts a character to its lowercase A\-S\-C\-I\-I equivalent. 
+Sleeps for a number of milliseconds. 
 
-\hypertarget{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}{\index{etk@{etk}!to\-\_\-upper@{to\-\_\-upper}}
-\index{to\-\_\-upper@{to\-\_\-upper}!etk@{etk}}
-\subsubsection[{to\-\_\-upper}]{\setlength{\rightskip}{0pt plus 5cm}char etk\-::to\-\_\-upper (
-\begin{DoxyParamCaption}
-\item[{char}]{c}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceetk_a87cdf6530a78d045cf4ed4e680764c95}
-
-
-Converts a character to its uppercase A\-S\-C\-I\-I equivalent. 
-
+\begin{DoxyItemize}
+\item ms Number of milliseconds to wait. \end{DoxyItemize}

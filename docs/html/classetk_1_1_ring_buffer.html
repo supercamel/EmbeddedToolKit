@@ -21,7 +21,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Embedded Tool Kit
    </div>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,29 +103,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2a6d3471b49baba47dbf58e47a6ba810"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a2a6d3471b49baba47dbf58e47a6ba810">RingBuffer</a> (T *buffer, uint16_t sz)</td></tr>
-<tr class="memdesc:a2a6d3471b49baba47dbf58e47a6ba810"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#a2a6d3471b49baba47dbf58e47a6ba810">More...</a><br/></td></tr>
-<tr class="separator:a2a6d3471b49baba47dbf58e47a6ba810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a978d9d2868965d77ecc1270d0b54707d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a978d9d2868965d77ecc1270d0b54707d">is_full</a> ()</td></tr>
-<tr class="memdesc:a978d9d2868965d77ecc1270d0b54707d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a> is full.  <a href="#a978d9d2868965d77ecc1270d0b54707d">More...</a><br/></td></tr>
+<tr class="memitem:a57eb84e3d53260344a676666d1b85559"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a57eb84e3d53260344a676666d1b85559">RingBuffer</a> (T *buffer, uint16 sz)</td></tr>
+<tr class="memdesc:a57eb84e3d53260344a676666d1b85559"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#a57eb84e3d53260344a676666d1b85559">More...</a><br/></td></tr>
+<tr class="separator:a57eb84e3d53260344a676666d1b85559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a978d9d2868965d77ecc1270d0b54707d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a978d9d2868965d77ecc1270d0b54707d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a978d9d2868965d77ecc1270d0b54707d">is_full</a> ()</td></tr>
+<tr class="memdesc:a978d9d2868965d77ecc1270d0b54707d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a> is full. <br/></td></tr>
 <tr class="separator:a978d9d2868965d77ecc1270d0b54707d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67b70ec4c7698adcf060810c8d7756d2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a67b70ec4c7698adcf060810c8d7756d2">available</a> ()</td></tr>
-<tr class="memdesc:a67b70ec4c7698adcf060810c8d7756d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of items queued up in the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a>.  <a href="#a67b70ec4c7698adcf060810c8d7756d2">More...</a><br/></td></tr>
-<tr class="separator:a67b70ec4c7698adcf060810c8d7756d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac17418eb9abba39351152b7d70a426ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#ac17418eb9abba39351152b7d70a426ae">put</a> (T b)</td></tr>
-<tr class="memdesc:ac17418eb9abba39351152b7d70a426ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts an item on to the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a>.  <a href="#ac17418eb9abba39351152b7d70a426ae">More...</a><br/></td></tr>
+<tr class="memitem:a928acf9be50189de076421563446a0f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a928acf9be50189de076421563446a0f0"></a>
+uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a928acf9be50189de076421563446a0f0">available</a> ()</td></tr>
+<tr class="memdesc:a928acf9be50189de076421563446a0f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of items queued up in the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a>. <br/></td></tr>
+<tr class="separator:a928acf9be50189de076421563446a0f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17418eb9abba39351152b7d70a426ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac17418eb9abba39351152b7d70a426ae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#ac17418eb9abba39351152b7d70a426ae">put</a> (T b)</td></tr>
+<tr class="memdesc:ac17418eb9abba39351152b7d70a426ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts an item on to the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a>. <br/></td></tr>
 <tr class="separator:ac17418eb9abba39351152b7d70a426ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a251380d6c89541f0be046e6358c2307b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a251380d6c89541f0be046e6358c2307b">increment</a> ()</td></tr>
-<tr class="memdesc:a251380d6c89541f0be046e6358c2307b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the end of the ring buffer along by one position.  <a href="#a251380d6c89541f0be046e6358c2307b">More...</a><br/></td></tr>
+<tr class="memitem:a251380d6c89541f0be046e6358c2307b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a251380d6c89541f0be046e6358c2307b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a251380d6c89541f0be046e6358c2307b">increment</a> ()</td></tr>
+<tr class="memdesc:a251380d6c89541f0be046e6358c2307b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the end of the ring buffer along by one position. <br/></td></tr>
 <tr class="separator:a251380d6c89541f0be046e6358c2307b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1327e40f6f3914156154e669076f4b8"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#ac1327e40f6f3914156154e669076f4b8">get</a> ()</td></tr>
-<tr class="memdesc:ac1327e40f6f3914156154e669076f4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the next item from the buffer and returns it.  <a href="#ac1327e40f6f3914156154e669076f4b8">More...</a><br/></td></tr>
+<tr class="memitem:ac1327e40f6f3914156154e669076f4b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1327e40f6f3914156154e669076f4b8"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#ac1327e40f6f3914156154e669076f4b8">get</a> ()</td></tr>
+<tr class="memdesc:ac1327e40f6f3914156154e669076f4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the next item from the buffer and returns it. <br/></td></tr>
 <tr class="separator:ac1327e40f6f3914156154e669076f4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64f9f9a3f4ca4448a1d7365280ae4431"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a64f9f9a3f4ca4448a1d7365280ae4431">peek_ahead</a> (uint16_t n=0)</td></tr>
-<tr class="memdesc:a64f9f9a3f4ca4448a1d7365280ae4431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next item from the buffer without actually removing it.  <a href="#a64f9f9a3f4ca4448a1d7365280ae4431">More...</a><br/></td></tr>
-<tr class="separator:a64f9f9a3f4ca4448a1d7365280ae4431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a911dbba377c34fa2d20defd1a0922171"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a911dbba377c34fa2d20defd1a0922171">empty</a> ()</td></tr>
-<tr class="memdesc:a911dbba377c34fa2d20defd1a0922171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the start and end of the ring buffer equal zero so that <a class="el" href="classetk_1_1_ring_buffer.html#a67b70ec4c7698adcf060810c8d7756d2" title="Returns the number of items queued up in the RingBuffer. ">available()</a> return zero.  <a href="#a911dbba377c34fa2d20defd1a0922171">More...</a><br/></td></tr>
+<tr class="memitem:a2b3fdaebee47396cca48e7fab8ef962c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b3fdaebee47396cca48e7fab8ef962c"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a2b3fdaebee47396cca48e7fab8ef962c">peek_ahead</a> (uint16 n=0)</td></tr>
+<tr class="memdesc:a2b3fdaebee47396cca48e7fab8ef962c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next item from the buffer without actually removing it. <br/></td></tr>
+<tr class="separator:a2b3fdaebee47396cca48e7fab8ef962c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a911dbba377c34fa2d20defd1a0922171"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a911dbba377c34fa2d20defd1a0922171"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_ring_buffer.html#a911dbba377c34fa2d20defd1a0922171">empty</a> ()</td></tr>
+<tr class="memdesc:a911dbba377c34fa2d20defd1a0922171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the start and end of the ring buffer equal zero so that <a class="el" href="classetk_1_1_ring_buffer.html#a928acf9be50189de076421563446a0f0" title="Returns the number of items queued up in the RingBuffer. ">available()</a> return zero. <br/></td></tr>
 <tr class="separator:a911dbba377c34fa2d20defd1a0922171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -151,13 +157,13 @@ class etk::RingBuffer&lt; T, overwrite &gt;</h3>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>type of object that is being buffered. For a UART this would typically be a char or uint8_t. </td></tr>
+    <tr><td class="paramname">T</td><td>type of object that is being buffered. For a UART this would typically be a char or uint8. </td></tr>
     <tr><td class="paramname">overwrite</td><td>If overriden to true, the ring buffer will write over data when it becomes full. </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2a6d3471b49baba47dbf58e47a6ba810"></a>
+<a class="anchor" id="a57eb84e3d53260344a676666d1b85559"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -175,7 +181,7 @@ template&lt;class T, bool overwrite = false&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">uint16&#160;</td>
           <td class="paramname"><em>sz</em>&#160;</td>
         </tr>
         <tr>
@@ -199,205 +205,13 @@ template&lt;class T, bool overwrite = false&gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a67b70ec4c7698adcf060810c8d7756d2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T, bool overwrite = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t <a class="el" href="classetk_1_1_ring_buffer.html">etk::RingBuffer</a>&lt; T, overwrite &gt;::available </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of items queued up in the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a>. </p>
-
-</div>
-</div>
-<a class="anchor" id="a911dbba377c34fa2d20defd1a0922171"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T, bool overwrite = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_ring_buffer.html">etk::RingBuffer</a>&lt; T, overwrite &gt;::empty </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Makes the start and end of the ring buffer equal zero so that <a class="el" href="classetk_1_1_ring_buffer.html#a67b70ec4c7698adcf060810c8d7756d2" title="Returns the number of items queued up in the RingBuffer. ">available()</a> return zero. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac1327e40f6f3914156154e669076f4b8"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T, bool overwrite = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="classetk_1_1_ring_buffer.html">etk::RingBuffer</a>&lt; T, overwrite &gt;::get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes the next item from the buffer and returns it. </p>
-
-</div>
-</div>
-<a class="anchor" id="a251380d6c89541f0be046e6358c2307b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T, bool overwrite = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_ring_buffer.html">etk::RingBuffer</a>&lt; T, overwrite &gt;::increment </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moves the end of the ring buffer along by one position. </p>
-
-</div>
-</div>
-<a class="anchor" id="a978d9d2868965d77ecc1270d0b54707d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T, bool overwrite = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_ring_buffer.html">etk::RingBuffer</a>&lt; T, overwrite &gt;::is_full </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true when the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a> is full. </p>
-
-</div>
-</div>
-<a class="anchor" id="a64f9f9a3f4ca4448a1d7365280ae4431"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T, bool overwrite = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="classetk_1_1_ring_buffer.html">etk::RingBuffer</a>&lt; T, overwrite &gt;::peek_ahead </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>n</em> = <code>0</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the next item from the buffer without actually removing it. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac17418eb9abba39351152b7d70a426ae"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T, bool overwrite = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_ring_buffer.html">etk::RingBuffer</a>&lt; T, overwrite &gt;::put </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Puts an item on to the <a class="el" href="classetk_1_1_ring_buffer.html" title="RingBuffers are a great way to buffer information from data streams such as UARTs. RingBuffer does not allocate it&#39;s own memory, instead it requires a pointer to an array or memory region where it can store data.    Example. ">RingBuffer</a>. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>inc/etk/<a class="el" href="ring__buffer_8h_source.html">ring_buffer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 20:04:43 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -21,7 +21,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Embedded Tool Kit
    </div>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>The list class is an iterable container object. A list can contain up to a maximum number of items determined by the template parameter L. <a class="el" href="classetk_1_1_list.html" title="The list class is an iterable container object. A list can contain up to a maximum number of items de...">List</a> is supposed to provide a similar look and feel to std::vector, but without using dynamic memory allocation.  
  <a href="classetk_1_1_list.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="list_8h_source.html">list.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="list_01_07copy_08_8h_source.html">list (copy).h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -109,66 +108,154 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad9b5592df871a39445c6c0debadf324d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ad9b5592df871a39445c6c0debadf324d">List</a> ()</td></tr>
-<tr class="separator:ad9b5592df871a39445c6c0debadf324d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23f9b0efe027159f914214d126b486b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a23f9b0efe027159f914214d126b486b3">List</a> (<a class="el" href="classetk_1_1_list.html">List</a> &amp;list)</td></tr>
+<tr class="memitem:a23f9b0efe027159f914214d126b486b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23f9b0efe027159f914214d126b486b3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>List</b> (<a class="el" href="classetk_1_1_list.html">List</a> &amp;list)</td></tr>
 <tr class="separator:a23f9b0efe027159f914214d126b486b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85e0e37f248ba1b52f410cd00c8c304"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ac85e0e37f248ba1b52f410cd00c8c304">List</a> (const <a class="el" href="classetk_1_1_list.html">List</a> &amp;list)</td></tr>
+<tr class="memitem:ac85e0e37f248ba1b52f410cd00c8c304"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac85e0e37f248ba1b52f410cd00c8c304"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>List</b> (const <a class="el" href="classetk_1_1_list.html">List</a> &amp;list)</td></tr>
 <tr class="separator:ac85e0e37f248ba1b52f410cd00c8c304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#afb70c4551d2e9ebc6b4bb04337d081e6">begin</a> ()</td></tr>
-<tr class="memdesc:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the first item in the list.  <a href="#afb70c4551d2e9ebc6b4bb04337d081e6">More...</a><br/></td></tr>
+<tr class="memitem:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb70c4551d2e9ebc6b4bb04337d081e6"></a>
+<a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#afb70c4551d2e9ebc6b4bb04337d081e6">begin</a> ()</td></tr>
+<tr class="memdesc:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the first item in the list. <br/></td></tr>
 <tr class="separator:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19b25cd89872debc07cc002c18845578"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a> ()</td></tr>
-<tr class="memdesc:a19b25cd89872debc07cc002c18845578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the list.  <a href="#a19b25cd89872debc07cc002c18845578">More...</a><br/></td></tr>
+<tr class="memitem:a19b25cd89872debc07cc002c18845578"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19b25cd89872debc07cc002c18845578"></a>
+<a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a> ()</td></tr>
+<tr class="memdesc:a19b25cd89872debc07cc002c18845578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the list. <br/></td></tr>
 <tr class="separator:a19b25cd89872debc07cc002c18845578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45df48bc3bb87c2dd26e56f51115ab27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27">append</a> (T t)</td></tr>
-<tr class="memdesc:a45df48bc3bb87c2dd26e56f51115ab27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to the end of the list and increments the size of the list by 1.  <a href="#a45df48bc3bb87c2dd26e56f51115ab27">More...</a><br/></td></tr>
+<tr class="memitem:a45df48bc3bb87c2dd26e56f51115ab27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45df48bc3bb87c2dd26e56f51115ab27"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27">append</a> (T t)</td></tr>
+<tr class="memdesc:a45df48bc3bb87c2dd26e56f51115ab27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to the end of the list and increments the size of the list by 1. <br/></td></tr>
 <tr class="separator:a45df48bc3bb87c2dd26e56f51115ab27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab47f8050890b94557ff7cb58ab3367e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ab47f8050890b94557ff7cb58ab3367e7">insert</a> (T t, uint32_t pos)</td></tr>
-<tr class="memdesc:ab47f8050890b94557ff7cb58ab3367e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item into the list.  <a href="#ab47f8050890b94557ff7cb58ab3367e7">More...</a><br/></td></tr>
-<tr class="separator:ab47f8050890b94557ff7cb58ab3367e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a524bda3c62abb7aec5b42aa3f835f715"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a524bda3c62abb7aec5b42aa3f835f715">remove</a> (uint32_t pos, T padding)</td></tr>
-<tr class="memdesc:a524bda3c62abb7aec5b42aa3f835f715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item from the list.  <a href="#a524bda3c62abb7aec5b42aa3f835f715">More...</a><br/></td></tr>
-<tr class="separator:a524bda3c62abb7aec5b42aa3f835f715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78809d6a543ff0c25fdb26ec892cad39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a78809d6a543ff0c25fdb26ec892cad39">erase</a> (uint32_t pos, uint32_t len, T padding)</td></tr>
-<tr class="memdesc:a78809d6a543ff0c25fdb26ec892cad39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes len number of items from the list, starting as pos.  <a href="#a78809d6a543ff0c25fdb26ec892cad39">More...</a><br/></td></tr>
-<tr class="separator:a78809d6a543ff0c25fdb26ec892cad39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a429128ca6b0d5f9e97fdfd52b0190364"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a429128ca6b0d5f9e97fdfd52b0190364">clear</a> ()</td></tr>
-<tr class="memdesc:a429128ca6b0d5f9e97fdfd52b0190364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the list end to make it appear as if the list has been emptied.  <a href="#a429128ca6b0d5f9e97fdfd52b0190364">More...</a><br/></td></tr>
+<tr class="memitem:aaad15082c3f17971d84890a33c523003"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#aaad15082c3f17971d84890a33c523003">insert</a> (T t, int32_t pos)</td></tr>
+<tr class="memdesc:aaad15082c3f17971d84890a33c523003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item into the list.  <a href="#aaad15082c3f17971d84890a33c523003">More...</a><br/></td></tr>
+<tr class="separator:aaad15082c3f17971d84890a33c523003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de9664a63f8996eeb3599e0b56a90d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a2de9664a63f8996eeb3599e0b56a90d9">remove</a> (int32_t pos, T padding)</td></tr>
+<tr class="memdesc:a2de9664a63f8996eeb3599e0b56a90d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item from the list.  <a href="#a2de9664a63f8996eeb3599e0b56a90d9">More...</a><br/></td></tr>
+<tr class="separator:a2de9664a63f8996eeb3599e0b56a90d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b922183cf60d1bf3c351af927cfe51d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b922183cf60d1bf3c351af927cfe51d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>remove_item</b> (auto &amp;item)</td></tr>
+<tr class="separator:a2b922183cf60d1bf3c351af927cfe51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d289d0f4ee20ee260d885bceae3aca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96d289d0f4ee20ee260d885bceae3aca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>remove_item</b> (auto &amp;item, auto padding)</td></tr>
+<tr class="separator:a96d289d0f4ee20ee260d885bceae3aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa43bb8a932f626f0b9a729c3bd2882a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#aa43bb8a932f626f0b9a729c3bd2882a9">erase</a> (int32_t pos, int32_t len, T padding)</td></tr>
+<tr class="memdesc:aa43bb8a932f626f0b9a729c3bd2882a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes len number of items from the list, starting as pos.  <a href="#aa43bb8a932f626f0b9a729c3bd2882a9">More...</a><br/></td></tr>
+<tr class="separator:aa43bb8a932f626f0b9a729c3bd2882a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429128ca6b0d5f9e97fdfd52b0190364"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a429128ca6b0d5f9e97fdfd52b0190364"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a429128ca6b0d5f9e97fdfd52b0190364">clear</a> ()</td></tr>
+<tr class="memdesc:a429128ca6b0d5f9e97fdfd52b0190364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the list end to make it appear as if the list has been emptied. <br/></td></tr>
 <tr class="separator:a429128ca6b0d5f9e97fdfd52b0190364"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7998b544ad4dd4a53537f09d8895597"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#aa7998b544ad4dd4a53537f09d8895597">count</a> (T t)</td></tr>
-<tr class="memdesc:aa7998b544ad4dd4a53537f09d8895597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of a particular item in the list.  <a href="#aa7998b544ad4dd4a53537f09d8895597">More...</a><br/></td></tr>
-<tr class="separator:aa7998b544ad4dd4a53537f09d8895597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09630e32f01e3eb094b0172239416961"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a09630e32f01e3eb094b0172239416961">fill</a> (uint32_t start, uint32_t <a class="el" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a>, T f)</td></tr>
-<tr class="memdesc:a09630e32f01e3eb094b0172239416961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a section of the list to a given value.  <a href="#a09630e32f01e3eb094b0172239416961">More...</a><br/></td></tr>
-<tr class="separator:a09630e32f01e3eb094b0172239416961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09fcf2ae4ebe9361094a79e0c508ddb3"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a09fcf2ae4ebe9361094a79e0c508ddb3">count</a> (T t)</td></tr>
+<tr class="memdesc:a09fcf2ae4ebe9361094a79e0c508ddb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of a particular item in the list.  <a href="#a09fcf2ae4ebe9361094a79e0c508ddb3">More...</a><br/></td></tr>
+<tr class="separator:a09fcf2ae4ebe9361094a79e0c508ddb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1792af995420ff56d3d98d4c7f2d6388"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a1792af995420ff56d3d98d4c7f2d6388">fill</a> (int32_t start, int32_t <a class="el" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a>, T f)</td></tr>
+<tr class="memdesc:a1792af995420ff56d3d98d4c7f2d6388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a section of the list to a given value.  <a href="#a1792af995420ff56d3d98d4c7f2d6388">More...</a><br/></td></tr>
+<tr class="separator:a1792af995420ff56d3d98d4c7f2d6388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85741b89a92238cce95b940ce8a5554e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a85741b89a92238cce95b940ce8a5554e">pop_back</a> ()</td></tr>
 <tr class="memdesc:a85741b89a92238cce95b940ce8a5554e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last item on the list and reduces the list length by 1.  <a href="#a85741b89a92238cce95b940ce8a5554e">More...</a><br/></td></tr>
 <tr class="separator:a85741b89a92238cce95b940ce8a5554e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ab7dc844f7e80ac5ea9e7a8923230385a">push_back</a> (T t)</td></tr>
-<tr class="memdesc:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27" title="Adds an item to the end of the list and increments the size of the list by 1. ">append()</a>;.  <a href="#ab7dc844f7e80ac5ea9e7a8923230385a">More...</a><br/></td></tr>
+<tr class="memitem:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7dc844f7e80ac5ea9e7a8923230385a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ab7dc844f7e80ac5ea9e7a8923230385a">push_back</a> (T t)</td></tr>
+<tr class="memdesc:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27" title="Adds an item to the end of the list and increments the size of the list by 1. ">append()</a>;. <br/></td></tr>
 <tr class="separator:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a932520c2f8f21ab343d4f1f90345ebc4"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a932520c2f8f21ab343d4f1f90345ebc4">operator[]</a> (uint32_t pos)</td></tr>
-<tr class="memdesc:a932520c2f8f21ab343d4f1f90345ebc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This operator allows you to access elements of the list just like a normal array.  <a href="#a932520c2f8f21ab343d4f1f90345ebc4">More...</a><br/></td></tr>
-<tr class="separator:a932520c2f8f21ab343d4f1f90345ebc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8069a0cace5704b066804f2493d3513"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ab8069a0cace5704b066804f2493d3513">size</a> ()</td></tr>
-<tr class="memdesc:ab8069a0cace5704b066804f2493d3513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of items in the list.  <a href="#ab8069a0cace5704b066804f2493d3513">More...</a><br/></td></tr>
-<tr class="separator:ab8069a0cace5704b066804f2493d3513"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bbc7fefde677a9526060ee038257cc2"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a9bbc7fefde677a9526060ee038257cc2">max_len</a> () const </td></tr>
-<tr class="memdesc:a9bbc7fefde677a9526060ee038257cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum possible number of items that the list can contain.  <a href="#a9bbc7fefde677a9526060ee038257cc2">More...</a><br/></td></tr>
-<tr class="separator:a9bbc7fefde677a9526060ee038257cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6cada6daf6b4cff8166782009ed5cdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#aa6cada6daf6b4cff8166782009ed5cdb">set_list_end</a> (uint32_t le)</td></tr>
-<tr class="memdesc:aa6cada6daf6b4cff8166782009ed5cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the list end pointer. This function can be convenient but should be used with caution.  <a href="#aa6cada6daf6b4cff8166782009ed5cdb">More...</a><br/></td></tr>
-<tr class="separator:aa6cada6daf6b4cff8166782009ed5cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a765da91f522c96c94efec3790b5a63b5"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a765da91f522c96c94efec3790b5a63b5">buffer</a> () const </td></tr>
-<tr class="memdesc:a765da91f522c96c94efec3790b5a63b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const pointer to the array.  <a href="#a765da91f522c96c94efec3790b5a63b5">More...</a><br/></td></tr>
+<tr class="memitem:aa9d8b7be2e23788eed66bf63e8c6e461"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9d8b7be2e23788eed66bf63e8c6e461"></a>
+T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#aa9d8b7be2e23788eed66bf63e8c6e461">operator[]</a> (int32_t pos)</td></tr>
+<tr class="memdesc:aa9d8b7be2e23788eed66bf63e8c6e461"><td class="mdescLeft">&#160;</td><td class="mdescRight">This operator allows you to access elements of the list just like a normal array. <br/></td></tr>
+<tr class="separator:aa9d8b7be2e23788eed66bf63e8c6e461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1961365c999b8d5d9a7a187dad9f490"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1961365c999b8d5d9a7a187dad9f490"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a> ()</td></tr>
+<tr class="memdesc:ac1961365c999b8d5d9a7a187dad9f490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of items in the list. <br/></td></tr>
+<tr class="separator:ac1961365c999b8d5d9a7a187dad9f490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a360b0d7b0d8c3d48bfc976669cb12b24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a360b0d7b0d8c3d48bfc976669cb12b24"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a360b0d7b0d8c3d48bfc976669cb12b24">max_len</a> ()</td></tr>
+<tr class="memdesc:a360b0d7b0d8c3d48bfc976669cb12b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum possible number of items that the list can contain. <br/></td></tr>
+<tr class="separator:a360b0d7b0d8c3d48bfc976669cb12b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35ccd11219bb888932e4957156bcab24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35ccd11219bb888932e4957156bcab24"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a35ccd11219bb888932e4957156bcab24">set_list_end</a> (int32_t le)</td></tr>
+<tr class="memdesc:a35ccd11219bb888932e4957156bcab24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the list end pointer. This function can be convenient but should be used with caution. <br/></td></tr>
+<tr class="separator:a35ccd11219bb888932e4957156bcab24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765da91f522c96c94efec3790b5a63b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a765da91f522c96c94efec3790b5a63b5"></a>
+const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a765da91f522c96c94efec3790b5a63b5">buffer</a> () const </td></tr>
+<tr class="memdesc:a765da91f522c96c94efec3790b5a63b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const pointer to the array. <br/></td></tr>
 <tr class="separator:a765da91f522c96c94efec3790b5a63b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add87c29d6b7283b6329a01c3b1eae898"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#add87c29d6b7283b6329a01c3b1eae898">raw_memory</a> ()</td></tr>
-<tr class="memdesc:add87c29d6b7283b6329a01c3b1eae898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the raw memory used by <a class="el" href="classetk_1_1_list.html" title="The list class is an iterable container object. A list can contain up to a maximum number of items de...">List</a>.  <a href="#add87c29d6b7283b6329a01c3b1eae898">More...</a><br/></td></tr>
+<tr class="memitem:add87c29d6b7283b6329a01c3b1eae898"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add87c29d6b7283b6329a01c3b1eae898"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#add87c29d6b7283b6329a01c3b1eae898">raw_memory</a> ()</td></tr>
+<tr class="memdesc:add87c29d6b7283b6329a01c3b1eae898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the raw memory used by <a class="el" href="classetk_1_1_list.html" title="The list class is an iterable container object. A list can contain up to a maximum number of items de...">List</a>. <br/></td></tr>
+<tr class="separator:add87c29d6b7283b6329a01c3b1eae898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f9b0efe027159f914214d126b486b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23f9b0efe027159f914214d126b486b3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>List</b> (<a class="el" href="classetk_1_1_list.html">List</a> &amp;list)</td></tr>
+<tr class="separator:a23f9b0efe027159f914214d126b486b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac85e0e37f248ba1b52f410cd00c8c304"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac85e0e37f248ba1b52f410cd00c8c304"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>List</b> (const <a class="el" href="classetk_1_1_list.html">List</a> &amp;list)</td></tr>
+<tr class="separator:ac85e0e37f248ba1b52f410cd00c8c304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb70c4551d2e9ebc6b4bb04337d081e6"></a>
+<a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#afb70c4551d2e9ebc6b4bb04337d081e6">begin</a> ()</td></tr>
+<tr class="memdesc:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the first item in the list. <br/></td></tr>
+<tr class="separator:afb70c4551d2e9ebc6b4bb04337d081e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b25cd89872debc07cc002c18845578"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19b25cd89872debc07cc002c18845578"></a>
+<a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a> ()</td></tr>
+<tr class="memdesc:a19b25cd89872debc07cc002c18845578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the list. <br/></td></tr>
+<tr class="separator:a19b25cd89872debc07cc002c18845578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45df48bc3bb87c2dd26e56f51115ab27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45df48bc3bb87c2dd26e56f51115ab27"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27">append</a> (T t)</td></tr>
+<tr class="memdesc:a45df48bc3bb87c2dd26e56f51115ab27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to the end of the list and increments the size of the list by 1. <br/></td></tr>
+<tr class="separator:a45df48bc3bb87c2dd26e56f51115ab27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d6852055e5669632da51c6aa60e949"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a95d6852055e5669632da51c6aa60e949">insert</a> (T t, uint32 pos)</td></tr>
+<tr class="memdesc:a95d6852055e5669632da51c6aa60e949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item into the list.  <a href="#a95d6852055e5669632da51c6aa60e949">More...</a><br/></td></tr>
+<tr class="separator:a95d6852055e5669632da51c6aa60e949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a720fec604f6c57135b6796167171756a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a720fec604f6c57135b6796167171756a">remove</a> (uint32 pos)</td></tr>
+<tr class="memdesc:a720fec604f6c57135b6796167171756a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item from the list.  <a href="#a720fec604f6c57135b6796167171756a">More...</a><br/></td></tr>
+<tr class="separator:a720fec604f6c57135b6796167171756a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b922183cf60d1bf3c351af927cfe51d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b922183cf60d1bf3c351af927cfe51d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>remove_item</b> (auto &amp;item)</td></tr>
+<tr class="separator:a2b922183cf60d1bf3c351af927cfe51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e3a92350967e1fabcda37bbef21b796"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a1e3a92350967e1fabcda37bbef21b796">erase</a> (uint32 pos, uint32 len)</td></tr>
+<tr class="memdesc:a1e3a92350967e1fabcda37bbef21b796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes len number of items from the list, starting as pos.  <a href="#a1e3a92350967e1fabcda37bbef21b796">More...</a><br/></td></tr>
+<tr class="separator:a1e3a92350967e1fabcda37bbef21b796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429128ca6b0d5f9e97fdfd52b0190364"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a429128ca6b0d5f9e97fdfd52b0190364"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a429128ca6b0d5f9e97fdfd52b0190364">clear</a> ()</td></tr>
+<tr class="memdesc:a429128ca6b0d5f9e97fdfd52b0190364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys every item in the list. <br/></td></tr>
+<tr class="separator:a429128ca6b0d5f9e97fdfd52b0190364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27f50a1845850dd0f19397e4e1bafe08"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a27f50a1845850dd0f19397e4e1bafe08">count</a> (T t)</td></tr>
+<tr class="memdesc:a27f50a1845850dd0f19397e4e1bafe08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of a particular item in the list.  <a href="#a27f50a1845850dd0f19397e4e1bafe08">More...</a><br/></td></tr>
+<tr class="separator:a27f50a1845850dd0f19397e4e1bafe08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21f417c80d9d8eeed6f33ed5c4af285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#aa21f417c80d9d8eeed6f33ed5c4af285">fill</a> (uint32 start, uint32 <a class="el" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a>, T f)</td></tr>
+<tr class="memdesc:aa21f417c80d9d8eeed6f33ed5c4af285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a section of the list to a given value.  <a href="#aa21f417c80d9d8eeed6f33ed5c4af285">More...</a><br/></td></tr>
+<tr class="separator:aa21f417c80d9d8eeed6f33ed5c4af285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85741b89a92238cce95b940ce8a5554e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a85741b89a92238cce95b940ce8a5554e">pop_back</a> ()</td></tr>
+<tr class="memdesc:a85741b89a92238cce95b940ce8a5554e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last item on the list and reduces the list length by 1.  <a href="#a85741b89a92238cce95b940ce8a5554e">More...</a><br/></td></tr>
+<tr class="separator:a85741b89a92238cce95b940ce8a5554e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7dc844f7e80ac5ea9e7a8923230385a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ab7dc844f7e80ac5ea9e7a8923230385a">push_back</a> (T t)</td></tr>
+<tr class="memdesc:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27" title="Adds an item to the end of the list and increments the size of the list by 1. ">append()</a>;. <br/></td></tr>
+<tr class="separator:ab7dc844f7e80ac5ea9e7a8923230385a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc341d1d8b1b29b7868024777ef15b04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc341d1d8b1b29b7868024777ef15b04"></a>
+T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#acc341d1d8b1b29b7868024777ef15b04">operator[]</a> (uint32 pos)</td></tr>
+<tr class="memdesc:acc341d1d8b1b29b7868024777ef15b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">This operator allows you to access elements of the list just like a normal array. <br/></td></tr>
+<tr class="separator:acc341d1d8b1b29b7868024777ef15b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa69eac1c25dcbdedff7f5ce2b7fcaff1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa69eac1c25dcbdedff7f5ce2b7fcaff1"></a>
+uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a> ()</td></tr>
+<tr class="memdesc:aa69eac1c25dcbdedff7f5ce2b7fcaff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of items in the list. <br/></td></tr>
+<tr class="separator:aa69eac1c25dcbdedff7f5ce2b7fcaff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38a32c25ece381c033d9013141a0f12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af38a32c25ece381c033d9013141a0f12"></a>
+uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#af38a32c25ece381c033d9013141a0f12">max_len</a> ()</td></tr>
+<tr class="memdesc:af38a32c25ece381c033d9013141a0f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum possible number of items that the list can contain. <br/></td></tr>
+<tr class="separator:af38a32c25ece381c033d9013141a0f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ff761960ef80143162ac2d4cd6a456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5ff761960ef80143162ac2d4cd6a456"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#ae5ff761960ef80143162ac2d4cd6a456">set_list_end</a> (uint32 le)</td></tr>
+<tr class="memdesc:ae5ff761960ef80143162ac2d4cd6a456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the list end pointer. This function can be convenient but should be used with caution. <br/></td></tr>
+<tr class="separator:ae5ff761960ef80143162ac2d4cd6a456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765da91f522c96c94efec3790b5a63b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a765da91f522c96c94efec3790b5a63b5"></a>
+const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#a765da91f522c96c94efec3790b5a63b5">buffer</a> () const </td></tr>
+<tr class="memdesc:a765da91f522c96c94efec3790b5a63b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const pointer to the array. <br/></td></tr>
+<tr class="separator:a765da91f522c96c94efec3790b5a63b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add87c29d6b7283b6329a01c3b1eae898"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add87c29d6b7283b6329a01c3b1eae898"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_list.html#add87c29d6b7283b6329a01c3b1eae898">raw_memory</a> ()</td></tr>
+<tr class="memdesc:add87c29d6b7283b6329a01c3b1eae898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the raw memory used by <a class="el" href="classetk_1_1_list.html" title="The list class is an iterable container object. A list can contain up to a maximum number of items de...">List</a>. <br/></td></tr>
 <tr class="separator:add87c29d6b7283b6329a01c3b1eae898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, uint32_t L&gt;<br/>
+<div class="textblock"><h3>template&lt;typename T, int32_t L&gt;<br/>
 class etk::List&lt; T, L &gt;</h3>
 
 <p>The list class is an iterable container object. A list can contain up to a maximum number of items determined by the template parameter L. <a class="el" href="classetk_1_1_list.html" title="The list class is an iterable container object. A list can contain up to a maximum number of items de...">List</a> is supposed to provide a similar look and feel to std::vector, but without using dynamic memory allocation. </p>
@@ -179,205 +266,18 @@ class etk::List&lt; T, L &gt;</h3>
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad9b5592df871a39445c6c0debadf324d"></a>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a09fcf2ae4ebe9361094a79e0c508ddb3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::<a class="el" href="classetk_1_1_list.html">List</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a23f9b0efe027159f914214d126b486b3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::<a class="el" href="classetk_1_1_list.html">List</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_list.html">List</a>&lt; T, L &gt; &amp;&#160;</td>
-          <td class="paramname"><em>list</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac85e0e37f248ba1b52f410cd00c8c304"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::<a class="el" href="classetk_1_1_list.html">List</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classetk_1_1_list.html">List</a>&lt; T, L &gt; &amp;&#160;</td>
-          <td class="paramname"><em>list</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a45df48bc3bb87c2dd26e56f51115ab27"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::append </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds an item to the end of the list and increments the size of the list by 1. </p>
-
-</div>
-</div>
-<a class="anchor" id="afb70c4551d2e9ebc6b4bb04337d081e6"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a> <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::begin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns an iterator to the first item in the list. </p>
-
-</div>
-</div>
-<a class="anchor" id="a765da91f522c96c94efec3790b5a63b5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T* <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::buffer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a const pointer to the array. </p>
-
-</div>
-</div>
-<a class="anchor" id="a429128ca6b0d5f9e97fdfd52b0190364"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets the list end to make it appear as if the list has been emptied. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa7998b544ad4dd4a53537f09d8895597"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::count </td>
+          <td class="memname">int32_t <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::count </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -399,19 +299,20 @@ template&lt;typename T, uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a19b25cd89872debc07cc002c18845578"></a>
+<a class="anchor" id="a27f50a1845850dd0f19397e4e1bafe08"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_list_1_1_iterator.html">Iterator</a> <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::end </td>
+          <td class="memname">uint32 <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::count </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -422,15 +323,19 @@ template&lt;typename T, uint32_t L&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns an iterator to the end of the list. </p>
+<p>Returns the number of a particular item in the list. </p>
+<ul>
+<li>t The item to count. <dl class="section return"><dt>Returns</dt><dd>The number of these items in the list. </dd></dl>
+</li>
+</ul>
 
 </div>
 </div>
-<a class="anchor" id="a78809d6a543ff0c25fdb26ec892cad39"></a>
+<a class="anchor" id="aa43bb8a932f626f0b9a729c3bd2882a9"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -438,13 +343,13 @@ template&lt;typename T, uint32_t L&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::erase </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>len</em>, </td>
         </tr>
         <tr>
@@ -475,11 +380,53 @@ template&lt;typename T, uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a09630e32f01e3eb094b0172239416961"></a>
+<a class="anchor" id="a1e3a92350967e1fabcda37bbef21b796"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::erase </td>
+          <td>(</td>
+          <td class="paramtype">uint32&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes len number of items from the list, starting as pos. </p>
+<ul>
+<li>pos The position of the first item to erase. </li>
+<li>len The number of items to remove. </li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="a1792af995420ff56d3d98d4c7f2d6388"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -487,13 +434,13 @@ template&lt;typename T, uint32_t L&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::fill </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>start</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>end</em>, </td>
         </tr>
         <tr>
@@ -524,11 +471,60 @@ template&lt;typename T, uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ab47f8050890b94557ff7cb58ab3367e7"></a>
+<a class="anchor" id="aa21f417c80d9d8eeed6f33ed5c4af285"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::fill </td>
+          <td>(</td>
+          <td class="paramtype">uint32&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets a section of the list to a given value. </p>
+<ul>
+<li>start The starting position. </li>
+<li>end The end position. </li>
+<li>f The item to fill with. </li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="aaad15082c3f17971d84890a33c523003"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -542,7 +538,7 @@ template&lt;typename T, uint32_t L&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>pos</em>&#160;</td>
         </tr>
         <tr>
@@ -566,48 +562,31 @@ template&lt;typename T, uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9bbc7fefde677a9526060ee038257cc2"></a>
+<a class="anchor" id="a95d6852055e5669632da51c6aa60e949"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const uint32_t <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::max_len </td>
+          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::insert </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the maximum possible number of items that the list can contain. </p>
-
-</div>
-</div>
-<a class="anchor" id="a932520c2f8f21ab343d4f1f90345ebc4"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">T&amp; <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -617,7 +596,11 @@ template&lt;typename T, uint32_t L&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>This operator allows you to access elements of the list just like a normal array. </p>
+<p>Inserts an item into the list. </p>
+<ul>
+<li>T the item to be inserted. </li>
+<li>pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list. </li>
+</ul>
 
 </div>
 </div>
@@ -625,7 +608,7 @@ template&lt;typename T, uint32_t L&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -649,45 +632,17 @@ template&lt;typename T, uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ab7dc844f7e80ac5ea9e7a8923230385a"></a>
+<a class="anchor" id="a85741b89a92238cce95b940ce8a5554e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::push_back </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Same as <a class="el" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27" title="Adds an item to the end of the list and increments the size of the list by 1. ">append()</a>;. </p>
-
-</div>
-</div>
-<a class="anchor" id="add87c29d6b7283b6329a01c3b1eae898"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T* <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::raw_memory </td>
+          <td class="memname">T <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::pop_back </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -700,15 +655,16 @@ template&lt;typename T, uint32_t L&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a pointer to the raw memory used by <a class="el" href="classetk_1_1_list.html" title="The list class is an iterable container object. A list can contain up to a maximum number of items de...">List</a>. </p>
+<p>Returns the last item on the list and reduces the list length by 1. </p>
+<dl class="section return"><dt>Returns</dt><dd>The item at the end of the list. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a524bda3c62abb7aec5b42aa3f835f715"></a>
+<a class="anchor" id="a2de9664a63f8996eeb3599e0b56a90d9"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -716,7 +672,7 @@ template&lt;typename T, uint32_t L&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
@@ -746,20 +702,20 @@ template&lt;typename T, uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa6cada6daf6b4cff8166782009ed5cdb"></a>
+<a class="anchor" id="a720fec604f6c57135b6796167171756a"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
+template&lt;typename T, int32_t L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::set_list_end </td>
+          <td class="memname">void <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>le</em></td><td>)</td>
+          <td class="paramtype">uint32&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -770,44 +726,22 @@ template&lt;typename T, uint32_t L&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Overrides the list end pointer. This function can be convenient but should be used with caution. </p>
+<p>Removes an item from the list. </p>
+<ul>
+<li>pos The position of the item to remove. </li>
+<li>padding A value / default object to fill in the space at the end of the list. </li>
+</ul>
 
 </div>
 </div>
-<a class="anchor" id="ab8069a0cace5704b066804f2493d3513"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="classetk_1_1_list.html">etk::List</a>&lt; T, L &gt;::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of items in the list. </p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>inc/etk/<a class="el" href="list_01_07copy_08_8h_source.html">list (copy).h</a></li>
 <li>inc/etk/<a class="el" href="list_8h_source.html">list.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 20:04:43 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

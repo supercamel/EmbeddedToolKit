@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['highpassfilter',['HighPassFilter',['../classetk_1_1_high_pass_filter.html',1,'etk']]]
+  ['forward_5flist',['forward_list',['../classetk_1_1forward__list.html',1,'etk']]],
+  ['fuzzy',['Fuzzy',['../classetk_1_1_fuzzy.html',1,'etk']]]
 ];

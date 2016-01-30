@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Embedded Tool Kit: etk::Tokeniser Class Reference</title>
+<title>Embedded Tool Kit: etk::Tokeniser&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Embedded Tool Kit
    </div>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classetk_1_1_tokeniser-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">etk::Tokeniser Class Reference</div>  </div>
+<div class="title">etk::Tokeniser&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -102,14 +101,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4c296b7ff45ca4d5fdee4a7870b350a8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_tokeniser.html#a4c296b7ff45ca4d5fdee4a7870b350a8">Tokeniser</a> (char *str, char token)</td></tr>
-<tr class="separator:a4c296b7ff45ca4d5fdee4a7870b350a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2fc672e9143525962ea1f48eba6bed7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_tokeniser.html#ad2fc672e9143525962ea1f48eba6bed7">next</a> (char *out, int len)</td></tr>
-<tr class="separator:ad2fc672e9143525962ea1f48eba6bed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f382739ae90860a09ac122a56a0bb52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f382739ae90860a09ac122a56a0bb52"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Tokeniser</b> (T &amp;_str, char tok)</td></tr>
+<tr class="separator:a3f382739ae90860a09ac122a56a0bb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc30009214035f3ba25091a0c87416a6"><td class="memTemplParams" colspan="2"><a class="anchor" id="adc30009214035f3ba25091a0c87416a6"></a>
+template&lt;typename Tt &gt; </td></tr>
+<tr class="memitem:adc30009214035f3ba25091a0c87416a6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>next</b> (Tt &amp;out, int len)</td></tr>
+<tr class="separator:adc30009214035f3ba25091a0c87416a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The tokeniser moves along a string and breaks it into tokens. </p>
-<p><a href="http://www.camelsoftware.com/blog/2015/12/11/splitting-strings-a-c-string-tokeniser/">http://www.camelsoftware.com/blog/2015/12/11/splitting-strings-a-c-string-tokeniser/</a></p>
+<div class="textblock"><h3>template&lt;typename T&gt;<br/>
+class etk::Tokeniser&lt; T &gt;</h3>
+
+<p>The tokeniser moves along a string and breaks it into tokens. </p>
+<p><a href="http://www.camelsoftware.com/2015/12/24/embedded-string-programming/">http://www.camelsoftware.com/2015/12/24/embedded-string-programming/</a></p>
 <p>These are all comma separated tokens </p>
 <pre>
       v    v  v    v    v
@@ -124,73 +129,19 @@ Public Member Functions</h2></td></tr>
 <div class="line">    <span class="keywordtype">char</span> nmea[] = <span class="stringliteral">&quot;$POW0,12,135*F5&quot;</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordtype">char</span> token[20]; <span class="comment">//buffer to store token</span></div>
-<div class="line">    <a class="code" href="classetk_1_1_tokeniser.html">etk::Tokeniser</a> tok(nmea, <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">    <span class="keyword">auto</span> tok = etk::make_tokeniser(nmea, <span class="charliteral">&#39;,&#39;</span>);</div>
 <div class="line">    <span class="keywordflow">while</span>(tok.next(token, 20))</div>
 <div class="line">        cout &lt;&lt; token &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line">    cout &lt;&lt; endl;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p> Result: $POW0 12 135*F5 </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4c296b7ff45ca4d5fdee4a7870b350a8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">etk::Tokeniser::Tokeniser </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>token</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad2fc672e9143525962ea1f48eba6bed7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool etk::Tokeniser::next </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>inc/etk/<a class="el" href="tokeniser_8h_source.html">tokeniser.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 20:04:43 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

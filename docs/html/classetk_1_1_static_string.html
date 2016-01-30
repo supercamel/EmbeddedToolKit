@@ -21,7 +21,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Embedded Tool Kit
    </div>
@@ -72,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,138 +94,196 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns. StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways.  
+<p>StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buf overruns. StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways.  
  <a href="classetk_1_1_static_string.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="staticstring_8h_source.html">staticstring.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1f83e4dfbd9d0d890b55bd6a8d847c71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a1f83e4dfbd9d0d890b55bd6a8d847c71">StaticString</a> ()</td></tr>
-<tr class="separator:a1f83e4dfbd9d0d890b55bd6a8d847c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a981a44c389ceafb80a62fe4fe395e126"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a981a44c389ceafb80a62fe4fe395e126">StaticString</a> (const char *c)</td></tr>
 <tr class="memdesc:a981a44c389ceafb80a62fe4fe395e126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the string with some text.  <a href="#a981a44c389ceafb80a62fe4fe395e126">More...</a><br/></td></tr>
 <tr class="separator:a981a44c389ceafb80a62fe4fe395e126"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e35289bf9413c495bc99d369b37840a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a0e35289bf9413c495bc99d369b37840a">StaticString</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
-<tr class="memdesc:a0e35289bf9413c495bc99d369b37840a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the string from a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a>.  <a href="#a0e35289bf9413c495bc99d369b37840a">More...</a><br/></td></tr>
+<tr class="memitem:a0e35289bf9413c495bc99d369b37840a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e35289bf9413c495bc99d369b37840a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a0e35289bf9413c495bc99d369b37840a">StaticString</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
+<tr class="memdesc:a0e35289bf9413c495bc99d369b37840a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the string from a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a>. <br/></td></tr>
 <tr class="separator:a0e35289bf9413c495bc99d369b37840a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab77524b899b77838dc7b88fe31506bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ab77524b899b77838dc7b88fe31506bf9">operator=</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
-<tr class="memdesc:ab77524b899b77838dc7b88fe31506bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the contents of a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a> to the string.  <a href="#ab77524b899b77838dc7b88fe31506bf9">More...</a><br/></td></tr>
+<tr class="memitem:ab77524b899b77838dc7b88fe31506bf9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab77524b899b77838dc7b88fe31506bf9"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ab77524b899b77838dc7b88fe31506bf9">operator=</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
+<tr class="memdesc:ab77524b899b77838dc7b88fe31506bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the contents of a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a> to the string. <br/></td></tr>
 <tr class="separator:ab77524b899b77838dc7b88fe31506bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8722a4de7f47236f259a4563cfddc7f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a8722a4de7f47236f259a4563cfddc7f8">operator=</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a> s)</td></tr>
-<tr class="memdesc:a8722a4de7f47236f259a4563cfddc7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies another string to this.  <a href="#a8722a4de7f47236f259a4563cfddc7f8">More...</a><br/></td></tr>
-<tr class="separator:a8722a4de7f47236f259a4563cfddc7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae01ca97fe3e5c6ed095668266c62dea3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ae01ca97fe3e5c6ed095668266c62dea3">operator=</a> (const char *c)</td></tr>
-<tr class="memdesc:ae01ca97fe3e5c6ed095668266c62dea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a const C-string to this.  <a href="#ae01ca97fe3e5c6ed095668266c62dea3">More...</a><br/></td></tr>
+<tr class="memitem:a93930b4532feb2646fdf766bbf4af446"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93930b4532feb2646fdf766bbf4af446"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a93930b4532feb2646fdf766bbf4af446">operator=</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;s)</td></tr>
+<tr class="memdesc:a93930b4532feb2646fdf766bbf4af446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies another string to this. <br/></td></tr>
+<tr class="separator:a93930b4532feb2646fdf766bbf4af446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd07ea1a80fac1e4d13ffe91e8ce2218"><td class="memTemplParams" colspan="2"><a class="anchor" id="abd07ea1a80fac1e4d13ffe91e8ce2218"></a>
+template&lt;uint32 nn&gt; </td></tr>
+<tr class="memitem:abd07ea1a80fac1e4d13ffe91e8ce2218"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; nn &gt; &amp;s)</td></tr>
+<tr class="separator:abd07ea1a80fac1e4d13ffe91e8ce2218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01ca97fe3e5c6ed095668266c62dea3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae01ca97fe3e5c6ed095668266c62dea3"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ae01ca97fe3e5c6ed095668266c62dea3">operator=</a> (const char *c)</td></tr>
+<tr class="memdesc:ae01ca97fe3e5c6ed095668266c62dea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a const C-string to this. <br/></td></tr>
 <tr class="separator:ae01ca97fe3e5c6ed095668266c62dea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d867b3fa673e549c7ec3e316432858e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a9d867b3fa673e549c7ec3e316432858e">operator=</a> (char *c)</td></tr>
-<tr class="memdesc:a9d867b3fa673e549c7ec3e316432858e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a C-string to this.  <a href="#a9d867b3fa673e549c7ec3e316432858e">More...</a><br/></td></tr>
+<tr class="memitem:a9d867b3fa673e549c7ec3e316432858e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d867b3fa673e549c7ec3e316432858e"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a9d867b3fa673e549c7ec3e316432858e">operator=</a> (char *c)</td></tr>
+<tr class="memdesc:a9d867b3fa673e549c7ec3e316432858e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a C-string to this. <br/></td></tr>
 <tr class="separator:a9d867b3fa673e549c7ec3e316432858e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4360f55c0003eac4b2bfc4b536034df1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a4360f55c0003eac4b2bfc4b536034df1">operator+</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;s)</td></tr>
-<tr class="memdesc:a4360f55c0003eac4b2bfc4b536034df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the contents of a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a> to this.  <a href="#a4360f55c0003eac4b2bfc4b536034df1">More...</a><br/></td></tr>
+<tr class="memitem:a61069b2faabd7c28cf36e29fbbf6fd42"><td class="memTemplParams" colspan="2"><a class="anchor" id="a61069b2faabd7c28cf36e29fbbf6fd42"></a>
+template&lt;uint32 nn&gt; </td></tr>
+<tr class="memitem:a61069b2faabd7c28cf36e29fbbf6fd42"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; nn &gt; ss)</td></tr>
+<tr class="separator:a61069b2faabd7c28cf36e29fbbf6fd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc80029dbca1e23cfed40b619ba23226"><td class="memTemplParams" colspan="2"><a class="anchor" id="abc80029dbca1e23cfed40b619ba23226"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abc80029dbca1e23cfed40b619ba23226"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (T i)</td></tr>
+<tr class="separator:abc80029dbca1e23cfed40b619ba23226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4360f55c0003eac4b2bfc4b536034df1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4360f55c0003eac4b2bfc4b536034df1"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a4360f55c0003eac4b2bfc4b536034df1">operator+</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;s)</td></tr>
+<tr class="memdesc:a4360f55c0003eac4b2bfc4b536034df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the contents of a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a> to this. <br/></td></tr>
 <tr class="separator:a4360f55c0003eac4b2bfc4b536034df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb7639e5db2fadf0f75c11279d56c012"><td class="memTemplParams" colspan="2">template&lt;uint32_t N&gt; </td></tr>
+<tr class="memitem:abb7639e5db2fadf0f75c11279d56c012"><td class="memTemplParams" colspan="2"><a class="anchor" id="abb7639e5db2fadf0f75c11279d56c012"></a>
+template&lt;uint32 N&gt; </td></tr>
 <tr class="memitem:abb7639e5db2fadf0f75c11279d56c012"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#abb7639e5db2fadf0f75c11279d56c012">operator+=</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;s)</td></tr>
-<tr class="memdesc:abb7639e5db2fadf0f75c11279d56c012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the contents of another string to this.  <a href="#abb7639e5db2fadf0f75c11279d56c012">More...</a><br/></td></tr>
+<tr class="memdesc:abb7639e5db2fadf0f75c11279d56c012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the contents of another string to this. <br/></td></tr>
 <tr class="separator:abb7639e5db2fadf0f75c11279d56c012"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5652d2ae09bac5f0f7dacb5d198f126d"><td class="memTemplParams" colspan="2">template&lt;uint32_t N&gt; </td></tr>
+<tr class="memitem:a5652d2ae09bac5f0f7dacb5d198f126d"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5652d2ae09bac5f0f7dacb5d198f126d"></a>
+template&lt;uint32 N&gt; </td></tr>
 <tr class="memitem:a5652d2ae09bac5f0f7dacb5d198f126d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a5652d2ae09bac5f0f7dacb5d198f126d">operator+=</a> (<a class="el" href="classetk_1_1_vector.html">Vector</a>&lt; N &gt; &amp;v)</td></tr>
-<tr class="memdesc:a5652d2ae09bac5f0f7dacb5d198f126d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends and nicely formats an <a class="el" href="classetk_1_1_vector.html">etk::Vector</a> to this.  <a href="#a5652d2ae09bac5f0f7dacb5d198f126d">More...</a><br/></td></tr>
+<tr class="memdesc:a5652d2ae09bac5f0f7dacb5d198f126d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends and nicely formats an <a class="el" href="classetk_1_1_vector.html">etk::Vector</a> to this. <br/></td></tr>
 <tr class="separator:a5652d2ae09bac5f0f7dacb5d198f126d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4989ff63067111d9febd227619417c2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a4989ff63067111d9febd227619417c2d">operator+=</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;s)</td></tr>
+<tr class="memitem:a4989ff63067111d9febd227619417c2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4989ff63067111d9febd227619417c2d"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (<a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;s)</td></tr>
 <tr class="separator:a4989ff63067111d9febd227619417c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af554e70798b8deee951fa22d3b73c08f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#af554e70798b8deee951fa22d3b73c08f">operator+=</a> (float f)</td></tr>
-<tr class="memdesc:af554e70798b8deee951fa22d3b73c08f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a float to this.  <a href="#af554e70798b8deee951fa22d3b73c08f">More...</a><br/></td></tr>
+<tr class="memitem:af554e70798b8deee951fa22d3b73c08f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af554e70798b8deee951fa22d3b73c08f"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#af554e70798b8deee951fa22d3b73c08f">operator+=</a> (float f)</td></tr>
+<tr class="memdesc:af554e70798b8deee951fa22d3b73c08f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a float to this. <br/></td></tr>
 <tr class="separator:af554e70798b8deee951fa22d3b73c08f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa40e2bed504c072623e6a656b3dc2cf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aa40e2bed504c072623e6a656b3dc2cf8">operator+=</a> (double f)</td></tr>
-<tr class="memdesc:aa40e2bed504c072623e6a656b3dc2cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a double to this.  <a href="#aa40e2bed504c072623e6a656b3dc2cf8">More...</a><br/></td></tr>
+<tr class="memitem:aa40e2bed504c072623e6a656b3dc2cf8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa40e2bed504c072623e6a656b3dc2cf8"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aa40e2bed504c072623e6a656b3dc2cf8">operator+=</a> (double f)</td></tr>
+<tr class="memdesc:aa40e2bed504c072623e6a656b3dc2cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a double to this. <br/></td></tr>
 <tr class="separator:aa40e2bed504c072623e6a656b3dc2cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbc2d25d1e5fb10024ada928e847dba6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#abbc2d25d1e5fb10024ada928e847dba6">operator+=</a> (int32_t f)</td></tr>
-<tr class="memdesc:abbc2d25d1e5fb10024ada928e847dba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an int32_t to this.  <a href="#abbc2d25d1e5fb10024ada928e847dba6">More...</a><br/></td></tr>
-<tr class="separator:abbc2d25d1e5fb10024ada928e847dba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bb75ede8fa54143ced44cc04df5a55a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a8bb75ede8fa54143ced44cc04df5a55a">operator+=</a> (uint32_t f)</td></tr>
-<tr class="memdesc:a8bb75ede8fa54143ced44cc04df5a55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a uint32_t to this.  <a href="#a8bb75ede8fa54143ced44cc04df5a55a">More...</a><br/></td></tr>
-<tr class="separator:a8bb75ede8fa54143ced44cc04df5a55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfc7bb9a1599d93a57ff082e3b598401"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#abfc7bb9a1599d93a57ff082e3b598401">operator+</a> (char *s)</td></tr>
+<tr class="memitem:a4766b095db2cd11e90d7f9615e5a88e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4766b095db2cd11e90d7f9615e5a88e9"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a4766b095db2cd11e90d7f9615e5a88e9">operator+=</a> (int32 f)</td></tr>
+<tr class="memdesc:a4766b095db2cd11e90d7f9615e5a88e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an int32 to this. <br/></td></tr>
+<tr class="separator:a4766b095db2cd11e90d7f9615e5a88e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61c8ded294faaddc6794fa5add9c8f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa61c8ded294faaddc6794fa5add9c8f5"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aa61c8ded294faaddc6794fa5add9c8f5">operator+=</a> (uint32 f)</td></tr>
+<tr class="memdesc:aa61c8ded294faaddc6794fa5add9c8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a uint32 to this. <br/></td></tr>
+<tr class="separator:aa61c8ded294faaddc6794fa5add9c8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc7bb9a1599d93a57ff082e3b598401"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfc7bb9a1599d93a57ff082e3b598401"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (char *s)</td></tr>
 <tr class="separator:abfc7bb9a1599d93a57ff082e3b598401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8951fba8877efcb79cd492d5b33eebc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a8951fba8877efcb79cd492d5b33eebc0">operator+=</a> (char *s)</td></tr>
+<tr class="memitem:a2ab627c84480262d218a89662b3b06ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ab627c84480262d218a89662b3b06ce"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (char c)</td></tr>
+<tr class="separator:a2ab627c84480262d218a89662b3b06ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8951fba8877efcb79cd492d5b33eebc0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8951fba8877efcb79cd492d5b33eebc0"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (char *s)</td></tr>
 <tr class="separator:a8951fba8877efcb79cd492d5b33eebc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad15a9bdbb3ad0933b5425aaa6872bd10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ad15a9bdbb3ad0933b5425aaa6872bd10">operator+</a> (const char *s)</td></tr>
+<tr class="memitem:ad15a9bdbb3ad0933b5425aaa6872bd10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad15a9bdbb3ad0933b5425aaa6872bd10"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const char *s)</td></tr>
 <tr class="separator:ad15a9bdbb3ad0933b5425aaa6872bd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9684711c18de43451599bb490fd548b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#af9684711c18de43451599bb490fd548b">operator+=</a> (const char *s)</td></tr>
+<tr class="memitem:af9684711c18de43451599bb490fd548b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9684711c18de43451599bb490fd548b"></a>
+<a class="el" href="classetk_1_1_static_string.html">StaticString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const char *s)</td></tr>
 <tr class="separator:af9684711c18de43451599bb490fd548b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a382c19ae16972a29ec1b17e46c1f9a68"><td class="memItemLeft" align="right" valign="top">char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a382c19ae16972a29ec1b17e46c1f9a68">operator[]</a> (uint16_t p)</td></tr>
-<tr class="memdesc:a382c19ae16972a29ec1b17e46c1f9a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">This operator overload allows you to access and modify individual characters in the string.  <a href="#a382c19ae16972a29ec1b17e46c1f9a68">More...</a><br/></td></tr>
-<tr class="separator:a382c19ae16972a29ec1b17e46c1f9a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9392fc07494ee308d271717c250d3cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ac9392fc07494ee308d271717c250d3cf">operator==</a> (const char *c)</td></tr>
-<tr class="memdesc:ac9392fc07494ee308d271717c250d3cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this to a const C-string.  <a href="#ac9392fc07494ee308d271717c250d3cf">More...</a><br/></td></tr>
+<tr class="memitem:a2d00c56fe2e91c019ba5732c7e6d17eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d00c56fe2e91c019ba5732c7e6d17eb"></a>
+char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a2d00c56fe2e91c019ba5732c7e6d17eb">operator[]</a> (uint32 p)</td></tr>
+<tr class="memdesc:a2d00c56fe2e91c019ba5732c7e6d17eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This operator overload allows you to access and modify individual characters in the string. <br/></td></tr>
+<tr class="separator:a2d00c56fe2e91c019ba5732c7e6d17eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9392fc07494ee308d271717c250d3cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9392fc07494ee308d271717c250d3cf"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ac9392fc07494ee308d271717c250d3cf">operator==</a> (const char *c)</td></tr>
+<tr class="memdesc:ac9392fc07494ee308d271717c250d3cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this to a const C-string. <br/></td></tr>
 <tr class="separator:ac9392fc07494ee308d271717c250d3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1ec650a682fbbbfe89a625a5e997fb1"><td class="memTemplParams" colspan="2">template&lt;uint32_t N&gt; </td></tr>
-<tr class="memitem:aa1ec650a682fbbbfe89a625a5e997fb1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aa1ec650a682fbbbfe89a625a5e997fb1">compare</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;s, uint32_t max_len)</td></tr>
-<tr class="memdesc:aa1ec650a682fbbbfe89a625a5e997fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this to another <a class="el" href="classetk_1_1_static_string.html" title="StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns...">StaticString</a> up to max_len characters.  <a href="#aa1ec650a682fbbbfe89a625a5e997fb1">More...</a><br/></td></tr>
-<tr class="separator:aa1ec650a682fbbbfe89a625a5e997fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a660c00de50b340316ca9f91b7b95103a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a660c00de50b340316ca9f91b7b95103a">compare</a> (const char *s, uint32_t max_len)</td></tr>
-<tr class="memdesc:a660c00de50b340316ca9f91b7b95103a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this to const C-string up to max_len characters.  <a href="#a660c00de50b340316ca9f91b7b95103a">More...</a><br/></td></tr>
-<tr class="separator:a660c00de50b340316ca9f91b7b95103a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae67693e7f2226f2bbbfdd3841c56abe5"><td class="memTemplParams" colspan="2">template&lt;uint32_t N&gt; </td></tr>
-<tr class="memitem:ae67693e7f2226f2bbbfdd3841c56abe5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ae67693e7f2226f2bbbfdd3841c56abe5">compare</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;s)</td></tr>
+<tr class="memitem:abb40d72d70ffadd308e325165730b86f"><td class="memTemplParams" colspan="2"><a class="anchor" id="abb40d72d70ffadd308e325165730b86f"></a>
+template&lt;uint32 N&gt; </td></tr>
+<tr class="memitem:abb40d72d70ffadd308e325165730b86f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#abb40d72d70ffadd308e325165730b86f">compare</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;s, uint32 max_len)</td></tr>
+<tr class="memdesc:abb40d72d70ffadd308e325165730b86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this to another <a class="el" href="classetk_1_1_static_string.html" title="StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buf overruns...">StaticString</a> up to max_len characters. <br/></td></tr>
+<tr class="separator:abb40d72d70ffadd308e325165730b86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c4026d012626c7ea92e3e14b30c5739"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c4026d012626c7ea92e3e14b30c5739"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a2c4026d012626c7ea92e3e14b30c5739">compare</a> (const char *s, uint32 max_len)</td></tr>
+<tr class="memdesc:a2c4026d012626c7ea92e3e14b30c5739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this to const C-string up to max_len characters. <br/></td></tr>
+<tr class="separator:a2c4026d012626c7ea92e3e14b30c5739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67693e7f2226f2bbbfdd3841c56abe5"><td class="memTemplParams" colspan="2"><a class="anchor" id="ae67693e7f2226f2bbbfdd3841c56abe5"></a>
+template&lt;uint32 N&gt; </td></tr>
+<tr class="memitem:ae67693e7f2226f2bbbfdd3841c56abe5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>compare</b> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;s)</td></tr>
 <tr class="separator:ae67693e7f2226f2bbbfdd3841c56abe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ed58658bfa5e77ca4609fa213d6fc0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a0ed58658bfa5e77ca4609fa213d6fc0d">compare</a> (const char *s)</td></tr>
+<tr class="memitem:a0ed58658bfa5e77ca4609fa213d6fc0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ed58658bfa5e77ca4609fa213d6fc0d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>compare</b> (const char *s)</td></tr>
 <tr class="separator:a0ed58658bfa5e77ca4609fa213d6fc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97a8dd70c2cc5a59a38315a36e315cb9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a97a8dd70c2cc5a59a38315a36e315cb9">atof</a> ()</td></tr>
-<tr class="memdesc:a97a8dd70c2cc5a59a38315a36e315cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to a floating point number.  <a href="#a97a8dd70c2cc5a59a38315a36e315cb9">More...</a><br/></td></tr>
-<tr class="separator:a97a8dd70c2cc5a59a38315a36e315cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3104728d8f19ece98d28d014f8f786d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a3104728d8f19ece98d28d014f8f786d4">atoi</a> ()</td></tr>
-<tr class="memdesc:a3104728d8f19ece98d28d014f8f786d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to an integer.  <a href="#a3104728d8f19ece98d28d014f8f786d4">More...</a><br/></td></tr>
-<tr class="separator:a3104728d8f19ece98d28d014f8f786d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ecab4b0438711fa106689f0bc5929b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a35ecab4b0438711fa106689f0bc5929b">length</a> ()</td></tr>
-<tr class="memdesc:a35ecab4b0438711fa106689f0bc5929b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of characters in the string.  <a href="#a35ecab4b0438711fa106689f0bc5929b">More...</a><br/></td></tr>
-<tr class="separator:a35ecab4b0438711fa106689f0bc5929b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ddc4131a3eb881f56860cd563d1e537"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a5ddc4131a3eb881f56860cd563d1e537">clear</a> ()</td></tr>
-<tr class="memdesc:a5ddc4131a3eb881f56860cd563d1e537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all characters to null.  <a href="#a5ddc4131a3eb881f56860cd563d1e537">More...</a><br/></td></tr>
+<tr class="memitem:afd19d4edc8dd7c8439129268c4cf5eee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#afd19d4edc8dd7c8439129268c4cf5eee">atof</a> (uint16 p=0)</td></tr>
+<tr class="memdesc:afd19d4edc8dd7c8439129268c4cf5eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to a floating point number.  <a href="#afd19d4edc8dd7c8439129268c4cf5eee">More...</a><br/></td></tr>
+<tr class="separator:afd19d4edc8dd7c8439129268c4cf5eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac250c25e8e6ebadb802e48702abbc3cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ac250c25e8e6ebadb802e48702abbc3cb">atoi</a> (uint16 p=0)</td></tr>
+<tr class="memdesc:ac250c25e8e6ebadb802e48702abbc3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to an integer.  <a href="#ac250c25e8e6ebadb802e48702abbc3cb">More...</a><br/></td></tr>
+<tr class="separator:ac250c25e8e6ebadb802e48702abbc3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f58ade28fd14f3c30c42147cc8245f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30f58ade28fd14f3c30c42147cc8245f"></a>
+uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a30f58ade28fd14f3c30c42147cc8245f">length</a> ()</td></tr>
+<tr class="memdesc:a30f58ade28fd14f3c30c42147cc8245f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of characters in the string. <br/></td></tr>
+<tr class="separator:a30f58ade28fd14f3c30c42147cc8245f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ddc4131a3eb881f56860cd563d1e537"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ddc4131a3eb881f56860cd563d1e537"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a5ddc4131a3eb881f56860cd563d1e537">clear</a> ()</td></tr>
+<tr class="memdesc:a5ddc4131a3eb881f56860cd563d1e537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all characters to null. <br/></td></tr>
 <tr class="separator:a5ddc4131a3eb881f56860cd563d1e537"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21e9cc28db85354111ec1081e4f96400"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a21e9cc28db85354111ec1081e4f96400">operator==</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
+<tr class="memitem:a21e9cc28db85354111ec1081e4f96400"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21e9cc28db85354111ec1081e4f96400"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
 <tr class="separator:a21e9cc28db85354111ec1081e4f96400"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9905dea14fe61bbb43074b6844c1715"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aa9905dea14fe61bbb43074b6844c1715">operator!=</a> (const char *c)</td></tr>
+<tr class="memitem:aa9905dea14fe61bbb43074b6844c1715"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9905dea14fe61bbb43074b6844c1715"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const char *c)</td></tr>
 <tr class="separator:aa9905dea14fe61bbb43074b6844c1715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab91fc0104f2fc206bd62249d4364f205"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ab91fc0104f2fc206bd62249d4364f205">operator!=</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
+<tr class="memitem:ab91fc0104f2fc206bd62249d4364f205"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab91fc0104f2fc206bd62249d4364f205"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (<a class="el" href="classetk_1_1_rope.html">Rope</a> r)</td></tr>
 <tr class="separator:ab91fc0104f2fc206bd62249d4364f205"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a154223efd5135ba6ea4e553494d88753"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classetk_1_1_rope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a154223efd5135ba6ea4e553494d88753">get_rope</a> ()</td></tr>
+<tr class="memitem:a154223efd5135ba6ea4e553494d88753"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a154223efd5135ba6ea4e553494d88753"></a>
+<a class="el" href="classetk_1_1_rope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><b>get_rope</b> ()</td></tr>
 <tr class="separator:a154223efd5135ba6ea4e553494d88753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ae54d52d386cf3817388a4ea6742f40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a8ae54d52d386cf3817388a4ea6742f40">insert</a> (char c, uint32_t pos)</td></tr>
-<tr class="memdesc:a8ae54d52d386cf3817388a4ea6742f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a character in a position.  <a href="#a8ae54d52d386cf3817388a4ea6742f40">More...</a><br/></td></tr>
-<tr class="separator:a8ae54d52d386cf3817388a4ea6742f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d9a7ff340f49a308770c1d45c7b96e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a6d9a7ff340f49a308770c1d45c7b96e4">remove</a> (uint32_t pos)</td></tr>
-<tr class="memdesc:a6d9a7ff340f49a308770c1d45c7b96e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a particular from positon pos.  <a href="#a6d9a7ff340f49a308770c1d45c7b96e4">More...</a><br/></td></tr>
-<tr class="separator:a6d9a7ff340f49a308770c1d45c7b96e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d3fb4e9dd789f9ab90fdd20d31fa683"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a0d3fb4e9dd789f9ab90fdd20d31fa683">erase</a> (uint32_t pos, uint32_t len)</td></tr>
-<tr class="memdesc:a0d3fb4e9dd789f9ab90fdd20d31fa683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases a number of characters starting at position pos.  <a href="#a0d3fb4e9dd789f9ab90fdd20d31fa683">More...</a><br/></td></tr>
-<tr class="separator:a0d3fb4e9dd789f9ab90fdd20d31fa683"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bfd64eb5df0f7162e3ee57542c23ba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a1bfd64eb5df0f7162e3ee57542c23ba3">to_upper</a> ()</td></tr>
-<tr class="memdesc:a1bfd64eb5df0f7162e3ee57542c23ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to upper case.  <a href="#a1bfd64eb5df0f7162e3ee57542c23ba3">More...</a><br/></td></tr>
+<tr class="memitem:af33799da9ffff7ea36a26e8323f7a01a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af33799da9ffff7ea36a26e8323f7a01a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#af33799da9ffff7ea36a26e8323f7a01a">insert</a> (char c, uint32 pos)</td></tr>
+<tr class="memdesc:af33799da9ffff7ea36a26e8323f7a01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a character in a position. <br/></td></tr>
+<tr class="separator:af33799da9ffff7ea36a26e8323f7a01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b9c0fc0830278d0fdc7da0735d19d49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b9c0fc0830278d0fdc7da0735d19d49"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a9b9c0fc0830278d0fdc7da0735d19d49">remove</a> (uint32 pos)</td></tr>
+<tr class="memdesc:a9b9c0fc0830278d0fdc7da0735d19d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a character rom position pos. <br/></td></tr>
+<tr class="separator:a9b9c0fc0830278d0fdc7da0735d19d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebe736486f4bee17a3baebe58a11561c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebe736486f4bee17a3baebe58a11561c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aebe736486f4bee17a3baebe58a11561c">erase</a> (uint32 pos, uint32 len)</td></tr>
+<tr class="memdesc:aebe736486f4bee17a3baebe58a11561c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases a number of characters starting at position pos. <br/></td></tr>
+<tr class="separator:aebe736486f4bee17a3baebe58a11561c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1ac1c4e3b0388694949c98ee05cf2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a1ac1c4e3b0388694949c98ee05cf2d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fill</b> (char c, uint32 pos, uint32 len)</td></tr>
+<tr class="separator:a6a1ac1c4e3b0388694949c98ee05cf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bfd64eb5df0f7162e3ee57542c23ba3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bfd64eb5df0f7162e3ee57542c23ba3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a1bfd64eb5df0f7162e3ee57542c23ba3">to_upper</a> ()</td></tr>
+<tr class="memdesc:a1bfd64eb5df0f7162e3ee57542c23ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to upper case. <br/></td></tr>
 <tr class="separator:a1bfd64eb5df0f7162e3ee57542c23ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d09b6cf3621102f7a5c3e0fea06591b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a2d09b6cf3621102f7a5c3e0fea06591b">to_lower</a> ()</td></tr>
-<tr class="memdesc:a2d09b6cf3621102f7a5c3e0fea06591b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to lower case.  <a href="#a2d09b6cf3621102f7a5c3e0fea06591b">More...</a><br/></td></tr>
+<tr class="memitem:a2d09b6cf3621102f7a5c3e0fea06591b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d09b6cf3621102f7a5c3e0fea06591b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a2d09b6cf3621102f7a5c3e0fea06591b">to_lower</a> ()</td></tr>
+<tr class="memdesc:a2d09b6cf3621102f7a5c3e0fea06591b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the string to lower case. <br/></td></tr>
 <tr class="separator:a2d09b6cf3621102f7a5c3e0fea06591b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa775f517938685482baa772fb6cb1734"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aa775f517938685482baa772fb6cb1734">c_str</a> ()</td></tr>
-<tr class="memdesc:aa775f517938685482baa772fb6cb1734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the C-string buffer.  <a href="#aa775f517938685482baa772fb6cb1734">More...</a><br/></td></tr>
+<tr class="memitem:a63047d1ab54d84e4fda48b8e7bfd88fd"><td class="memTemplParams" colspan="2"><a class="anchor" id="a63047d1ab54d84e4fda48b8e7bfd88fd"></a>
+template&lt;uint32 nn&gt; </td></tr>
+<tr class="memitem:a63047d1ab54d84e4fda48b8e7bfd88fd"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator StaticString&lt; nn &gt;</b> ()</td></tr>
+<tr class="separator:a63047d1ab54d84e4fda48b8e7bfd88fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa775f517938685482baa772fb6cb1734"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa775f517938685482baa772fb6cb1734"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#aa775f517938685482baa772fb6cb1734">c_str</a> ()</td></tr>
+<tr class="memdesc:aa775f517938685482baa772fb6cb1734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the C-string buf. <br/></td></tr>
 <tr class="separator:aa775f517938685482baa772fb6cb1734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac305f5f280538b783ef70865c173b14a"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ac305f5f280538b783ef70865c173b14a">raw_memory</a> ()</td></tr>
 <tr class="separator:ac305f5f280538b783ef70865c173b14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a003d54ec39d1a35ef5b1c3ba7c88dee2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a003d54ec39d1a35ef5b1c3ba7c88dee2">sub_string</a> (char *buf, uint32_t start, uint32_t len)</td></tr>
-<tr class="separator:a003d54ec39d1a35ef5b1c3ba7c88dee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58b9a096ce1d77c2c13df89418dacd22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a58b9a096ce1d77c2c13df89418dacd22">sub_string</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;rope, uint32_t start, uint32_t len)</td></tr>
-<tr class="separator:a58b9a096ce1d77c2c13df89418dacd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a262a8ed592e1ab95151c6ee9f3ab149c"><td class="memTemplParams" colspan="2">template&lt;uint32_t N&gt; </td></tr>
-<tr class="memitem:a262a8ed592e1ab95151c6ee9f3ab149c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a262a8ed592e1ab95151c6ee9f3ab149c">sub_string</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;string, uint32_t start, uint32_t len)</td></tr>
-<tr class="separator:a262a8ed592e1ab95151c6ee9f3ab149c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af253b76226aefea02ab75f29ee674c5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#af253b76226aefea02ab75f29ee674c5e">sub_string</a> (char *buf, uint32 start, uint32 len)</td></tr>
+<tr class="separator:af253b76226aefea02ab75f29ee674c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a2a9793853352a96b2522ab7938132"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#a42a2a9793853352a96b2522ab7938132">sub_string</a> (<a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;rope, uint32 start, uint32 len)</td></tr>
+<tr class="separator:a42a2a9793853352a96b2522ab7938132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1bddc20910d512e0fe79823a3675697"><td class="memTemplParams" colspan="2">template&lt;uint32 N&gt; </td></tr>
+<tr class="memitem:ab1bddc20910d512e0fe79823a3675697"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classetk_1_1_static_string.html#ab1bddc20910d512e0fe79823a3675697">sub_string</a> (<a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;string, uint32 start, uint32 len)</td></tr>
+<tr class="separator:ab1bddc20910d512e0fe79823a3675697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9caee6af911467e670a539af39117648"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9caee6af911467e670a539af39117648"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reverse</b> ()</td></tr>
+<tr class="separator:a9caee6af911467e670a539af39117648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;uint32_t L&gt;<br/>
+<div class="textblock"><h3>template&lt;uint32 L&gt;<br/>
 class etk::StaticString&lt; L &gt;</h3>
 
-<p>StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns. StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways. </p>
-<div class="fragment"><div class="line"><span class="preprocessor"> #include &lt;<a class="code" href="etk_8h.html">etk/etk.h</a>&gt;</span></div>
+<p>StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buf overruns. StaticStrings also provide a lot of the convenience of std::strings, although they do differ from std::strings in a number of ways. </p>
+<div class="fragment"><div class="line"><span class="preprocessor"> #include &lt;etk/etk.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keyword">using namespace </span>std;</div>
@@ -236,7 +293,7 @@ class etk::StaticString&lt; L &gt;</h3>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classetk_1_1_static_string.html">etk::StaticString&lt;100&gt;</a> ss;</div>
 <div class="line">    ss = <span class="stringliteral">&quot;Hello world!&quot;</span>; <span class="comment">//basic string assignment</span></div>
-<div class="line">    </div>
+<div class="line"></div>
 <div class="line">    ss.<a class="code" href="classetk_1_1_static_string.html#a5ddc4131a3eb881f56860cd563d1e537">clear</a>(); <span class="comment">//clear string and start again</span></div>
 <div class="line">    <span class="comment">//assign a bunch of stuff.</span></div>
 <div class="line">    ss += 56;</div>
@@ -244,16 +301,16 @@ class etk::StaticString&lt; L &gt;</h3>
 <div class="line">    ss += 5.4;</div>
 <div class="line">    ss += <span class="stringliteral">&quot; = &quot;</span>;</div>
 <div class="line">    ss += 56+5.4;</div>
-<div class="line">    </div>
+<div class="line"></div>
 <div class="line">    <span class="comment">//that&#39;s a big clunky. here&#39;s another option.</span></div>
 <div class="line">    ss.<a class="code" href="classetk_1_1_static_string.html#a5ddc4131a3eb881f56860cd563d1e537">clear</a>();</div>
-<div class="line">    ss.<a class="code" href="classetk_1_1_static_string.html#a154223efd5135ba6ea4e553494d88753">get_rope</a>() &lt;&lt; 56 &lt;&lt; <span class="stringliteral">&quot; + &quot;</span> &lt;&lt; 5.4  &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; 56+5.4;</div>
+<div class="line">    ss.get_rope() &lt;&lt; 56 &lt;&lt; <span class="stringliteral">&quot; + &quot;</span> &lt;&lt; 5.4  &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; 56+5.4;</div>
 <div class="line">    cout &lt;&lt; ss.<a class="code" href="classetk_1_1_static_string.html#aa775f517938685482baa772fb6cb1734">c_str</a>() &lt;&lt; endl;</div>
-<div class="line">    </div>
+<div class="line"></div>
 <div class="line">    <a class="code" href="classetk_1_1_static_string.html">etk::StaticString&lt;20&gt;</a> sub;</div>
-<div class="line">    ss.<a class="code" href="classetk_1_1_static_string.html#a003d54ec39d1a35ef5b1c3ba7c88dee2">sub_string</a>(sub, 5, 4);</div>
+<div class="line">    ss.<a class="code" href="classetk_1_1_static_string.html#af253b76226aefea02ab75f29ee674c5e">sub_string</a>(sub, 5, 4);</div>
 <div class="line">    <span class="comment">//sub now contains &quot;5.40&quot;</span></div>
-<div class="line">    <span class="keywordtype">float</span> f = sub.<a class="code" href="classetk_1_1_static_string.html#a97a8dd70c2cc5a59a38315a36e315cb9">atof</a>();</div>
+<div class="line">    <span class="keywordtype">float</span> f = sub.<a class="code" href="classetk_1_1_static_string.html#afd19d4edc8dd7c8439129268c4cf5eee">atof</a>();</div>
 <div class="line">    cout &lt;&lt; f &lt;&lt; endl;</div>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -263,36 +320,11 @@ class etk::StaticString&lt; L &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1f83e4dfbd9d0d890b55bd6a8d847c71"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::<a class="el" href="classetk_1_1_static_string.html">StaticString</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a981a44c389ceafb80a62fe4fe395e126"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
+template&lt;uint32 L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -318,40 +350,12 @@ template&lt;uint32_t L&gt; </div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a class="anchor" id="a0e35289bf9413c495bc99d369b37840a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::<a class="el" href="classetk_1_1_static_string.html">StaticString</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_rope.html">Rope</a>&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialises the string from a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a>. </p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a97a8dd70c2cc5a59a38315a36e315cb9"></a>
+<a class="anchor" id="afd19d4edc8dd7c8439129268c4cf5eee"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
+template&lt;uint32 L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -359,7 +363,8 @@ template&lt;uint32_t L&gt; </div>
         <tr>
           <td class="memname">float <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::atof </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint16&#160;</td>
+          <td class="paramname"><em>p</em> = <code>0</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -372,16 +377,16 @@ template&lt;uint32_t L&gt; </div>
 
 <p>Converts the string to a floating point number. </p>
 <div class="fragment"><div class="line"><a class="code" href="classetk_1_1_static_string.html">etk::StaticString&lt;20&gt;</a> ss(<span class="stringliteral">&quot;20.65&quot;</span>);</div>
-<div class="line"><span class="keywordtype">float</span> f = ss.<a class="code" href="classetk_1_1_static_string.html#a97a8dd70c2cc5a59a38315a36e315cb9">atof</a>();</div>
+<div class="line"><span class="keywordtype">float</span> f = ss.<a class="code" href="classetk_1_1_static_string.html#afd19d4edc8dd7c8439129268c4cf5eee">atof</a>();</div>
 <div class="line"><span class="comment">//f == 20.65f</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a class="anchor" id="a3104728d8f19ece98d28d014f8f786d4"></a>
+<a class="anchor" id="ac250c25e8e6ebadb802e48702abbc3cb"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
+template&lt;uint32 L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -389,7 +394,8 @@ template&lt;uint32_t L&gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::atoi </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint16&#160;</td>
+          <td class="paramname"><em>p</em> = <code>0</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -402,906 +408,16 @@ template&lt;uint32_t L&gt; </div>
 
 <p>Converts the string to an integer. </p>
 <div class="fragment"><div class="line"><a class="code" href="classetk_1_1_static_string.html">etk::StaticString&lt;20&gt;</a> ss(<span class="stringliteral">&quot;20.65&quot;</span>);</div>
-<div class="line"><span class="keywordtype">int</span> f = ss.<a class="code" href="classetk_1_1_static_string.html#a97a8dd70c2cc5a59a38315a36e315cb9">atof</a>();</div>
+<div class="line"><span class="keywordtype">int</span> f = ss.<a class="code" href="classetk_1_1_static_string.html#afd19d4edc8dd7c8439129268c4cf5eee">atof</a>();</div>
 <div class="line"><span class="comment">//f == 20</span></div>
 </div><!-- fragment --> 
-</div>
-</div>
-<a class="anchor" id="aa775f517938685482baa772fb6cb1734"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::c_str </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a pointer to the C-string buffer. </p>
-
-</div>
-</div>
-<a class="anchor" id="a5ddc4131a3eb881f56860cd563d1e537"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets all characters to null. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa1ec650a682fbbbfe89a625a5e997fb1"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<div class="memtemplate">
-template&lt;uint32_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::compare </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>max_len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compares this to another <a class="el" href="classetk_1_1_static_string.html" title="StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns...">StaticString</a> up to max_len characters. </p>
-
-</div>
-</div>
-<a class="anchor" id="a660c00de50b340316ca9f91b7b95103a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::compare </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>max_len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compares this to const C-string up to max_len characters. </p>
-
-</div>
-</div>
-<a class="anchor" id="ae67693e7f2226f2bbbfdd3841c56abe5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<div class="memtemplate">
-template&lt;uint32_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::compare </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0ed58658bfa5e77ca4609fa213d6fc0d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::compare </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0d3fb4e9dd789f9ab90fdd20d31fa683"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::erase </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Erases a number of characters starting at position pos. </p>
-
-</div>
-</div>
-<a class="anchor" id="a154223efd5135ba6ea4e553494d88753"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_rope.html">Rope</a> <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::get_rope </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8ae54d52d386cf3817388a4ea6742f40"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::insert </td>
-          <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>pos</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Inserts a character in a position. </p>
-
-</div>
-</div>
-<a class="anchor" id="a35ecab4b0438711fa106689f0bc5929b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::length </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of characters in the string. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa9905dea14fe61bbb43074b6844c1715"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab91fc0104f2fc206bd62249d4364f205"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator!= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_rope.html">Rope</a>&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4360f55c0003eac4b2bfc4b536034df1"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+ </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends the contents of a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a> to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="abfc7bb9a1599d93a57ff082e3b598401"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad15a9bdbb3ad0933b5425aaa6872bd10"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abb7639e5db2fadf0f75c11279d56c012"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<div class="memtemplate">
-template&lt;uint32_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends the contents of another string to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="a5652d2ae09bac5f0f7dacb5d198f126d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<div class="memtemplate">
-template&lt;uint32_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_vector.html">Vector</a>&lt; N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends and nicely formats an <a class="el" href="classetk_1_1_vector.html">etk::Vector</a> to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="a4989ff63067111d9febd227619417c2d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_rope.html">Rope</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af554e70798b8deee951fa22d3b73c08f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends a float to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa40e2bed504c072623e6a656b3dc2cf8"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends a double to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="abbc2d25d1e5fb10024ada928e847dba6"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends an int32_t to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="a8bb75ede8fa54143ced44cc04df5a55a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends a uint32_t to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="a8951fba8877efcb79cd492d5b33eebc0"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af9684711c18de43451599bb490fd548b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab77524b899b77838dc7b88fe31506bf9"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_rope.html">Rope</a>&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Assigns the contents of a <a class="el" href="classetk_1_1_rope.html" title="WHY ROPE? It&#39;s like a string, only more robust. ">Rope</a> to the string. </p>
-
-</div>
-</div>
-<a class="anchor" id="a8722a4de7f47236f259a4563cfddc7f8"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&lt; L &gt;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies another string to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="ae01ca97fe3e5c6ed095668266c62dea3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies a const C-string to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="a9d867b3fa673e549c7ec3e316432858e"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classetk_1_1_static_string.html">StaticString</a>&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies a C-string to this. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac9392fc07494ee308d271717c250d3cf"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compares this to a const C-string. </p>
-
-</div>
-</div>
-<a class="anchor" id="a21e9cc28db85354111ec1081e4f96400"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator== </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classetk_1_1_rope.html">Rope</a>&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a382c19ae16972a29ec1b17e46c1f9a68"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char&amp; <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This operator overload allows you to access and modify individual characters in the string. </p>
-
 </div>
 </div>
 <a class="anchor" id="ac305f5f280538b783ef70865c173b14a"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
+template&lt;uint32 L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1319,43 +435,15 @@ template&lt;uint32_t L&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a pointer to the raw memory used by <a class="el" href="classetk_1_1_static_string.html" title="StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buffer overruns...">StaticString</a> </p>
+<p>Returns a pointer to the raw memory used by <a class="el" href="classetk_1_1_static_string.html" title="StaticStrings are a safer alternative to C-strings as StaticStrings are immune to buf overruns...">StaticString</a> </p>
 
 </div>
 </div>
-<a class="anchor" id="a6d9a7ff340f49a308770c1d45c7b96e4"></a>
+<a class="anchor" id="af253b76226aefea02ab75f29ee674c5e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::remove </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes a particular from positon pos. </p>
-
-</div>
-</div>
-<a class="anchor" id="a003d54ec39d1a35ef5b1c3ba7c88dee2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
+template&lt;uint32 L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1369,13 +457,13 @@ template&lt;uint32_t L&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint32&#160;</td>
           <td class="paramname"><em>start</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint32&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -1394,11 +482,11 @@ template&lt;uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a58b9a096ce1d77c2c13df89418dacd22"></a>
+<a class="anchor" id="a42a2a9793853352a96b2522ab7938132"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
+template&lt;uint32 L&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1412,13 +500,13 @@ template&lt;uint32_t L&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint32&#160;</td>
           <td class="paramname"><em>start</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint32&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -1437,13 +525,13 @@ template&lt;uint32_t L&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a262a8ed592e1ab95151c6ee9f3ab149c"></a>
+<a class="anchor" id="ab1bddc20910d512e0fe79823a3675697"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
+template&lt;uint32 L&gt; </div>
 <div class="memtemplate">
-template&lt;uint32_t N&gt; </div>
+template&lt;uint32 N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1457,13 +545,13 @@ template&lt;uint32_t N&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint32&#160;</td>
           <td class="paramname"><em>start</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint32&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -1482,67 +570,13 @@ template&lt;uint32_t N&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2d09b6cf3621102f7a5c3e0fea06591b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::to_lower </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the string to lower case. </p>
-
-</div>
-</div>
-<a class="anchor" id="a1bfd64eb5df0f7162e3ee57542c23ba3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint32_t L&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classetk_1_1_static_string.html">etk::StaticString</a>&lt; L &gt;::to_upper </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the string to upper case. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>inc/etk/<a class="el" href="staticstring_8h_source.html">staticstring.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 20:04:43 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
