@@ -236,6 +236,15 @@ void set_array(auto& ar, auto item, uint32 len)
         ar[i] = item;
 }
 
+void zero_object(auto& obj)
+{
+    void* vptr = static_cast<void*>(&obj);
+    uint8* ptr = static_cast<uint8*>(vptr);
+
+    for(uint32 i = 0; i < sizeof(obj); i++)
+        ptr[i] = 0;
+}
+
 /**
  * \brief Little trick function used to silence warnings about unused variables that are
  * , for whatever reason, required to be unused.
