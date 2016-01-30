@@ -114,39 +114,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>etk</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, u<span class="keywordtype">int</span>32 L&gt; <span class="keyword">class </span>List</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classetk_1_1_list.html">   39</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, u<span class="keywordtype">int</span>32 L&gt; <span class="keyword">class </span><a class="code" href="classetk_1_1_list.html">List</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    List()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classetk_1_1_list.html">List</a>()</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        list_end = -1;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ~List()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ~<a class="code" href="classetk_1_1_list.html">List</a>()</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        T* pt = (T*)space;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>(); i++)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>(); i++)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            (&amp;pt[i])-&gt;~T();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    List(List&amp; list)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classetk_1_1_list.html">List</a>(<a class="code" href="classetk_1_1_list.html">List</a>&amp; list)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <span class="keyword">sizeof</span>(space); i++)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            space[i] = list.space[i];</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        list_end = list.list_end;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    List(<span class="keyword">const</span> List&amp; list)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classetk_1_1_list.html">List</a>(<span class="keyword">const</span> <a class="code" href="classetk_1_1_list.html">List</a>&amp; list)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <span class="keyword">sizeof</span>(space); i++)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            space[i] = list.space[i];</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        list_end = list.list_end;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">class </span>Iterator</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classetk_1_1_list_1_1_iterator.html">   82</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classetk_1_1_list_1_1_iterator.html">Iterator</a></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span>List;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classetk_1_1_list.html">List</a>;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        Iterator(List&amp; list) : list(&amp;list)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>(<a class="code" href="classetk_1_1_list.html">List</a>&amp; list) : list(&amp;list)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            pos = 0;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
@@ -156,31 +156,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> (*list)[pos];</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        Iterator&amp; operator++ ()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="classetk_1_1_list_1_1_iterator.html">Iterator</a>&amp; operator++ ()</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            pos++;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        Iterator operator++(<span class="keywordtype">int</span>)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="classetk_1_1_list_1_1_iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span>)</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            Iterator iter(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="classetk_1_1_list_1_1_iterator.html">Iterator</a> iter(*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            ++(*this);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">return</span> iter;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">bool</span> operator==(Iterator iter)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">bool</span> operator==(<a class="code" href="classetk_1_1_list_1_1_iterator.html">Iterator</a> iter)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> (pos == iter.pos);</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">bool</span> operator!=(Iterator iter)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">bool</span> operator!=(<a class="code" href="classetk_1_1_list_1_1_iterator.html">Iterator</a> iter)</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">return</span> (pos != iter.pos);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        List* list;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="classetk_1_1_list.html">List</a>* list;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        uint32 pos;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    };</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
@@ -201,7 +201,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27">  148</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_list.html#a45df48bc3bb87c2dd26e56f51115ab27">append</a>(T t)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>() &lt; L)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>() &lt; L)</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        {</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            list_end++;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            T* pt = (T*)space;</div>
@@ -212,10 +212,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classetk_1_1_list.html#a95d6852055e5669632da51c6aa60e949">  164</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_list.html#a95d6852055e5669632da51c6aa60e949">insert</a>(T t, uint32 pos)</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">if</span>((pos &lt;= <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>()) &amp;&amp; (<a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>() &lt; L))</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">if</span>((pos &lt;= <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>()) &amp;&amp; (<a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>() &lt; L))</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        {</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            T* pt = (T*)space;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">for</span>(uint32 i = <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>(); i &gt;= (pos+1); i--)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">for</span>(uint32 i = <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>(); i &gt;= (pos+1); i--)</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                pt[i] = pt[i-1];</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keyword">new</span>(&amp;pt[pos])T(t);</div>
@@ -225,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
 <div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classetk_1_1_list.html#a720fec604f6c57135b6796167171756a">  182</a></span>&#160;    <span class="keywordtype">void</span> <span class="keyword">remove</span>(uint32 pos)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">if</span>((pos &lt; L) &amp;&amp; (<a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>() &gt; 0))</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">if</span>((pos &lt; L) &amp;&amp; (<a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>() &gt; 0))</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        {</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            T* pt = (T*)space;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            (&amp;pt[pos])-&gt;~T();</div>
@@ -238,7 +238,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">void</span> remove_item(<span class="keyword">auto</span>&amp; item)</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>(); i++)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>(); i++)</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        {</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            T* pt = (T*)space;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">if</span>(*pt[i] == item)</div>
@@ -264,7 +264,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="classetk_1_1_list.html#a429128ca6b0d5f9e97fdfd52b0190364">  228</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_list.html#a429128ca6b0d5f9e97fdfd52b0190364">clear</a>()</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    {</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        T* pt = (T*)space;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>(); i++)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>(); i++)</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            (&amp;pt[i])-&gt;~T();</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        list_end = -1;</div>
@@ -274,7 +274,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    {</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        uint32 c = 0;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        T* pt = (T*)space;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>(); i++)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">for</span>(uint32 i = 0; i &lt; <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>(); i++)</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        {</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            <span class="keywordflow">if</span>(t == pt[i])</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                c++;</div>
@@ -285,7 +285,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="classetk_1_1_list.html#aa21f417c80d9d8eeed6f33ed5c4af285">  260</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classetk_1_1_list.html#aa21f417c80d9d8eeed6f33ed5c4af285">fill</a>(uint32 start, uint32 <a class="code" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a>, T f)</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    {</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        T* pt = (T*)space;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        end = <a class="code" href="namespaceetk.html#a6643ab662d2d880d937a8adfea183ac6">etk::min</a>(end, <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>());</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        end = <a class="code" href="namespaceetk.html#a6643ab662d2d880d937a8adfea183ac6">etk::min</a>(end, <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>());</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        start = <a class="code" href="namespaceetk.html#a6643ab662d2d880d937a8adfea183ac6">etk::min</a>(start, end);</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">for</span>(uint32 i = start; i &lt; <a class="code" href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">end</a>; i++)</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            pt[i] = f;</div>
@@ -312,7 +312,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="classetk_1_1_list.html#acc341d1d8b1b29b7868024777ef15b04">  297</a></span>&#160;    T&amp; <a class="code" href="classetk_1_1_list.html#acc341d1d8b1b29b7868024777ef15b04">operator[]</a>(uint32 pos)</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    {</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        T* pt = (T*)space;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">if</span>(pos &lt; <a class="code" href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">size</a>())</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">if</span>(pos &lt; <a class="code" href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">size</a>())</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            <span class="keywordflow">return</span> pt[pos];</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">return</span> pt[L-1];</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
@@ -362,16 +362,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classetk_1_1_list_html_a27f50a1845850dd0f19397e4e1bafe08"><div class="ttname"><a href="classetk_1_1_list.html#a27f50a1845850dd0f19397e4e1bafe08">etk::List::count</a></div><div class="ttdeci">uint32 count(T t)</div><div class="ttdoc">Returns the number of a particular item in the list. </div><div class="ttdef"><b>Definition:</b> list.h:242</div></div>
 <div class="ttc" id="classetk_1_1_list_html_a1e3a92350967e1fabcda37bbef21b796"><div class="ttname"><a href="classetk_1_1_list.html#a1e3a92350967e1fabcda37bbef21b796">etk::List::erase</a></div><div class="ttdeci">void erase(uint32 pos, uint32 len)</div><div class="ttdoc">Removes len number of items from the list, starting as pos. </div><div class="ttdef"><b>Definition:</b> list.h:219</div></div>
 <div class="ttc" id="classetk_1_1_list_html_a19b25cd89872debc07cc002c18845578"><div class="ttname"><a href="classetk_1_1_list.html#a19b25cd89872debc07cc002c18845578">etk::List::end</a></div><div class="ttdeci">Iterator end()</div><div class="ttdoc">Returns an iterator to the end of the list. </div><div class="ttdef"><b>Definition:</b> list.h:138</div></div>
+<div class="ttc" id="classetk_1_1_list_1_1_iterator_html"><div class="ttname"><a href="classetk_1_1_list_1_1_iterator.html">etk::List::Iterator</a></div><div class="ttdoc">The list iterator makes a list iterable using C++11 ranged for loop syntax. </div><div class="ttdef"><b>Definition:</b> list.h:82</div></div>
 <div class="ttc" id="classetk_1_1_list_html_aa69eac1c25dcbdedff7f5ce2b7fcaff1"><div class="ttname"><a href="classetk_1_1_list.html#aa69eac1c25dcbdedff7f5ce2b7fcaff1">etk::List::size</a></div><div class="ttdeci">uint32 size()</div><div class="ttdoc">Returns the number of items in the list. </div><div class="ttdef"><b>Definition:</b> list.h:308</div></div>
 <div class="ttc" id="classetk_1_1_list_html_ae5ff761960ef80143162ac2d4cd6a456"><div class="ttname"><a href="classetk_1_1_list.html#ae5ff761960ef80143162ac2d4cd6a456">etk::List::set_list_end</a></div><div class="ttdeci">void set_list_end(uint32 le)</div><div class="ttdoc">Overrides the list end pointer. This function can be convenient but should be used with caution...</div><div class="ttdef"><b>Definition:</b> list.h:324</div></div>
 <div class="ttc" id="classetk_1_1_list_html_acc341d1d8b1b29b7868024777ef15b04"><div class="ttname"><a href="classetk_1_1_list.html#acc341d1d8b1b29b7868024777ef15b04">etk::List::operator[]</a></div><div class="ttdeci">T &amp; operator[](uint32 pos)</div><div class="ttdoc">This operator allows you to access elements of the list just like a normal array. ...</div><div class="ttdef"><b>Definition:</b> list.h:297</div></div>
-<div class="ttc" id="classetk_1_1_list_html_ac1961365c999b8d5d9a7a187dad9f490"><div class="ttname"><a href="classetk_1_1_list.html#ac1961365c999b8d5d9a7a187dad9f490">etk::List::size</a></div><div class="ttdeci">int32_t size()</div><div class="ttdoc">Returns the number of items in the list. </div><div class="ttdef"><b>Definition:</b> list (copy).h:292</div></div>
+<div class="ttc" id="classetk_1_1_list_html"><div class="ttname"><a href="classetk_1_1_list.html">etk::List</a></div><div class="ttdoc">The list class is an iterable container object. A list can contain up to a maximum number of items de...</div><div class="ttdef"><b>Definition:</b> list.h:39</div></div>
 <div class="ttc" id="classetk_1_1_list_html_ab7dc844f7e80ac5ea9e7a8923230385a"><div class="ttname"><a href="classetk_1_1_list.html#ab7dc844f7e80ac5ea9e7a8923230385a">etk::List::push_back</a></div><div class="ttdeci">void push_back(T t)</div><div class="ttdoc">Same as append();. </div><div class="ttdef"><b>Definition:</b> list.h:289</div></div>
 <div class="ttc" id="classetk_1_1_list_html_add87c29d6b7283b6329a01c3b1eae898"><div class="ttname"><a href="classetk_1_1_list.html#add87c29d6b7283b6329a01c3b1eae898">etk::List::raw_memory</a></div><div class="ttdeci">T * raw_memory()</div><div class="ttdoc">Returns a pointer to the raw memory used by List. </div><div class="ttdef"><b>Definition:</b> list.h:340</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 30 2016 16:42:35 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 30 2016 17:33:26 for Embedded Tool Kit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

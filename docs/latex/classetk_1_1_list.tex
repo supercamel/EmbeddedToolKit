@@ -8,7 +8,7 @@ The list class is an iterable container object. A list can contain up to a maxim
 
 
 
-{\ttfamily \#include $<$list (copy).\-h$>$}
+{\ttfamily \#include $<$list.\-h$>$}
 
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -18,63 +18,6 @@ class \hyperlink{classetk_1_1_list_1_1_iterator}{Iterator}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classetk_1_1_list_a23f9b0efe027159f914214d126b486b3}{{\bfseries List} (\hyperlink{classetk_1_1_list}{List} \&list)}\label{classetk_1_1_list_a23f9b0efe027159f914214d126b486b3}
-
-\item 
-\hypertarget{classetk_1_1_list_ac85e0e37f248ba1b52f410cd00c8c304}{{\bfseries List} (const \hyperlink{classetk_1_1_list}{List} \&list)}\label{classetk_1_1_list_ac85e0e37f248ba1b52f410cd00c8c304}
-
-\item 
-\hypertarget{classetk_1_1_list_afb70c4551d2e9ebc6b4bb04337d081e6}{\hyperlink{classetk_1_1_list_1_1_iterator}{Iterator} \hyperlink{classetk_1_1_list_afb70c4551d2e9ebc6b4bb04337d081e6}{begin} ()}\label{classetk_1_1_list_afb70c4551d2e9ebc6b4bb04337d081e6}
-
-\begin{DoxyCompactList}\small\item\em Returns an iterator to the first item in the list. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_a19b25cd89872debc07cc002c18845578}{\hyperlink{classetk_1_1_list_1_1_iterator}{Iterator} \hyperlink{classetk_1_1_list_a19b25cd89872debc07cc002c18845578}{end} ()}\label{classetk_1_1_list_a19b25cd89872debc07cc002c18845578}
-
-\begin{DoxyCompactList}\small\item\em Returns an iterator to the end of the list. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_a45df48bc3bb87c2dd26e56f51115ab27}{void \hyperlink{classetk_1_1_list_a45df48bc3bb87c2dd26e56f51115ab27}{append} (T t)}\label{classetk_1_1_list_a45df48bc3bb87c2dd26e56f51115ab27}
-
-\begin{DoxyCompactList}\small\item\em Adds an item to the end of the list and increments the size of the list by 1. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_list_aaad15082c3f17971d84890a33c523003}{insert} (T t, int32\-\_\-t pos)
-\begin{DoxyCompactList}\small\item\em Inserts an item into the list. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_list_a2de9664a63f8996eeb3599e0b56a90d9}{remove} (int32\-\_\-t pos, T padding)
-\begin{DoxyCompactList}\small\item\em Removes an item from the list. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_a2b922183cf60d1bf3c351af927cfe51d}{void {\bfseries remove\-\_\-item} (auto \&item)}\label{classetk_1_1_list_a2b922183cf60d1bf3c351af927cfe51d}
-
-\item 
-\hypertarget{classetk_1_1_list_a96d289d0f4ee20ee260d885bceae3aca}{void {\bfseries remove\-\_\-item} (auto \&item, auto padding)}\label{classetk_1_1_list_a96d289d0f4ee20ee260d885bceae3aca}
-
-\item 
-void \hyperlink{classetk_1_1_list_aa43bb8a932f626f0b9a729c3bd2882a9}{erase} (int32\-\_\-t pos, int32\-\_\-t len, T padding)
-\begin{DoxyCompactList}\small\item\em Removes len number of items from the list, starting as pos. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_a429128ca6b0d5f9e97fdfd52b0190364}{void \hyperlink{classetk_1_1_list_a429128ca6b0d5f9e97fdfd52b0190364}{clear} ()}\label{classetk_1_1_list_a429128ca6b0d5f9e97fdfd52b0190364}
-
-\begin{DoxyCompactList}\small\item\em Resets the list end to make it appear as if the list has been emptied. \end{DoxyCompactList}\item 
-int32\-\_\-t \hyperlink{classetk_1_1_list_a09fcf2ae4ebe9361094a79e0c508ddb3}{count} (T t)
-\begin{DoxyCompactList}\small\item\em Returns the number of a particular item in the list. \end{DoxyCompactList}\item 
-void \hyperlink{classetk_1_1_list_a1792af995420ff56d3d98d4c7f2d6388}{fill} (int32\-\_\-t start, int32\-\_\-t \hyperlink{classetk_1_1_list_a19b25cd89872debc07cc002c18845578}{end}, T f)
-\begin{DoxyCompactList}\small\item\em Sets a section of the list to a given value. \end{DoxyCompactList}\item 
-T \hyperlink{classetk_1_1_list_a85741b89a92238cce95b940ce8a5554e}{pop\-\_\-back} ()
-\begin{DoxyCompactList}\small\item\em Returns the last item on the list and reduces the list length by 1. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_ab7dc844f7e80ac5ea9e7a8923230385a}{void \hyperlink{classetk_1_1_list_ab7dc844f7e80ac5ea9e7a8923230385a}{push\-\_\-back} (T t)}\label{classetk_1_1_list_ab7dc844f7e80ac5ea9e7a8923230385a}
-
-\begin{DoxyCompactList}\small\item\em Same as \hyperlink{classetk_1_1_list_a45df48bc3bb87c2dd26e56f51115ab27}{append()};. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_aa9d8b7be2e23788eed66bf63e8c6e461}{T \& \hyperlink{classetk_1_1_list_aa9d8b7be2e23788eed66bf63e8c6e461}{operator\mbox{[}$\,$\mbox{]}} (int32\-\_\-t pos)}\label{classetk_1_1_list_aa9d8b7be2e23788eed66bf63e8c6e461}
-
-\begin{DoxyCompactList}\small\item\em This operator allows you to access elements of the list just like a normal array. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_ac1961365c999b8d5d9a7a187dad9f490}{int32\-\_\-t \hyperlink{classetk_1_1_list_ac1961365c999b8d5d9a7a187dad9f490}{size} ()}\label{classetk_1_1_list_ac1961365c999b8d5d9a7a187dad9f490}
-
-\begin{DoxyCompactList}\small\item\em Returns the number of items in the list. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_a360b0d7b0d8c3d48bfc976669cb12b24}{int32\-\_\-t \hyperlink{classetk_1_1_list_a360b0d7b0d8c3d48bfc976669cb12b24}{max\-\_\-len} ()}\label{classetk_1_1_list_a360b0d7b0d8c3d48bfc976669cb12b24}
-
-\begin{DoxyCompactList}\small\item\em Returns the maximum possible number of items that the list can contain. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_a35ccd11219bb888932e4957156bcab24}{void \hyperlink{classetk_1_1_list_a35ccd11219bb888932e4957156bcab24}{set\-\_\-list\-\_\-end} (int32\-\_\-t le)}\label{classetk_1_1_list_a35ccd11219bb888932e4957156bcab24}
-
-\begin{DoxyCompactList}\small\item\em Overrides the list end pointer. This function can be convenient but should be used with caution. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_a765da91f522c96c94efec3790b5a63b5}{const T $\ast$ \hyperlink{classetk_1_1_list_a765da91f522c96c94efec3790b5a63b5}{buffer} () const }\label{classetk_1_1_list_a765da91f522c96c94efec3790b5a63b5}
-
-\begin{DoxyCompactList}\small\item\em Returns a const pointer to the array. \end{DoxyCompactList}\item 
-\hypertarget{classetk_1_1_list_add87c29d6b7283b6329a01c3b1eae898}{T $\ast$ \hyperlink{classetk_1_1_list_add87c29d6b7283b6329a01c3b1eae898}{raw\-\_\-memory} ()}\label{classetk_1_1_list_add87c29d6b7283b6329a01c3b1eae898}
-
-\begin{DoxyCompactList}\small\item\em Returns a pointer to the raw memory used by \hyperlink{classetk_1_1_list}{List}. \end{DoxyCompactList}\item 
 \hypertarget{classetk_1_1_list_a23f9b0efe027159f914214d126b486b3}{{\bfseries List} (\hyperlink{classetk_1_1_list}{List} \&list)}\label{classetk_1_1_list_a23f9b0efe027159f914214d126b486b3}
 
 \item 
@@ -132,7 +75,7 @@ T \hyperlink{classetk_1_1_list_a85741b89a92238cce95b940ce8a5554e}{pop\-\_\-back}
 
 
 \subsection{Detailed Description}
-\subsubsection*{template$<$typename T, int32\-\_\-t L$>$class etk\-::\-List$<$ T, L $>$}
+\subsubsection*{template$<$typename T, uint32 L$>$class etk\-::\-List$<$ T, L $>$}
 
 The list class is an iterable container object. A list can contain up to a maximum number of items determined by the template parameter L. \hyperlink{classetk_1_1_list}{List} is supposed to provide a similar look and feel to std\-::vector, but without using dynamic memory allocation. 
 
@@ -146,25 +89,9 @@ The list class is an iterable container object. A list can contain up to a maxim
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classetk_1_1_list_a09fcf2ae4ebe9361094a79e0c508ddb3}{\index{etk\-::\-List@{etk\-::\-List}!count@{count}}
-\index{count@{count}!etk::List@{etk\-::\-List}}
-\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ int32\-\_\-t {\bf etk\-::\-List}$<$ T, L $>$\-::count (
-\begin{DoxyParamCaption}
-\item[{T}]{t}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_a09fcf2ae4ebe9361094a79e0c508ddb3}
-
-
-Returns the number of a particular item in the list. 
-
-\begin{DoxyItemize}
-\item t The item to count. \begin{DoxyReturn}{Returns}
-The number of these items in the list. 
-\end{DoxyReturn}
-\end{DoxyItemize}
 \hypertarget{classetk_1_1_list_a27f50a1845850dd0f19397e4e1bafe08}{\index{etk\-::\-List@{etk\-::\-List}!count@{count}}
 \index{count@{count}!etk::List@{etk\-::\-List}}
-\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ uint32 {\bf etk\-::\-List}$<$ T, L $>$\-::count (
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32 L$>$ uint32 {\bf etk\-::\-List}$<$ T, L $>$\-::count (
 \begin{DoxyParamCaption}
 \item[{T}]{t}
 \end{DoxyParamCaption}
@@ -178,24 +105,9 @@ Returns the number of a particular item in the list.
 The number of these items in the list. 
 \end{DoxyReturn}
 \end{DoxyItemize}
-\hypertarget{classetk_1_1_list_aa43bb8a932f626f0b9a729c3bd2882a9}{\index{etk\-::\-List@{etk\-::\-List}!erase@{erase}}
-\index{erase@{erase}!etk::List@{etk\-::\-List}}
-\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::erase (
-\begin{DoxyParamCaption}
-\item[{int32\-\_\-t}]{pos, }
-\item[{int32\-\_\-t}]{len, }
-\item[{T}]{padding}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_aa43bb8a932f626f0b9a729c3bd2882a9}
-
-
-Removes len number of items from the list, starting as pos. 
-
-\begin{DoxyItemize}
-\item pos The position of the first item to erase. \item len The number of items to remove. \item padding A value / default object to fill in the space at the end of the list. \end{DoxyItemize}
 \hypertarget{classetk_1_1_list_a1e3a92350967e1fabcda37bbef21b796}{\index{etk\-::\-List@{etk\-::\-List}!erase@{erase}}
 \index{erase@{erase}!etk::List@{etk\-::\-List}}
-\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::erase (
+\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32 L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::erase (
 \begin{DoxyParamCaption}
 \item[{uint32}]{pos, }
 \item[{uint32}]{len}
@@ -207,24 +119,9 @@ Removes len number of items from the list, starting as pos.
 
 \begin{DoxyItemize}
 \item pos The position of the first item to erase. \item len The number of items to remove. \end{DoxyItemize}
-\hypertarget{classetk_1_1_list_a1792af995420ff56d3d98d4c7f2d6388}{\index{etk\-::\-List@{etk\-::\-List}!fill@{fill}}
-\index{fill@{fill}!etk::List@{etk\-::\-List}}
-\subsubsection[{fill}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::fill (
-\begin{DoxyParamCaption}
-\item[{int32\-\_\-t}]{start, }
-\item[{int32\-\_\-t}]{end, }
-\item[{T}]{f}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_a1792af995420ff56d3d98d4c7f2d6388}
-
-
-Sets a section of the list to a given value. 
-
-\begin{DoxyItemize}
-\item start The starting position. \item end The end position. \item f The item to fill with. \end{DoxyItemize}
 \hypertarget{classetk_1_1_list_aa21f417c80d9d8eeed6f33ed5c4af285}{\index{etk\-::\-List@{etk\-::\-List}!fill@{fill}}
 \index{fill@{fill}!etk::List@{etk\-::\-List}}
-\subsubsection[{fill}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::fill (
+\subsubsection[{fill}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32 L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::fill (
 \begin{DoxyParamCaption}
 \item[{uint32}]{start, }
 \item[{uint32}]{end, }
@@ -237,23 +134,9 @@ Sets a section of the list to a given value.
 
 \begin{DoxyItemize}
 \item start The starting position. \item end The end position. \item f The item to fill with. \end{DoxyItemize}
-\hypertarget{classetk_1_1_list_aaad15082c3f17971d84890a33c523003}{\index{etk\-::\-List@{etk\-::\-List}!insert@{insert}}
-\index{insert@{insert}!etk::List@{etk\-::\-List}}
-\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::insert (
-\begin{DoxyParamCaption}
-\item[{T}]{t, }
-\item[{int32\-\_\-t}]{pos}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_aaad15082c3f17971d84890a33c523003}
-
-
-Inserts an item into the list. 
-
-\begin{DoxyItemize}
-\item T the item to be inserted. \item pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list. \end{DoxyItemize}
 \hypertarget{classetk_1_1_list_a95d6852055e5669632da51c6aa60e949}{\index{etk\-::\-List@{etk\-::\-List}!insert@{insert}}
 \index{insert@{insert}!etk::List@{etk\-::\-List}}
-\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::insert (
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32 L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::insert (
 \begin{DoxyParamCaption}
 \item[{T}]{t, }
 \item[{uint32}]{pos}
@@ -267,7 +150,7 @@ Inserts an item into the list.
 \item T the item to be inserted. \item pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list. \end{DoxyItemize}
 \hypertarget{classetk_1_1_list_a85741b89a92238cce95b940ce8a5554e}{\index{etk\-::\-List@{etk\-::\-List}!pop\-\_\-back@{pop\-\_\-back}}
 \index{pop\-\_\-back@{pop\-\_\-back}!etk::List@{etk\-::\-List}}
-\subsubsection[{pop\-\_\-back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ T {\bf etk\-::\-List}$<$ T, L $>$\-::pop\-\_\-back (
+\subsubsection[{pop\-\_\-back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32 L$>$ T {\bf etk\-::\-List}$<$ T, L $>$\-::pop\-\_\-back (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
@@ -279,37 +162,9 @@ Returns the last item on the list and reduces the list length by 1.
 \begin{DoxyReturn}{Returns}
 The item at the end of the list. 
 \end{DoxyReturn}
-\hypertarget{classetk_1_1_list_a85741b89a92238cce95b940ce8a5554e}{\index{etk\-::\-List@{etk\-::\-List}!pop\-\_\-back@{pop\-\_\-back}}
-\index{pop\-\_\-back@{pop\-\_\-back}!etk::List@{etk\-::\-List}}
-\subsubsection[{pop\-\_\-back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ T {\bf etk\-::\-List}$<$ T, L $>$\-::pop\-\_\-back (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_a85741b89a92238cce95b940ce8a5554e}
-
-
-Returns the last item on the list and reduces the list length by 1. 
-
-\begin{DoxyReturn}{Returns}
-The item at the end of the list. 
-\end{DoxyReturn}
-\hypertarget{classetk_1_1_list_a2de9664a63f8996eeb3599e0b56a90d9}{\index{etk\-::\-List@{etk\-::\-List}!remove@{remove}}
-\index{remove@{remove}!etk::List@{etk\-::\-List}}
-\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::remove (
-\begin{DoxyParamCaption}
-\item[{int32\-\_\-t}]{pos, }
-\item[{T}]{padding}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classetk_1_1_list_a2de9664a63f8996eeb3599e0b56a90d9}
-
-
-Removes an item from the list. 
-
-\begin{DoxyItemize}
-\item pos The position of the item to remove. \item padding A value / default object to fill in the space at the end of the list. \end{DoxyItemize}
 \hypertarget{classetk_1_1_list_a720fec604f6c57135b6796167171756a}{\index{etk\-::\-List@{etk\-::\-List}!remove@{remove}}
 \index{remove@{remove}!etk::List@{etk\-::\-List}}
-\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int32\-\_\-t L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::remove (
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, uint32 L$>$ void {\bf etk\-::\-List}$<$ T, L $>$\-::remove (
 \begin{DoxyParamCaption}
 \item[{uint32}]{pos}
 \end{DoxyParamCaption}
@@ -322,7 +177,6 @@ Removes an item from the list.
 \item pos The position of the item to remove. \item padding A value / default object to fill in the space at the end of the list. \end{DoxyItemize}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-inc/etk/list (copy).\-h\item 
 inc/etk/list.\-h\end{DoxyCompactItemize}
