@@ -1,0 +1,164 @@
+# depslib dependency file v1.0
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/src/evopid.cpp
+	<etk/evopid.h>
+	<cstdlib>
+	<etk/loop_range.h>
+	<etk/tokeniser.h>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/src/navigation.cpp
+	<etk/navigation.h>
+	<etk/conversions.h>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/src/pid.cpp
+	<etk/pid.h>
+	<etk/math_util.h>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/src/rope.cpp
+	<etk/rope.h>
+	<etk/math_util.h>
+	<math.h>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/src/time.cpp
+	<etk/time.h>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/array_test.cpp
+	"array_test.h"
+	<etk/array.h>
+	<etk/loop_range.h>
+	<iostream>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/array_test.h
+	<string>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/bits_test.cpp
+	"bits_test.h"
+	<iostream>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/bits_test.h
+	<etk/etk.h>
+	<string>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/list_tests.cpp
+	"list_tests.h"
+	<etk/list.h>
+	"out.h"
+	<iostream>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/list_tests.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/out.h
+	<etk/etk.h>
+	<iostream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/main.cpp
+	"harness.h"
+	"rope_tests.h"
+	"static_string_tests.h"
+	"list_tests.h"
+	"bits_test.h"
+	"vector_test.h"
+	"matrix_test.h"
+	"quaternion_test.h"
+	"navigation_tests.h"
+	"out.h"
+	"pid_tests.h"
+	"array_test.h"
+	"tokeniser_test.h"
+	"objpool_test.h"
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/harness.h
+	"out.h"
+	<vector>
+	<string>
+	<memory>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/rope_tests.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/static_string_tests.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/vector_test.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/matrix_test.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/quaternion_test.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/navigation_tests.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/pid_tests.h
+	<etk/etk.h>
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/tokeniser_test.h
+	<string>
+
+1454136555 /home/samuel/Programming/EmbeddedToolKit/tests/objpool_test.h
+	<etk/etk.h>
+	<string>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/matrix_test.cpp
+	"matrix_test.h"
+	"out.h"
+	<etk/matrix.h>
+	<iostream>
+	<Eigen/Dense>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/navigation_tests.cpp
+	"navigation_tests.h"
+	"etk/navigation.h"
+	<iostream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/objpool_test.cpp
+	"objpool_test.h"
+	<iostream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/out.cpp
+	"out.h"
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/pid_tests.cpp
+	"pid_tests.h"
+	<iostream>
+	<etk/pid.h>
+	<etk/loop_range.h>
+	<etk/evopid.h>
+	<etk/math_util.h>
+	<fstream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/quaternion_test.cpp
+	"quaternion_test.h"
+	<etk/etk.h>
+	<iostream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/rope_tests.cpp
+	"rope_tests.h"
+	"out.h"
+	<etk/etk.h>
+	<sstream>
+	<iomanip>
+	<iostream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/static_string_tests.cpp
+	"static_string_tests.h"
+	<etk/staticstring.h>
+	<etk/tokeniser.h>
+	<etk/loop_range.h>
+	<iostream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/tokeniser_test.cpp
+	"tokeniser_test.h"
+	<etk/etk.h>
+	<iostream>
+
+1454136555 source:/home/samuel/Programming/EmbeddedToolKit/tests/vector_test.cpp
+	"vector_test.h"
+	<etk/etk.h>
+	"out.h"
+	<Eigen/Dense>
+	<iostream>
+
