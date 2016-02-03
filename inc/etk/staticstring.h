@@ -516,7 +516,7 @@ public:
     }
 
 	/**
-	 * \bried Returns a pointer to the raw memory used by StaticString
+	 * \brief Returns a pointer to the raw memory used by StaticString
 	 */
     char* raw_memory()
     {
@@ -524,7 +524,7 @@ public:
     }
 
 	/**
-	 * \bried Extracts a section of text from the string and assigns it to buf.
+	 * \brief Extracts a section of text from the string and assigns it to buf.
 	 */
     void sub_string(char* buf, uint32 start, uint32 len)
     {
@@ -533,7 +533,7 @@ public:
     }
 
 	/**
-	 * \bried Extracts a section of text from the string and assigns it to rope.
+	 * \brief Extracts a section of text from the string and assigns it to rope.
 	 */
     void sub_string(Rope& rope, uint32 start, uint32 len)
     {
@@ -542,7 +542,7 @@ public:
     }
 
 	/**
-	 * \bried Extracts a section of text from the string and assigns it to string.
+	 * \brief Extracts a section of text from the string and assigns it to string.
 	 */
     template <uint32 N> void sub_string(StaticString<N>& string, uint32 start, uint32 len)
     {
@@ -550,6 +550,9 @@ public:
         r.sub_string(string.raw_memory(), start, len);
     }
 
+	/**
+	 * \brief Reverses the contents of the string. E.g. "Hello" would become "olleH".
+	 */
     void reverse()
     {
         uint32 hlen = length()/2;
