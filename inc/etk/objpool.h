@@ -1,6 +1,7 @@
 #ifndef ETK_OBJECT_POOL_H
 #define ETK_OBJECT_POOL_H
 
+#include <new>
 #include "types.h"
 #include <etk/array.h>
 
