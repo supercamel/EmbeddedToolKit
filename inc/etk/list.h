@@ -19,6 +19,7 @@
 #ifndef ETK_LIST_H_INCLUDED
 #define ETK_LIST_H_INCLUDED
 
+#include <new>
 #include "types.h"
 #include "math_util.h"
 

@@ -41,6 +41,10 @@ public:
      * @arg la latitude
      * @arg ln longitude
      */
+     
+    Coordinate(const Coordinate& c);
+    
+    
     Coordinate(real_t la, real_t ln);
     /**
      * \brief Creates a Coordinate.

@@ -114,7 +114,7 @@ public:
         return buf[L-1];
     }
 
-    uint32 size()
+    constexpr uint32 size()
     {
         return L;
     }

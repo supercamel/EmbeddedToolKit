@@ -62,6 +62,13 @@ bool list_test(std::string& subtest)
 	{
 		//cout << i << endl;
 	}
+	
+	etk::List<etk::Coordinate, 64> clist;
+	auto c = etk::Coordinate(34.65, 134.4);
+	clist.append(c);
+	
+	cout << clist[0].get_lat() << endl;
+	
 
     return true;
 }

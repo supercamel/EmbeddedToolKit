@@ -33,6 +33,12 @@ Coordinate::Coordinate(real_t la, real_t ln)
     lng = degrees_to_radians(ln);
 }
 
+Coordinate::Coordinate(const Coordinate& c)
+{
+	lat = c.lat;
+	lng = c.lng;
+}
+
 Coordinate::Coordinate(etk::Vector<2> v)
 {
     lat = degrees_to_radians(v.x());
