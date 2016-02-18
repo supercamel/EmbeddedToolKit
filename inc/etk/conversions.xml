@@ -42,6 +42,7 @@
 		<conv unit="inhg" gain="0.0002953"/>
 		<conv unit="inh2o" gain="0.00401865"/>
 		<conv unit="meters_of_sea_water" gain="1000"/>
+		<conv unit="psi" gain="0.000145038"/>
 	</measurement>
 	
 	<measurement si_base="kelvin">
