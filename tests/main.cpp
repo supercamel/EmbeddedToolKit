@@ -40,6 +40,21 @@ bool limiter_test(std::string& subtest)
 
 }
 
+bool range_tests(std::string& subtest)
+{
+	subtest = "static range";
+
+	int counter = 0;
+	while(etk::static_range(5))
+		counter++;
+		
+	while(etk::static_range(5))
+		counter++;
+	
+	if(counter != 10)
+		return false;
+	return true;
+}
 
 int main()
 {
@@ -61,6 +76,7 @@ int main()
 	th.add_module(array_test, "Array test");
 	th.add_module(tokeniser_test, "Tokeniser test");
 	th.add_module(objpool_test, "Object pools");
+	th.add_module(range_tests, "Ranged loops");
 
 	if(th.run())
 		return 0;
