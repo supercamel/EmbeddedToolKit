@@ -140,6 +140,19 @@ LoopRange<T> range(T to)
 }
 
 
+inline bool static_range(uint32 max)
+{
+	static uint32 count = 0;
+	count++;
+	if(count == max)
+	{
+		count = 0;
+		return false;
+	}
+	return true;
+}
+
+
 };
 
 
