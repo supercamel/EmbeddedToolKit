@@ -22,12 +22,14 @@
 
 #include "types.h"
 #include "vector.h"
+#include "staticstring.h"
+
 
 namespace etk
 {
 
 
-template <uint32 MAX_X, uint32 MAX_Y> class Matrix
+template <uint8 MAX_X, uint8 MAX_Y> class Matrix
 {
 public:
     Matrix()
@@ -67,6 +69,7 @@ public:
 
     template<typename... Args> Matrix(real_t a, Args... args)
     {
+    	set_flag = 0;
         real_t* pcell = &_cell[0][0];
         *(pcell+set_flag++) = a;
         set(args...);
@@ -258,7 +261,7 @@ public:
         return ret;
     }
 
-    Matrix<MAX_Y-1,MAX_X-1> minor_matrix(uint32 row, uint32 col)
+    auto minor_matrix(uint32 row, uint32 col)
     {
         uint32 colCount = 0, rowCount = 0;
         Matrix<MAX_Y-1,MAX_X-1> ret;
@@ -282,16 +285,20 @@ public:
 
     real_t determinant()
     {
-        if(MAX_X == 1)
+        if((MAX_X == 1) || (MAX_Y == 1))
             return cell(0, 0);
-
-        real_t det = 0.0;
-        for(uint32 i = 0; i < MAX_X; i++ )
-        {
-            Matrix<MAX_Y-1,MAX_X-1> minor = minor_matrix(0, i);
-            det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
+		else
+		{
+		    real_t det = 0.0;
+		    for(uint32 i = 0; i < MAX_X; i++ )
+		    {
+		        auto minor = minor_matrix(0, i);
+		        det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
+		    }
+		    return det;
         }
-        return det;
+        
+        return 0;
     }
 
     Matrix invert()
@@ -373,6 +380,23 @@ public:
         }
 
         return L;
+    }
+    
+    auto to_string()
+    {
+    	StaticString<MAX_X*MAX_Y*12> ss;
+    	for(int i = 0; i < MAX_Y; i++)
+    	{
+    		for(int j = 0; j < MAX_X; j++)
+    		{
+    			ss += _cell[j][i];
+    			ss += "\t";
+    		}
+    		
+    		ss += "\n";
+    	}
+    	
+    	return ss;
     }
 
 private:

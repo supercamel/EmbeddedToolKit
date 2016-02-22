@@ -69,33 +69,18 @@ bool matrix_rows_and_columns()
 
 bool positive_definite()
 {
-/*
+	cout << "Creating M" << endl;
+	
 	Matrix<3,3> m(25.0f,15.0f,-5.0f,15.0f,18.0f,0.0f,-5.0f,0.0f,11.0f);
+ 
+ 	cout << m(0, 0) << endl;
+ 	
+	out << m.to_string().c_str() << "\n";
+	
+	m.invert();
+	
+	out << m.to_string() << "\n";
 
-	out << m << "\n";
-
-	out << m.llt() << "\n";
-
-	MatrixXd em(3, 3);
- 	em << 25,15,-5,15,18,0,-5,0,11;
-
-	MatrixXd lt(3, 3);
-	lt = em.llt().matrixL();
-
-	cout << std::endl << em << std::endl;
-	cout << lt << std::endl;
-
-
-	m.set(5.0f,15.0f,-5.0f,15.0f,18.0f,0.0f,-5.0f,0.0f,11.0f);
-
-	out << m.llt() << "\n";
-
- 	em << 5,15,-5,15,18,0,-5,0,11;
-
-	lt = em.llt().matrixL();
-
-	cout << lt << std::endl;
-	*/
 	return true;
 }
 

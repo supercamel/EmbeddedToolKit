@@ -37,6 +37,11 @@ public:
             static_cast<derived*>(this)->put(*cstr++);
     }
 
+	void print(char* cstr)
+	{
+		print((const char*)(cstr));
+	}
+	
     template<uint32 L> void print(StaticString<L> ss)
     {
         for(uint32 i = 0; i < ss.length(); i++)
@@ -69,6 +74,19 @@ public:
     {
         print(cstr);
         return *this;
+    }
+    
+    Stream& operator << (char* cstr)
+    {
+        print(cstr);
+        return *this;
+    }
+	
+    
+    template<uint32 L> Stream& operator << (StaticString<L> ss)
+    {
+    	print(ss);
+    	return *this;
     }
 
 };
