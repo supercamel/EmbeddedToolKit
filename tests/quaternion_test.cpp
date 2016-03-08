@@ -24,7 +24,7 @@ bool quaternion_test(std::string& subtest)
 	if(eq != euler)
 		return false;
 
-
+	subtest = "gravity rotate";
 	euler = etk::Vector<3>(90, 0, 0);
 	euler.toRadians();
 	q.fromEuler(euler);

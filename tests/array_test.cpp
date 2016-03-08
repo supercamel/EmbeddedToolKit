@@ -1,6 +1,7 @@
 #include "array_test.h"
 #include <etk/array.h>
 #include <etk/loop_range.h>
+#include <etk/math_util.h>
 #include <iostream>
 using namespace std;
 
@@ -25,5 +26,16 @@ bool array_test(std::string& subtest)
     if(ar[9] != 512)
         return false;
 
+
+	for(int i = 0; i < 6; i++)
+		ar[i] = i;
+	
+	etk::reverse(ar, 6);
+	for(int i = 0; i < 6; i++)
+	{
+		if(ar[i] != 5-i)
+			return false;
+	}
+	
     return true;
 }

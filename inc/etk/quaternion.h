@@ -114,6 +114,24 @@ public:
 
     void fromEuler(Vector<3> euler)
     {
+    	/*
+    		    void fromEuler(Vector<3> euler)
+    {
+    	real_t c1 = cos(euler.x()/real_t(2.0));
+    	real_t c2 = cos(euler.y()/real_t(2.0));
+    	real_t c3 = cos(euler.z()/real_t(2.0));
+    	
+    	real_t s1 = sin(euler.x()/real_t(2.0));
+    	real_t s2 = sin(euler.y()/real_t(2.0));
+    	real_t s3 = sin(euler.z()/real_t(2.0));
+    	
+    	_w = c1*c2*c3 - s1*s2*s3;
+		_x = s1*s2*c3 + c1*c2*s3;
+		_y = s1*c2*c3 + c1*s2*s3;
+		_z = c1*s2*c3 - s1*c2*s3;
+    }
+
+	*/
         Quaternion h, p, r;
         Vector<3> v(0.0, 0.0, 1.0);
         h.fromAxisAngle(v, euler.x());

@@ -245,6 +245,12 @@ void zero_object(auto& obj)
         ptr[i] = 0;
 }
 
+void reverse(auto& list, uint32 n_elements)
+{
+	for(uint32 i = 0; i < n_elements/2; i++)
+		swap(list[n_elements-i-1], list[i]);
+}
+
 /**
  * \brief Little trick function used to silence warnings about unused variables that are
  * , for whatever reason, required to be unused.
