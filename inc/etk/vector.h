@@ -20,8 +20,8 @@
 #define IMUMATH_VECTOR_HPP
 
 #include "types.h"
-#include <math.h>
 #include "math_util.h"
+#include <math.h>
 
 
 namespace etk
@@ -134,7 +134,7 @@ public:
     }
 
     //generates the cross product of two 3D vectors
-    Vector cross(Vector v)
+    Vector cross(Vector v) const
     {
         Vector ret;
 
@@ -271,6 +271,18 @@ public:
     Vector operator * (real_t scalar)
     {
         return scale(scalar);
+    }
+    
+    Vector operator *= (real_t scalar)
+    {
+    	*this = scale(scalar);
+    	return *this;
+    }
+    
+    Vector operator /= (real_t scalar)
+    {
+    	*this = *this/scalar;
+    	return *this;
     }
 
     Vector operator / (real_t scalar)

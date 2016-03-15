@@ -156,8 +156,17 @@ public:
     void toAxisAngle(Vector<3>& axis, real_t& angle)
     {
         normalize();
+        
+        axis = Vector<3>(0, 0, 0);
+        angle = 0;
+        
+        //if w is 1, then this is a singularity (axis angle is zero)
+        if(compare<real_t>(_w, 1.0, 0.000001))
+        	return;
+        
         real_t sqw = sqrtf(1.0-(_w*_w));
-        if(compare<real_t>(sqw, 0.0f, 0.00000001f)) //it's a singularity and divide by zero, avoid
+        
+        if(compare<real_t>(sqw, 0.0f, 0.00001f)) //it's a singularity and divide by zero, avoid
             return;
 
         angle = 2 * acosf(real_t(_w));
@@ -272,6 +281,7 @@ public:
 
         real_t angle = 0;
         toAxisAngle(ret, angle);
+        
         ret = ret*angle; //finds angular displacement
         ret = ret/dt; //over dt to find angular velocity
 

@@ -25,6 +25,16 @@
 namespace etk
 {
 
+
+typedef union u32b
+{
+    int32 i;
+    uint32 u;
+    float f;
+}
+u32b;
+
+
 /**
  * \brief Used to keep a number within a particular range.
  * \arg x Number to constrain.
@@ -250,6 +260,28 @@ void reverse(auto& list, uint32 n_elements)
 	for(uint32 i = 0; i < n_elements/2; i++)
 		swap(list[n_elements-i-1], list[i]);
 }
+
+
+#ifndef isinf
+
+inline bool isinf(float value)
+{
+    u32b ieee754;
+    ieee754.f = value;
+    return (ieee754.u & 0x7fffffff) == 0x7f800000;
+}
+#endif
+
+#ifndef isnan
+
+inline bool isnan( float value )
+{
+    u32b ieee754;
+    ieee754.f = value;
+    return (ieee754.u & 0x7fffffff) > 0x7f800000;
+}
+
+#endif
 
 /**
  * \brief Little trick function used to silence warnings about unused variables that are

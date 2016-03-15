@@ -187,7 +187,7 @@ public:
             T* pt = (T*)space;
             (&pt[pos])->~T();
             for(uint32 i = pos; i < L-1; i++)
-                space[i] = space[i+1];
+                pt[i] = pt[i+1];
             list_end--;
         }
     }

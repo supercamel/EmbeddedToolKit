@@ -36,6 +36,7 @@
  */
 
 
+#include "math_util.h"
 #include "stream.h"
 #include "rope.h"
 #include "tokeniser.h"
@@ -43,7 +44,6 @@
 #include "quaternion.h"
 #include "vector.h"
 #include "bits.h"
-#include "math_util.h"
 #include "conversions.h"
 #include "list.h"
 #include "staticstring.h"
