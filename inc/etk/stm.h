@@ -162,6 +162,15 @@ public:
         start = 0;
         buf_end = LEN-1;
     }
+    
+    T average()
+    {
+    	T avg;
+    	for(auto i : range(LEN))
+    		avg = avg + buf[i];
+    	avg = avg/LEN;
+    	return avg;
+    }
 
 private:
     uint16 start;

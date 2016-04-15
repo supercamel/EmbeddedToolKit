@@ -56,7 +56,7 @@ def main():
 					
 					bias = units[i][2]-units[j][2]
 					
-					text += "inline float " + conversion_text + "(float in) { return in"
+					text += "inline auto " + conversion_text + "(auto in) { return in"
 					if(gain != 1.0):
 						text += "*" + str(gain) + "f"
 					if(bias != 0.0):

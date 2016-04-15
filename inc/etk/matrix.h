@@ -87,22 +87,22 @@ public:
         }
     }
 
-    Vector<MAX_Y> row_to_vector(uint32 y)
+    Vector<MAX_Y> row_to_vector(uint32 row)
     {
         Vector<MAX_Y> ret;
         for(uint32 i = 0; i < MAX_Y; i++)
         {
-            ret[i] = _cell[i][y];
+            ret[i] = cell(i, row);
         }
         return ret;
     }
 
-    Vector<MAX_X> col_to_vector(uint32 x)
+    Vector<MAX_X> col_to_vector(uint32 col)
     {
         Vector<MAX_X> ret;
         for(uint32 i = 0; i < MAX_X; i++)
         {
-            ret[i] = _cell[x][i];
+            ret[i] = cell(col, i);
         }
         return ret;
     }
