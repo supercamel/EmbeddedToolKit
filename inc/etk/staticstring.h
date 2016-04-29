@@ -1,6 +1,6 @@
 /*
     Embedded Tool Kit
-    Copyright (C) 2015 Samuel Cowen
+    Copyright (C) 2016 Samuel Cowen
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -560,8 +560,81 @@ public:
         for(uint32 i = 0; i < hlen; i++)
             swap(buf[i], buf[len-i]);
     }
+    
+    /**
+     * \brief Extracts a list numbers from a string of text. It's a little bit like scanf, except it doesn't check the format of the string.
+     * For safety critical applications, you should use the tokeniser. The scan function doesn't perform any error checking and will fail silently. 
+     @code
+StaticString<100> st = "MSG05, 34, -9.5";
+int msgid, inum;
+float fnum;
+st.scan(msgid, inum, fnum);
+cout << msgid << " " << inum << " " << fnum << endl;
+//output would be 05 34 -9.5
+@endcode
+     */
+    template<typename... Args> void scan(Args&... args)
+    {
+        _scan(buf, args...);
+    }
+    
 
 private:
+    template<typename T> void _scan(const char* bbuf, T& t)
+    {
+        uint32 count = 0;
+        while(count < L)
+        {
+            char c = bbuf[count++];
+            if(c == '\0')
+                break;
+            else if(is_numeric(c) || (c == '-'))
+            {
+                char cbuf[20];
+                Rope rope(cbuf, 20, &bbuf[count-1]);
+                if(std::is_integral<T>::value)
+                    t = rope.atoi();
+                if(std::is_floating_point<T>::value)
+                    t = rope.atof();
+                while(is_numeric(c) || (c == '-') || (c == '.'))
+                {
+                    c = bbuf[count++];
+                    if(count > L)
+                        break;
+                }
+                break;
+             }
+        }
+    }
+    
+    template<typename T, typename... Args> void _scan(const char* bbuf, T& t, Args&... args)
+    {
+        uint32 count = 0;
+        while(count < L)
+        {
+            char c = bbuf[count++];
+            if(c == '\0')
+                break;
+            else if(is_numeric(c) || (c == '-'))
+            {
+                char cbuf[20];
+                Rope rope(cbuf, 20, &bbuf[count-1]);
+                if(std::is_integral<T>::value)
+                    t = rope.atoi();
+                if(std::is_floating_point<T>::value)
+                    t = rope.atof();
+                while(is_numeric(c) || (c == '-') || (c == '.'))
+                {
+                    c = bbuf[count++];
+                    if(count > L)
+                        break;
+                }
+                break;
+             }
+        }
+        _scan(&bbuf[count], args...);
+    }
+    
     char buf[L];
 };
 

@@ -183,6 +183,18 @@ bool static_string_test(std::string& subtest)
     ss.reverse();
     if(ss != "!pleH")
         return false;
+        
+    ss = "Hi 50, 80 df-34.2jokes";
+    int fifty = 0;
+    int eighty = 0;
+    float tf = 0;
+    
+    ss.scan(fifty, eighty, tf);
+    cout << endl << fifty << " " << eighty << " " << tf << endl;
+    if(fifty != 50)
+    	return false;
+    if(eighty != 80)
+    	return false;
 
 	return true;
 }
