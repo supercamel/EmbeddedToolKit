@@ -31,6 +31,7 @@
 #include "types.h"
 #include <etk/rope.h>
 #include <etk/vector.h>
+#include <type_traits>
 
 
 namespace etk
