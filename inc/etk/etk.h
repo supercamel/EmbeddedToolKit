@@ -59,6 +59,7 @@
 #include "pid_rater.h"
 #include "evopid.h"
 #include "objpool.h"
+#include "smrt_ptr.h"
 
 #endif
 

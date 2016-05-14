@@ -1,6 +1,28 @@
 #ifndef ETK_SMART_POINTER
 #define ETK_SMART_POINTER
 
+/**
+
+    Why do we need another smart pointer??
+    
+    1. Many micro-controllers don't have the STL infrastructure to deal with std::shared_ptr and std::unique_ptr
+    2. Even if they did, shared_ptr and unique_ptr are known to blow out code size massively due to dependancies.
+    3. The standard smart pointers throw exceptions and a lot of people don't like that on a microcontroller.
+    4. This is small, fast, easy and relatively safe provided you check the pointer after EVERY creation.
+    
+    Also, beware heap fragmentation! 
+    
+    Useage:
+        auto ptr = make_smart_ptr<Obj>();
+        
+        
+        if the object takes constructor parameters
+        
+        auto ptr = make_smart_ptr<Obj>(param1, param2);
+        
+
+*/
+
 
 #include <utility>
 
