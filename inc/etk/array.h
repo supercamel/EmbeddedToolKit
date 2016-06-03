@@ -113,6 +113,13 @@ public:
             return buf[pos];
         return buf[L-1];
     }
+    
+    T get(uint32 pos) const
+    {
+        if(pos < L)
+            return buf[pos];
+        return buf[L-1];
+    }
 
     constexpr uint32 size()
     {
