@@ -22,7 +22,7 @@ int main()
 		cout << l << " ";
 	cout << endl;
 	
-	list.remove(0, 0);
+	list.remove(0);
 	
 	cout << "After removing the first object, the list size is: " << list.size() << endl;
 	cout << "The list contains:\n\t";
