@@ -30,11 +30,81 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++14" />
+			<Add directory="inc/" />
 		</Compiler>
+		<Unit filename="inc/etk/array.h" />
+		<Unit filename="inc/etk/bits.h" />
+		<Unit filename="inc/etk/conversions.h" />
+		<Unit filename="inc/etk/etk.h" />
+		<Unit filename="inc/etk/evopid.h" />
+		<Unit filename="inc/etk/filters.h" />
+		<Unit filename="inc/etk/fuzzy.h" />
+		<Unit filename="inc/etk/list.h" />
+		<Unit filename="inc/etk/loop_range.h" />
+		<Unit filename="inc/etk/math_util.h" />
+		<Unit filename="inc/etk/matrix.h" />
+		<Unit filename="inc/etk/navigation.h" />
+		<Unit filename="inc/etk/objpool.h" />
+		<Unit filename="inc/etk/pid.h" />
+		<Unit filename="inc/etk/pid_rater.h" />
+		<Unit filename="inc/etk/pool.h" />
+		<Unit filename="inc/etk/pool_ptr.h" />
+		<Unit filename="inc/etk/quaternion.h" />
+		<Unit filename="inc/etk/ring_buffer.h" />
+		<Unit filename="inc/etk/rope.h" />
+		<Unit filename="inc/etk/smrt_ptr.h" />
+		<Unit filename="inc/etk/staticstring.h" />
+		<Unit filename="inc/etk/stm.h" />
+		<Unit filename="inc/etk/stream.h" />
+		<Unit filename="inc/etk/time.h" />
+		<Unit filename="inc/etk/tokeniser.h" />
+		<Unit filename="inc/etk/types.h" />
+		<Unit filename="inc/etk/vector.h" />
+		<Unit filename="inc/etk/version.h" />
+		<Unit filename="src/evopid.cpp" />
+		<Unit filename="src/navigation.cpp" />
+		<Unit filename="src/pid.cpp" />
+		<Unit filename="src/rope.cpp" />
+		<Unit filename="src/time.cpp" />
+		<Unit filename="tests/array_test.cpp" />
+		<Unit filename="tests/array_test.h" />
+		<Unit filename="tests/bits_test.cpp" />
+		<Unit filename="tests/bits_test.h" />
+		<Unit filename="tests/harness.h" />
+		<Unit filename="tests/list_tests.cpp" />
+		<Unit filename="tests/list_tests.h" />
+		<Unit filename="tests/main.cpp" />
+		<Unit filename="tests/matrix_test.cpp" />
+		<Unit filename="tests/matrix_test.h" />
+		<Unit filename="tests/navigation_tests.cpp" />
+		<Unit filename="tests/navigation_tests.h" />
+		<Unit filename="tests/objpool_test.cpp" />
+		<Unit filename="tests/objpool_test.h" />
+		<Unit filename="tests/out.cpp" />
+		<Unit filename="tests/out.h" />
+		<Unit filename="tests/pid_tests.cpp" />
+		<Unit filename="tests/pid_tests.h" />
+		<Unit filename="tests/pool_test.cpp" />
+		<Unit filename="tests/pool_test.h" />
+		<Unit filename="tests/quaternion_test.cpp" />
+		<Unit filename="tests/quaternion_test.h" />
+		<Unit filename="tests/rope_tests.cpp" />
+		<Unit filename="tests/rope_tests.h" />
+		<Unit filename="tests/static_string_tests.cpp" />
+		<Unit filename="tests/static_string_tests.h" />
+		<Unit filename="tests/tokeniser_test.cpp" />
+		<Unit filename="tests/tokeniser_test.h" />
+		<Unit filename="tests/vector_test.cpp" />
+		<Unit filename="tests/vector_test.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />
-			<debugger />
+			<debugger>
+				<remote_debugging>
+					<options conn_type="0" serial_baud="115200" additional_cmds_before="set disable-randomization off" />
+				</remote_debugging>
+			</debugger>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

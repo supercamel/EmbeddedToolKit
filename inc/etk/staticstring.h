@@ -317,6 +317,16 @@ public:
             return buf[L-1];
         return buf[p];
     }
+    
+    /**
+     * \brief A simple get function for accessing const string characters.
+     */
+    char get(uint32 p) const
+    {
+        if(p >= L)
+            return buf[L-1];
+        return buf[p];
+    }
 
 	/**
 	 * \brief Compares this to a const C-string

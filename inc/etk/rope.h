@@ -88,6 +88,7 @@ public:
     Rope operator = (Rope r);
 
     char& operator [](uint16 p);
+    char get(uint16 p);
 
     bool operator == (Rope r);
     bool operator != (Rope r);

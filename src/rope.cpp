@@ -304,6 +304,11 @@ char& Rope::operator [](uint16 p)
     return str[p];
 }
 
+char Rope::get(uint16 p)
+{
+    return str[p];
+}
+
 bool Rope::operator == (Rope r)
 {
     return compare(r);
