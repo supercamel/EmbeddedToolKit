@@ -465,10 +465,10 @@
 	<cstdlib>
 	<utility>
 
-1465269516 /home/samuel/mega/etk/inc//etk/pool.h
+1465271319 /home/samuel/mega/etk/inc//etk/pool.h
 	"types.h"
 
-1465269598 /home/samuel/mega/etk/inc//etk/pool_ptr.h
+1465270670 /home/samuel/mega/etk/inc//etk/pool_ptr.h
 	<cstdlib>
 	<utility>
 	"pool.h"

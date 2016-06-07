@@ -94,7 +94,7 @@ public:
     {
         char* cptr = (char*)ptr;
         Block* pblock = (Block*)(cptr-sizeof(Block));
-        add_to_list(free_head, pblock);
+        add_to_list(pblock);
     }
 
     /**
@@ -129,9 +129,8 @@ private:
     };
 
     /**
-     * Finds a free block that is at least as big as sz.
+     * Finds and allocates a free block that is at least as big as sz.
      */
-
     void* alloc_from_free_list(uint32 sz)
     {
         /*
@@ -149,18 +148,25 @@ private:
         Block* pblock = free_head.next;
         while(pblock)
         {
+            //if this block has sufficient space
             if(pblock->size >= sz)
             {
+                //if the block is too big, split it
                 if((pblock->size - sz) >= split_size)
                 {
+                    //create second block at the end of this chunk of memory
                     Block* sblock = (Block*)(((char*)pblock)+sz);
                     sblock->size = pblock->size-sz;
                     pblock->size = sz;
-                    add_to_list(free_head, sblock);
+
+                    //add the second block to the free block list
+                    add_to_list(sblock);
                 }
 
+                //remove the block from the free block list - cause it's not free no more
                 remove_from_list(pblock);
 
+                //return a pointer to the start of the allocated chunk
                 char* ptr = (char*)pblock;
                 return (void*)(ptr+sizeof(Block));
             }
@@ -189,7 +195,6 @@ private:
     /**
      * Removes a block from a list. Assumes the pointer is valid!
      *
-     * It doesn't matter which list the block is on, since it's they are doubly linked lists.
      * All it does it re-arrange the next and prev pointers of the next and previous blocks.
      */
     void remove_from_list(Block* block)
@@ -201,11 +206,11 @@ private:
     }
 
     /**
-     * Adds a block to either the free list of the allocated list of blocks.
+     * Adds a block to the free list
      */
-    void add_to_list(Block& head, Block* block)
+    void add_to_list(Block* block)
     {
-        Block* pblock = &head;
+        Block* pblock = &free_head;
         Block* last_block = nullptr;
         while(pblock)
         {
