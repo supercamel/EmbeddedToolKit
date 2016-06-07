@@ -60,6 +60,8 @@
 #include "evopid.h"
 #include "objpool.h"
 #include "smrt_ptr.h"
+#include "pool.h"
+#include "pool_ptr.h"
 
 #endif
 

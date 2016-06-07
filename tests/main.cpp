@@ -12,7 +12,7 @@
 //#include "stack_test.h"
 #include "out.h"
 //#include "linkedlist_test.h"
-//#include "pool_test.h"
+#include "pool_test.h"
 #include "pid_tests.h"
 #include "array_test.h"
 #include "tokeniser_test.h"
@@ -47,10 +47,10 @@ bool range_tests(std::string& subtest)
 	int counter = 0;
 	while(etk::static_range(5))
 		counter++;
-		
+
 	while(etk::static_range(5))
 		counter++;
-	
+
 	if(counter != 10)
 		return false;
 	return true;
@@ -59,6 +59,9 @@ bool range_tests(std::string& subtest)
 int main()
 {
     TestHarness th("ETK Test Harness");
+    th.add_module(pool_test, "Pool test");
+
+    /*
 	th.add_module(test_rope, "Rope Test");
 	th.add_module(list_test, "List Test");
 	th.add_module(static_string_test, "Static String");
@@ -70,14 +73,14 @@ int main()
 	th.add_module(navigation_test, "Navigation test");
 	//th.add_module(string_test, "String test");
 	//th.add_module(stack_test, "Stack test");
-	//th.add_module(pool_test, "Pool test");
+
 	//th.add_module(linkedlist_test, "Linked lists");
 	//th.add_module(pid_test, "PID test");
 	th.add_module(array_test, "Array test");
 	th.add_module(tokeniser_test, "Tokeniser test");
 	th.add_module(objpool_test, "Object pools");
 	th.add_module(range_tests, "Ranged loops");
-
+*/
 	if(th.run())
 		return 0;
 
