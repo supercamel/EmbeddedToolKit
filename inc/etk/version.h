@@ -9,9 +9,9 @@ namespace etk
 namespace Version
 {
 	static const char* year = "16";
-	static const char* month = "4";
-	static const char* day = "29";
-	static const char* version = "160429";
+	static const char* month = "6";
+	static const char* day = "7";
+	static const char* version = "16067";
 }
 
 }

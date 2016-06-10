@@ -302,6 +302,11 @@ public:
             return pt[pos];
         return pt[L-1];
     }
+    
+    T& get(uint32 pos)
+    {
+        return (*this)[pos];
+    }
 
     /**
      * \brief Returns the number of items in the list.

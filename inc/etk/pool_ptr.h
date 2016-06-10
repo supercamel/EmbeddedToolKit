@@ -37,12 +37,12 @@ namespace etk
 {
 
 
-template <typename POOL, typename T> class pool_pointer
+template <typename T> class pool_pointer
 {
 public:
-    pool_pointer(POOL& pool) : pool(pool)
+    pool_pointer(Pool& pool) : pool(pool)
     {
-        ref = static_cast<pool_pointer<POOL, T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
+        ref = static_cast<pool_pointer<T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
         ref->construct();
         if(ref)
             ref->reference();
@@ -50,13 +50,13 @@ public:
 
     pool_pointer(auto& pool, T* pValue) : pool(pool), ptr(pValue)
     {
-        ref = static_cast<pool_pointer<POOL, T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
+        ref = static_cast<pool_pointer<T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
         ref->construct();
         if(ref)
             ref->reference();
     }
 
-    pool_pointer(const pool_pointer<POOL, T>& sp) : ptr(sp.ptr), ref(sp.ref), pool(sp.pool)
+    pool_pointer(const pool_pointer<T>& sp) : ptr(sp.ptr), ref(sp.ref), pool(sp.pool)
     {
         ref->reference();
     }
@@ -81,7 +81,7 @@ public:
         return ptr;
     }
 
-    pool_pointer<POOL, T>& operator = (const pool_pointer<POOL, T>& sp)
+    pool_pointer<T>& operator = (const pool_pointer<T>& sp)
     {
         if (this != &sp)
         {
@@ -99,12 +99,12 @@ public:
         return *this;
     }
 
-    bool operator == (const pool_pointer<POOL, T>& sp)
+    bool operator == (const pool_pointer<T>& sp)
     {
         return ptr == sp.ptr;
     }
 
-    bool operator != (const pool_pointer<POOL, T>& sp)
+    bool operator != (const pool_pointer<T>& sp)
     {
         return ptr != sp.ptr;
     }
@@ -116,7 +116,7 @@ public:
         return false;
     }
 
-    POOL& get_pool()
+    Pool& get_pool()
     {
         return pool;
     }
@@ -144,19 +144,18 @@ private:
 
     T* ptr = nullptr;
     RefCounter* ref = nullptr;
-    POOL& pool;
+    Pool& pool;
 };
 
 
-template<uint32 POOLSZ, typename T, class... U> auto make_pool_ptr(Pool<POOLSZ>& pool, U&&... u)
+template<typename T, class... U> auto make_pool_ptr(Pool& pool, U&&... u)
 {
     void* ptr = pool.alloc(sizeof(T));
     if(ptr)
         new(ptr)T(std::forward<U>(u)...);
 
-    pool_pointer<Pool<POOLSZ>, T> sp(pool, static_cast<T*>(ptr));
+    pool_pointer<T> sp(pool, static_cast<T*>(ptr));
 
-    T* tptr = (T*)(ptr);
     return sp;
 }
 

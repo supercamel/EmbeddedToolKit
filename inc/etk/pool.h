@@ -1,7 +1,7 @@
 #ifndef POOL_H_INCLUDED
 #define POOL_H_INCLUDED
 
-
+#include <stdlib.h>
 #include "types.h"
 
 
@@ -39,13 +39,29 @@
 namespace etk
 {
 
-template <uint32 SIZE> class Pool
+class Pool
+{
+public:
+    virtual void* alloc(uint32 sz) = 0;
+    virtual void free(void* ptr) = 0;
+};
+
+class Heap : public Pool
+{
+public:
+    void* alloc(uint32 sz) { return malloc(sz); }
+    void free(void* ptr) { ::free(ptr); }
+};
+
+extern Heap heap;
+
+template <uint32 SIZE> class MemPool : public Pool
 {
 public:
     /**
      * The constructor creates one big block at the start of the memory region and adds it to the free block list.
      */
-    Pool()
+    MemPool()
     {
         Block* pblock = (Block*)&memory[0];
         pblock->size = SIZE;

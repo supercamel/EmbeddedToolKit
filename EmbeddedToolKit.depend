@@ -176,7 +176,7 @@
 	<etk/pid.h>
 	<etk/math_util.h>
 
-1454136555 source:/home/samuel/mega/etk/src/rope.cpp
+1465274520 source:/home/samuel/mega/etk/src/rope.cpp
 	<etk/rope.h>
 	<etk/math_util.h>
 	<math.h>
@@ -304,7 +304,7 @@
 1454136555 /home/samuel/mega/etk/tests/vector_test.h
 	<string>
 
-1465269573 source:/home/samuel/mega/etk/tests/pool_test.cpp
+1465471464 source:/home/samuel/mega/etk/tests/pool_test.cpp
 	"pool_test.h"
 	"etk/etk.h"
 	<iostream>
@@ -342,7 +342,7 @@
 	"staticstring.h"
 	"tokeniser.h"
 
-1464956093 /home/samuel/mega/etk/inc//etk/array.h
+1465284353 /home/samuel/mega/etk/inc//etk/array.h
 	"types.h"
 	"loop_range.h"
 
@@ -366,7 +366,7 @@
 1454136555 /home/samuel/mega/etk/inc//etk/filters.h
 	"math_util.h"
 
-1461896081 /home/samuel/mega/etk/inc//etk/staticstring.h
+1465294640 /home/samuel/mega/etk/inc//etk/staticstring.h
 	"types.h"
 	<etk/rope.h>
 	<etk/vector.h>
@@ -374,7 +374,7 @@
 	<etk/etk.h>
 	<iostream>
 
-1461893073 /home/samuel/mega/etk/inc//etk/rope.h
+1465274497 /home/samuel/mega/etk/inc//etk/rope.h
 	"types.h"
 
 1457846803 /home/samuel/mega/etk/inc//etk/vector.h
@@ -410,7 +410,7 @@
 	"pool.h"
 	"pool_ptr.h"
 
-1456140941 /home/samuel/mega/etk/inc//etk/stream.h
+1465274763 /home/samuel/mega/etk/inc//etk/stream.h
 	"rope.h"
 	"staticstring.h"
 	"vector.h"
@@ -433,7 +433,7 @@
 
 1460730397 /home/samuel/mega/etk/inc//etk/conversions.h
 
-1457689817 /home/samuel/mega/etk/inc//etk/list.h
+1465384256 /home/samuel/mega/etk/inc//etk/list.h
 	<new>
 	"types.h"
 	"math_util.h"
@@ -461,14 +461,15 @@
 	"types.h"
 	<etk/array.h>
 
-1463234023 /home/samuel/mega/etk/inc//etk/smrt_ptr.h
-	<cstdlib>
+1465293422 /home/samuel/mega/etk/inc//etk/smrt_ptr.h
+	<stdlib.h>
 	<utility>
 
-1465271319 /home/samuel/mega/etk/inc//etk/pool.h
+1465459216 /home/samuel/mega/etk/inc//etk/pool.h
+	<stdlib.h>
 	"types.h"
 
-1465270670 /home/samuel/mega/etk/inc//etk/pool_ptr.h
+1465471423 /home/samuel/mega/etk/inc//etk/pool_ptr.h
 	<cstdlib>
 	<utility>
 	"pool.h"
