@@ -54,14 +54,10 @@
 #include "loop_range.h"
 #include "stm.h"
 #include "fuzzy.h"
-#include "pid.h"
 #include "array.h"
-#include "pid_rater.h"
-#include "evopid.h"
 #include "objpool.h"
 #include "smrt_ptr.h"
 #include "pool.h"
 #include "pool_ptr.h"
 
 #endif
-

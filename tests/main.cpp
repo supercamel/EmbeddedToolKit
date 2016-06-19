@@ -13,7 +13,6 @@
 #include "out.h"
 //#include "linkedlist_test.h"
 #include "pool_test.h"
-#include "pid_tests.h"
 #include "array_test.h"
 #include "tokeniser_test.h"
 #include "objpool_test.h"
@@ -87,5 +86,3 @@ int main()
 
     return -1;
 }
-
-
