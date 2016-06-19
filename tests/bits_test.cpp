@@ -4,7 +4,7 @@ using namespace std;
 
 bool bits_test(std::string& subtest)
 {
-	subtest = "Setting bits";
+    subtest = "Setting bits";
     //create an 8bit bits object
     etk::Bits<uint8> bits;
 
@@ -38,7 +38,7 @@ bool bits_test(std::string& subtest)
         return false;
 
 
-	subtest = "To string";
+    subtest = "To string";
     etk::StaticString<9> s = bits.to_string();
     if(!s.compare("10000000", 8))
         return false;
@@ -46,7 +46,7 @@ bool bits_test(std::string& subtest)
     if(!bits.set_bit(0, false))
         return false;
 
-	subtest = "to string again";
+    subtest = "to string again";
     s = bits.to_string();
     if(!s.compare("00000000", 8))
         return false;

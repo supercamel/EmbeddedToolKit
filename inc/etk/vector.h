@@ -335,6 +335,9 @@ private:
     uint32 set_flag = 0;
 };
 
+typedef Vector<2> Vector2d;
+typedef Vector<3> Vector3d;
+typedef Vector<4> Vector4d;
 
 }
 

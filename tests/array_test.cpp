@@ -27,15 +27,15 @@ bool array_test(std::string& subtest)
         return false;
 
 
-	for(int i = 0; i < 6; i++)
-		ar[i] = i;
-	
-	etk::reverse(ar, 6);
-	for(int i = 0; i < 6; i++)
-	{
-		if(ar[i] != 5-i)
-			return false;
-	}
-	
+    for(int i = 0; i < 6; i++)
+        ar[i] = i;
+
+    etk::reverse(ar, 6);
+    for(int i = 0; i < 6; i++)
+    {
+        if(ar[i] != 5-i)
+            return false;
+    }
+
     return true;
 }

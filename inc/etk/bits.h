@@ -137,6 +137,11 @@ private:
     T bte;
 };
 
+typedef Bits<uint8> Bits8;
+typedef Bits<uint16> Bits16;
+typedef Bits<uint32> Bits32;
+typedef Bits<uint64> Bits64;
+
 }
 
 

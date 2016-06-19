@@ -383,7 +383,7 @@ bool Rope::compare(const char* c, uint32 start_this, uint32 start_that, uint32 l
     return true;
 }
 
-void Rope::sub_string(char* buf, uint32 start, uint32 len)
+void Rope::sub_string(char* buf, uint32 start, uint32 len) const
 {
     uint32 i = 0;
     for(; i < len; i++)
@@ -391,7 +391,7 @@ void Rope::sub_string(char* buf, uint32 start, uint32 len)
     buf[i] = '\0';
 }
 
-void Rope::sub_string(Rope& r, uint32 start, uint32 len)
+void Rope::sub_string(Rope& r, uint32 start, uint32 len) const
 {
     sub_string(r.str, start, len);
 }

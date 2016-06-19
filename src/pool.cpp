@@ -1,3 +1,8 @@
 #include <etk/etk.h>
 
-etk::Heap heap;
+namespace etk
+{
+
+Heap heap;
+
+}

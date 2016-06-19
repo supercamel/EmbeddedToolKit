@@ -523,7 +523,7 @@ public:
             buf[i] = etk::to_lower(buf[i]);
     }
 
-    template<uint32 nn> operator StaticString<nn>()
+    template<uint32 nn> operator StaticString<nn>() const
     {
         StaticString<nn> ss;
         ss = this->c_str();
@@ -533,7 +533,7 @@ public:
 	/**
 	 * \brief Returns a pointer to the C-string buf.
 	 */
-    const char* c_str()
+    const char* c_str() const
     {
         return buf;
     }
@@ -549,7 +549,7 @@ public:
 	/**
 	 * \brief Extracts a section of text from the string and assigns it to buf.
 	 */
-    void sub_string(char* buf, uint32 start, uint32 len)
+    void sub_string(char* buf, uint32 start, uint32 len) const
     {
         Rope r(buf, L);
         r.sub_string(buf, start, len);
@@ -558,7 +558,7 @@ public:
 	/**
 	 * \brief Extracts a section of text from the string and assigns it to rope.
 	 */
-    void sub_string(Rope& rope, uint32 start, uint32 len)
+    void sub_string(Rope& rope, uint32 start, uint32 len) const
     {
         Rope r(buf, L);
         r.sub_string(rope, start, len);
@@ -567,10 +567,16 @@ public:
 	/**
 	 * \brief Extracts a section of text from the string and assigns it to string.
 	 */
-    template <uint32 N> void sub_string(StaticString<N>& string, uint32 start, uint32 len)
+    template <uint32 N> void sub_string(StaticString<N>& string, uint32 start, uint32 len) const
     {
+	uint32 i = 0;
+	for(; i < len; i++)
+            string[i] = (*this).get(i+start);
+	string[i] = '\0';
+/*
         Rope r(buf, L);
         r.sub_string(string.raw_memory(), start, len);
+*/
     }
 
 	/**

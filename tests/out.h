@@ -7,10 +7,10 @@
 class Out : public etk::Stream<Out>
 {
 public:
-	void put(char c)
-	{
-	    std::cout << c;
-	}
+    void put(char c)
+    {
+        std::cout << c;
+    }
 private:
 
 };

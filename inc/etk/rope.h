@@ -100,8 +100,8 @@ public:
     bool compare(Rope r, uint32 start_this, uint32 start_that, uint32 len);
     bool compare(const char* c, uint32 start_this, uint32 start_that, uint32 len);
 
-    void sub_string(char* buf, uint32 start, uint32 len);
-    void sub_string(Rope& r, uint32 start, uint32 len);
+    void sub_string(char* buf, uint32 start, uint32 len) const;
+    void sub_string(Rope& r, uint32 start, uint32 len) const;
 
     const char* c_str();
 

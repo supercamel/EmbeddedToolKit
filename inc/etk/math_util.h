@@ -42,7 +42,7 @@ u32b;
  * \arg b Maximum value
  * \return x, if x is between a and b. If x is smaller than a, then a. If x is larger than b, then b.
  */
-auto constrain(auto x, auto a, auto b)
+template <typename T> T constrain(T x, T a, T b)
 {
     if(x < a)
         return a;
@@ -61,7 +61,7 @@ auto constrain(auto x, auto a, auto b)
  * Why? Because 450 degrees is the same as 90 degrees on a map.
  * This function can be used with radians by making segments 2*PI.
  */
-auto constrain_circular(auto x, uint32 segments)
+template <typename T> T constrain_circular(T x, uint32 segments)
 {
     uint32 half_segment = segments/2;
     int64 seg_lower = half_segment;
@@ -77,7 +77,7 @@ auto constrain_circular(auto x, uint32 segments)
 /**
  * \brief Returns the smaller of two values.
  */
-auto min(auto a, auto b)
+template <typename T> T min(T a, T b)
 {
     if(a < b)
         return a;
@@ -87,7 +87,7 @@ auto min(auto a, auto b)
 /**
  * \brief Returns the larger of two values.
  */
-auto max(auto a, auto b)
+template <typename T> T max(T a, T b)
 {
     if(a > b)
         return a;
@@ -100,7 +100,7 @@ auto max(auto a, auto b)
  * ctrl_val = map(ctrl_val, -1.0, 1.0, 0.0, 90.0);
  *
  */
-auto map(auto x, auto in_min, auto in_max, auto out_min, auto out_max)
+template <typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
 {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
@@ -108,7 +108,7 @@ auto map(auto x, auto in_min, auto in_max, auto out_min, auto out_max)
 /**
  * \brief Returns a number with the value of x and the sign of y.
  */
-auto copysign(auto x, auto y)
+template <typename T> T copysign(T x, T y)
 {
     if((y >= 0) && (x < 0))
         return -x;
@@ -121,7 +121,7 @@ auto copysign(auto x, auto y)
 /**
  * \brief Same as copysign(), but if y is zero then zero will be returned regardless of x.
  */
-auto copysign_zero(auto x, auto y)
+template <typename T> T copysign_zero(T x, T y)
 {
     if(y == 0)
         return 0;

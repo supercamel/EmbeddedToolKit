@@ -19,7 +19,7 @@
 #ifndef ETK_LOOP_RANGE_H
 #define ETK_LOOP_RANGE_H
 
-#include <type_traits>
+//#include <type_traits>
 
 /*
 
@@ -114,9 +114,6 @@ private:
 template<typename T>
 LoopRange<T> range(T from, T to)
 {
-    static_assert(std::is_integral<T>::value,
-                  "range only accepts integral values");
-
     return { from, to };
 }
 
@@ -133,9 +130,6 @@ LoopRange<T> range(T from, T to)
 template<typename T>
 LoopRange<T> range(T to)
 {
-    static_assert(std::is_integral<T>::value,
-                  "range only accepts integral values");
-
     return {0, to };
 }
 

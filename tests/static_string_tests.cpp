@@ -9,120 +9,120 @@ using namespace etk;
 
 bool static_string_test(std::string& subtest)
 {
-	etk::StaticString<128> string;
-	subtest = "Testing assignment";
+    etk::StaticString<128> string;
+    subtest = "Testing assignment";
 
-	string = "Test";
-	if(string.length() != 4)
-		return false;
+    string = "Test";
+    if(string.length() != 4)
+        return false;
 
-	subtest = "Sub string";
-	string = "Hello world!";
+    subtest = "Sub string";
+    string = "Hello world!";
 
-	subtest = "Sub strings";
-	etk::StaticString<64> ts;
-	string.sub_string(ts, 6, 5);
+    subtest = "Sub strings";
+    etk::StaticString<64> ts;
+    string.sub_string(ts, 6, 5);
 
-	if(!ts.compare("world"))
-		return false;
+    if(!ts.compare("world"))
+        return false;
 
-	subtest = "Appending and comparing";
-	etk::StaticString<128> st = "Hello ";
-	st += ts.c_str();
-	st += "!";
+    subtest = "Appending and comparing";
+    etk::StaticString<128> st = "Hello ";
+    st += ts.c_str();
+    st += "!";
 
-	if(!st.compare(string))
-		return false;
+    if(!st.compare(string))
+        return false;
 
-	subtest = "Inserting";
-	st.insert('a', 0);
-	if(!st.compare("aHello", 6))
-		return false;
+    subtest = "Inserting";
+    st.insert('a', 0);
+    if(!st.compare("aHello", 6))
+        return false;
 
-	subtest = "Removing";
-	st.remove(0);
-	if(!st.compare("Hello", 5))
-		return false;
+    subtest = "Removing";
+    st.remove(0);
+    if(!st.compare("Hello", 5))
+        return false;
 
-	st.remove(1);
-	if(!st.compare("Hllo", 4))
-		return false;
+    st.remove(1);
+    if(!st.compare("Hllo", 4))
+        return false;
 
-	subtest = "Erasing";
-	st = "Hello";
-	st.erase(2, 2);
-	if(!st.compare("Heo", 3))
-		return false;
+    subtest = "Erasing";
+    st = "Hello";
+    st.erase(2, 2);
+    if(!st.compare("Heo", 3))
+        return false;
 
-	subtest = "Assigning string to string";
-	string = "Woohoo!";
-	st = string;
-	if(!st.compare(string))
-		return false;
+    subtest = "Assigning string to string";
+    string = "Woohoo!";
+    st = string;
+    if(!st.compare(string))
+        return false;
 
-	subtest = "Atoi";
-	string = "565";
-	if(string.atoi() != 565)
-		return false;
+    subtest = "Atoi";
+    string = "565";
+    if(string.atoi() != 565)
+        return false;
 
-	subtest = "Atof";
-	string = "5.65";
-	if(!compare<real_t>(string.atof(), 5.65, 0.001))
-		return false;
+    subtest = "Atof";
+    string = "5.65";
+    if(!compare<real_t>(string.atof(), 5.65, 0.001))
+        return false;
 
-	subtest = "subscript access";
-	string[0] = '6';
-	if(!compare<real_t>(string.atof(), 6.65, 0.001))
-		return false;
+    subtest = "subscript access";
+    string[0] = '6';
+    if(!compare<real_t>(string.atof(), 6.65, 0.001))
+        return false;
 
-	subtest = "out of bounds subscript access";
-	for(int i = -55; i < 10000; i++)
-		string[i] = '4';
+    subtest = "out of bounds subscript access";
+    for(int i = -55; i < 10000; i++)
+        string[i] = '4';
 
-	subtest = "comparison operators";
-	string = "hello";
-	if(string != "hello")
-		return false;
+    subtest = "comparison operators";
+    string = "hello";
+    if(string != "hello")
+        return false;
 
-	if(string == "heloo")
-		return false;
+    if(string == "heloo")
+        return false;
 
-	if((string == "hello") == false)
-		return false;
+    if((string == "hello") == false)
+        return false;
 
-	subtest = "Constructors";
-	char b[20];
-	etk::Rope rope(b, 20);
-	rope << "G'day g'day";
-	etk::StaticString<20> gday(rope);
+    subtest = "Constructors";
+    char b[20];
+    etk::Rope rope(b, 20);
+    rope << "G'day g'day";
+    etk::StaticString<20> gday(rope);
 
-	if(gday != "G'day g'day")
-		return false;
+    if(gday != "G'day g'day")
+        return false;
 
-	subtest = "Rope operators";
-	string.clear();
-	string += 6.65;
-	if(!compare<real_t>(string.atof(), 6.65, 0.001))
-		return false;
+    subtest = "Rope operators";
+    string.clear();
+    string += 6.65;
+    if(!compare<real_t>(string.atof(), 6.65, 0.001))
+        return false;
 
-	subtest = "to upper";
-	string = "hi";
-	string.to_upper();
-	if(string != "HI")
-		return false;
+    subtest = "to upper";
+    string = "hi";
+    string.to_upper();
+    if(string != "HI")
+        return false;
 
-	subtest = "to lower";
-	string.to_lower();
-	if(string != "hi")
-		return false;
+    subtest = "to lower";
+    string.to_lower();
+    if(string != "hi")
+        return false;
 
-	subtest = "clearing";
-	string.clear();
-	string += "Hello world";
+    subtest = "clearing";
+    string.clear();
+    string += "Hello world";
 
     subtest = "Tokeniser";
-	std::string tokens = "Tokens are awesome";
-	auto tok = make_tokeniser(tokens, ' ');
+    std::string tokens = "Tokens are awesome";
+    auto tok = make_tokeniser(tokens, ' ');
 
     tok.next(gday, 20);
     if(gday != "Tokens")
@@ -183,20 +183,20 @@ bool static_string_test(std::string& subtest)
     ss.reverse();
     if(ss != "!pleH")
         return false;
-        
+
     ss = "Hi 50, 80 df-34.2jokes";
     int fifty = 0;
     int eighty = 0;
     float tf = 0;
-    
+
     ss.scan(fifty, eighty, tf);
     cout << endl << fifty << " " << eighty << " " << tf << endl;
     if(fifty != 50)
-    	return false;
+        return false;
     if(eighty != 80)
-    	return false;
+        return false;
 
-	return true;
+    return true;
 }
 
 
