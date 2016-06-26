@@ -114,24 +114,24 @@ public:
 
     void fromEuler(Vector<3> euler)
     {
-    	/*
-    		    void fromEuler(Vector<3> euler)
-    {
-    	real_t c1 = cos(euler.x()/real_t(2.0));
-    	real_t c2 = cos(euler.y()/real_t(2.0));
-    	real_t c3 = cos(euler.z()/real_t(2.0));
-    	
-    	real_t s1 = sin(euler.x()/real_t(2.0));
-    	real_t s2 = sin(euler.y()/real_t(2.0));
-    	real_t s3 = sin(euler.z()/real_t(2.0));
-    	
-    	_w = c1*c2*c3 - s1*s2*s3;
-		_x = s1*s2*c3 + c1*c2*s3;
-		_y = s1*c2*c3 + c1*s2*s3;
-		_z = c1*s2*c3 - s1*c2*s3;
-    }
+        /*
+        	    void fromEuler(Vector<3> euler)
+        {
+        real_t c1 = cos(euler.x()/real_t(2.0));
+        real_t c2 = cos(euler.y()/real_t(2.0));
+        real_t c3 = cos(euler.z()/real_t(2.0));
 
-	*/
+        real_t s1 = sin(euler.x()/real_t(2.0));
+        real_t s2 = sin(euler.y()/real_t(2.0));
+        real_t s3 = sin(euler.z()/real_t(2.0));
+
+        _w = c1*c2*c3 - s1*s2*s3;
+        _x = s1*s2*c3 + c1*c2*s3;
+        _y = s1*c2*c3 + c1*s2*s3;
+        _z = c1*s2*c3 - s1*c2*s3;
+        }
+
+        */
         Quaternion h, p, r;
         Vector<3> v(0.0, 0.0, 1.0);
         h.fromAxisAngle(v, euler.x());
@@ -156,17 +156,17 @@ public:
     void toAxisAngle(Vector<3>& axis, real_t& angle)
     {
         normalize();
-        
+
         axis = Vector<3>(0, 0, 0);
         angle = 0;
-        
+
         //if w is 1, then this is a singularity (axis angle is zero)
-        if(compare<real_t>(_w, 1.0, 0.000001))
-        	return;
-        
+        if(compare<real_t>(_w, 1.0, 0.0001))
+            return;
+
         real_t sqw = sqrtf(1.0-(_w*_w));
-        
-        if(compare<real_t>(sqw, 0.0f, 0.00001f)) //it's a singularity and divide by zero, avoid
+
+        if(compare<real_t>(sqw, 0.0f, 0.0001f)) //it's a singularity and divide by zero, avoid
             return;
 
         angle = 2 * acosf(real_t(_w));
@@ -185,7 +185,6 @@ public:
         _x = copysign_zero(_x, m(2,1) - m(1,2));
         _y = copysign_zero(_y, m(0,2) - m(2,0));
         _z = copysign_zero(_z, m(1,0) - m(0,1));
-        
 
         //trace of matrix
         /*
@@ -224,7 +223,7 @@ public:
             _y = (m(1, 2) + m(2, 1)) / S;
             _z = 0.25f * S;
         }
-		*/
+        */
     }
 
     Matrix<3, 3> toMatrix()
@@ -281,7 +280,7 @@ public:
 
         real_t angle = 0;
         toAxisAngle(ret, angle);
-        
+
         ret = ret*angle; //finds angular displacement
         ret = ret/dt; //over dt to find angular velocity
 
@@ -395,6 +394,72 @@ public:
         ret._y = this->_y*scalar;
         ret._z = this->_z*scalar;
         return ret;
+    }
+
+    /*
+     * only half of the hypersphere is needed to represent a rotation
+     *
+     * q(w,x,y,z) represents the same orientation as q(-w,-x,-y,-z)
+     *
+     * this function returns true if the quaternion is in the upper hyper-hemisphere
+     *or false if it is in the lower hyper-hemisphere
+     */
+    bool get_hemisphere()
+    {
+        auto r = _w+_x+_y+_z;
+        return (r >= 0);
+    }
+
+    /*
+     * Spherical linear interpolation
+     * Code is from: http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
+     *
+     */
+    Quaternion slerp(Quaternion b, float pc) const
+    {
+        // quaternion to return
+        Quaternion qm;
+
+        //b.copy_hemisphere(*this);
+
+        // Calculate angle between them.
+        real_t cosHalfTheta = _w * b._w + _x * b._x + _y * b._y + _z * b._z;
+        if (cosHalfTheta < 0)
+        {
+            b._w = -b._w;
+            b._x = -b._x;
+            b._y = -b._y;
+            b._z = -b._z;
+            cosHalfTheta = -cosHalfTheta;
+        }
+
+        // if qa=qb or qa=-qb then theta = 0 and we can return qa
+        if (etk::abs(cosHalfTheta) >= 1.0)
+        {
+            qm = *this;
+            return qm;
+        }
+        // Calculate temporary values.
+        real_t halfTheta = acos(cosHalfTheta);
+        real_t sinHalfTheta = sqrt(1.0 - cosHalfTheta*cosHalfTheta);
+        // if theta = 180 degrees then result is not fully defined
+        // we could rotate around any axis normal to qa or qb
+        if (etk::abs(sinHalfTheta) < 0.001)
+        {   // fabs is floating point absolute
+            qm._w = (_w * 0.5 + b._w * 0.5);
+            qm._x = (_x * 0.5 + b._x * 0.5);
+            qm._y = (_y * 0.5 + b._y * 0.5);
+            qm._z = (_z * 0.5 + b._z * 0.5);
+            return qm;
+        }
+        real_t ratioA = sin((1 - pc) * halfTheta) / sinHalfTheta;
+        real_t ratioB = sin(pc * halfTheta) / sinHalfTheta;
+        //calculate Quaternion.
+        qm._w = (_w * ratioA + b._w * ratioB);
+        qm._x = (_x * ratioA + b._x * ratioB);
+        qm._y = (_y * ratioA + b._y * ratioB);
+        qm._z = (_z * ratioA + b._z * ratioB);
+        return qm;
     }
 
 private:

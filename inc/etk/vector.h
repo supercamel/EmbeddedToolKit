@@ -272,13 +272,13 @@ public:
     {
         return scale(scalar);
     }
-    
+
     Vector operator *= (real_t scalar)
     {
     	*this = scale(scalar);
     	return *this;
     }
-    
+
     Vector operator /= (real_t scalar)
     {
     	*this = *this/scalar;

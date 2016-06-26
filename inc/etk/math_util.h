@@ -121,9 +121,9 @@ template <typename T> T copysign(T x, T y)
 /**
  * \brief Same as copysign(), but if y is zero then zero will be returned regardless of x.
  */
-template <typename T> T copysign_zero(T x, T y)
+template <typename T> T copysign_zero(T x, T y, real_t precision=0.000001)
 {
-    if(y == 0)
+    if((y < precision) && (y > -precision))
         return 0;
     return copysign(x, y);
 }

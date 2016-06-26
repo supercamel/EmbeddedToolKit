@@ -200,7 +200,7 @@ public:
 	/**
 	 * \brief Appends and nicely formats an etk::Vector to this.
 	 */
-    template <uint32 N> StaticString& operator += (Vector<N>& v)
+    template <uint32 N> StaticString& operator += (Vector<N> v)
     {
         Rope r(buf, L);
         r.set_cursor(r.length());
@@ -317,19 +317,19 @@ public:
             return buf[L-1];
         return buf[p];
     }
-    
+
     char& at(uint32 p)
     {
         return (*this)[p];
     }
-    
+
     char get_char(uint32 p) const
     {
         if(p >= L)
             return buf[L-1];
         return buf[p];
     }
-    
+
     /**
      * \brief A simple get function for accessing const string characters.
      */
@@ -589,10 +589,10 @@ public:
         for(uint32 i = 0; i < hlen; i++)
             swap(buf[i], buf[len-i]);
     }
-    
+
     /**
      * \brief Extracts a list numbers from a string of text. It's a little bit like scanf, except it doesn't check the format of the string.
-     * For safety critical applications, you should use the tokeniser. The scan function doesn't perform any error checking and will fail silently. 
+     * For safety critical applications, you should use the tokeniser. The scan function doesn't perform any error checking and will fail silently.
      @code
 StaticString<100> st = "MSG05, 34, -9.5";
 int msgid, inum;
@@ -606,7 +606,7 @@ cout << msgid << " " << inum << " " << fnum << endl;
     {
         _scan(buf, args...);
     }
-    
+
 
 private:
     template<typename T> void _scan(const char* bbuf, T& t)
@@ -635,7 +635,7 @@ private:
              }
         }
     }
-    
+
     template<typename T, typename... Args> void _scan(const char* bbuf, T& t, Args&... args)
     {
         uint32 count = 0;
@@ -663,7 +663,7 @@ private:
         }
         _scan(&bbuf[count], args...);
     }
-    
+
     char buf[L];
 };
 
@@ -672,5 +672,3 @@ private:
 
 
 #endif
-
-
