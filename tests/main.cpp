@@ -60,7 +60,7 @@ int main()
     TestHarness th("ETK Test Harness");
     th.add_module(pool_test, "Pool test");
 
-    /*
+    
     th.add_module(test_rope, "Rope Test");
     th.add_module(list_test, "List Test");
     th.add_module(static_string_test, "Static String");
@@ -79,7 +79,7 @@ int main()
     th.add_module(tokeniser_test, "Tokeniser test");
     th.add_module(objpool_test, "Object pools");
     th.add_module(range_tests, "Ranged loops");
-    */
+
     if(th.run())
         return 0;
 

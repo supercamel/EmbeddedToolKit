@@ -87,6 +87,13 @@ bool test_rope(std::string& subtest)
 
     rope.clear();
 
+    subtest = "appending double with precision";
+    rope.append(12.5673, 6);
+    if(!rope.compare("12.567300"))
+        return false;
+
+    rope.clear();
+
     subtest = "Appending integer";
     rope << 52;
     if(rope.atoi() != 52)
@@ -186,5 +193,3 @@ bool test_rope(std::string& subtest)
 
     return true;
 }
-
-

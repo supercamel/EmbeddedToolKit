@@ -79,7 +79,7 @@ int main()
  */
 
 
-template <uint32 L> class StaticString
+template <uint32 L, uint8 default_float_precision=2> class StaticString
 {
 public:
     StaticString()
@@ -220,6 +220,27 @@ public:
         return *this;
     }
 
+    /**
+	 * \brief Appends a float to this.
+	 */
+    void append(float f, uint8 precision=default_float_precision)
+    {
+        char temp[20];
+        Rope r(temp, 20);
+        r.append(f, precision);
+        *this += temp;
+    }
+
+	/**
+	 * \brief Appends a double to this.
+	 */
+     void append(double f, uint8 precision=default_float_precision)
+     {
+         char temp[20];
+         Rope r(temp, 20);
+         r.append(f, precision);
+         *this += temp;
+     }
 	/**
 	 * \brief Appends a float to this.
 	 */
@@ -227,7 +248,7 @@ public:
     {
         char temp[20];
         Rope r(temp, 20);
-        r << f;
+        r.append(f, default_float_precision);
         *this += r.c_str();
         return *this;
     }
@@ -239,7 +260,7 @@ public:
     {
         char temp[20];
         Rope r(temp, 20);
-        r << f;
+        r.append(f, default_float_precision);
         *this += r.c_str();
         return *this;
     }

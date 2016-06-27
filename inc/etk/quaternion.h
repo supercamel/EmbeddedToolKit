@@ -114,24 +114,6 @@ public:
 
     void fromEuler(Vector<3> euler)
     {
-        /*
-        	    void fromEuler(Vector<3> euler)
-        {
-        real_t c1 = cos(euler.x()/real_t(2.0));
-        real_t c2 = cos(euler.y()/real_t(2.0));
-        real_t c3 = cos(euler.z()/real_t(2.0));
-
-        real_t s1 = sin(euler.x()/real_t(2.0));
-        real_t s2 = sin(euler.y()/real_t(2.0));
-        real_t s3 = sin(euler.z()/real_t(2.0));
-
-        _w = c1*c2*c3 - s1*s2*s3;
-        _x = s1*s2*c3 + c1*c2*s3;
-        _y = s1*c2*c3 + c1*s2*s3;
-        _z = c1*s2*c3 - s1*c2*s3;
-        }
-
-        */
         Quaternion h, p, r;
         Vector<3> v(0.0, 0.0, 1.0);
         h.fromAxisAngle(v, euler.x());
@@ -185,45 +167,6 @@ public:
         _x = copysign_zero(_x, m(2,1) - m(1,2));
         _y = copysign_zero(_y, m(0,2) - m(2,0));
         _z = copysign_zero(_z, m(1,0) - m(0,1));
-
-        //trace of matrix
-        /*
-        real_t tr = m(0, 0) + m(1, 1) + m(2, 2);
-
-        real_t S = 0.0;
-        if (tr > 0)
-        {
-            S = sqrtf(tr+1.0f) * 2;
-            _w = real_t(0.25f) * S;
-            _x = (m(2, 1) - m(1, 2)) / S;
-            _y = (m(0, 2) - m(2, 0)) / S;
-            _z = (m(1, 0) - m(0, 1)) / S;
-        }
-        else if ((m(0, 0) < m(1, 1))&(m(0, 0) < m(2, 2)))
-        {
-            S = sqrtf(real_t(1.0) + m(0, 0) - m(1, 1) - m(2, 2)) * 2;
-            _w = (m(2, 1) - m(1, 2)) / S;
-            _x = 0.25f * S;
-            _y = (m(0, 1) + m(1, 0)) / S;
-            _z = (m(0, 2) + m(2, 0)) / S;
-        }
-        else if (m(1, 1) < m(2, 2))
-        {
-            S = sqrtf(real_t(1.0) + m(1, 1) - m(0, 0) - m(2, 2)) * 2;
-            _w = (m(0, 2) - m(2, 0)) / S;
-            _x = (m(0, 1) + m(1, 0)) / S;
-            _y = 0.25f * S;
-            _z = (m(1, 2) + m(2, 1)) / S;
-        }
-        else
-        {
-            S = sqrtf(real_t(1.0) + m(2, 2) - m(0, 0) - m(1, 1)) * real_t(2);
-            _w = (m(1, 0) - m(0, 1)) / S;
-            _x = (m(0, 2) + m(2, 0)) / S;
-            _y = (m(1, 2) + m(2, 1)) / S;
-            _z = 0.25f * S;
-        }
-        */
     }
 
     Matrix<3, 3> toMatrix()
@@ -266,17 +209,6 @@ public:
         Vector<3> ret;
         if(dt == 0)
             return ret;
-        /*
-                Quaternion one(1.0, 0.0, 0.0, 0.0);
-                Quaternion delta = one - *this;
-                Quaternion r = (delta/dt);
-                r = r * 2;
-                r = r * one;
-
-                ret.x() = r.x();
-                ret.y() = r.y();
-                ret.z() = r.z();
-        */
 
         real_t angle = 0;
         toAxisAngle(ret, angle);
@@ -284,25 +216,6 @@ public:
         ret = ret*angle; //finds angular displacement
         ret = ret/dt; //over dt to find angular velocity
 
-        /*
-        		Vector<3> v(x(), y(), z());
-        		real_t s = w();
-        		ret = (v*2.0f)/(v.magnitude()*acos(s));
-
-
-        		Quaternion qdt = *this/dt;
-        		Quaternion r = (qdt*2)*this->conjugate();
-
-        		if(isnan(r.x()))
-        			return ret;
-        		if(isnan(r.y()))
-        			return ret;
-        		if(isnan(r.z()))
-        			return ret;
-        		ret.x() = r.x();
-        		ret.y() = r.y();
-        		ret.z() = r.z();
-        */
         return ret;
 
     }

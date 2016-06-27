@@ -154,12 +154,12 @@ void Rope::append(float j, uint8 precision)
     uint32 mul = 1;
     for(int i = 0; i < precision; i++)
         mul *= 10;
-    int32 t = static_cast<int32>(roundf(j*mul));
+    int64 t = static_cast<int64>(roundf(j*mul));
     char b[20];
     Rope sb(b, 20);
     sb.clear();
-    sb.append(t, 3);
-    uint32 len = max((int)sb.length()-precision, 0);
+    sb.append(t, static_cast<uint32>(precision)+1);
+    uint64 len = max((int)sb.length()-precision, 0);
     append(sb.c_str(), len);
     append('.');
     append(&sb.c_str()[len], sb.length()-len);
@@ -493,4 +493,3 @@ void Rope::terminate()
 
 
 }
-
