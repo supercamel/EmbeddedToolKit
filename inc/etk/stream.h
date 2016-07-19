@@ -2,18 +2,15 @@
     Embedded Tool Kit
     Copyright (C) 2015 Samuel Cowen
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
 */
 
 
@@ -41,7 +38,7 @@ public:
 	{
 		print((const char*)(cstr));
 	}
-	
+
     template<uint32 L> void print(StaticString<L> ss)
     {
         for(uint32 i = 0; i < ss.length(); i++)
@@ -75,14 +72,14 @@ public:
         print(cstr);
         return *this;
     }
-    
+
     Stream& operator << (char* cstr)
     {
         print(cstr);
         return *this;
     }
-	
-    
+
+
     template<uint32 L> Stream& operator << (StaticString<L> ss)
     {
     	print(ss);
@@ -96,4 +93,3 @@ public:
 
 
 #endif
-
