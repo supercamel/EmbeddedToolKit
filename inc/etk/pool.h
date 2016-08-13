@@ -16,7 +16,7 @@
 #define POOL_H_INCLUDED
 
 #include <stdlib.h>
-#include "types.h"
+#include <etk/types.h>
 
 
 /**
@@ -99,7 +99,7 @@ public:
         //first see if there is a suitable block
         void* r = alloc_from_free_list(sz);
         //return on success
-        if(r)
+        if(r != nullptr)
             return r;
 
         //we're out of memory, so try joining together all the adjacent free blocks to see if they release a region large enough
@@ -111,6 +111,22 @@ public:
 
         //can't allocate any more memory.
         return nullptr;
+    }
+
+    void* realloc(void* ptr, uint32 sz)
+    {
+        void* n = alloc(sz);
+        if(n == nullptr)
+            return nullptr;
+
+        char* pptr = (char*)ptr;
+        char* nptr = (char*)n;
+        for(uint32 i = 0; i < sz; i++)
+            nptr[i] = pptr[i];
+
+        if(ptr != nullptr)
+            free(ptr);
+        return n;
     }
 
     /**
@@ -134,20 +150,38 @@ public:
      */
     void coalesce_free_blocks()
     {
+        bool changes = true;
+        while(changes)
+        {
+            changes = false;
+            Block* pblock = free_head.next;
+            while(pblock)
+            {
+                char* pnext = (char*)pblock;
+                pnext += pblock->size;
+
+                if(block_is_free((Block*)pnext))
+                {
+                    pblock->size += ((Block*)pnext)->size;
+                    remove_from_list((Block*)pnext);
+                    changes = true;
+                }
+                pblock = pblock->next;
+            }
+        }
+    }
+
+/*
+    void print_free_list()
+    {
         Block* pblock = free_head.next;
         while(pblock)
         {
-            char* pnext = (char*)pblock;
-            pnext += pblock->size;
-
-            if(block_is_free((Block*)pnext))
-            {
-                pblock->size += ((Block*)pnext)->size;
-                remove_from_list((Block*)pnext);
-            }
+            cout << (int)pblock << " " << pblock->size << endl;
             pblock = pblock->next;
         }
     }
+*/
 
 private:
 
@@ -229,10 +263,10 @@ private:
      */
     void remove_from_list(Block* block)
     {
-        if(block->prev)
-            block->prev->next = block->next;
         if(block->next)
             block->next->prev = block->prev;
+        if(block->prev)
+            block->prev->next = block->next;
     }
 
     /**

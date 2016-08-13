@@ -56,5 +56,6 @@
 #include "smrt_ptr.h"
 #include "pool.h"
 #include "pool_ptr.h"
+#include "forward_list.h"
 
 #endif
