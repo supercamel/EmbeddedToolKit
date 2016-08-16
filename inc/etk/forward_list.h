@@ -4,7 +4,6 @@
 
 
 #include <etk/etk.h>
-#include <iostream>
 
 namespace etk
 {
