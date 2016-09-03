@@ -18,6 +18,10 @@
 #include <stdlib.h>
 #include <etk/types.h>
 
+/*
+#include <iostream>
+using namespace std;
+*/
 
 /**
  * The Pool class is a memory pool - aka a disposable heap.
@@ -27,15 +31,12 @@
  *  - Eliminates the risk of heap fragmentation
  *  - Generally gets destroyed after use which almost eliminates the danger of fragmentation
  *
- * Computers and micro-controllers require dynamic memory allocation to solve complex problems in a non-deterministic way.
- * For example:
- *      A robot needs to find the shortest path around an obstacle course to get home.
- *      There are many randomly placed obstacles and potentially hundreds of thousands of routes through the course.
- *      The path finding algorithm will probably require a tree-like data structure to store possible pathways.
+ * Computers and micro-controllers require dynamic memory allocation to solve complex problems.
+ * Such problems include:
+ *  - Path finding & navigation
+ *  - Language processing (compilers, interpreters, NLP, etc)
+ *  - Searching algorithms
  *
- *      Due to the random nature of the obstacle course, it doesn't make sense to pre-allocate memory for the tree because
- *      it cannot know how many branches and sub-nodes the tree should have. If it did pre-allocate memory there would
- *      be substantial waste and the problem solving ability of the robot would be severely restricted.
  *
  * However, with great power comes great responsibility!
  * Normal dynamic memory allocation (using new/delete or malloc/free) comes with risks. Memory leaks
@@ -45,9 +46,14 @@
  * prohibited in serious embedded applications.
  *
  * By far the most important pro of memory pools is that they can be completely destroyed when they are no longer required.
- * Using a memory pool, the robot can find the shortest path and copy it to a pre-allocated location. The entire pool could
- * then simply popped off the stack. All that memory would be freed in an instant, along with any fragmented pockets of memory.
+ * The entire pool can simply popped off the stack. All that memory would be freed in an instant, along with any 
+ * fragmented pockets of memory.
  *
+ * ProTip: Put MemPools on the stack whenever possible - and don't call free() unless you actually need to.
+ *
+ * ProTip: If you're doing a lot of allocating and freeing with a MemPool, call coalesce_free_blocks() after free().
+ * 	   This will join together free blocks that are adjacent to each other. It helps minimize fragmentation and
+ *         could help speed up the next call to alloc().
  */
 
 namespace etk
@@ -177,7 +183,7 @@ public:
         Block* pblock = free_head.next;
         while(pblock)
         {
-            cout << (int)pblock << " " << pblock->size << endl;
+            cout << (uintptr_t)pblock << " " << pblock->size << endl;
             pblock = pblock->next;
         }
     }

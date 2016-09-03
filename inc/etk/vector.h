@@ -324,6 +324,18 @@ public:
     {
         return dot(*this);
     }
+    
+    real_t get_x() const {
+    	return p_vec[0];
+    }
+    
+    real_t get_y() const {
+    	return p_vec[1];
+    }
+    
+    real_t get_z() const {
+    	return p_vec[2]; 
+    }
 
 
 private:
