@@ -45,6 +45,12 @@ public:
             static_cast<derived*>(this)->put(ss[i]);
     }
 
+	template<uint32 L> void print(Vector<L> v)
+	{
+		for(uint32 i = 0; i < L; i++)
+			print(v[i], " ");
+		print("\r\n");
+	}
 
     template<typename T> void print(T v)
     {
