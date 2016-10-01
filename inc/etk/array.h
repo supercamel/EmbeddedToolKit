@@ -110,6 +110,13 @@ public:
             return buf[pos];
         return buf[L-1];
     }
+    
+    T operator[](uint32 pos) const
+    {
+    	if(pos < L)
+    		return buf[pos];
+    	return buf[L-1];
+    }
 
     T& at(uint32 pos)
     {
