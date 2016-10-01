@@ -335,6 +335,13 @@ public:
             return buf[L-1];
         return buf[p];
     }
+    
+    char operator [](uint32 p) const
+    {
+        if(p >= L)
+            return buf[L-1];
+        return buf[p];
+    }
 
     char& at(uint32 p)
     {
