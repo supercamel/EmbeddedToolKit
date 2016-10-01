@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-c -g -Wall -Wextra -std=c++14 -I./inc -I/usr/include/eigen3
-LDFLAGS= -lc
+LDFLAGS= 
 SOURCES=$(wildcard src/*.cpp) $(wildcard tests/*.cpp)
 HEADERS=$(wildcard inc/etk/*.h)
 OBJECTS=$(patsubst src/%.cpp,.obj/%.o,$(wildcard src/*.cpp))
