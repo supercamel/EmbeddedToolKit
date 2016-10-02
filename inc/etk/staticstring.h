@@ -138,10 +138,13 @@ public:
 	 */
     StaticString& operator=(const char* c)
     {
-        uint32 l = Rope::c_strlen(c, L-1);
         uint32 i = 0;
-        for(; i < l; i++)
+        for(; i < L-1; i++)
+        {
             buf[i] = c[i];
+            if(buf[i] == '\0')
+            	return *this;
+        }
         buf[i] = '\0';
         return *this;
     }
@@ -152,8 +155,12 @@ public:
     StaticString& operator=(char* c)
     {
         uint32 i = 0;
-        for(; i < Rope::c_strlen(c, L); i++)
+        for(; i < L-1; i++)
+        {
             buf[i] = c[i];
+            if(buf[i] == '\0')
+            	return *this;
+        }
         buf[i] = '\0';
         return *this;
     }
@@ -370,15 +377,12 @@ public:
 	 */
     bool operator == (const char* c)
     {
-        uint32 len = etk::min<uint32>(L, Rope::c_strlen(c, L));
-
-        if(len != Rope::c_strlen(buf, L))
-            return false;
-
-        for(uint32 i = 0; i < len; i++)
+        for(uint32 i = 0; i < L-1; i++)
         {
             if(c[i] != buf[i])
                 return false;
+            if(c[i] == '\0')
+            	return true;
         }
         return true;
     }
@@ -403,15 +407,14 @@ public:
 
     template <uint32 N> bool compare(StaticString<N>& s)
     {
-        uint32 l = min<uint32>(Rope::c_strlen(s.c_str(), N), length());
         Rope rope(buf, L);
-        return rope.compare(s.buf, l);
+        return rope.compare(s.buf, L);
     }
 
     bool compare(const char* s)
     {
         Rope rope(buf, L);
-        return rope.compare(s, min<uint32>(Rope::c_strlen(s, L), L));
+        return rope.compare(s, L);
     }
 
 	/**
@@ -535,8 +538,12 @@ public:
 	 */
     void to_upper()
     {
-        for(uint32 i = 0; i < Rope::c_strlen(buf, L); i++)
+        for(uint32 i = 0; i < L-1; i++)
+        {
+        	if(buf[i] == '\0')
+        		break;
             buf[i] = etk::to_upper(buf[i]);
+        }
     }
 
 	/**
@@ -544,8 +551,12 @@ public:
 	 */
     void to_lower()
     {
-        for(uint32 i = 0; i < Rope::c_strlen(buf, L); i++)
+        for(uint32 i = 0; i < L-1; i++)
+        {
+        	if(buf[i] == '\0')
+        		break;
             buf[i] = etk::to_lower(buf[i]);
+        }
     }
 
     template<uint32 nn> operator StaticString<nn>() const
