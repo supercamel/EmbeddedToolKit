@@ -17,7 +17,6 @@
 #include <etk/rope.h>
 #include <etk/math_util.h>
 #include <math.h>
-#include <limits>
 
 namespace etk
 {
