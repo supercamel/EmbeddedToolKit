@@ -11,8 +11,11 @@ using namespace etk;
 
 bool test_rope(std::string& subtest)
 {
+	subtest = "Constructor";
     char buf[20];
     etk::Rope rope(buf, 20, "Hello!");
+    
+    cout << rope.c_str() << endl;
 
     if(rope != "Hello!")
         return false;
@@ -37,6 +40,13 @@ bool test_rope(std::string& subtest)
         return false;
 
     rope.clear();
+    
+    subtest = "half max int32";
+    auto test_val = 1073741823;
+    rope.append(test_val);
+    if(!rope.compare("1073741823"))
+    	return false;
+    rope.clear();
 
     subtest = "Appending real_t";
 
@@ -53,7 +63,7 @@ bool test_rope(std::string& subtest)
         rope.clear();
 
     }
-
+	
     rope.clear();
     rope.append(0.0f);
     if(!rope.compare("0.00"))
@@ -63,6 +73,11 @@ bool test_rope(std::string& subtest)
     rope.append(0.05f);
     if(!rope.compare("0.05"))
         return false;
+    rope.clear();
+    
+    subtest = "Appending huge double";
+    rope.append(1200000000.0, 9);
+    cout << rope.c_str() << endl;
     rope.clear();
 
     subtest = "Appending double";

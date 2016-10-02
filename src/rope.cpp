@@ -17,6 +17,7 @@
 #include <etk/rope.h>
 #include <etk/math_util.h>
 #include <math.h>
+#include <limits>
 
 namespace etk
 {
@@ -27,9 +28,15 @@ Rope::Rope(char* buf, uint32 maxlen, const char* c)
     str = buf;
     pos = 0;
     N = maxlen;
-    for(uint32 i = 0; i < c_strlen(c, maxlen); i++)
-        append(c[i]);
-    Rope::terminate();
+    uint32 i = 0;
+    for(; i < maxlen; i++)
+    {
+        str[i] = c[i];
+      	if(str[i] == '\0')
+          break;
+    }
+    str[i] = '\0';
+    pos = i;
 }
 
 Rope::Rope(char* c, uint32 maxlen)
@@ -95,44 +102,44 @@ void Rope::append(int64 j, uint32 npad)
 
 void Rope::append(uint32 j, uint32 npad)
 {
-    char buf[9];
+    char buf[12];
     uint32 i = 0;
-    for(i = 0; i < 9; i++)
+    for(i = 0; i < 12; i++)
     {
         int r = j%10;
         j /= 10;
-        buf[8-i] = '0'+static_cast<char>(r);
+        buf[11-i] = '0'+static_cast<char>(r);
     }
     i = 0;
-    while(i < 9)
+    while(i < 12)
     {
         if(buf[i] != '0')
             break;
         i++;
     }
-    i = min(i, 9-npad);
-    append(&buf[i], 9-i);
+    i = min(i, 12-npad);
+    append(&buf[i], 12-i);
 }
 
 void Rope::append(uint64 j, uint32 npad)
 {
-    char buf[20];
+    char buf[60];
     uint32 i = 0;
-    for(i = 0; i < 20; i++)
+    for(i = 0; i < 60; i++)
     {
         int r = j%10;
         j /= 10;
-        buf[19-i] = '0'+static_cast<char>(r);
+        buf[59-i] = '0'+static_cast<char>(r);
     }
     i = 0;
-    while(i < 20)
+    while(i < 60)
     {
         if(buf[i] != '0')
             break;
         i++;
     }
-    i = min(i, 20-npad);
-    append(&buf[i], 20-i);
+    i = min(i, 60-npad);
+    append(&buf[i], 60-i);
     terminate();
 }
 
@@ -148,10 +155,23 @@ void Rope::append(float j, uint8 precision)
         append("inf", 3);
         return;
     }
-    uint32 mul = 1;
+    
+    if(precision > 10)
+    	precision = 10;
+    
+    uint64 mul = 1;
     for(int i = 0; i < precision; i++)
         mul *= 10;
-    int64 t = static_cast<int64>(roundf(j*mul));
+        
+    float r = j*mul;
+    const int64 max_int64 = 9'223'372'036'854'775'807;
+    if(r >= max_int64)
+    {
+    	append("ovr", 3);
+    	return;
+    }
+    
+    int64 t = static_cast<int64>(roundf(r));
     char b[20];
     Rope sb(b, 20);
     sb.clear();

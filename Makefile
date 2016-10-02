@@ -12,7 +12,7 @@ all: inc/etk/version.h $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS) $(TEST_OBJECTS)
 	mkdir -p bin
 	$(CC) $(LDFLAGS) $(OBJECTS) $(TEST_OBJECTS) -o $@
-	#./bin/main
+	./bin/main
 	ar rcs libetk.a $(OBJECTS)
 
 .obj/%.o:src/%.cpp
