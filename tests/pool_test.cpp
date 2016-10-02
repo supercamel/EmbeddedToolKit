@@ -37,12 +37,10 @@ bool pool_test(string& subtest)
     if(sizeof(size_t) == 8) //64bit system
     {
         subtest = "There is 20 bytes of overhead for each block";
-        cout << endl << "HERE" << endl << hex << (int64)p2 << endl << (int64)p1 << endl;
-        cout << hex << (int64)p2-(int64)p1 << endl;
         if((p2-44) != p1)
             return false;
     }
-    
+
     auto pto = make_pool_ptr<Object>(pool);
 
     subtest = "Returns valid pointer";
