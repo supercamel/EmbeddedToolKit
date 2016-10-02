@@ -83,6 +83,11 @@ void Rope::append(int32 j, uint32 npad)
 {
     if(j < 0)
     {
+    	if(j == -2147483648) //special case for j == min int32
+    	{
+    		append("-2147483648");
+    		return;
+    	}
         append('-');
         j *= -1;
     }
@@ -348,15 +353,14 @@ bool Rope::operator != (const char* r)
 bool Rope::compare(Rope r, uint32 len)
 {
     if(len == 0)
-    {
-        if(r.length() != length())
-            return false;
-        len = length();
-    }
+        len = N;
+    
     for(uint32 i = 0; i < len; i++)
     {
         if(str[i] != r.str[i])
             return false;
+        if(str[i] == '\0')
+        	break;
     }
     return true;
 }
@@ -364,17 +368,14 @@ bool Rope::compare(Rope r, uint32 len)
 bool Rope::compare(const char* c, uint32 len)
 {
     if(len == 0)
-    {
-        len = static_cast<int>(c_strlen(c, static_cast<uint16>(length()+2)));
-        if(len != length())
-        {
-            return false; //strings are different lengths, so they aren't the same
-        }
-    }
+        len = N;
+    
     for(uint32 i = 0; i < len; i++)
     {
         if(str[i] != c[i])
             return false;
+        if(str[i] == '\0')
+        	break;
     }
     return true;
 }
@@ -409,7 +410,7 @@ void Rope::sub_string(char* buf, uint32 start, uint32 len) const
 
 void Rope::sub_string(Rope& r, uint32 start, uint32 len) const
 {
-    sub_string(r.str, start, len);
+    sub_string(r.str, start, min(len+start, r.N));
 }
 
 const char* Rope::c_str()

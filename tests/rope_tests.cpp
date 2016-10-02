@@ -3,6 +3,7 @@
 #include <etk/etk.h>
 #include <sstream>
 #include <iomanip>
+#include <limits>
 
 #include <iostream>
 using namespace std;
@@ -32,6 +33,12 @@ bool test_rope(std::string& subtest)
     rope.append(556u, 5);
     if(!rope.compare("00556"))
         return false;
+    rope.clear();
+    
+    subtest = "Appending min int";
+    rope.append(numeric_limits<int32_t>::min());
+    if(!rope.compare("-2147483648"))
+    	return false;
     rope.clear();
 
     subtest = "Appending positive signed integer";
