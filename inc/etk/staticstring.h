@@ -30,7 +30,6 @@
 #include <etk/vector.h>
 #include <type_traits>
 
-
 namespace etk
 {
 
@@ -81,7 +80,7 @@ template <uint32 L, uint8 default_float_precision=2> class StaticString
 public:
     StaticString()
     {
-        clear();
+        buf[0] = '\0';
     }
 
     /**
@@ -93,9 +92,7 @@ public:
      */
     StaticString(const char* c)
     {
-        clear();
-        Rope r(buf, L);
-        r.append(c);
+        Rope r(buf, L, c);
     }
 
 	/**
@@ -103,7 +100,6 @@ public:
      */
     StaticString(Rope r)
     {
-        clear();
         r.copy(buf);
     }
 
@@ -493,7 +489,7 @@ public:
     {
         if(pos < L-1)
         {
-            for(uint32 i = length(); i != pos; i--)
+            for(uint32 i = length()+1; i != pos; i--)
                 buf[i] = buf[i-1];
             buf[pos] = c;
         }

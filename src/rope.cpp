@@ -31,7 +31,7 @@ Rope::Rope(char* buf, uint32 maxlen, const char* c)
     for(; i < maxlen; i++)
     {
         str[i] = c[i];
-      	if(str[i] == '\0')
+      	if(c[i] == '\0')
           break;
     }
     str[i] = '\0';
@@ -62,10 +62,7 @@ Rope::Rope(const Rope& r)
 void Rope::append(char c)
 {
     if(pos < N-1)
-    {
         str[pos++] = c;
-        str[pos] = '\0';
-    }
 }
 
 void Rope::append(const char* s, int len)
@@ -92,6 +89,7 @@ void Rope::append(int32 j, uint32 npad)
         j *= -1;
     }
     append((uint32)j, npad);
+    terminate();
 }
 
 void Rope::append(int64 j, uint32 npad)
@@ -102,6 +100,7 @@ void Rope::append(int64 j, uint32 npad)
         j *= -1;
     }
     append((uint64)j, npad);
+    terminate();
 }
 
 void Rope::append(uint32 j, uint32 npad)
@@ -123,6 +122,7 @@ void Rope::append(uint32 j, uint32 npad)
     }
     i = min(i, 12-npad);
     append(&buf[i], 12-i);
+    terminate();
 }
 
 void Rope::append(uint64 j, uint32 npad)
