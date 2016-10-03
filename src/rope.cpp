@@ -96,6 +96,11 @@ void Rope::append(int64 j, uint32 npad)
 {
     if(j < 0)
     {
+        if(j == (-9'223'372'036'854'775'807-1))
+        {
+            append("–922337203685477808");
+            return;
+        }
         append('-');
         j *= -1;
     }
@@ -159,14 +164,14 @@ void Rope::append(float j, uint8 precision)
         append("inf", 3);
         return;
     }
-    
+
     if(precision > 10)
     	precision = 10;
-    
+
     uint64 mul = 1;
     for(int i = 0; i < precision; i++)
         mul *= 10;
-        
+
     float r = j*mul;
     const int64 max_int64 = 9'223'372'036'854'775'807;
     if(r >= max_int64)
@@ -174,7 +179,7 @@ void Rope::append(float j, uint8 precision)
     	append("ovr", 3);
     	return;
     }
-    
+
     int64 t = static_cast<int64>(roundf(r));
     char b[20];
     Rope sb(b, 20);
@@ -354,7 +359,7 @@ bool Rope::compare(Rope r, uint32 len)
 {
     if(len == 0)
         len = N;
-    
+
     for(uint32 i = 0; i < len; i++)
     {
         if(str[i] != r.str[i])
@@ -369,7 +374,7 @@ bool Rope::compare(const char* c, uint32 len)
 {
     if(len == 0)
         len = N;
-    
+
     for(uint32 i = 0; i < len; i++)
     {
         if(str[i] != c[i])
