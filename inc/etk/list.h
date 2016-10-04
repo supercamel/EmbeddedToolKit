@@ -34,7 +34,7 @@ namespace etk
  */
 
 
-template <typename T, uint32 L> class List
+template <typename T, uint16 L> class List
 {
 public:
     List()
@@ -177,7 +177,7 @@ public:
      * @arg pos The position of the item to remove.
      * @arg padding A value / default object to fill in the space at the end of the list.
      */
-    void remove(uint32 pos)
+    void remove(uint16 pos)
     {
         if((pos < L) && (size() > 0))
         {
@@ -214,7 +214,7 @@ public:
      * @arg pos The position of the first item to erase.
      * @arg len The number of items to remove.
      */
-    void erase(uint32 pos, uint32 len)
+    void erase(uint16 pos, uint16 len)
     {
         for(uint32 i = 0; i < len; i++)
             remove(pos);
@@ -226,7 +226,8 @@ public:
     void clear()
     {
         T* pt = (T*)space;
-        for(uint32 i = 0; i < size(); i++)
+        auto sz = size();
+        for(uint32 i = 0; i < sz; i++)
             (&pt[i])->~T();
 
         list_end = -1;
@@ -237,11 +238,12 @@ public:
      * @arg t The item to count.
      * @return The number of these items in the list.
      */
-    uint32 count(T t)
+    uint16 count(T t)
     {
-        uint32 c = 0;
+        uint16 c = 0;
         T* pt = (T*)space;
-        for(uint32 i = 0; i < size(); i++)
+        auto sz = size();
+        for(uint32 i = 0; i < sz; i++)
         {
             if(t == pt[i])
                 c++;
@@ -255,7 +257,7 @@ public:
      * @arg end The end position.
      * @arg f The item to fill with.
      */
-    void fill(uint32 start, uint32 end, T f)
+    void fill(uint16 start, uint16 end, T f)
     {
         T* pt = (T*)space;
         end = etk::min(end, size());
@@ -292,7 +294,7 @@ public:
     /**
      * \brief This operator allows you to access elements of the list just like a normal array.
      */
-    T& operator[](uint32 pos)
+    T& operator[](uint16 pos)
     {
         T* pt = (T*)space;
         if(pos < size())
@@ -300,15 +302,20 @@ public:
         return pt[L-1];
     }
 
-    T& get(uint32 pos)
+    T& get(uint16 pos)
     {
         return (*this)[pos];
+    }
+    
+    T at(uint16 pos)
+    {
+    	return (*this)[pos];
     }
 
     /**
      * \brief Returns the number of items in the list.
      */
-    uint32 size()
+    uint16 size()
     {
         return list_end+1;
     }
@@ -316,7 +323,7 @@ public:
     /**
      * \brief Returns the maximum possible number of items that the list can contain.
      */
-    uint32 max_len()
+    uint16 max_len()
     {
         return L;
     }
@@ -324,7 +331,7 @@ public:
     /**
      * \brief Overrides the list end pointer. This function can be convenient but should be used with caution.
      */
-    void set_list_end(uint32 le)
+    void set_list_end(uint16 le)
     {
         list_end = le;
     }

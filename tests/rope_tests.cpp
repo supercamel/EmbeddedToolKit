@@ -162,13 +162,13 @@ bool test_rope(std::string& subtest)
     subtest = "atof";
     rope.clear();
     rope << 53.24;
-    if(!compare<real_t>(rope.atof(), 53.24f, 0.000001f))
+    if(!compare(rope.atof(), 53.24f, 0.000001f))
         return false;
 
 
     rope.clear();
     rope << "2710.000";
-    if(!compare<real_t>(rope.atof(), 2710.00, 0.0001f))
+    if(!compare(rope.atof(), 2710.00, 0.0001f))
         return false;
 
 
@@ -186,7 +186,7 @@ bool test_rope(std::string& subtest)
 
     rope.clear();
     rope << 0.000000000003f;
-    if(!compare<real_t>(rope.atof(), 0.0f, 0.0001f))
+    if(!compare(rope.atof(), 0.0f, 0.0001f))
         return false;
 
     subtest = "appending zero";

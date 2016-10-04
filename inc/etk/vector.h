@@ -103,7 +103,7 @@ public:
     void normalize()
     {
         real_t mag = magnitude();
-        if(etk::compare<real_t>(mag, 0.0f, 0.00001f))
+        if(etk::compare(mag, 0.0f, 0.00001f))
             return;
 
         uint32 i;
@@ -189,7 +189,7 @@ public:
     {
         for(uint32 i = 0; i < N; i++)
         {
-            if(!etk::compare<real_t>(p_vec[i], v.p_vec[i], 0.00001f))
+            if(!etk::compare(p_vec[i], v.p_vec[i], 0.00001f))
                 return false;
         }
         return true;
@@ -199,7 +199,7 @@ public:
     {
         for(uint32 i = 0; i < N; i++)
         {
-            if(!etk::compare<real_t>(p_vec[i], v.p_vec[i], precision))
+            if(!etk::compare(p_vec[i], v.p_vec[i], precision))
                 return false;
         }
         return true;

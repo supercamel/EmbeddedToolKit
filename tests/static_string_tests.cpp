@@ -67,12 +67,12 @@ bool static_string_test(std::string& subtest)
 
     subtest = "Atof";
     string = "5.65";
-    if(!compare<real_t>(string.atof(), 5.65, 0.001))
+    if(!compare(string.atof(), 5.65, 0.001))
         return false;
 
     subtest = "subscript access";
     string[0] = '6';
-    if(!compare<real_t>(string.atof(), 6.65, 0.001))
+    if(!compare(string.atof(), 6.65, 0.001))
         return false;
 
     subtest = "out of bounds subscript access";
@@ -102,7 +102,7 @@ bool static_string_test(std::string& subtest)
     subtest = "Rope operators";
     string.clear();
     string += 6.65;
-    if(!compare<real_t>(string.atof(), 6.65, 0.001))
+    if(!compare(string.atof(), 6.65, 0.001))
         return false;
 
     subtest = "to upper";

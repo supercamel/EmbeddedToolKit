@@ -96,6 +96,8 @@ template <typename T> T max(T a, T b)
  * For example, a control functions returns a value between -1.0 and 1.0. The servo requires an input from 0 - 90.
  * ctrl_val = map(ctrl_val, -1.0, 1.0, 0.0, 90.0);
  *
+ * If in_max is equal to in_min, a divide by zero will occur. 
+ *
  */
 template <typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
 {
@@ -104,6 +106,8 @@ template <typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
 
 /**
  * \brief Returns a number with the value of x and the sign of y.
+ * If x is a signed integer, it should be constrained to a plausible range 
+ * before calling this function. This is to prevent undefined behaviour if x == INT_MIN.
  */
 template <typename T> T copysign(T x, T y)
 {
@@ -135,16 +139,6 @@ void swap(auto& a, auto& b)
     b = temp;
 }
 
-/**
- * \brief Compares two values. Returns true if their difference is less than precision.
- */
-bool compare(auto a, auto b, auto precision)
-{
-    auto result = a-b;
-    if(result < 0)
-        result = -result;
-    return ((result-precision) < 0);
-}
 
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array.
@@ -210,6 +204,10 @@ inline char to_lower(char c)
     return c;
 }
 
+
+/**
+ * \brief Returns true if the character is alphabetic, upper or lower case.
+ */
 inline bool is_alpha(char c)
 {
     if((c >= 'A') && (c <= 'Z'))
@@ -219,6 +217,9 @@ inline bool is_alpha(char c)
     return false;
 }
 
+/**
+ * \brief Returns true if the character is a digit.
+ */
 inline bool is_numeric(char c)
 {
     if((c >= '0') && (c <= '9'))
@@ -228,6 +229,8 @@ inline bool is_numeric(char c)
 
 /**
  * \brief Returns the input parameter with a positive sign.
+ * If t is a signed integer, it must be constrained to a plausible range 
+ * in order to prevent undefined behaviour if t == INT_MIN
  */
 template<typename T> T abs(T t)
 {
@@ -236,13 +239,27 @@ template<typename T> T abs(T t)
     return t;
 }
 
+/**
+ * \brief Compares two values. Returns true if their difference is less than precision.
+ */
+inline bool compare(real_t a, real_t b, real_t precision)
+{
+    auto result = abs(a-b);
+    return ((result-precision) < 0);
+}
 
+/**
+ * \brief Assigns a value to the elements of an array. 
+ */ 
 void set_array(auto& ar, auto item, uint32 len)
 {
     for(uint32 i = 0; i < len; i++)
         ar[i] = item;
 }
 
+/**
+ * \brief Writes zeros to an object. 
+ */
 void zero_object(auto& obj)
 {
     void* vptr = static_cast<void*>(&obj);
@@ -252,6 +269,9 @@ void zero_object(auto& obj)
         ptr[i] = 0;
 }
 
+/**
+ * \brief Reverses the first n_elements of an array or list.
+ */
 void reverse(auto& list, uint32 n_elements)
 {
 	for(uint32 i = 0; i < n_elements/2; i++)

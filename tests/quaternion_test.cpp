@@ -42,12 +42,12 @@ bool quaternion_test(std::string& subtest)
     real_t angle = 0;
     q.toAxisAngle(v, angle);
 
-    if(!compare<real_t>(angle, 0.84, 0.01))
+    if(!compare(angle, 0.84, 0.01))
         return false;
 
-    if(!compare<real_t>(v.x(), 0, 0.001))
+    if(!compare(v.x(), 0, 0.001))
         return false;
-    if(!compare<real_t>(v.y(), 1, 0.001))
+    if(!compare(v.y(), 1, 0.001))
         return false;
 
     subtest = "angular vle";
@@ -60,9 +60,9 @@ bool quaternion_test(std::string& subtest)
     s += v;
     subtest += s.c_str();
 
-    if(!compare<real_t>(v.x(), 0.01, 0.001))
+    if(!compare(v.x(), 0.01, 0.001))
         return false;
-    if(!compare<real_t>(v.y(), 0.2, 0.001))
+    if(!compare(v.y(), 0.2, 0.001))
         return false;
 
     subtest = "exponential";
