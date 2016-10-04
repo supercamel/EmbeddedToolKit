@@ -444,10 +444,15 @@ public:
 	/**
 	 * \brief Returns the number of characters in the string.
 	 */
-    uint32 length()
+    uint32 length() const
     {
-        Rope rope(buf, L);
-        return rope.length();
+    	uint32 i = 0;
+        for(; i < L; i++)
+        {
+        	if(buf[i] == '\0')
+        		break;
+        }
+        return i;
     }
 
 	/**

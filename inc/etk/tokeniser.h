@@ -59,14 +59,14 @@ namespace etk
 template <typename T> class Tokeniser
 {
 public:
-    Tokeniser(const T& _str, char tok) : str(_str)
+    Tokeniser(const T& _str, const char tok) : str(_str)
     {
         token = tok;
     }
 
-    template <typename Tt> bool next(Tt& out, int len)
+    template <typename Tt> bool next(Tt& out, const uint32 len)
     {
-        int out_counter = 0;
+        uint32 out_counter = 0;
         if(str[count] == 0)
             return false;
 
@@ -95,13 +95,13 @@ public:
 
 private:
     const T& str;
-    int token;
-    int count = 0;
+    char token;
+    uint32 count = 0;
 };
 
 
 
-template <typename T> Tokeniser<T> make_tokeniser(const T& l, char t)
+template <typename T> Tokeniser<T> make_tokeniser(const T& l, const char t)
 {
     return Tokeniser<T>(l, t);
 }

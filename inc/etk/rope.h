@@ -87,15 +87,15 @@ public:
     char& operator [](uint16 p);
     char get(uint16 p);
 
-    bool operator == (Rope r);
-    bool operator != (Rope r);
-    bool operator == (const char* r);
-    bool operator != (const char* r);
+    bool operator == (Rope r) const;
+    bool operator != (Rope r) const;
+    bool operator == (const char* r) const;
+    bool operator != (const char* r) const;
 
-    bool compare(Rope r, uint32 len = 0);
-    bool compare(const char* c, uint32 len = 0);
-    bool compare(Rope r, uint32 start_this, uint32 start_that, uint32 len);
-    bool compare(const char* c, uint32 start_this, uint32 start_that, uint32 len);
+    bool compare(Rope r, uint32 len = 0) const;
+    bool compare(const char* c, uint32 len = 0) const;
+    bool compare(Rope r, uint32 start_this, uint32 start_that, uint32 len) const;
+    bool compare(const char* c, uint32 start_this, uint32 start_that, uint32 len) const;
 
     void sub_string(char* buf, uint32 start, uint32 len) const;
     void sub_string(Rope& r, uint32 start, uint32 len) const;

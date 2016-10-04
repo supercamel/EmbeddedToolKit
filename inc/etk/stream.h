@@ -39,13 +39,14 @@ public:
 		print((const char*)(cstr));
 	}
 
-    template<uint32 L> void print(StaticString<L> ss)
+    template<uint32 L> void print(const StaticString<L> ss)
     {
-        for(uint32 i = 0; i < ss.length(); i++)
+    	auto len = ss.length();
+        for(uint32 i = 0; i < len; i++)
             static_cast<derived*>(this)->put(ss[i]);
     }
 
-	template<uint32 L> void print(Vector<L> v)
+	template<uint32 L> void print(const Vector<L> v)
 	{
 		for(uint32 i = 0; i < L; i++)
 			print(v[i], " ");

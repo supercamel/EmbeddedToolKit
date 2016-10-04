@@ -335,27 +335,27 @@ char Rope::get(uint16 p)
     return str[p];
 }
 
-bool Rope::operator == (Rope r)
+bool Rope::operator == (Rope r) const
 {
     return compare(r);
 }
 
-bool Rope::operator != (Rope r)
+bool Rope::operator != (Rope r) const
 {
     return (!compare(r));
 }
 
-bool Rope::operator == (const char* r)
+bool Rope::operator == (const char* r) const
 {
     return compare(r);
 }
 
-bool Rope::operator != (const char* r)
+bool Rope::operator != (const char* r) const
 {
     return (!compare(r));
 }
 
-bool Rope::compare(Rope r, uint32 len)
+bool Rope::compare(Rope r, uint32 len) const
 {
     if(len == 0)
         len = N;
@@ -370,7 +370,7 @@ bool Rope::compare(Rope r, uint32 len)
     return true;
 }
 
-bool Rope::compare(const char* c, uint32 len)
+bool Rope::compare(const char* c, uint32 len) const
 {
     if(len == 0)
         len = N;
@@ -385,7 +385,7 @@ bool Rope::compare(const char* c, uint32 len)
     return true;
 }
 
-bool Rope::compare(Rope r, uint32 start_this, uint32 start_that, uint32 len)
+bool Rope::compare(Rope r, uint32 start_this, uint32 start_that, uint32 len) const 
 {
     for(uint32 i = 0; i < len; i++)
     {
@@ -395,7 +395,7 @@ bool Rope::compare(Rope r, uint32 start_this, uint32 start_that, uint32 len)
     return true;
 }
 
-bool Rope::compare(const char* c, uint32 start_this, uint32 start_that, uint32 len)
+bool Rope::compare(const char* c, uint32 start_this, uint32 start_that, uint32 len) const
 {
     for(uint32 i = 0; i < len; i++)
     {
