@@ -16,6 +16,7 @@ all copies or substantial portions of the Software.
  */
 
 // 32bit PC
+/*
 typedef unsigned char byte ;
 typedef char int8;
 typedef unsigned char uint8;
@@ -25,6 +26,20 @@ typedef int int32;
 typedef unsigned int uint32;
 typedef long int64;
 typedef unsigned long uint64;
+
+typedef double real_t;
+*/
+
+//g++ v6.1.0 on windows 10
+typedef unsigned char byte ;
+typedef char int8;
+typedef unsigned char uint8;
+typedef short int16;
+typedef unsigned short uint16;
+typedef int int32;
+typedef unsigned int uint32;
+typedef long long int64;
+typedef unsigned long long uint64;
 
 typedef double real_t;
 
