@@ -61,6 +61,13 @@ typedef float real_t;
 
 // 8bit AVR
 
-
+static_assert(sizeof(int8) == 1, "Size of int8 is not correct. Check int8 typedef in types.h");
+static_assert(sizeof(uint8) == 1, "Size of uint8 is not correct. Check uint8 typedef in types.h");
+static_assert(sizeof(int16) == 2, "Size of int16 is not correct. Check int16 typedef in types.h");
+static_assert(sizeof(uint16) == 2, "Size of uint16 is not correct. Check uint16 typedef in types.h");
+static_assert(sizeof(int32) == 4, "Size of int32 is not correct. Check int32 typedef in types.h");
+static_assert(sizeof(uint32) == 4, "Size of uint32 is not correct. Check uint32 typedef in types.h");
+static_assert(sizeof(int64) == 8, "Size of int64 is not correct. Check int64 typedef in types.h");
+static_assert(sizeof(uint64) == 8, "Size of uint64 is not correct. Check uint64 typedef in types.h");
 
 #endif
