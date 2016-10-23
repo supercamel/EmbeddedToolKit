@@ -46,9 +46,10 @@ public:
     
     Array(std::initializer_list<T> il)
     {
-    	uint32 l = etk::min(L, il.size());
+    	uint32 l = etk::min<uint32>(L, il.size());
+    	auto b = il.begin();
     	for(uint32 i = 0; i < l; i++)
-    		buf[i] = il[i];
+    		buf[i] = *b++;
     }
 
     class Iterator

@@ -36,6 +36,13 @@ bool array_test(std::string& subtest)
         if(ar[i] != 5-i)
             return false;
     }
+    
+    etk::Array<int, 5> t = {0, 1, 2, 3};
+    for(int i = 0; i < 4; i++)
+    {
+    	if(t[i] != i)
+    		return false;
+   	}
 
     return true;
 }

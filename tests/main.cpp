@@ -65,9 +65,9 @@ int main()
     th.add_module(list_test, "List Test");
     th.add_module(static_string_test, "Static String");
     th.add_module(bits_test, "Bits test");
-    th.add_module(vector_test, "Vector test");
-    th.add_module(matrix_test, "Matrix test");
-    th.add_module(quaternion_test, "Quaternion test");
+    //th.add_module(vector_test, "Vector test");
+    //th.add_module(matrix_test, "Matrix test");
+    //th.add_module(quaternion_test, "Quaternion test");
     th.add_module(limiter_test, "Limiter test");
     th.add_module(navigation_test, "Navigation test");
     //th.add_module(string_test, "String test");
