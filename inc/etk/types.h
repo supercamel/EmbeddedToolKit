@@ -30,7 +30,7 @@ typedef unsigned long uint64;
 typedef double real_t;
 */
 
-//g++ v6.1.0 on windows 10
+//g++ v6.1.0 on windows 10 / 64bit arch linux
 typedef unsigned char byte ;
 typedef char int8;
 typedef unsigned char uint8;

@@ -18,6 +18,8 @@
 
 #include "types.h"
 #include "loop_range.h"
+#include "math_util.h"
+#include <initializer_list>
 
 namespace etk
 {
@@ -40,6 +42,13 @@ public:
     {
         for(auto i : range(L))
             buf[i] = t[i];
+    }
+    
+    Array(std::initializer_list<T> il)
+    {
+    	uint32 l = etk::min(L, il.size());
+    	for(uint32 i = 0; i < l; i++)
+    		buf[i] = il[i];
     }
 
     class Iterator
