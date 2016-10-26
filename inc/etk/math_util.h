@@ -181,6 +181,71 @@ template<typename T> void bubble_sort_down(T& items, uint32 n)
 }
 
 /**
+ * Sorts an array using the quicksort algorithm. 
+ */
+void quick_sort(auto& arr, unsigned int low, unsigned int high, const bool sort_up)
+{
+    if(low < high)
+    {
+        unsigned int pi = 0;
+        auto x = arr[low]; // pivot
+		unsigned int i = low;
+		unsigned int j = high;
+		while(true) 
+		{
+			if(sort_up)
+			{
+		    	while(arr[i] < x)
+				    i++;
+
+				while(arr[j] > x)
+				    j--;
+		    }
+		    else
+		    {
+		    	while(arr[i] > x)
+				    i++;
+
+				while(arr[j] < x)
+				    j--;
+		    }
+		    
+		    if (i < j)
+		    {
+		    	swap(arr[i], arr[j]);
+		    	i++;
+		    	j--;
+		    }
+		    else
+		    {
+		    	pi = j;
+		    	break;
+		    }
+		}
+		
+		quick_sort(arr, low, pi, sort_up);
+		quick_sort(arr, pi + 1, high, sort_up);
+    }
+}
+
+/**
+ * Sorts an array so the smallest value comes first.
+ */
+void quick_sort_up(auto& arr)
+{
+	quick_sort(arr, 0, arr.size()-1, true);
+}
+
+/**
+ * Sorts an array so the largest value comes first. 
+ */
+void quick_sort_down(auto& arr)
+{
+	quick_sort(arr, 0, arr.size()-1, false);
+}
+
+
+/**
  * \brief Converts a character to its uppercase ASCII equivalent.
  */
 inline char to_upper(char c)

@@ -21,6 +21,9 @@
 #include "math_util.h"
 #include <initializer_list>
 
+#include <iostream>
+using namespace std;
+
 namespace etk
 {
 
@@ -51,6 +54,14 @@ public:
     	for(uint32 i = 0; i < l; i++)
     		buf[i] = *b++;
     }
+    
+    template <typename... Args>
+    Array(T t, Args... rest) : Array(ArrayInitCounter(), rest...)
+    {
+    	static_assert(sizeof...(Args) < L, "Array initialiser is longer than the array.");
+    	buf[0] = t;
+    }
+    
 
     class Iterator
     {
@@ -159,6 +170,29 @@ public:
     }
 
 private:
+	struct ArrayInitCounter
+    {
+    	ArrayInitCounter() { }
+    	ArrayInitCounter(const ArrayInitCounter& c)
+    	{
+    		count = c.count+1;
+    	}
+    	uint32 count = 1; 
+    };
+    
+    Array(ArrayInitCounter c, T t)
+    {
+    	if(c.count < L)
+    		buf[c.count] = t;
+    }
+    
+    template <typename... Args>
+    Array(ArrayInitCounter c, T t, Args... rest) : Array(c, rest...)
+    {
+    	if(c.count < L)
+    		buf[c.count] = t;
+    }
+    
     T buf[L];
 };
 
