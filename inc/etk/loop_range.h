@@ -111,7 +111,7 @@ private:
 template<typename T>
 LoopRange<T> range(T from, T to)
 {
-    return { from, to };
+    return {from, to};
 }
 
 
@@ -127,20 +127,7 @@ LoopRange<T> range(T from, T to)
 template<typename T>
 LoopRange<T> range(T to)
 {
-    return {0, to };
-}
-
-
-inline bool static_range(uint32 max)
-{
-	static uint32 count = 0;
-	count++;
-	if(count > max)
-	{
-		count = 0;
-		return false;
-	}
-	return true;
+    return {0, to};
 }
 
 

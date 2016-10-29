@@ -39,21 +39,6 @@ bool limiter_test(std::string& subtest)
 
 }
 
-bool range_tests(std::string& subtest)
-{
-    subtest = "static range";
-
-    int counter = 0;
-    while(etk::static_range(5))
-        counter++;
-
-    while(etk::static_range(5))
-        counter++;
-
-    if(counter != 10)
-        return false;
-    return true;
-}
 
 int main()
 {
@@ -65,20 +50,11 @@ int main()
     th.add_module(list_test, "List Test");
     th.add_module(static_string_test, "Static String");
     th.add_module(bits_test, "Bits test");
-    //th.add_module(vector_test, "Vector test");
-    //th.add_module(matrix_test, "Matrix test");
-    //th.add_module(quaternion_test, "Quaternion test");
     th.add_module(limiter_test, "Limiter test");
     th.add_module(navigation_test, "Navigation test");
-    //th.add_module(string_test, "String test");
-    //th.add_module(stack_test, "Stack test");
-
-    //th.add_module(linkedlist_test, "Linked lists");
-    //th.add_module(pid_test, "PID test");
     th.add_module(array_test, "Array test");
     th.add_module(tokeniser_test, "Tokeniser test");
     th.add_module(objpool_test, "Object pools");
-    th.add_module(range_tests, "Ranged loops");
 
     if(th.run())
         return 0;

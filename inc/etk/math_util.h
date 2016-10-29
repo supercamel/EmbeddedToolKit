@@ -39,7 +39,7 @@ u32b;
  * \arg b Maximum value
  * \return x, if x is between a and b. If x is smaller than a, then a. If x is larger than b, then b.
  */
-template <typename T> T constrain(T x, T a, T b)
+auto constrain(auto x, auto a, auto b)
 {
     if(x < a)
         return a;
@@ -58,7 +58,7 @@ template <typename T> T constrain(T x, T a, T b)
  * Why? Because 450 degrees is the same as 90 degrees on a map.
  * This function can be used with radians by making segments 2*PI.
  */
-template <typename T> T constrain_circular(T x, uint32 segments)
+auto constrain_circular(auto x, uint32 segments)
 {
     uint32 half_segment = segments/2;
     int64 seg_lower = half_segment;
@@ -74,7 +74,7 @@ template <typename T> T constrain_circular(T x, uint32 segments)
 /**
  * \brief Returns the smaller of two values.
  */
-template <typename T> T min(T a, T b)
+template<typename T> T min(T a, T b)
 {
     if(a < b)
         return a;
@@ -84,7 +84,7 @@ template <typename T> T min(T a, T b)
 /**
  * \brief Returns the larger of two values.
  */
-template <typename T> T max(T a, T b)
+template<typename T> T max(T a, T b)
 {
     if(a > b)
         return a;
@@ -99,17 +99,15 @@ template <typename T> T max(T a, T b)
  * If in_max is equal to in_min, a divide by zero will occur. 
  *
  */
-template <typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
+auto map(auto x, auto in_min, auto in_max, auto out_min, auto out_max)
 {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 /**
  * \brief Returns a number with the value of x and the sign of y.
- * If x is a signed integer, it should be constrained to a plausible range 
- * before calling this function. This is to prevent undefined behaviour if x == INT_MIN.
  */
-template <typename T> T copysign(T x, T y)
+inline real_t copysign(real_t x, real_t y)
 {
     if((y >= 0) && (x < 0))
         return -x;
@@ -122,7 +120,7 @@ template <typename T> T copysign(T x, T y)
 /**
  * \brief Same as copysign(), but if y is zero then zero will be returned regardless of x.
  */
-template <typename T> T copysign_zero(T x, T y, real_t precision=0.000001)
+inline real_t copysign_zero(real_t x, real_t y, real_t precision=0.000001)
 {
     if((y < precision) && (y > -precision))
         return 0;
@@ -143,7 +141,7 @@ void swap(auto& a, auto& b)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array.
  */
-template<typename T> void bubble_sort_up(T& items, uint32 n)
+void bubble_sort_up(auto& items, uint32 n)
 {
     while(n != 0)
     {
@@ -163,7 +161,7 @@ template<typename T> void bubble_sort_up(T& items, uint32 n)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array.
  */
-template<typename T> void bubble_sort_down(T& items, uint32 n)
+void bubble_sort_down(auto& items, uint32 n)
 {
     while(n != 0)
     {
@@ -297,7 +295,7 @@ inline bool is_numeric(char c)
  * If t is a signed integer, it must be constrained to a plausible range 
  * in order to prevent undefined behaviour if t == INT_MIN
  */
-template<typename T> T abs(T t)
+auto abs(auto t)
 {
     if(t < 0)
         return -t;

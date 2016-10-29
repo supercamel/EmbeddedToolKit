@@ -114,6 +114,13 @@ public:
         iter.pos = 0;
         return iter;
     }
+    
+    auto begin() volatile
+    {
+        volatile Iterator iter(*this);
+        iter.pos = 0;
+        return iter;
+    }
 
 /**
  * \brief Returns an iterator to the end of the list.
@@ -121,6 +128,13 @@ public:
     Iterator end()
     {
         Iterator iter(*this);
+        iter.pos = L;
+        return iter;
+    }
+    
+    auto end() volatile
+    {
+        volatile Iterator iter(*this);
         iter.pos = L;
         return iter;
     }
