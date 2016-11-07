@@ -342,26 +342,22 @@ void reverse(auto& list, uint32 n_elements)
 }
 
 
-#ifndef isinf
 
-inline bool isinf(float value)
+inline bool is_inf(float value)
 {
     u32b ieee754;
     ieee754.f = value;
     return (ieee754.u & 0x7fffffff) == 0x7f800000;
 }
-#endif
 
-#ifndef isnan
 
-inline bool isnan( float value )
+inline bool is_nan( float value )
 {
     u32b ieee754;
     ieee754.f = value;
     return (ieee754.u & 0x7fffffff) > 0x7f800000;
 }
 
-#endif
 
 /**
  * \brief Little trick function used to silence warnings about unused variables that are

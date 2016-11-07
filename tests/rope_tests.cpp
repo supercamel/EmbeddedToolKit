@@ -175,13 +175,13 @@ bool test_rope(std::string& subtest)
     subtest = "atof NAN";
     rope.clear();
     rope << NAN;
-    if(!etk::isnan(rope.atof()))
+    if(!etk::is_nan(rope.atof()))
         return false;
 
     subtest = "atof INF";
     rope.clear();
     rope << INFINITY;
-    if(!etk::isinf(rope.atof()))
+    if(!etk::is_inf(rope.atof()))
         return false;
 
     rope.clear();
