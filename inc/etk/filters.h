@@ -275,6 +275,12 @@ private:
 class RateLimiter
 {
 public:
+	RateLimiter()
+	{
+		last_sample = 0;
+		ms = 1;
+	}
+	
     RateLimiter(real_t max_step, real_t init_val)
     {
         ms = max_step;
@@ -287,6 +293,11 @@ public:
         delta = constrain(delta, -ms, ms);
         last_sample += delta;
         return last_sample;
+    }
+    
+    void set_max_step(real_t m)
+    {
+    	ms = m;
     }
 
 private:

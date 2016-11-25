@@ -28,8 +28,33 @@ typedef union u32b
     int32 i;
     uint32 u;
     float f;
+    uint8 bytes[4];
 }
 u32b;
+
+typedef union u16b
+{
+    int16 i;
+    uint16 u;
+    uint8 bytes[2];
+}
+u16b;
+
+
+inline bool is_inf(float value)
+{
+    u32b ieee754;
+    ieee754.f = value;
+    return (ieee754.u & 0x7fffffff) == 0x7f800000;
+}
+
+
+inline bool is_nan( float value )
+{
+    u32b ieee754;
+    ieee754.f = value;
+    return (ieee754.u & 0x7fffffff) > 0x7f800000;
+}
 
 
 /**
@@ -58,8 +83,11 @@ auto constrain(auto x, auto a, auto b)
  * Why? Because 450 degrees is the same as 90 degrees on a map.
  * This function can be used with radians by making segments 2*PI.
  */
-auto constrain_circular(auto x, uint32 segments)
+inline real_t constrain_circular(real_t x, uint32 segments)
 {
+	if(is_inf(x) || is_nan(x))
+		return x;
+	
     uint32 half_segment = segments/2;
     int64 seg_lower = half_segment;
     seg_lower = -seg_lower;
@@ -339,23 +367,6 @@ void reverse(auto& list, uint32 n_elements)
 {
 	for(uint32 i = 0; i < n_elements/2; i++)
 		swap(list[n_elements-i-1], list[i]);
-}
-
-
-
-inline bool is_inf(float value)
-{
-    u32b ieee754;
-    ieee754.f = value;
-    return (ieee754.u & 0x7fffffff) == 0x7f800000;
-}
-
-
-inline bool is_nan( float value )
-{
-    u32b ieee754;
-    ieee754.f = value;
-    return (ieee754.u & 0x7fffffff) > 0x7f800000;
 }
 
 
