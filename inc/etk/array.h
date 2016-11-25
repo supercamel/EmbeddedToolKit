@@ -21,8 +21,6 @@
 #include "math_util.h"
 #include <initializer_list>
 
-#include <iostream>
-using namespace std;
 
 namespace etk
 {
