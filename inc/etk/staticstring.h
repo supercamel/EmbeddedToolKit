@@ -440,6 +440,12 @@ public:
         Rope rope(buf, L);
         return rope.atoi(p);
     }
+    
+    uint32 parse_hex(uint16 p=0)
+    {
+    	Rope rope(buf, L);
+    	return rope.parse_hex(p);
+    }
 
 	/**
 	 * \brief Returns the number of characters in the string.

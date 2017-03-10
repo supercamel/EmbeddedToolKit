@@ -212,6 +212,13 @@ bool test_rope(std::string& subtest)
     rope << 'c';
     if(rope != "c")
         return false;
+        
+    subtest = "parse hex";
+    rope.clear();
+    rope << "af";
+    uint32 r = rope.parse_hex(0);
+    cout << "result: " << r << endl;
+    
 
     return true;
 }

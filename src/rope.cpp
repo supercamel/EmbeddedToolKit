@@ -165,12 +165,9 @@ void Rope::append(float j, uint8 precision)
         return;
     }
 
-    if(precision > 10)
-    	precision = 10;
+    precision &= 0x0F;
 
-    uint64 mul = 1;
-    for(int i = 0; i < precision; i++)
-        mul *= 10;
+    uint64 mul = pow(10, precision);
 
     float r = j*mul;
     const int64 max_int64 = 9'223'372'036'854'775'807;
@@ -418,6 +415,28 @@ void Rope::sub_string(Rope& r, uint32 start, uint32 len) const
     sub_string(r.str, start, min(len+start, r.N));
 }
 
+
+uint32 Rope::parse_hex(uint32 start) const
+{
+	uint32 ret = 0;
+	for(uint32 i = start; i < N; i++)
+	{
+		char c = to_upper(str[i]);
+		uint32 val = 0;
+		if((c >= '0') && (c <= '9'))
+			val = c-'0';
+		else if((c >= 'A') && (c <= 'F'))
+			val = 10+(c-'A');
+		else
+			break;
+			
+		ret *= 16;
+		ret += val;
+	}
+	
+	return ret;
+}
+
 const char* Rope::c_str()
 {
     return (const char*)str;
@@ -438,7 +457,7 @@ int Rope::atoi(uint32 p)
         n=-1;
         pstr++;
     }
-    while (*pstr >= '0' && *pstr <= '9')
+    while (is_numeric(*pstr))
         res = res * 10 + *pstr++ - '0';
     return res*n;
     //return ::atoi(&str[p]);
@@ -452,24 +471,24 @@ float Rope::atof(uint32 ps)
         return INFINITY;
 
     char* p = &str[ps];
-    double sign, value;
+    float sign, value;
 
     sign = 1.0;
     if (*p == '-')
     {
         sign = -1.0;
-        p += 1;
+        p++;
     }
     else if (*p == '+')
-        p += 1;
+        p++;
 
-    for (value = 0.0; (*p >= '0') && (*p <= '9'); p++)
+    for (value = 0.0; is_numeric(*p); p++)
         value = value * 10.0 + (*p - '0');
 
     // Get digits after decimal point, if any.
     if (*p == '.')
     {
-        double pow10 = 10.0;
+        float pow10 = 10.0;
         p++;
         while ((*p >= '0') && (*p <= '9'))
         {

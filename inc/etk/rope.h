@@ -56,8 +56,8 @@ public:
     void append(uint32 j, uint32 npad = 1);
     void append(int64 j, uint32 npad = 1);
     void append(uint64 j, uint32 npad = 1);
-    void append(float j, uint8 precision = 2);
-    void append(double d, uint8 precision = 2);
+    void append(float j, uint8 precision = 2); //precision cannot be more than 15
+    void append(double d, uint8 precision = 2); //precision cannot be more than 15
     void append(Rope sb, uint16 len = 0);
 
     uint32 length();
@@ -99,6 +99,8 @@ public:
 
     void sub_string(char* buf, uint32 start, uint32 len) const;
     void sub_string(Rope& r, uint32 start, uint32 len) const;
+    
+    uint32 parse_hex(uint32 start) const;
 
     const char* c_str();
 
