@@ -219,6 +219,10 @@ bool test_rope(std::string& subtest)
     uint32 r = rope.parse_hex(0);
     cout << "result: " << r << endl;
     
+    rope.clear();
+    rope.make_hex(0x6F);
+    cout << buf << endl;
+    
 
     return true;
 }

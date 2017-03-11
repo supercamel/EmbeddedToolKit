@@ -437,6 +437,30 @@ uint32 Rope::parse_hex(uint32 start) const
 	return ret;
 }
 
+void Rope::make_hex(uint8 byte)
+{
+	uint8 nibble = (byte>>4);
+
+	if(nibble < 10)
+		append((char)('0'+nibble));
+	else
+	{
+		nibble -= 10;
+		append((char)('A'+nibble));
+	}
+
+	nibble = (byte&0x0F);
+
+	if(nibble < 10)
+		append((char)('0'+nibble));
+	else
+	{
+		nibble-=10U;
+		append((char)('A'+nibble));
+	}
+}
+
+
 const char* Rope::c_str()
 {
     return (const char*)str;
