@@ -89,21 +89,24 @@ public:
         return Iterator(nullptr);
     }
 
-    void append()
+    bool append()
     {
         T t = T();
-        append(t);
+        return append(t);
     }
 
-    void append(T t)
+    bool append(T t)
     {
         Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
+        if(node == nullptr)
+        	return false;
+        	
         node->data = t;
         node->next = nullptr;
         if(head == nullptr)
         {
             head = node;
-            return;
+            return true;
         }
 
         Node* pnode = head;
@@ -111,18 +114,21 @@ public:
             pnode = pnode->next;
 
         pnode->next = node;
+        return true;
     }
 
-    void insert_before(Iterator iter, T t)
+    bool insert_before(Iterator iter, T t)
     {
         Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
+        if(node == nullptr)
+        	return false;
         node->data = t;
 
         if(iter.node == head)
         {
             node->next = head;
             head = node;
-            return;
+            return true;
         }
 
         Node* pnode = head;
@@ -133,7 +139,7 @@ public:
             {
                 node->next = pnode->next;
                 pnode->next = node;
-                return;
+                return true;
             }
             pnode = pnode->next;
             count++;
@@ -141,17 +147,20 @@ public:
 
         pool.free(node);
         pool.coalesce_free_blocks();
-        return;
+        return false;
     }
 
-    void insert_after(Iterator iter, T t)
+    bool insert_after(Iterator iter, T t)
     {
         Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
+        if(node == nullptr)
+        	return false;
         node->data = t;
 
         Node* pnext = iter.node->next->next;
         iter.node->next = node;
         node->next = pnext;
+        return true;
     }
 
 	void remove_after(Iterator iter)
@@ -221,6 +230,17 @@ public:
         }
         return;
     }
+    
+    void pop_head()
+    {
+    	if(head)
+    	{
+    		Node* pnext = head->next;
+    		pool.free(head);
+    		head = pnext;
+    	}
+    }
+    
 
     T* get(uint32 n)
     {

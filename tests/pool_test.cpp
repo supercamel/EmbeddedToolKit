@@ -25,22 +25,6 @@ private:
 
 bool pool_test(string& subtest)
 {
-    char* p1 = (char*)pool.alloc(20);
-    char* p2 = (char*)pool.alloc(20);
-
-    if(sizeof(size_t) == 4) //32bit system
-    {
-	    subtest = "There is 12 bytes of overhead between each block";
-	    if((p2-32) != p1)
-		    return false;
-    }
-    if(sizeof(size_t) == 8) //64bit system
-    {
-        subtest = "There is 20 bytes of overhead for each block";
-        if((p2-44) != p1)
-            return false;
-    }
-
     auto pto = make_pool_ptr<Object>(pool);
 
     subtest = "Returns valid pointer";

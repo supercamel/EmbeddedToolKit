@@ -157,7 +157,6 @@ public:
      */
     void coalesce_free_blocks()
     {
-    	bool any_changes = false;
         bool changes = true;
         while(changes)
         {
@@ -173,7 +172,6 @@ public:
                     pblock->size += ((Block*)pnext)->size;
                     remove_from_list((Block*)pnext);
                     changes = true;
-                    any_changes = true;
                 }
                 pblock = pblock->next;
             }
