@@ -46,7 +46,7 @@ using namespace std;
  * prohibited in serious embedded applications.
  *
  * By far the most important pro of memory pools is that they can be completely destroyed when they are no longer required.
- * The entire pool can simply popped off the stack. All that memory would be freed in an instant, along with any 
+ * The entire pool can simply popped off the stack. All that memory would be freed in an instant, along with any
  * fragmented pockets of memory.
  *
  * ProTip: Put MemPools on the stack whenever possible - and don't call free() unless you actually need to.
@@ -108,6 +108,7 @@ public:
         if(r != nullptr)
             return r;
 
+
         //we're out of memory, so try joining together all the adjacent free blocks to see if they release a region large enough
         coalesce_free_blocks();
         //after merging free blocks, there might be a large enough block free
@@ -144,7 +145,7 @@ public:
      */
     void free(void* ptr)
     {
-        char* cptr = (char*)ptr;
+        uint8* cptr = (uint8*)ptr;
         Block* pblock = (Block*)(cptr-sizeof(Block));
         add_to_list(pblock);
     }
@@ -156,6 +157,7 @@ public:
      */
     void coalesce_free_blocks()
     {
+    	bool any_changes = false;
         bool changes = true;
         while(changes)
         {
@@ -163,14 +165,15 @@ public:
             Block* pblock = free_head.next;
             while(pblock)
             {
-                char* pnext = (char*)pblock;
-                pnext += pblock->size;
+                uint8* pnext = (uint8*)pblock;
+                pnext = &pnext[pblock->size];
 
                 if(block_is_free((Block*)pnext))
                 {
                     pblock->size += ((Block*)pnext)->size;
                     remove_from_list((Block*)pnext);
                     changes = true;
+                    any_changes = true;
                 }
                 pblock = pblock->next;
             }
@@ -209,11 +212,11 @@ private:
          *
          * Imagine if you needed only 24 bytes and there was a free block of 512 bytes. You wouldn't want
          * it to use the full 512 block! So, alloc_from_free_list will split free blocks if there's more
-         * than split_size of wasteage.
+         * than chunk_size of wasteage.
          *
          */
 
-        const uint32 split_size = 32;
+        const uint32 chunk_size = 32;
 
         Block* pblock = free_head.next;
         while(pblock)
@@ -222,12 +225,16 @@ private:
             if(pblock->size >= sz)
             {
                 //if the block is too big, split it
-                if((pblock->size - sz) >= split_size)
+                if((pblock->size - sz) >= chunk_size)
                 {
                     //create second block at the end of this chunk of memory
-                    Block* sblock = (Block*)(((char*)pblock)+sz);
-                    sblock->size = pblock->size-sz;
-                    pblock->size = sz;
+                    uint32 inc = ((sz/chunk_size)*chunk_size);
+                    if(sz%chunk_size)
+                        inc += chunk_size;
+
+                    Block* sblock = (Block*)(((char*)pblock)+inc);
+                    sblock->size = pblock->size-inc;
+                    pblock->size = inc;
 
                     //add the second block to the free block list
                     add_to_list(sblock);
