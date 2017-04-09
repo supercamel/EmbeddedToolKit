@@ -16,6 +16,7 @@
 #include "array_test.h"
 #include "tokeniser_test.h"
 #include "objpool_test.h"
+#include "forward_list_test.h"
 
 
 
@@ -55,6 +56,7 @@ int main()
     th.add_module(array_test, "Array test");
     th.add_module(tokeniser_test, "Tokeniser test");
     th.add_module(objpool_test, "Object pools");
+    th.add_module(forward_list_test, "Forward list");
 
     if(th.run())
         return 0;

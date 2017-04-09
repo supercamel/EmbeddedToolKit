@@ -1,0 +1,41 @@
+#include "forward_list_test.h"
+
+#include <iostream>
+using namespace std;
+
+bool forward_list_test(std::string& subtest)
+{
+	etk::MemPool<1024> pool;
+	etk::forward_list<int, 1024> list(pool);
+	
+	subtest = "iterator tests";
+	for(int i = 0; i < 10; i++)
+		list.append(i);
+	
+	int count = 0;
+	auto iter = list.begin();
+	while(iter)
+	{
+		if(*iter != count++)
+			return false;
+		iter++;
+	}
+	
+	iter = list.begin();
+	while(iter)
+	{
+		if(*iter == 5)
+			list.remove_after(iter);
+		iter++;
+	}
+	
+	for(auto& i : list)
+	{
+		if(i == 6)
+			return false;
+	}
+	
+	return true;
+}
+
+

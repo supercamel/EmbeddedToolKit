@@ -150,13 +150,9 @@ bool static_string_test(std::string& subtest)
     subtest = "Remove and insert";
 
     StaticString<100> ss = "Hello world";
-    cout << ss.c_str() << endl;
     ss.remove(0);
-    cout << ss.c_str() << endl;
     ss.insert('Y', 0);
-    cout << ss.c_str() << endl;
     ss.insert('w', 5);
-    cout << ss.c_str() << endl;
     if(ss != "Yellow world")
         return false;
 
@@ -194,7 +190,6 @@ bool static_string_test(std::string& subtest)
     float tf = 0;
 
     ss.scan(fifty, eighty, tf);
-    cout << endl << fifty << " " << eighty << " " << tf << endl;
     if(fifty != 50)
         return false;
     if(eighty != 80)

@@ -53,6 +53,11 @@ public:
         {
             return (node != iter.node);
         }
+        
+        operator bool() const
+        {
+        	return (node != nullptr);
+        }
 
     private:
         forward_list::Node* node;
@@ -149,6 +154,14 @@ public:
         node->next = pnext;
     }
 
+	void remove_after(Iterator iter)
+	{
+		Node* pnext = iter.node->next->next;
+		pool.free(iter.node->next);
+        iter.node->next = pnext;
+        return;
+	}
+	
     void remove_item(T t)
     {
         Node* node = head;

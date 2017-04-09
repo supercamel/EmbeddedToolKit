@@ -15,8 +15,6 @@ bool test_rope(std::string& subtest)
 	subtest = "Constructor";
     char buf[20];
     etk::Rope rope(buf, 20, "Hello!");
-    
-    cout << rope.c_str() << endl;
 
     if(rope != "Hello!")
         return false;
@@ -84,7 +82,6 @@ bool test_rope(std::string& subtest)
     
     subtest = "Appending huge double";
     rope.append(1200000000.0, 9);
-    cout << rope.c_str() << endl;
     rope.clear();
 
     subtest = "Appending double";
@@ -217,11 +214,9 @@ bool test_rope(std::string& subtest)
     rope.clear();
     rope << "af";
     uint32 r = rope.parse_hex(0);
-    cout << "result: " << r << endl;
     
     rope.clear();
     rope.make_hex(0x6F);
-    cout << buf << endl;
     
 
     return true;

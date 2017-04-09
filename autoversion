@@ -1,0 +1,49 @@
+#!/usr/bin/python3
+
+import datetime
+
+today = datetime.date.today()
+
+f = open('inc/etk/version.h', 'w')
+
+
+f.write("""
+#ifndef ETK_AUTOVERSION_H_INCLUDED
+#define ETK_AUTOVERSION_H_INCLUDED
+
+namespace etk
+{
+
+namespace Version
+{
+""")
+
+f.write("	static const char* year = \"")
+f.write(str(today.year))
+f.write("\";\n")
+
+f.write("	static const char* month = \"")
+f.write('{0:02d}'.format(today.month))
+f.write("\";\n")
+
+f.write("	static const char* day = \"")
+f.write('{0:02d}'.format(today.day))
+f.write("\";\n")
+
+f.write("	static const char* version = \"")
+f.write('{0:02d}'.format(today.year))
+f.write('{0:02d}'.format(today.month))
+f.write('{0:02d}'.format(today.day))
+f.write("\";\n")
+
+f.write("""
+}
+
+}
+
+#endif
+""")
+	
+	
+f.close()
+
