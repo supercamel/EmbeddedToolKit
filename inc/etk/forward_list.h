@@ -8,6 +8,9 @@
 namespace etk
 {
 
+namespace experimental
+{
+
 template <typename T, uint32 SZ> class forward_list
 {
 private:
@@ -271,6 +274,8 @@ private:
     Node* head = nullptr;
     MemPool<SZ>& pool;
 };
+
+}
 
 }
 

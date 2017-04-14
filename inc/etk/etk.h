@@ -57,5 +57,6 @@
 #include "pool.h"
 #include "pool_ptr.h"
 #include "forward_list.h"
+#include "linked_list.h"
 
 #endif

@@ -36,6 +36,8 @@
 namespace etk
 {
 
+namespace experimental
+{
 
 template <typename T> class pool_pointer
 {
@@ -157,6 +159,8 @@ template<typename T, class... U> auto make_pool_ptr(Pool& pool, U&&... u)
     pool_pointer<T> sp(pool, static_cast<T*>(ptr));
 
     return sp;
+}
+
 }
 
 }

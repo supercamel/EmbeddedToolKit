@@ -3,12 +3,13 @@
 #define ETK_LINKED_LIST_H
 
 
-#include "pool.h"
+#include <etk/pool.h>
 
-#include <iostream>
-using namespace std;
 
 namespace etk
+{
+
+namespace experimental
 {
 
 template <typename T, typename POOL_T> class linked_list
@@ -152,7 +153,7 @@ private:
     POOL_T& pool;
 };
 
-
+}
 
 }
 

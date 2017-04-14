@@ -27,7 +27,7 @@ using namespace std;
  * The Pool class is a memory pool - aka a disposable heap.
  *
  * Pros:
- *  - Faster than malloc/free
+ *  - Generally faster than malloc/free
  *  - Eliminates the risk of heap fragmentation
  *  - Generally gets destroyed after use which almost eliminates the danger of fragmentation
  *
@@ -57,6 +57,9 @@ using namespace std;
  */
 
 namespace etk
+{
+
+namespace experimental
 {
 
 class Pool
@@ -306,5 +309,6 @@ private:
 
 }
 
+}
 
 #endif
