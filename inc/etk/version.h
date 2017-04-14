@@ -9,8 +9,8 @@ namespace Version
 {
 	static const char* year = "2017";
 	static const char* month = "04";
-	static const char* day = "09";
-	static const char* version = "20170409";
+	static const char* day = "14";
+	static const char* version = "20170414";
 
 }
 
