@@ -50,7 +50,7 @@ public:
             ref->reference();
     }
 
-    pool_pointer(Pool& pool, T* pValue) : pool(pool), ptr(pValue)
+    pool_pointer(Pool& pool, T* pValue) : ptr(pValue), pool(pool)
     {
         ref = static_cast<pool_pointer<T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
         ref->construct();

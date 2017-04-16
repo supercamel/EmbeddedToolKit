@@ -3,7 +3,7 @@ CFLAGS=-c -g -Wall -Wextra -Werror -std=c++14 -I../../inc
 LDFLAGS= -L../../lib -letk
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(patsubst %.cpp,%.o,$(wildcard *.cpp)) 
-EXECUTABLE=stream
+EXECUTABLE=pool
 
 all: $(SOURCES) $(EXECUTABLE)
 	

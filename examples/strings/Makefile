@@ -1,4 +1,4 @@
-CC=g++-4.9
+CC=g++
 CFLAGS=-c -g -Wall -Wextra -Werror -std=c++14 -I../../inc
 LDFLAGS= -L../../ -letk
 SOURCES=$(wildcard *.cpp)

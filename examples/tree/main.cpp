@@ -37,7 +37,7 @@ int get_path_length(node_ptr ptr, List<int, max_depth+1>& path, bool print_out=f
 	if(ptr)
 	{
 		int child = path[0];
-		path.remove(0, 0);
+		path.remove(0);
 		if(print_out)
 			cout << ptr->segment_length << "\t";
 		return ptr->segment_length+get_path_length(ptr->children[child], path, print_out);
