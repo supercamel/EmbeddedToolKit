@@ -190,7 +190,7 @@ public:
     }
 
 
-    void remove_item(auto& item)
+    void remove_item(T& item)
     {
         for(uint32 i = 0; i < size(); i++)
         {
@@ -306,7 +306,7 @@ public:
     {
         return (*this)[pos];
     }
-    
+
     T at(uint16 pos)
     {
     	return (*this)[pos];

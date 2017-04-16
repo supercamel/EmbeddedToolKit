@@ -5,8 +5,8 @@ using namespace std;
 
 bool forward_list_test(std::string& subtest)
 {
-	etk::MemPool<1024> pool;
-	etk::forward_list<int, 1024> list(pool);
+	etk::experimental::MemPool<1024> pool;
+	etk::experimental::forward_list<int, 1024> list(pool);
 	
 	subtest = "iterator tests";
 	for(int i = 0; i < 10; i++)

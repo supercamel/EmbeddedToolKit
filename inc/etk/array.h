@@ -44,7 +44,7 @@ public:
         for(auto i : range(L))
             buf[i] = t[i];
     }
-    
+
     Array(std::initializer_list<T> il)
     {
     	uint32 l = etk::min<uint32>(L, il.size());
@@ -52,14 +52,14 @@ public:
     	for(uint32 i = 0; i < l; i++)
     		buf[i] = *b++;
     }
-    
+
     template <typename... Args>
     Array(T t, Args... rest) : Array(ArrayInitCounter(), rest...)
     {
     	static_assert(sizeof...(Args) < L, "Array initialiser is longer than the array.");
     	buf[0] = t;
     }
-    
+
 
     class Iterator
     {
@@ -112,8 +112,8 @@ public:
         iter.pos = 0;
         return iter;
     }
-    
-    auto begin() volatile
+
+    Iterator begin() volatile
     {
         volatile Iterator iter(*this);
         iter.pos = 0;
@@ -129,8 +129,8 @@ public:
         iter.pos = L;
         return iter;
     }
-    
-    auto end() volatile
+
+    Iterator end() volatile
     {
         volatile Iterator iter(*this);
         iter.pos = L;
@@ -143,7 +143,7 @@ public:
             return buf[pos];
         return buf[L-1];
     }
-    
+
     T operator[](uint32 pos) const
     {
     	if(pos < L)
@@ -189,22 +189,22 @@ private:
     	{
     		count = c.count+1;
     	}
-    	uint32 count = 1; 
+    	uint32 count = 1;
     };
-    
+
     Array(ArrayInitCounter c, T t)
     {
     	if(c.count < L)
     		buf[c.count] = t;
     }
-    
+
     template <typename... Args>
     Array(ArrayInitCounter c, T t, Args... rest) : Array(c, rest...)
     {
     	if(c.count < L)
     		buf[c.count] = t;
     }
-    
+
     T buf[L];
 };
 

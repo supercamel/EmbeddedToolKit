@@ -216,7 +216,7 @@ public:
      * By inverting the Fuzzy sets, you can work backwards and determine what throttle setting is required for a selected speed.
      * @return A Fuzzy class that plots an inverse function.
      */
-    auto inverse()
+    Fuzzy<N> inverse()
     {
     	auto ret = *this;
     	for(auto& set : ret.sets)

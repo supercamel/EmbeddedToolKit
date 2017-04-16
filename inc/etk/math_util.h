@@ -64,7 +64,7 @@ inline bool is_nan( float value )
  * \arg b Maximum value
  * \return x, if x is between a and b. If x is smaller than a, then a. If x is larger than b, then b.
  */
-auto constrain(auto x, auto a, auto b)
+template<typename T> T constrain(T x, T a, T b)
 {
     if(x < a)
         return a;
@@ -87,7 +87,7 @@ inline real_t constrain_circular(real_t x, uint32 segments)
 {
 	if(is_inf(x) || is_nan(x))
 		return x;
-	
+
     uint32 half_segment = segments/2;
     int64 seg_lower = half_segment;
     seg_lower = -seg_lower;
@@ -124,10 +124,10 @@ template<typename T> T max(T a, T b)
  * For example, a control functions returns a value between -1.0 and 1.0. The servo requires an input from 0 - 90.
  * ctrl_val = map(ctrl_val, -1.0, 1.0, 0.0, 90.0);
  *
- * If in_max is equal to in_min, a divide by zero will occur. 
+ * If in_max is equal to in_min, a divide by zero will occur.
  *
  */
-auto map(auto x, auto in_min, auto in_max, auto out_min, auto out_max)
+template<typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
 {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
@@ -158,7 +158,7 @@ inline real_t copysign_zero(real_t x, real_t y, real_t precision=0.000001)
 /**
  * \brief Moves a to b and b to a.
  */
-void swap(auto& a, auto& b)
+template<typename T> void swap(T& a, T& b)
 {
     auto temp = a;
     a = b;
@@ -169,7 +169,7 @@ void swap(auto& a, auto& b)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will end up at the start of the array.
  */
-void bubble_sort_up(auto& items, uint32 n)
+template<typename T> void bubble_sort_up(T& items, uint32 n)
 {
     while(n != 0)
     {
@@ -189,7 +189,7 @@ void bubble_sort_up(auto& items, uint32 n)
 /**
  * \brief Sorts an array using a simple bubble sort algorithm. The largest value will move to the end of the array.
  */
-void bubble_sort_down(auto& items, uint32 n)
+template<typename T> void bubble_sort_down(T& items, uint32 n)
 {
     while(n != 0)
     {
@@ -207,9 +207,9 @@ void bubble_sort_down(auto& items, uint32 n)
 }
 
 /**
- * Sorts an array using the quicksort algorithm. 
+ * Sorts an array using the quicksort algorithm.
  */
-void quick_sort(auto& arr, unsigned int low, unsigned int high, const bool sort_up)
+template<typename T> void quick_sort(T& arr, unsigned int low, unsigned int high, const bool sort_up)
 {
     if(low < high)
     {
@@ -217,7 +217,7 @@ void quick_sort(auto& arr, unsigned int low, unsigned int high, const bool sort_
         auto x = arr[low]; // pivot
 		unsigned int i = low;
 		unsigned int j = high;
-		while(true) 
+		while(true)
 		{
 			if(sort_up)
 			{
@@ -235,7 +235,7 @@ void quick_sort(auto& arr, unsigned int low, unsigned int high, const bool sort_
 				while(arr[j] < x)
 				    j--;
 		    }
-		    
+
 		    if (i < j)
 		    {
 		    	swap(arr[i], arr[j]);
@@ -248,7 +248,7 @@ void quick_sort(auto& arr, unsigned int low, unsigned int high, const bool sort_
 		    	break;
 		    }
 		}
-		
+
 		quick_sort(arr, low, pi, sort_up);
 		quick_sort(arr, pi + 1, high, sort_up);
     }
@@ -257,15 +257,15 @@ void quick_sort(auto& arr, unsigned int low, unsigned int high, const bool sort_
 /**
  * Sorts an array so the smallest value comes first.
  */
-void quick_sort_up(auto& arr)
+template<typename T> void quick_sort_up(T& arr)
 {
 	quick_sort(arr, 0, arr.size()-1, true);
 }
 
 /**
- * Sorts an array so the largest value comes first. 
+ * Sorts an array so the largest value comes first.
  */
-void quick_sort_down(auto& arr)
+template<typename T> void quick_sort_down(T& arr)
 {
 	quick_sort(arr, 0, arr.size()-1, false);
 }
@@ -320,10 +320,10 @@ inline bool is_numeric(char c)
 
 /**
  * \brief Returns the input parameter with a positive sign.
- * If t is a signed integer, it must be constrained to a plausible range 
+ * If t is a signed integer, it must be constrained to a plausible range
  * in order to prevent undefined behaviour if t == INT_MIN
  */
-auto abs(auto t)
+template<typename T> T abs(T t)
 {
     if(t < 0)
         return -t;
@@ -340,18 +340,18 @@ inline bool compare(real_t a, real_t b, real_t precision)
 }
 
 /**
- * \brief Assigns a value to the elements of an array. 
- */ 
-void set_array(auto& ar, auto item, uint32 len)
+ * \brief Assigns a value to the elements of an array.
+ */
+template<typename T, typename U> void set_array(T& ar, U item, uint32 len)
 {
     for(uint32 i = 0; i < len; i++)
         ar[i] = item;
 }
 
 /**
- * \brief Writes zeros to an object. 
+ * \brief Writes zeros to an object.
  */
-void zero_object(auto& obj)
+template<typename T> void zero_object(T& obj)
 {
     void* vptr = static_cast<void*>(&obj);
     uint8* ptr = static_cast<uint8*>(vptr);
@@ -363,7 +363,7 @@ void zero_object(auto& obj)
 /**
  * \brief Reverses the first n_elements of an array or list.
  */
-void reverse(auto& list, uint32 n_elements)
+template<typename T> void reverse(T& list, uint32 n_elements)
 {
 	for(uint32 i = 0; i < n_elements/2; i++)
 		swap(list[n_elements-i-1], list[i]);
@@ -374,7 +374,7 @@ void reverse(auto& list, uint32 n_elements)
  * \brief Little trick function used to silence warnings about unused variables that are
  * , for whatever reason, required to be unused.
  */
-inline void unused(auto& expr)
+template<typename T> void unused(T& expr)
 {
     (void)(expr);
 }

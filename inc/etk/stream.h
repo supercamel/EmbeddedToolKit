@@ -68,7 +68,7 @@ public:
         print(args...);
     }
 
-    Stream& operator << (auto& a)
+    template<typename T> Stream& operator << (T& a)
     {
         print(a);
         return *this;

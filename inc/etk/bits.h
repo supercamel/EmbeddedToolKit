@@ -99,7 +99,7 @@ public:
 	 *
 	 * @return a StaticString.
 	 */
-    auto to_string()
+    StaticString<sizeof(T)*8+1> to_string()
     {
         StaticString<sizeof(T)*8+1> string;
         for(uint32 i = 0; i < (sizeof(T)*8); i++)

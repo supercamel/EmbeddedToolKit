@@ -258,7 +258,7 @@ public:
         return ret;
     }
 
-    auto minor_matrix(uint32 row, uint32 col)
+    Matrix<MAX_Y-1,MAX_X-1> minor_matrix(uint32 row, uint32 col)
     {
         uint32 colCount = 0, rowCount = 0;
         Matrix<MAX_Y-1,MAX_X-1> ret;
@@ -379,7 +379,7 @@ public:
         return L;
     }
 
-    auto to_string()
+    StaticString<MAX_X*MAX_Y*12> to_string()
     {
     	StaticString<MAX_X*MAX_Y*12> ss;
     	for(int i = 0; i < MAX_Y; i++)

@@ -4,22 +4,22 @@
 /**
 
     Why do we need another smart pointer??
-    
+
     1. Many micro-controllers don't have the STL infrastructure to deal with std::shared_ptr and std::unique_ptr
     2. Even if they did, shared_ptr and unique_ptr are known to blow out code size massively due to dependancies.
     3. The standard smart pointers throw exceptions and a lot of people don't like that on a microcontroller.
     4. This is small, fast, easy and relatively safe provided you check the pointer after EVERY creation.
-    
-    Also, beware heap fragmentation! 
-    
+
+    Also, beware heap fragmentation!
+
     Useage:
         auto ptr = make_smart_ptr<Obj>();
-        
-        
+
+
         if the object takes constructor parameters
-        
+
         auto ptr = make_smart_ptr<Obj>(param1, param2);
-        
+
 
 */
 
@@ -115,7 +115,7 @@ public:
     {
     public:
         void construct() { count = 0; }
-        
+
         void reference()
         {
             count++;
@@ -135,12 +135,12 @@ public:
 };
 
 
-template<typename T, class... U> auto make_smart_ptr(U&&... u)
+template<typename T, class... U> smart_pointer<T> make_smart_ptr(U&&... u)
 {
     void* ptr = malloc(sizeof(T));
     if(ptr)
         new(ptr)T(std::forward<U>(u)...);
-    
+
     smart_pointer<T> sp(static_cast<T*>(ptr));
     return sp;
 }
@@ -148,4 +148,3 @@ template<typename T, class... U> auto make_smart_ptr(U&&... u)
 }
 
 #endif
-

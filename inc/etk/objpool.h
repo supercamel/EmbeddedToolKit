@@ -128,12 +128,12 @@ public:
         return count;
     }
 
-    auto null_ptr()
+    PoolPtr<ObjPool, T> null_ptr()
     {
         return PoolPtr<ObjPool, T>(this);
     }
 
-    auto alloc()
+    PoolPtr<ObjPool, T> alloc()
     {
         for(auto& o : pool)
         {

@@ -96,7 +96,7 @@ void Rope::append(int64 j, uint32 npad)
 {
     if(j < 0)
     {
-        if(j == (-9'223'372'036'854'775'807-1))
+        if(j == (-9223372036854775807-1))
         {
             append("–922337203685477808");
             return;
@@ -170,7 +170,7 @@ void Rope::append(float j, uint8 precision)
     uint64 mul = pow(10, precision);
 
     float r = j*mul;
-    const int64 max_int64 = 9'223'372'036'854'775'807;
+    const int64 max_int64 = 9223372036854775807;
     if(r >= max_int64)
     {
     	append("ovr", 3);

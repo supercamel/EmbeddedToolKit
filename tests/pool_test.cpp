@@ -6,7 +6,7 @@
 using namespace etk;
 using namespace std;
 
-MemPool<1024> pool;
+experimental::MemPool<1024> pool;
 
 
 class Object
@@ -14,7 +14,7 @@ class Object
 public:
     Object() { }
     ~Object() { }
-    auto get_ss() {
+    StaticString<128> get_ss() {
         return ss;
     }
 
@@ -25,7 +25,7 @@ private:
 
 bool pool_test(string& subtest)
 {
-    auto pto = make_pool_ptr<Object>(pool);
+    auto pto = experimental::make_pool_ptr<Object>(pool);
 
     subtest = "Returns valid pointer";
     if(!pto)

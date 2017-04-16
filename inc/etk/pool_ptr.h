@@ -50,7 +50,7 @@ public:
             ref->reference();
     }
 
-    pool_pointer(auto& pool, T* pValue) : pool(pool), ptr(pValue)
+    pool_pointer(Pool& pool, T* pValue) : pool(pool), ptr(pValue)
     {
         ref = static_cast<pool_pointer<T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
         ref->construct();
@@ -150,7 +150,7 @@ private:
 };
 
 
-template<typename T, class... U> auto make_pool_ptr(Pool& pool, U&&... u)
+template<typename T, class... U> pool_pointer<T> make_pool_ptr(Pool& pool, U&&... u)
 {
     void* ptr = pool.alloc(sizeof(T));
     if(ptr)
@@ -166,4 +166,3 @@ template<typename T, class... U> auto make_pool_ptr(Pool& pool, U&&... u)
 }
 
 #endif
-
