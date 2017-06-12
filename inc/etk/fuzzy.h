@@ -36,26 +36,26 @@ template <uint16 N> class Fuzzy
 {
 public:
 
-/**
- * \class Set
- *
- * \brief A fuzzy logic set.
- *
- */
+    /**
+     * \class Set
+     *
+     * \brief A fuzzy logic set.
+     *
+     */
 
     class Set
     {
-    friend class Fuzzy<N>;
+        friend class Fuzzy<N>;
 
     public:
 
-		/**
-		 * \brief set_points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle.
-		 *
-		 * @arg p1 minimum point
-		 * @arg p2 middle/peak of triangle
-		 * @arg p3 maximum point
-		 */
+        /**
+         * \brief set_points modifies the range and mid point of a fuzzy logic set. This controls the shape of the triangle.
+         *
+         * @arg p1 minimum point
+         * @arg p2 middle/peak of triangle
+         * @arg p3 maximum point
+         */
         void set_points(real_t p1, real_t p2, real_t p3)
         {
             min = p1;
@@ -63,13 +63,13 @@ public:
             max = p3;
         }
 
-		/**
-		 * \brief get_dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the DOM is zero.
-		 * Otherwise, the DOM represents how close the crisp is to the mid point.
-		 *
-		 * @arg crisp_in The crisp input
-		 * @return The degree of membership. This will be a number between 0.0 and 1.0
-		 */
+        /**
+         * \brief get_dom returns the degree of membership of a crisp input. If the crisp input is less than the minimum point or greather than the maximum point, the DOM is zero.
+         * Otherwise, the DOM represents how close the crisp is to the mid point.
+         *
+         * @arg crisp_in The crisp input
+         * @return The degree of membership. This will be a number between 0.0 and 1.0
+         */
         real_t get_dom(real_t crisp_in)
         {
             if(pos == MID)
@@ -117,12 +117,12 @@ public:
          */
         void set_value(real_t v)
         {
-        	val = v;
+            val = v;
         }
 
-		/**
-		 * \brief Returns the degree of membership of a crisp input, multiplied by the value of the set.
-		 */
+        /**
+         * \brief Returns the degree of membership of a crisp input, multiplied by the value of the set.
+         */
         real_t get_result(real_t crisp_in)
         {
             return get_dom(crisp_in)*val;
@@ -133,7 +133,7 @@ public:
          */
         real_t get_min()
         {
-        	return min;
+            return min;
         }
 
         /**
@@ -141,7 +141,7 @@ public:
          */
         real_t get_mid()
         {
-        	return mid;
+            return mid;
         }
 
         /**
@@ -149,27 +149,27 @@ public:
          */
         real_t get_max()
         {
-        	return max;
+            return max;
         }
 
-	protected:
-		enum FUZZY_POINT { START,MID,END };
+    protected:
+        enum FUZZY_POINT { START,MID,END };
 
-		void set_position(FUZZY_POINT p)
+        void set_position(FUZZY_POINT p)
         {
-        	pos = p;
+            pos = p;
         }
 
-	private:
+    private:
         real_t min, mid, max;
         FUZZY_POINT pos;
         real_t val;
     };
 
 
-	/**
-	 * \brief Adds a set. You can add up to N sets.
-	 */
+    /**
+     * \brief Adds a set. You can add up to N sets.
+     */
     void add_set(Set& f)
     {
         sets.append(f);
@@ -180,27 +180,27 @@ public:
         sets[sets.size()-1].set_position(Set::END);
     }
 
-	/**
-	 * \brief Returns the number of sets.
-	 */
+    /**
+     * \brief Returns the number of sets.
+     */
     uint32 get_n_sets()
     {
         return sets.size();
     }
 
-	/**
-	 * \brief Removes all sets.
-	 */
+    /**
+     * \brief Removes all sets.
+     */
     void clear_sets()
     {
         sets.clear();
     }
 
-	/**
-	 * \brief Returns a crisp output for a given crisp input.
-	 * @arg crisp_in A crisp input.
-	 * @return A crisp output.
-	 */
+    /**
+     * \brief Returns a crisp output for a given crisp input.
+     * @arg crisp_in A crisp input.
+     * @return A crisp output.
+     */
     real_t crisp_out(real_t crisp_in)
     {
         auto out = 0.0f;
@@ -218,16 +218,16 @@ public:
      */
     Fuzzy<N> inverse()
     {
-    	auto ret = *this;
-    	for(auto& set : ret.sets)
-    	{
-    		real_t set_min = set.get_min();
-    		real_t set_mid = set.get_mid();
-    		real_t set_max = set.get_max();
-    		set.set_points(crisp_out(set_min), crisp_out(set_mid), crisp_out(set_max));
-    		set.set_value(set_mid);
-    	}
-    	return ret;
+        auto ret = *this;
+        for(auto& set : ret.sets)
+        {
+            real_t set_min = set.get_min();
+            real_t set_mid = set.get_mid();
+            real_t set_max = set.get_max();
+            set.set_points(crisp_out(set_min), crisp_out(set_mid), crisp_out(set_max));
+            set.set_value(set_mid);
+        }
+        return ret;
     }
 
 private:

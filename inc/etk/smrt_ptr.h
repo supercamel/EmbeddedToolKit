@@ -109,12 +109,14 @@ public:
         return false;
     }
 
-    private:
+private:
 
     class RefCounter
     {
     public:
-        void construct() { count = 0; }
+        void construct() {
+            count = 0;
+        }
 
         void reference()
         {

@@ -72,8 +72,12 @@ public:
 class Heap : public Pool
 {
 public:
-    void* alloc(uint32 sz) { return malloc(sz); }
-    void free(void* ptr) { ::free(ptr); }
+    void* alloc(uint32 sz) {
+        return malloc(sz);
+    }
+    void free(void* ptr) {
+        ::free(ptr);
+    }
 };
 
 extern Heap heap;
@@ -181,17 +185,17 @@ public:
         }
     }
 
-/*
-    void print_free_list()
-    {
-        Block* pblock = free_head.next;
-        while(pblock)
+    /*
+        void print_free_list()
         {
-            cout << (uintptr_t)pblock << " " << pblock->size << endl;
-            pblock = pblock->next;
+            Block* pblock = free_head.next;
+            while(pblock)
+            {
+                cout << (uintptr_t)pblock << " " << pblock->size << endl;
+                pblock = pblock->next;
+            }
         }
-    }
-*/
+    */
 
 private:
 

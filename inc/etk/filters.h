@@ -50,23 +50,23 @@ public:
     }
 
     /**
-	 * \brief This constructor allows you to set the filter gain and initial estimate.
-	 *
-	 * @arg f filter gain
-	 * @arg init_est initial estimate
-	 */
+     * \brief This constructor allows you to set the filter gain and initial estimate.
+     *
+     * @arg f filter gain
+     * @arg init_est initial estimate
+     */
     ExpoMovingAvg(real_t f, real_t init_est = 0)
     {
         a = f;
         accumulator = init_est;
     }
 
-	/**
-	 * \brief The gain controls the responsiveness of the filter.
-	 * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
-	 *
-	 * @arg factor The filter gain (0.0 - 1.0)
-	 */
+    /**
+     * \brief The gain controls the responsiveness of the filter.
+     * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
+     *
+     * @arg factor The filter gain (0.0 - 1.0)
+     */
     void set_gain(real_t factor)
     {
         a = factor;
@@ -83,7 +83,7 @@ public:
         accumulator = (a* measurement) + (1.0f - a) * accumulator;
     }
 
-	/**
+    /**
      * \brief Returns the current state of the filter.
      */
     real_t get()
@@ -115,11 +115,11 @@ public:
     }
 
     /**
-	 * \brief This constructor allows you to set the filter gain and initial estimate.
-	 *
-	 * @arg f filter gain
-	 * @arg init_est initial estimate
-	 */
+     * \brief This constructor allows you to set the filter gain and initial estimate.
+     *
+     * @arg f filter gain
+     * @arg init_est initial estimate
+     */
     BrownLinearExpo(real_t f, real_t init_est)
     {
         a = f;
@@ -128,12 +128,12 @@ public:
         single_smoothed = 0;
     }
 
-	/**
-	 * \brief The gain controls the responsiveness of the filter.
-	 * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
-	 *
-	 * @arg factor The filter gain (0.0 - 1.0)
-	 */
+    /**
+     * \brief The gain controls the responsiveness of the filter.
+     * It should be a value between 0.0 and 1.0. A higher value makes the filter more responsive and allows more noise through.
+     *
+     * @arg factor The filter gain (0.0 - 1.0)
+     */
     void set_gain(real_t factor)
     {
         a = factor;
@@ -232,12 +232,12 @@ public:
         estimate = 0;
     }
 
-	 /**
-     * \brief Performs a single iteration of the filter.
-     * Raw samples are entered into the filter using this function.
-     *
-     * @arg measurement A raw measurement or sample to be filtered.
-     */
+    /**
+    * \brief Performs a single iteration of the filter.
+    * Raw samples are entered into the filter using this function.
+    *
+    * @arg measurement A raw measurement or sample to be filtered.
+    */
     void step(real_t sample)
     {
         emv.step(sample);
@@ -245,7 +245,7 @@ public:
         estimate = sample - emv.get();
     }
 
-	/**
+    /**
      * \brief Returns the current state of the filter.
      */
     real_t get()
@@ -275,12 +275,12 @@ private:
 class RateLimiter
 {
 public:
-	RateLimiter()
-	{
-		last_sample = 0;
-		ms = 1;
-	}
-	
+    RateLimiter()
+    {
+        last_sample = 0;
+        ms = 1;
+    }
+
     RateLimiter(real_t max_step, real_t init_val)
     {
         ms = max_step;
@@ -294,10 +294,10 @@ public:
         last_sample += delta;
         return last_sample;
     }
-    
+
     void set_max_step(real_t m)
     {
-    	ms = m;
+        ms = m;
     }
 
 private:

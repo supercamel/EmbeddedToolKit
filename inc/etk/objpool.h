@@ -139,8 +139,8 @@ public:
         {
             if(o.references == 0)
             {
-                 T* r = new((void*)o.data) T();
-                 return PoolPtr<ObjPool, T>(this, r);
+                T* r = new((void*)o.data) T();
+                return PoolPtr<ObjPool, T>(this, r);
             }
         }
         return PoolPtr<ObjPool, T>(this, nullptr);

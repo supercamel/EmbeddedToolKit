@@ -99,9 +99,9 @@ public:
         return Iterator(*this, LEN);
     }
 
-	/**
-	 * \brief Add an item to memory.
-	 */
+    /**
+     * \brief Add an item to memory.
+     */
     void put(T b)
     {
         buf_end = (buf_end + 1) % LEN;
@@ -128,27 +128,27 @@ public:
         buf_end = (buf_end + 1) % LEN;
     }
 
-	/**
-	 * \brief Returns the next item without removing it from memory.
-	 */
+    /**
+     * \brief Returns the next item without removing it from memory.
+     */
     T peek_ahead(uint16 n=0)
     {
         uint16 pos = (start+n) % LEN;
         return buf[pos];
     }
 
-	/**
-	 * \brief Empties memory.
-	 */
+    /**
+     * \brief Empties memory.
+     */
     void empty()
     {
         start = 0;
         buf_end = 0;
     }
 
-	/**
-	 * \brief Fills the entire memory with a value.
-	 */
+    /**
+     * \brief Fills the entire memory with a value.
+     */
     void fill(T t)
     {
         for(auto i : range(LEN))
@@ -162,11 +162,11 @@ public:
 
     T average()
     {
-    	T avg;
-    	for(auto i : range(LEN))
-    		avg = avg + buf[i];
-    	avg = avg/LEN;
-    	return avg;
+        T avg;
+        for(auto i : range(LEN))
+            avg = avg + buf[i];
+        avg = avg/LEN;
+        return avg;
     }
 
 private:

@@ -34,24 +34,24 @@ public:
             static_cast<derived*>(this)->put(*cstr++);
     }
 
-	void print(char* cstr)
-	{
-		print((const char*)(cstr));
-	}
+    void print(char* cstr)
+    {
+        print((const char*)(cstr));
+    }
 
     template<uint32 L> void print(const StaticString<L> ss)
     {
-    	auto len = ss.length();
+        auto len = ss.length();
         for(uint32 i = 0; i < len; i++)
             static_cast<derived*>(this)->put(ss[i]);
     }
 
-	template<uint32 L> void print(const Vector<L> v)
-	{
-		for(uint32 i = 0; i < L; i++)
-			print(v[i], " ");
-		print("\r\n");
-	}
+    template<uint32 L> void print(const Vector<L> v)
+    {
+        for(uint32 i = 0; i < L; i++)
+            print(v[i], " ");
+        print("\r\n");
+    }
 
     template<typename T> void print(T v)
     {
@@ -89,8 +89,8 @@ public:
 
     template<uint32 L> Stream& operator << (StaticString<L> ss)
     {
-    	print(ss);
-    	return *this;
+        print(ss);
+        return *this;
     }
 
 };

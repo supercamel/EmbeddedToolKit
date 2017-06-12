@@ -85,8 +85,8 @@ template<typename T> T constrain(T x, T a, T b)
  */
 inline real_t constrain_circular(real_t x, uint32 segments)
 {
-	if(is_inf(x) || is_nan(x))
-		return x;
+    if(is_inf(x) || is_nan(x))
+        return x;
 
     uint32 half_segment = segments/2;
     int64 seg_lower = half_segment;
@@ -215,42 +215,42 @@ template<typename T> void quick_sort(T& arr, unsigned int low, unsigned int high
     {
         unsigned int pi = 0;
         auto x = arr[low]; // pivot
-		unsigned int i = low;
-		unsigned int j = high;
-		while(true)
-		{
-			if(sort_up)
-			{
-		    	while(arr[i] < x)
-				    i++;
+        unsigned int i = low;
+        unsigned int j = high;
+        while(true)
+        {
+            if(sort_up)
+            {
+                while(arr[i] < x)
+                    i++;
 
-				while(arr[j] > x)
-				    j--;
-		    }
-		    else
-		    {
-		    	while(arr[i] > x)
-				    i++;
+                while(arr[j] > x)
+                    j--;
+            }
+            else
+            {
+                while(arr[i] > x)
+                    i++;
 
-				while(arr[j] < x)
-				    j--;
-		    }
+                while(arr[j] < x)
+                    j--;
+            }
 
-		    if (i < j)
-		    {
-		    	swap(arr[i], arr[j]);
-		    	i++;
-		    	j--;
-		    }
-		    else
-		    {
-		    	pi = j;
-		    	break;
-		    }
-		}
+            if (i < j)
+            {
+                swap(arr[i], arr[j]);
+                i++;
+                j--;
+            }
+            else
+            {
+                pi = j;
+                break;
+            }
+        }
 
-		quick_sort(arr, low, pi, sort_up);
-		quick_sort(arr, pi + 1, high, sort_up);
+        quick_sort(arr, low, pi, sort_up);
+        quick_sort(arr, pi + 1, high, sort_up);
     }
 }
 
@@ -259,7 +259,7 @@ template<typename T> void quick_sort(T& arr, unsigned int low, unsigned int high
  */
 template<typename T> void quick_sort_up(T& arr)
 {
-	quick_sort(arr, 0, arr.size()-1, true);
+    quick_sort(arr, 0, arr.size()-1, true);
 }
 
 /**
@@ -267,7 +267,7 @@ template<typename T> void quick_sort_up(T& arr)
  */
 template<typename T> void quick_sort_down(T& arr)
 {
-	quick_sort(arr, 0, arr.size()-1, false);
+    quick_sort(arr, 0, arr.size()-1, false);
 }
 
 
@@ -365,8 +365,8 @@ template<typename T> void zero_object(T& obj)
  */
 template<typename T> void reverse(T& list, uint32 n_elements)
 {
-	for(uint32 i = 0; i < n_elements/2; i++)
-		swap(list[n_elements-i-1], list[i]);
+    for(uint32 i = 0; i < n_elements/2; i++)
+        swap(list[n_elements-i-1], list[i]);
 }
 
 

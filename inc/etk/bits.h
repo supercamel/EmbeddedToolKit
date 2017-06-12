@@ -58,13 +58,13 @@ public:
         bte = b;
     }
 
-	/**
-	 * \brief set_bit allows you to turn a bit on or off.
-	 *
-	 * @arg n The bit to modify.
-	 * @arg on True to set the bit to 1, false to set to 0.
-	 * @return This function returns false if n is greater than the size of T.
-	 */
+    /**
+     * \brief set_bit allows you to turn a bit on or off.
+     *
+     * @arg n The bit to modify.
+     * @arg on True to set the bit to 1, false to set to 0.
+     * @return This function returns false if n is greater than the size of T.
+     */
     bool set_bit(uint32 n, bool on = true)
     {
         if(n < (sizeof(T)*8))
@@ -78,12 +78,12 @@ public:
         return false;
     }
 
-	/**
-	 * \brief read_bit reads the value of a bit.
-	 *
-	 * @arg n The bit to read.
-	 * @return true if bit is 1, false if 0
-	 */
+    /**
+     * \brief read_bit reads the value of a bit.
+     *
+     * @arg n The bit to read.
+     * @return true if bit is 1, false if 0
+     */
     bool read_bit(uint32 n)
     {
         if(n < (sizeof(T)*8))
@@ -94,11 +94,11 @@ public:
         return false;
     }
 
-	/**
-	 * \brief Creates a human readable string of ones and zeroes.
-	 *
-	 * @return a StaticString.
-	 */
+    /**
+     * \brief Creates a human readable string of ones and zeroes.
+     *
+     * @return a StaticString.
+     */
     StaticString<sizeof(T)*8+1> to_string()
     {
         StaticString<sizeof(T)*8+1> string;
@@ -112,19 +112,19 @@ public:
         return string;
     }
 
-	/**
-	 * \brief Returns the integer that Bits has been modifying.
-	 *
-	 */
+    /**
+     * \brief Returns the integer that Bits has been modifying.
+     *
+     */
     T get()
     {
         return bte;
     }
 
-	/**
-	 * \brief Sets the integer to a particular value.
-	 *
-	 */
+    /**
+     * \brief Sets the integer to a particular value.
+     *
+     */
     void set(T b)
     {
         bte = b;

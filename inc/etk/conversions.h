@@ -6,283 +6,747 @@
 namespace etk
 {
 
-inline real_t thou_to_meters(real_t in) { return in*2.539998628400741e-05f; }
-inline real_t inches_to_meters(real_t in) { return in*0.025399986284007407f; }
-inline real_t feet_to_meters(real_t in) { return in*0.3047999902464003f; }
-inline real_t yards_to_meters(real_t in) { return in*0.9144027578387177f; }
-inline real_t miles_to_meters(real_t in) { return in*1609.3444978925634f; }
-inline real_t naut_miles_to_meters(real_t in) { return in*1851.9993258722454f; }
-inline real_t centimeters_to_meters(real_t in) { return in*0.01f; }
-inline real_t millimeters_to_meters(real_t in) { return in*0.001f; }
-inline real_t kilometers_to_meters(real_t in) { return in*1000.0f; }
+inline real_t thou_to_meters(real_t in) {
+    return in*2.539998628400741e-05f;
+}
+inline real_t inches_to_meters(real_t in) {
+    return in*0.025399986284007407f;
+}
+inline real_t feet_to_meters(real_t in) {
+    return in*0.3047999902464003f;
+}
+inline real_t yards_to_meters(real_t in) {
+    return in*0.9144027578387177f;
+}
+inline real_t miles_to_meters(real_t in) {
+    return in*1609.3444978925634f;
+}
+inline real_t naut_miles_to_meters(real_t in) {
+    return in*1851.9993258722454f;
+}
+inline real_t centimeters_to_meters(real_t in) {
+    return in*0.01f;
+}
+inline real_t millimeters_to_meters(real_t in) {
+    return in*0.001f;
+}
+inline real_t kilometers_to_meters(real_t in) {
+    return in*1000.0f;
+}
 
-inline real_t meters_to_thou(real_t in) { return in*39370.1f; }
-inline real_t inches_to_thou(real_t in) { return in*1000.0f; }
-inline real_t feet_to_thou(real_t in) { return in*12000.006095999805f; }
-inline real_t yards_to_thou(real_t in) { return in*36000.1280163861f; }
-inline real_t miles_to_thou(real_t in) { return in*63360053.81648f; }
-inline real_t naut_miles_to_thou(real_t in) { return in*72913398.65952289f; }
-inline real_t centimeters_to_thou(real_t in) { return in*393.701f; }
-inline real_t millimeters_to_thou(real_t in) { return in*39.3701f; }
-inline real_t kilometers_to_thou(real_t in) { return in*39370100.0f; }
+inline real_t meters_to_thou(real_t in) {
+    return in*39370.1f;
+}
+inline real_t inches_to_thou(real_t in) {
+    return in*1000.0f;
+}
+inline real_t feet_to_thou(real_t in) {
+    return in*12000.006095999805f;
+}
+inline real_t yards_to_thou(real_t in) {
+    return in*36000.1280163861f;
+}
+inline real_t miles_to_thou(real_t in) {
+    return in*63360053.81648f;
+}
+inline real_t naut_miles_to_thou(real_t in) {
+    return in*72913398.65952289f;
+}
+inline real_t centimeters_to_thou(real_t in) {
+    return in*393.701f;
+}
+inline real_t millimeters_to_thou(real_t in) {
+    return in*39.3701f;
+}
+inline real_t kilometers_to_thou(real_t in) {
+    return in*39370100.0f;
+}
 
-inline real_t meters_to_inches(real_t in) { return in*39.3701f; }
-inline real_t thou_to_inches(real_t in) { return in*0.001f; }
-inline real_t feet_to_inches(real_t in) { return in*12.000006095999805f; }
-inline real_t yards_to_inches(real_t in) { return in*36.0001280163861f; }
-inline real_t miles_to_inches(real_t in) { return in*63360.05381648001f; }
-inline real_t naut_miles_to_inches(real_t in) { return in*72913.39865952289f; }
-inline real_t centimeters_to_inches(real_t in) { return in*0.393701f; }
-inline real_t millimeters_to_inches(real_t in) { return in*0.0393701f; }
-inline real_t kilometers_to_inches(real_t in) { return in*39370.1f; }
+inline real_t meters_to_inches(real_t in) {
+    return in*39.3701f;
+}
+inline real_t thou_to_inches(real_t in) {
+    return in*0.001f;
+}
+inline real_t feet_to_inches(real_t in) {
+    return in*12.000006095999805f;
+}
+inline real_t yards_to_inches(real_t in) {
+    return in*36.0001280163861f;
+}
+inline real_t miles_to_inches(real_t in) {
+    return in*63360.05381648001f;
+}
+inline real_t naut_miles_to_inches(real_t in) {
+    return in*72913.39865952289f;
+}
+inline real_t centimeters_to_inches(real_t in) {
+    return in*0.393701f;
+}
+inline real_t millimeters_to_inches(real_t in) {
+    return in*0.0393701f;
+}
+inline real_t kilometers_to_inches(real_t in) {
+    return in*39370.1f;
+}
 
-inline real_t meters_to_feet(real_t in) { return in*3.28084f; }
-inline real_t thou_to_feet(real_t in) { return in*8.333329100002286e-05f; }
-inline real_t inches_to_feet(real_t in) { return in*0.08333329100002286f; }
-inline real_t yards_to_feet(real_t in) { return in*3.0000091440275787f; }
-inline real_t miles_to_feet(real_t in) { return in*5280.0018024658375f; }
-inline real_t naut_miles_to_feet(real_t in) { return in*6076.113468294698f; }
-inline real_t centimeters_to_feet(real_t in) { return in*0.0328084f; }
-inline real_t millimeters_to_feet(real_t in) { return in*0.00328084f; }
-inline real_t kilometers_to_feet(real_t in) { return in*3280.84f; }
+inline real_t meters_to_feet(real_t in) {
+    return in*3.28084f;
+}
+inline real_t thou_to_feet(real_t in) {
+    return in*8.333329100002286e-05f;
+}
+inline real_t inches_to_feet(real_t in) {
+    return in*0.08333329100002286f;
+}
+inline real_t yards_to_feet(real_t in) {
+    return in*3.0000091440275787f;
+}
+inline real_t miles_to_feet(real_t in) {
+    return in*5280.0018024658375f;
+}
+inline real_t naut_miles_to_feet(real_t in) {
+    return in*6076.113468294698f;
+}
+inline real_t centimeters_to_feet(real_t in) {
+    return in*0.0328084f;
+}
+inline real_t millimeters_to_feet(real_t in) {
+    return in*0.00328084f;
+}
+inline real_t kilometers_to_feet(real_t in) {
+    return in*3280.84f;
+}
 
-inline real_t meters_to_yards(real_t in) { return in*1.09361f; }
-inline real_t thou_to_yards(real_t in) { return in*2.7777679000053342e-05f; }
-inline real_t inches_to_yards(real_t in) { return in*0.02777767900005334f; }
-inline real_t feet_to_yards(real_t in) { return in*0.3333323173333658f; }
-inline real_t miles_to_yards(real_t in) { return in*1759.9952363402863f; }
-inline real_t naut_miles_to_yards(real_t in) { return in*2025.3649827671463f; }
-inline real_t centimeters_to_yards(real_t in) { return in*0.0109361f; }
-inline real_t millimeters_to_yards(real_t in) { return in*0.00109361f; }
-inline real_t kilometers_to_yards(real_t in) { return in*1093.61f; }
+inline real_t meters_to_yards(real_t in) {
+    return in*1.09361f;
+}
+inline real_t thou_to_yards(real_t in) {
+    return in*2.7777679000053342e-05f;
+}
+inline real_t inches_to_yards(real_t in) {
+    return in*0.02777767900005334f;
+}
+inline real_t feet_to_yards(real_t in) {
+    return in*0.3333323173333658f;
+}
+inline real_t miles_to_yards(real_t in) {
+    return in*1759.9952363402863f;
+}
+inline real_t naut_miles_to_yards(real_t in) {
+    return in*2025.3649827671463f;
+}
+inline real_t centimeters_to_yards(real_t in) {
+    return in*0.0109361f;
+}
+inline real_t millimeters_to_yards(real_t in) {
+    return in*0.00109361f;
+}
+inline real_t kilometers_to_yards(real_t in) {
+    return in*1093.61f;
+}
 
-inline real_t meters_to_miles(real_t in) { return in*0.000621371f; }
-inline real_t thou_to_miles(real_t in) { return in*1.5782814877279968e-08f; }
-inline real_t inches_to_miles(real_t in) { return in*1.5782814877279968e-05f; }
-inline real_t feet_to_miles(real_t in) { return in*0.000189393874739396f; }
-inline real_t yards_to_miles(real_t in) { return in*0.0005681833560410019f; }
-inline real_t naut_miles_to_miles(real_t in) { return in*1.150778673116563f; }
-inline real_t centimeters_to_miles(real_t in) { return in*6.21371e-06f; }
-inline real_t millimeters_to_miles(real_t in) { return in*6.21371e-07f; }
-inline real_t kilometers_to_miles(real_t in) { return in*0.621371f; }
+inline real_t meters_to_miles(real_t in) {
+    return in*0.000621371f;
+}
+inline real_t thou_to_miles(real_t in) {
+    return in*1.5782814877279968e-08f;
+}
+inline real_t inches_to_miles(real_t in) {
+    return in*1.5782814877279968e-05f;
+}
+inline real_t feet_to_miles(real_t in) {
+    return in*0.000189393874739396f;
+}
+inline real_t yards_to_miles(real_t in) {
+    return in*0.0005681833560410019f;
+}
+inline real_t naut_miles_to_miles(real_t in) {
+    return in*1.150778673116563f;
+}
+inline real_t centimeters_to_miles(real_t in) {
+    return in*6.21371e-06f;
+}
+inline real_t millimeters_to_miles(real_t in) {
+    return in*6.21371e-07f;
+}
+inline real_t kilometers_to_miles(real_t in) {
+    return in*0.621371f;
+}
 
-inline real_t meters_to_naut_miles(real_t in) { return in*0.000539957f; }
-inline real_t thou_to_naut_miles(real_t in) { return in*1.3714900393953788e-08f; }
-inline real_t inches_to_naut_miles(real_t in) { return in*1.3714900393953787e-05f; }
-inline real_t feet_to_naut_miles(real_t in) { return in*0.00016457888833347557f; }
-inline real_t yards_to_naut_miles(real_t in) { return in*0.0004937381699143205f; }
-inline real_t miles_to_naut_miles(real_t in) { return in*0.8689768270485748f; }
-inline real_t centimeters_to_naut_miles(real_t in) { return in*5.3995699999999995e-06f; }
-inline real_t millimeters_to_naut_miles(real_t in) { return in*5.39957e-07f; }
-inline real_t kilometers_to_naut_miles(real_t in) { return in*0.539957f; }
+inline real_t meters_to_naut_miles(real_t in) {
+    return in*0.000539957f;
+}
+inline real_t thou_to_naut_miles(real_t in) {
+    return in*1.3714900393953788e-08f;
+}
+inline real_t inches_to_naut_miles(real_t in) {
+    return in*1.3714900393953787e-05f;
+}
+inline real_t feet_to_naut_miles(real_t in) {
+    return in*0.00016457888833347557f;
+}
+inline real_t yards_to_naut_miles(real_t in) {
+    return in*0.0004937381699143205f;
+}
+inline real_t miles_to_naut_miles(real_t in) {
+    return in*0.8689768270485748f;
+}
+inline real_t centimeters_to_naut_miles(real_t in) {
+    return in*5.3995699999999995e-06f;
+}
+inline real_t millimeters_to_naut_miles(real_t in) {
+    return in*5.39957e-07f;
+}
+inline real_t kilometers_to_naut_miles(real_t in) {
+    return in*0.539957f;
+}
 
-inline real_t meters_to_centimeters(real_t in) { return in*100.0f; }
-inline real_t thou_to_centimeters(real_t in) { return in*0.002539998628400741f; }
-inline real_t inches_to_centimeters(real_t in) { return in*2.5399986284007405f; }
-inline real_t feet_to_centimeters(real_t in) { return in*30.47999902464003f; }
-inline real_t yards_to_centimeters(real_t in) { return in*91.44027578387177f; }
-inline real_t miles_to_centimeters(real_t in) { return in*160934.44978925632f; }
-inline real_t naut_miles_to_centimeters(real_t in) { return in*185199.93258722455f; }
-inline real_t millimeters_to_centimeters(real_t in) { return in*0.1f; }
-inline real_t kilometers_to_centimeters(real_t in) { return in*100000.0f; }
+inline real_t meters_to_centimeters(real_t in) {
+    return in*100.0f;
+}
+inline real_t thou_to_centimeters(real_t in) {
+    return in*0.002539998628400741f;
+}
+inline real_t inches_to_centimeters(real_t in) {
+    return in*2.5399986284007405f;
+}
+inline real_t feet_to_centimeters(real_t in) {
+    return in*30.47999902464003f;
+}
+inline real_t yards_to_centimeters(real_t in) {
+    return in*91.44027578387177f;
+}
+inline real_t miles_to_centimeters(real_t in) {
+    return in*160934.44978925632f;
+}
+inline real_t naut_miles_to_centimeters(real_t in) {
+    return in*185199.93258722455f;
+}
+inline real_t millimeters_to_centimeters(real_t in) {
+    return in*0.1f;
+}
+inline real_t kilometers_to_centimeters(real_t in) {
+    return in*100000.0f;
+}
 
-inline real_t meters_to_millimeters(real_t in) { return in*1000.0f; }
-inline real_t thou_to_millimeters(real_t in) { return in*0.025399986284007407f; }
-inline real_t inches_to_millimeters(real_t in) { return in*25.399986284007408f; }
-inline real_t feet_to_millimeters(real_t in) { return in*304.7999902464003f; }
-inline real_t yards_to_millimeters(real_t in) { return in*914.4027578387177f; }
-inline real_t miles_to_millimeters(real_t in) { return in*1609344.4978925635f; }
-inline real_t naut_miles_to_millimeters(real_t in) { return in*1851999.3258722455f; }
-inline real_t centimeters_to_millimeters(real_t in) { return in*10.0f; }
-inline real_t kilometers_to_millimeters(real_t in) { return in*1000000.0f; }
+inline real_t meters_to_millimeters(real_t in) {
+    return in*1000.0f;
+}
+inline real_t thou_to_millimeters(real_t in) {
+    return in*0.025399986284007407f;
+}
+inline real_t inches_to_millimeters(real_t in) {
+    return in*25.399986284007408f;
+}
+inline real_t feet_to_millimeters(real_t in) {
+    return in*304.7999902464003f;
+}
+inline real_t yards_to_millimeters(real_t in) {
+    return in*914.4027578387177f;
+}
+inline real_t miles_to_millimeters(real_t in) {
+    return in*1609344.4978925635f;
+}
+inline real_t naut_miles_to_millimeters(real_t in) {
+    return in*1851999.3258722455f;
+}
+inline real_t centimeters_to_millimeters(real_t in) {
+    return in*10.0f;
+}
+inline real_t kilometers_to_millimeters(real_t in) {
+    return in*1000000.0f;
+}
 
-inline real_t meters_to_kilometers(real_t in) { return in*0.001f; }
-inline real_t thou_to_kilometers(real_t in) { return in*2.539998628400741e-08f; }
-inline real_t inches_to_kilometers(real_t in) { return in*2.539998628400741e-05f; }
-inline real_t feet_to_kilometers(real_t in) { return in*0.0003047999902464003f; }
-inline real_t yards_to_kilometers(real_t in) { return in*0.0009144027578387177f; }
-inline real_t miles_to_kilometers(real_t in) { return in*1.6093444978925635f; }
-inline real_t naut_miles_to_kilometers(real_t in) { return in*1.8519993258722456f; }
-inline real_t centimeters_to_kilometers(real_t in) { return in*1e-05f; }
-inline real_t millimeters_to_kilometers(real_t in) { return in*1e-06f; }
-
-
-inline real_t feet_per_second_to_meters_per_second(real_t in) { return in*0.3047999902464003f; }
-inline real_t yards_per_second_to_meters_per_second(real_t in) { return in*0.9144027578387177f; }
-inline real_t kilometers_per_hour_to_meters_per_second(real_t in) { return in*0.2777777777777778f; }
-inline real_t miles_per_hour_to_meters_per_second(real_t in) { return in*0.4470392589877243f; }
-inline real_t knots_to_meters_per_second(real_t in) { return in*0.5144456333854638f; }
-
-inline real_t meters_per_second_to_feet_per_second(real_t in) { return in*3.28084f; }
-inline real_t yards_per_second_to_feet_per_second(real_t in) { return in*3.0000091440275787f; }
-inline real_t kilometers_per_hour_to_feet_per_second(real_t in) { return in*0.9113444444444445f; }
-inline real_t miles_per_hour_to_feet_per_second(real_t in) { return in*1.4666642824572853f; }
-inline real_t knots_to_feet_per_second(real_t in) { return in*1.687813811836365f; }
-
-inline real_t meters_per_second_to_yards_per_second(real_t in) { return in*1.09361f; }
-inline real_t feet_per_second_to_yards_per_second(real_t in) { return in*0.3333323173333658f; }
-inline real_t kilometers_per_hour_to_yards_per_second(real_t in) { return in*0.30378055555555555f; }
-inline real_t miles_per_hour_to_yards_per_second(real_t in) { return in*0.48888660402156514f; }
-inline real_t knots_to_yards_per_second(real_t in) { return in*0.562602889126677f; }
-
-inline real_t meters_per_second_to_kilometers_per_hour(real_t in) { return in*3.6f; }
-inline real_t feet_per_second_to_kilometers_per_hour(real_t in) { return in*1.097279964887041f; }
-inline real_t yards_per_second_to_kilometers_per_hour(real_t in) { return in*3.291849928219384f; }
-inline real_t miles_per_hour_to_kilometers_per_hour(real_t in) { return in*1.6093413323558075f; }
-inline real_t knots_to_kilometers_per_hour(real_t in) { return in*1.8520042801876697f; }
-
-inline real_t meters_per_second_to_miles_per_hour(real_t in) { return in*2.23694f; }
-inline real_t feet_per_second_to_miles_per_hour(real_t in) { return in*0.6818192901817828f; }
-inline real_t yards_per_second_to_miles_per_hour(real_t in) { return in*2.0454641051197413f; }
-inline real_t kilometers_per_hour_to_miles_per_hour(real_t in) { return in*0.6213722222222223f; }
-inline real_t knots_to_miles_per_hour(real_t in) { return in*1.1507840151452795f; }
-
-inline real_t meters_per_second_to_knots(real_t in) { return in*1.94384f; }
-inline real_t feet_per_second_to_knots(real_t in) { return in*0.5924824130405628f; }
-inline real_t yards_per_second_to_knots(real_t in) { return in*1.777452656797213f; }
-inline real_t kilometers_per_hour_to_knots(real_t in) { return in*0.5399555555555556f; }
-inline real_t miles_per_hour_to_knots(real_t in) { return in*0.868972793190698f; }
-
-
-inline real_t mpss_to_meters_per_second_per_second(real_t in) { return in; }
-inline real_t g_to_meters_per_second_per_second(real_t in) { return in*9.80665002863885f; }
-inline real_t feet_per_second_per_second_to_meters_per_second_per_second(real_t in) { return in*0.304799999536704f; }
-inline real_t fpss_to_meters_per_second_per_second(real_t in) { return in*0.304799999536704f; }
-
-inline real_t meters_per_second_per_second_to_mpss(real_t in) { return in; }
-inline real_t g_to_mpss(real_t in) { return in*9.80665002863885f; }
-inline real_t feet_per_second_per_second_to_mpss(real_t in) { return in*0.304799999536704f; }
-inline real_t fpss_to_mpss(real_t in) { return in*0.304799999536704f; }
-
-inline real_t meters_per_second_per_second_to_g(real_t in) { return in*0.101971621f; }
-inline real_t mpss_to_g(real_t in) { return in*0.101971621f; }
-inline real_t feet_per_second_per_second_to_g(real_t in) { return in*0.031080950033556955f; }
-inline real_t fpss_to_g(real_t in) { return in*0.031080950033556955f; }
-
-inline real_t meters_per_second_per_second_to_feet_per_second_per_second(real_t in) { return in*3.2808399f; }
-inline real_t mpss_to_feet_per_second_per_second(real_t in) { return in*3.2808399f; }
-inline real_t g_to_feet_per_second_per_second(real_t in) { return in*32.17404869929449f; }
-inline real_t fpss_to_feet_per_second_per_second(real_t in) { return in; }
-
-inline real_t meters_per_second_per_second_to_fpss(real_t in) { return in*3.2808399f; }
-inline real_t mpss_to_fpss(real_t in) { return in*3.2808399f; }
-inline real_t g_to_fpss(real_t in) { return in*32.17404869929449f; }
-inline real_t feet_per_second_per_second_to_fpss(real_t in) { return in; }
-
-
-inline real_t pounds_to_kilograms(real_t in) { return in*0.45359290943563974f; }
-inline real_t ounces_to_kilograms(real_t in) { return in*0.02834949254408346f; }
-inline real_t grams_to_kilograms(real_t in) { return in*0.001f; }
-inline real_t tons_to_kilograms(real_t in) { return in*907.1858188712794f; }
-inline real_t tonnes_to_kilograms(real_t in) { return in*1000.0f; }
-inline real_t stone_to_kilograms(real_t in) { return in*6.3502949712014125f; }
-
-inline real_t kilograms_to_pounds(real_t in) { return in*2.20462f; }
-inline real_t ounces_to_pounds(real_t in) { return in*0.06249985825253727f; }
-inline real_t grams_to_pounds(real_t in) { return in*0.00220462f; }
-inline real_t tons_to_pounds(real_t in) { return in*1999.9999999999998f; }
-inline real_t tonnes_to_pounds(real_t in) { return in*2204.62f; }
-inline real_t stone_to_pounds(real_t in) { return in*13.999987299410057f; }
-
-inline real_t kilograms_to_ounces(real_t in) { return in*35.274f; }
-inline real_t pounds_to_ounces(real_t in) { return in*16.000036287432756f; }
-inline real_t grams_to_ounces(real_t in) { return in*0.035274f; }
-inline real_t tons_to_ounces(real_t in) { return in*32000.07257486551f; }
-inline real_t tonnes_to_ounces(real_t in) { return in*35274.0f; }
-inline real_t stone_to_ounces(real_t in) { return in*224.00030481415862f; }
-
-inline real_t kilograms_to_grams(real_t in) { return in*1000.0f; }
-inline real_t pounds_to_grams(real_t in) { return in*453.59290943563974f; }
-inline real_t ounces_to_grams(real_t in) { return in*28.34949254408346f; }
-inline real_t tons_to_grams(real_t in) { return in*907185.8188712794f; }
-inline real_t tonnes_to_grams(real_t in) { return in*1000000.0f; }
-inline real_t stone_to_grams(real_t in) { return in*6350.294971201412f; }
-
-inline real_t kilograms_to_tons(real_t in) { return in*0.00110231f; }
-inline real_t pounds_to_tons(real_t in) { return in*0.0005f; }
-inline real_t ounces_to_tons(real_t in) { return in*3.124992912626864e-05f; }
-inline real_t grams_to_tons(real_t in) { return in*1.10231e-06f; }
-inline real_t tonnes_to_tons(real_t in) { return in*1.10231f; }
-inline real_t stone_to_tons(real_t in) { return in*0.006999993649705029f; }
-
-inline real_t kilograms_to_tonnes(real_t in) { return in*0.001f; }
-inline real_t pounds_to_tonnes(real_t in) { return in*0.00045359290943563975f; }
-inline real_t ounces_to_tonnes(real_t in) { return in*2.834949254408346e-05f; }
-inline real_t grams_to_tonnes(real_t in) { return in*1e-06f; }
-inline real_t tons_to_tonnes(real_t in) { return in*0.9071858188712794f; }
-inline real_t stone_to_tonnes(real_t in) { return in*0.006350294971201413f; }
-
-inline real_t kilograms_to_stone(real_t in) { return in*0.157473f; }
-inline real_t pounds_to_stone(real_t in) { return in*0.0714286362275585f; }
-inline real_t ounces_to_stone(real_t in) { return in*0.004464279639394455f; }
-inline real_t grams_to_stone(real_t in) { return in*0.00015747300000000002f; }
-inline real_t tons_to_stone(real_t in) { return in*142.85727245511697f; }
-inline real_t tonnes_to_stone(real_t in) { return in*157.473f; }
-
-
-inline real_t millibar_to_pascals(real_t in) { return in*100.0f; }
-inline real_t bar_to_pascals(real_t in) { return in*99999.99999999999f; }
-inline real_t inhg_to_pascals(real_t in) { return in*3386.3867253640365f; }
-inline real_t inh2o_to_pascals(real_t in) { return in*248.8397845047466f; }
-inline real_t meters_of_sea_water_to_pascals(real_t in) { return in*0.001f; }
-inline real_t psi_to_pascals(real_t in) { return in*6894.744825494008f; }
-
-inline real_t pascals_to_millibar(real_t in) { return in*0.01f; }
-inline real_t bar_to_millibar(real_t in) { return in*999.9999999999999f; }
-inline real_t inhg_to_millibar(real_t in) { return in*33.863867253640365f; }
-inline real_t inh2o_to_millibar(real_t in) { return in*2.488397845047466f; }
-inline real_t meters_of_sea_water_to_millibar(real_t in) { return in*1e-05f; }
-inline real_t psi_to_millibar(real_t in) { return in*68.94744825494008f; }
-
-inline real_t pascals_to_bar(real_t in) { return in*1e-05f; }
-inline real_t millibar_to_bar(real_t in) { return in*0.001f; }
-inline real_t inhg_to_bar(real_t in) { return in*0.033863867253640365f; }
-inline real_t inh2o_to_bar(real_t in) { return in*0.0024883978450474663f; }
-inline real_t meters_of_sea_water_to_bar(real_t in) { return in*1e-08f; }
-inline real_t psi_to_bar(real_t in) { return in*0.06894744825494009f; }
-
-inline real_t pascals_to_inhg(real_t in) { return in*0.0002953f; }
-inline real_t millibar_to_inhg(real_t in) { return in*0.02953f; }
-inline real_t bar_to_inhg(real_t in) { return in*29.529999999999998f; }
-inline real_t inh2o_to_inhg(real_t in) { return in*0.07348238836425168f; }
-inline real_t meters_of_sea_water_to_inhg(real_t in) { return in*2.953e-07f; }
-inline real_t psi_to_inhg(real_t in) { return in*2.036018146968381f; }
-
-inline real_t pascals_to_inh2o(real_t in) { return in*0.00401865f; }
-inline real_t millibar_to_inh2o(real_t in) { return in*0.401865f; }
-inline real_t bar_to_inh2o(real_t in) { return in*401.86499999999995f; }
-inline real_t inhg_to_inh2o(real_t in) { return in*13.608703013884186f; }
-inline real_t meters_of_sea_water_to_inh2o(real_t in) { return in*4.01865e-06f; }
-inline real_t psi_to_inh2o(real_t in) { return in*27.7075662929715f; }
-
-inline real_t pascals_to_meters_of_sea_water(real_t in) { return in*1000.0f; }
-inline real_t millibar_to_meters_of_sea_water(real_t in) { return in*100000.0f; }
-inline real_t bar_to_meters_of_sea_water(real_t in) { return in*99999999.99999999f; }
-inline real_t inhg_to_meters_of_sea_water(real_t in) { return in*3386386.7253640364f; }
-inline real_t inh2o_to_meters_of_sea_water(real_t in) { return in*248839.7845047466f; }
-inline real_t psi_to_meters_of_sea_water(real_t in) { return in*6894744.825494008f; }
-
-inline real_t pascals_to_psi(real_t in) { return in*0.000145038f; }
-inline real_t millibar_to_psi(real_t in) { return in*0.0145038f; }
-inline real_t bar_to_psi(real_t in) { return in*14.503799999999998f; }
-inline real_t inhg_to_psi(real_t in) { return in*0.4911547578733491f; }
-inline real_t inh2o_to_psi(real_t in) { return in*0.036091224664999436f; }
-inline real_t meters_of_sea_water_to_psi(real_t in) { return in*1.45038e-07f; }
-
-
-inline real_t celsius_to_kelvin(real_t in) { return in+273.15f; }
-
-inline real_t kelvin_to_celsius(real_t in) { return in+-273.15f; }
+inline real_t meters_to_kilometers(real_t in) {
+    return in*0.001f;
+}
+inline real_t thou_to_kilometers(real_t in) {
+    return in*2.539998628400741e-08f;
+}
+inline real_t inches_to_kilometers(real_t in) {
+    return in*2.539998628400741e-05f;
+}
+inline real_t feet_to_kilometers(real_t in) {
+    return in*0.0003047999902464003f;
+}
+inline real_t yards_to_kilometers(real_t in) {
+    return in*0.0009144027578387177f;
+}
+inline real_t miles_to_kilometers(real_t in) {
+    return in*1.6093444978925635f;
+}
+inline real_t naut_miles_to_kilometers(real_t in) {
+    return in*1.8519993258722456f;
+}
+inline real_t centimeters_to_kilometers(real_t in) {
+    return in*1e-05f;
+}
+inline real_t millimeters_to_kilometers(real_t in) {
+    return in*1e-06f;
+}
 
 
-inline real_t degrees_to_radians(real_t in) { return in*0.017453292519968373f; }
-inline real_t minutes_to_radians(real_t in) { return in*0.00029088820866571643f; }
+inline real_t feet_per_second_to_meters_per_second(real_t in) {
+    return in*0.3047999902464003f;
+}
+inline real_t yards_per_second_to_meters_per_second(real_t in) {
+    return in*0.9144027578387177f;
+}
+inline real_t kilometers_per_hour_to_meters_per_second(real_t in) {
+    return in*0.2777777777777778f;
+}
+inline real_t miles_per_hour_to_meters_per_second(real_t in) {
+    return in*0.4470392589877243f;
+}
+inline real_t knots_to_meters_per_second(real_t in) {
+    return in*0.5144456333854638f;
+}
 
-inline real_t radians_to_degrees(real_t in) { return in*57.295779513f; }
-inline real_t minutes_to_degrees(real_t in) { return in*0.016666666666642425f; }
+inline real_t meters_per_second_to_feet_per_second(real_t in) {
+    return in*3.28084f;
+}
+inline real_t yards_per_second_to_feet_per_second(real_t in) {
+    return in*3.0000091440275787f;
+}
+inline real_t kilometers_per_hour_to_feet_per_second(real_t in) {
+    return in*0.9113444444444445f;
+}
+inline real_t miles_per_hour_to_feet_per_second(real_t in) {
+    return in*1.4666642824572853f;
+}
+inline real_t knots_to_feet_per_second(real_t in) {
+    return in*1.687813811836365f;
+}
 
-inline real_t radians_to_minutes(real_t in) { return in*3437.746770785f; }
-inline real_t degrees_to_minutes(real_t in) { return in*60.00000000008727f; }
+inline real_t meters_per_second_to_yards_per_second(real_t in) {
+    return in*1.09361f;
+}
+inline real_t feet_per_second_to_yards_per_second(real_t in) {
+    return in*0.3333323173333658f;
+}
+inline real_t kilometers_per_hour_to_yards_per_second(real_t in) {
+    return in*0.30378055555555555f;
+}
+inline real_t miles_per_hour_to_yards_per_second(real_t in) {
+    return in*0.48888660402156514f;
+}
+inline real_t knots_to_yards_per_second(real_t in) {
+    return in*0.562602889126677f;
+}
+
+inline real_t meters_per_second_to_kilometers_per_hour(real_t in) {
+    return in*3.6f;
+}
+inline real_t feet_per_second_to_kilometers_per_hour(real_t in) {
+    return in*1.097279964887041f;
+}
+inline real_t yards_per_second_to_kilometers_per_hour(real_t in) {
+    return in*3.291849928219384f;
+}
+inline real_t miles_per_hour_to_kilometers_per_hour(real_t in) {
+    return in*1.6093413323558075f;
+}
+inline real_t knots_to_kilometers_per_hour(real_t in) {
+    return in*1.8520042801876697f;
+}
+
+inline real_t meters_per_second_to_miles_per_hour(real_t in) {
+    return in*2.23694f;
+}
+inline real_t feet_per_second_to_miles_per_hour(real_t in) {
+    return in*0.6818192901817828f;
+}
+inline real_t yards_per_second_to_miles_per_hour(real_t in) {
+    return in*2.0454641051197413f;
+}
+inline real_t kilometers_per_hour_to_miles_per_hour(real_t in) {
+    return in*0.6213722222222223f;
+}
+inline real_t knots_to_miles_per_hour(real_t in) {
+    return in*1.1507840151452795f;
+}
+
+inline real_t meters_per_second_to_knots(real_t in) {
+    return in*1.94384f;
+}
+inline real_t feet_per_second_to_knots(real_t in) {
+    return in*0.5924824130405628f;
+}
+inline real_t yards_per_second_to_knots(real_t in) {
+    return in*1.777452656797213f;
+}
+inline real_t kilometers_per_hour_to_knots(real_t in) {
+    return in*0.5399555555555556f;
+}
+inline real_t miles_per_hour_to_knots(real_t in) {
+    return in*0.868972793190698f;
+}
+
+
+inline real_t mpss_to_meters_per_second_per_second(real_t in) {
+    return in;
+}
+inline real_t g_to_meters_per_second_per_second(real_t in) {
+    return in*9.80665002863885f;
+}
+inline real_t feet_per_second_per_second_to_meters_per_second_per_second(real_t in) {
+    return in*0.304799999536704f;
+}
+inline real_t fpss_to_meters_per_second_per_second(real_t in) {
+    return in*0.304799999536704f;
+}
+
+inline real_t meters_per_second_per_second_to_mpss(real_t in) {
+    return in;
+}
+inline real_t g_to_mpss(real_t in) {
+    return in*9.80665002863885f;
+}
+inline real_t feet_per_second_per_second_to_mpss(real_t in) {
+    return in*0.304799999536704f;
+}
+inline real_t fpss_to_mpss(real_t in) {
+    return in*0.304799999536704f;
+}
+
+inline real_t meters_per_second_per_second_to_g(real_t in) {
+    return in*0.101971621f;
+}
+inline real_t mpss_to_g(real_t in) {
+    return in*0.101971621f;
+}
+inline real_t feet_per_second_per_second_to_g(real_t in) {
+    return in*0.031080950033556955f;
+}
+inline real_t fpss_to_g(real_t in) {
+    return in*0.031080950033556955f;
+}
+
+inline real_t meters_per_second_per_second_to_feet_per_second_per_second(real_t in) {
+    return in*3.2808399f;
+}
+inline real_t mpss_to_feet_per_second_per_second(real_t in) {
+    return in*3.2808399f;
+}
+inline real_t g_to_feet_per_second_per_second(real_t in) {
+    return in*32.17404869929449f;
+}
+inline real_t fpss_to_feet_per_second_per_second(real_t in) {
+    return in;
+}
+
+inline real_t meters_per_second_per_second_to_fpss(real_t in) {
+    return in*3.2808399f;
+}
+inline real_t mpss_to_fpss(real_t in) {
+    return in*3.2808399f;
+}
+inline real_t g_to_fpss(real_t in) {
+    return in*32.17404869929449f;
+}
+inline real_t feet_per_second_per_second_to_fpss(real_t in) {
+    return in;
+}
+
+
+inline real_t pounds_to_kilograms(real_t in) {
+    return in*0.45359290943563974f;
+}
+inline real_t ounces_to_kilograms(real_t in) {
+    return in*0.02834949254408346f;
+}
+inline real_t grams_to_kilograms(real_t in) {
+    return in*0.001f;
+}
+inline real_t tons_to_kilograms(real_t in) {
+    return in*907.1858188712794f;
+}
+inline real_t tonnes_to_kilograms(real_t in) {
+    return in*1000.0f;
+}
+inline real_t stone_to_kilograms(real_t in) {
+    return in*6.3502949712014125f;
+}
+
+inline real_t kilograms_to_pounds(real_t in) {
+    return in*2.20462f;
+}
+inline real_t ounces_to_pounds(real_t in) {
+    return in*0.06249985825253727f;
+}
+inline real_t grams_to_pounds(real_t in) {
+    return in*0.00220462f;
+}
+inline real_t tons_to_pounds(real_t in) {
+    return in*1999.9999999999998f;
+}
+inline real_t tonnes_to_pounds(real_t in) {
+    return in*2204.62f;
+}
+inline real_t stone_to_pounds(real_t in) {
+    return in*13.999987299410057f;
+}
+
+inline real_t kilograms_to_ounces(real_t in) {
+    return in*35.274f;
+}
+inline real_t pounds_to_ounces(real_t in) {
+    return in*16.000036287432756f;
+}
+inline real_t grams_to_ounces(real_t in) {
+    return in*0.035274f;
+}
+inline real_t tons_to_ounces(real_t in) {
+    return in*32000.07257486551f;
+}
+inline real_t tonnes_to_ounces(real_t in) {
+    return in*35274.0f;
+}
+inline real_t stone_to_ounces(real_t in) {
+    return in*224.00030481415862f;
+}
+
+inline real_t kilograms_to_grams(real_t in) {
+    return in*1000.0f;
+}
+inline real_t pounds_to_grams(real_t in) {
+    return in*453.59290943563974f;
+}
+inline real_t ounces_to_grams(real_t in) {
+    return in*28.34949254408346f;
+}
+inline real_t tons_to_grams(real_t in) {
+    return in*907185.8188712794f;
+}
+inline real_t tonnes_to_grams(real_t in) {
+    return in*1000000.0f;
+}
+inline real_t stone_to_grams(real_t in) {
+    return in*6350.294971201412f;
+}
+
+inline real_t kilograms_to_tons(real_t in) {
+    return in*0.00110231f;
+}
+inline real_t pounds_to_tons(real_t in) {
+    return in*0.0005f;
+}
+inline real_t ounces_to_tons(real_t in) {
+    return in*3.124992912626864e-05f;
+}
+inline real_t grams_to_tons(real_t in) {
+    return in*1.10231e-06f;
+}
+inline real_t tonnes_to_tons(real_t in) {
+    return in*1.10231f;
+}
+inline real_t stone_to_tons(real_t in) {
+    return in*0.006999993649705029f;
+}
+
+inline real_t kilograms_to_tonnes(real_t in) {
+    return in*0.001f;
+}
+inline real_t pounds_to_tonnes(real_t in) {
+    return in*0.00045359290943563975f;
+}
+inline real_t ounces_to_tonnes(real_t in) {
+    return in*2.834949254408346e-05f;
+}
+inline real_t grams_to_tonnes(real_t in) {
+    return in*1e-06f;
+}
+inline real_t tons_to_tonnes(real_t in) {
+    return in*0.9071858188712794f;
+}
+inline real_t stone_to_tonnes(real_t in) {
+    return in*0.006350294971201413f;
+}
+
+inline real_t kilograms_to_stone(real_t in) {
+    return in*0.157473f;
+}
+inline real_t pounds_to_stone(real_t in) {
+    return in*0.0714286362275585f;
+}
+inline real_t ounces_to_stone(real_t in) {
+    return in*0.004464279639394455f;
+}
+inline real_t grams_to_stone(real_t in) {
+    return in*0.00015747300000000002f;
+}
+inline real_t tons_to_stone(real_t in) {
+    return in*142.85727245511697f;
+}
+inline real_t tonnes_to_stone(real_t in) {
+    return in*157.473f;
+}
+
+
+inline real_t millibar_to_pascals(real_t in) {
+    return in*100.0f;
+}
+inline real_t bar_to_pascals(real_t in) {
+    return in*99999.99999999999f;
+}
+inline real_t inhg_to_pascals(real_t in) {
+    return in*3386.3867253640365f;
+}
+inline real_t inh2o_to_pascals(real_t in) {
+    return in*248.8397845047466f;
+}
+inline real_t meters_of_sea_water_to_pascals(real_t in) {
+    return in*0.001f;
+}
+inline real_t psi_to_pascals(real_t in) {
+    return in*6894.744825494008f;
+}
+
+inline real_t pascals_to_millibar(real_t in) {
+    return in*0.01f;
+}
+inline real_t bar_to_millibar(real_t in) {
+    return in*999.9999999999999f;
+}
+inline real_t inhg_to_millibar(real_t in) {
+    return in*33.863867253640365f;
+}
+inline real_t inh2o_to_millibar(real_t in) {
+    return in*2.488397845047466f;
+}
+inline real_t meters_of_sea_water_to_millibar(real_t in) {
+    return in*1e-05f;
+}
+inline real_t psi_to_millibar(real_t in) {
+    return in*68.94744825494008f;
+}
+
+inline real_t pascals_to_bar(real_t in) {
+    return in*1e-05f;
+}
+inline real_t millibar_to_bar(real_t in) {
+    return in*0.001f;
+}
+inline real_t inhg_to_bar(real_t in) {
+    return in*0.033863867253640365f;
+}
+inline real_t inh2o_to_bar(real_t in) {
+    return in*0.0024883978450474663f;
+}
+inline real_t meters_of_sea_water_to_bar(real_t in) {
+    return in*1e-08f;
+}
+inline real_t psi_to_bar(real_t in) {
+    return in*0.06894744825494009f;
+}
+
+inline real_t pascals_to_inhg(real_t in) {
+    return in*0.0002953f;
+}
+inline real_t millibar_to_inhg(real_t in) {
+    return in*0.02953f;
+}
+inline real_t bar_to_inhg(real_t in) {
+    return in*29.529999999999998f;
+}
+inline real_t inh2o_to_inhg(real_t in) {
+    return in*0.07348238836425168f;
+}
+inline real_t meters_of_sea_water_to_inhg(real_t in) {
+    return in*2.953e-07f;
+}
+inline real_t psi_to_inhg(real_t in) {
+    return in*2.036018146968381f;
+}
+
+inline real_t pascals_to_inh2o(real_t in) {
+    return in*0.00401865f;
+}
+inline real_t millibar_to_inh2o(real_t in) {
+    return in*0.401865f;
+}
+inline real_t bar_to_inh2o(real_t in) {
+    return in*401.86499999999995f;
+}
+inline real_t inhg_to_inh2o(real_t in) {
+    return in*13.608703013884186f;
+}
+inline real_t meters_of_sea_water_to_inh2o(real_t in) {
+    return in*4.01865e-06f;
+}
+inline real_t psi_to_inh2o(real_t in) {
+    return in*27.7075662929715f;
+}
+
+inline real_t pascals_to_meters_of_sea_water(real_t in) {
+    return in*1000.0f;
+}
+inline real_t millibar_to_meters_of_sea_water(real_t in) {
+    return in*100000.0f;
+}
+inline real_t bar_to_meters_of_sea_water(real_t in) {
+    return in*99999999.99999999f;
+}
+inline real_t inhg_to_meters_of_sea_water(real_t in) {
+    return in*3386386.7253640364f;
+}
+inline real_t inh2o_to_meters_of_sea_water(real_t in) {
+    return in*248839.7845047466f;
+}
+inline real_t psi_to_meters_of_sea_water(real_t in) {
+    return in*6894744.825494008f;
+}
+
+inline real_t pascals_to_psi(real_t in) {
+    return in*0.000145038f;
+}
+inline real_t millibar_to_psi(real_t in) {
+    return in*0.0145038f;
+}
+inline real_t bar_to_psi(real_t in) {
+    return in*14.503799999999998f;
+}
+inline real_t inhg_to_psi(real_t in) {
+    return in*0.4911547578733491f;
+}
+inline real_t inh2o_to_psi(real_t in) {
+    return in*0.036091224664999436f;
+}
+inline real_t meters_of_sea_water_to_psi(real_t in) {
+    return in*1.45038e-07f;
+}
+
+
+inline real_t celsius_to_kelvin(real_t in) {
+    return in+273.15f;
+}
+
+inline real_t kelvin_to_celsius(real_t in) {
+    return in+-273.15f;
+}
+
+
+inline real_t degrees_to_radians(real_t in) {
+    return in*0.017453292519968373f;
+}
+inline real_t minutes_to_radians(real_t in) {
+    return in*0.00029088820866571643f;
+}
+
+inline real_t radians_to_degrees(real_t in) {
+    return in*57.295779513f;
+}
+inline real_t minutes_to_degrees(real_t in) {
+    return in*0.016666666666642425f;
+}
+
+inline real_t radians_to_minutes(real_t in) {
+    return in*3437.746770785f;
+}
+inline real_t degrees_to_minutes(real_t in) {
+    return in*60.00000000008727f;
+}
 
 
 }

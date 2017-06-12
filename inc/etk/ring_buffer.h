@@ -51,11 +51,11 @@ namespace etk
 template <class T, bool overwrite = false> class RingBuffer
 {
 public:
-	/**
-	 * \brief The constructor.
-	 * @arg buffer Pointer to a writeable memory location.
-	 * @arg sz Maximum number of items that can be stored before the buffer is full.
-	 */
+    /**
+     * \brief The constructor.
+     * @arg buffer Pointer to a writeable memory location.
+     * @arg sz Maximum number of items that can be stored before the buffer is full.
+     */
     RingBuffer(T* buffer, uint16 sz)
     {
         size = sz;
@@ -64,25 +64,25 @@ public:
         buf = buffer;
     }
 
-	/**
-	 * \brief Returns true when the RingBuffer is full.
-	 */
+    /**
+     * \brief Returns true when the RingBuffer is full.
+     */
     bool is_full()
     {
         return (end + 1) % size == start;
     }
 
-	/**
-	 * \brief Returns the number of items queued up in the RingBuffer.
-	 */
+    /**
+     * \brief Returns the number of items queued up in the RingBuffer.
+     */
     uint16 available()
     {
         return (uint16)(size + end - start) % size;
     }
 
-	/**
-	 * \brief Puts an item on to the RingBuffer.
-	 */
+    /**
+     * \brief Puts an item on to the RingBuffer.
+     */
     void put(T b)
     {
         if(!overwrite)
@@ -94,17 +94,17 @@ public:
         end = (end + 1) % size;
     }
 
-	/**
-	 * \brief Moves the end of the ring buffer along by one position.
-	 */
+    /**
+     * \brief Moves the end of the ring buffer along by one position.
+     */
     void increment()
     {
         end = (end + 1) % size;
     }
 
-	/**
-	 * \brief Removes the next item from the buffer and returns it.
-	 */
+    /**
+     * \brief Removes the next item from the buffer and returns it.
+     */
     T get()
     {
         T ret = buf[start];
@@ -112,18 +112,18 @@ public:
         return ret;
     }
 
-	/**
-	 * \brief Returns the next item from the buffer without actually removing it.
-	 */
+    /**
+     * \brief Returns the next item from the buffer without actually removing it.
+     */
     T peek_ahead(uint16 n=0)
     {
         uint16 pos = (start+n) % size;
         return buf[pos];
     }
 
-	/**
-	 * \brief Makes the start and end of the ring buffer equal zero so that available() return zero.
-	 */
+    /**
+     * \brief Makes the start and end of the ring buffer equal zero so that available() return zero.
+     */
     void empty()
     {
         start = 0;

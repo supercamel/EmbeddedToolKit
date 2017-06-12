@@ -66,7 +66,7 @@ public:
 
     template<typename... Args> Matrix(real_t a, Args... args)
     {
-    	set_flag = 0;
+        set_flag = 0;
         real_t* pcell = &_cell[0][0];
         *(pcell+set_flag++) = a;
         set(args...);
@@ -284,15 +284,15 @@ public:
     {
         if((MAX_X == 1) || (MAX_Y == 1))
             return cell(0, 0);
-		else
-		{
-		    real_t det = 0.0;
-		    for(uint32 i = 0; i < MAX_X; i++ )
-		    {
-		        auto minor = minor_matrix(0, i);
-		        det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
-		    }
-		    return det;
+        else
+        {
+            real_t det = 0.0;
+            for(uint32 i = 0; i < MAX_X; i++ )
+            {
+                auto minor = minor_matrix(0, i);
+                det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
+            }
+            return det;
         }
 
         return 0;
@@ -381,19 +381,19 @@ public:
 
     StaticString<MAX_X*MAX_Y*12> to_string()
     {
-    	StaticString<MAX_X*MAX_Y*12> ss;
-    	for(int i = 0; i < MAX_Y; i++)
-    	{
-    		for(int j = 0; j < MAX_X; j++)
-    		{
-    			ss += _cell[j][i];
-    			ss += "\t";
-    		}
+        StaticString<MAX_X*MAX_Y*12> ss;
+        for(int i = 0; i < MAX_Y; i++)
+        {
+            for(int j = 0; j < MAX_X; j++)
+            {
+                ss += _cell[j][i];
+                ss += "\t";
+            }
 
-    		ss += "\n";
-    	}
+            ss += "\n";
+        }
 
-    	return ss;
+        return ss;
     }
 
 private:

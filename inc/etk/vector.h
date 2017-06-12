@@ -272,14 +272,14 @@ public:
 
     Vector operator *= (real_t scalar)
     {
-    	*this = scale(scalar);
-    	return *this;
+        *this = scale(scalar);
+        return *this;
     }
 
     Vector operator /= (real_t scalar)
     {
-    	*this = *this/scalar;
-    	return *this;
+        *this = *this/scalar;
+        return *this;
     }
 
     Vector operator / (real_t scalar)
@@ -324,17 +324,17 @@ public:
     {
         return dot(*this);
     }
-    
+
     real_t get_x() const {
-    	return p_vec[0];
+        return p_vec[0];
     }
-    
+
     real_t get_y() const {
-    	return p_vec[1];
+        return p_vec[1];
     }
-    
+
     real_t get_z() const {
-    	return p_vec[2]; 
+        return p_vec[2];
     }
 
 

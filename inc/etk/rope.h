@@ -99,7 +99,7 @@ public:
 
     void sub_string(char* buf, uint32 start, uint32 len) const;
     void sub_string(Rope& r, uint32 start, uint32 len) const;
-    
+
     uint32 parse_hex(uint32 start) const;
     void make_hex(uint8 byte);
 

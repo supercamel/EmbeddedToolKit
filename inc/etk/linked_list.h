@@ -57,10 +57,10 @@ public:
         {
             return (node != iter.node);
         }
-        
+
         operator bool() const
         {
-        	return (node != nullptr);
+            return (node != nullptr);
         }
 
     private:
@@ -97,8 +97,8 @@ public:
     {
         Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
         if(node == nullptr)
-        	return false;
-        	
+            return false;
+
         node->data = t;
         node->next = nullptr;
         node->prev = nullptr;
@@ -118,26 +118,26 @@ public:
         node->prev = pnode;
         return true;
     }
-    
+
     void remove(Iterator iter)
     {
-    	if(iter.node->prev)
-    		iter.node->prev->next = iter.node->next;
-    	else
-    		head = iter.node->next;
-    	if(iter.node->next)
-    		iter.node->next->prev = iter.node->prev;
-    	pool.free(iter.node);
-    	/*
-    	Node* prev = iter.node->prev;
-    	Node* next = iter.node->next;
-    	
-    	if(prev != nullptr)
-    		prev->next = next;
-    	if(next != nullptr)
-    		next->prev = prev;
-    	pool.free(iter.node);
-    	*/
+        if(iter.node->prev)
+            iter.node->prev->next = iter.node->next;
+        else
+            head = iter.node->next;
+        if(iter.node->next)
+            iter.node->next->prev = iter.node->prev;
+        pool.free(iter.node);
+        /*
+        Node* prev = iter.node->prev;
+        Node* next = iter.node->next;
+
+        if(prev != nullptr)
+        	prev->next = next;
+        if(next != nullptr)
+        	next->prev = prev;
+        pool.free(iter.node);
+        */
     }
 
 private:

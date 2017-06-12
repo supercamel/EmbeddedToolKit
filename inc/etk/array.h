@@ -47,17 +47,17 @@ public:
 
     Array(std::initializer_list<T> il)
     {
-    	uint32 l = etk::min<uint32>(L, il.size());
-    	auto b = il.begin();
-    	for(uint32 i = 0; i < l; i++)
-    		buf[i] = *b++;
+        uint32 l = etk::min<uint32>(L, il.size());
+        auto b = il.begin();
+        for(uint32 i = 0; i < l; i++)
+            buf[i] = *b++;
     }
 
     template <typename... Args>
     Array(T t, Args... rest) : Array(ArrayInitCounter(), rest...)
     {
-    	static_assert(sizeof...(Args) < L, "Array initialiser is longer than the array.");
-    	buf[0] = t;
+        static_assert(sizeof...(Args) < L, "Array initialiser is longer than the array.");
+        buf[0] = t;
     }
 
 
@@ -103,9 +103,9 @@ public:
     };
 
 
-/**
- * \brief Returns an iterator to the first item in the list.
- */
+    /**
+     * \brief Returns an iterator to the first item in the list.
+     */
     Iterator begin()
     {
         Iterator iter(*this);
@@ -120,9 +120,9 @@ public:
         return iter;
     }
 
-/**
- * \brief Returns an iterator to the end of the list.
- */
+    /**
+     * \brief Returns an iterator to the end of the list.
+     */
     Iterator end()
     {
         Iterator iter(*this);
@@ -146,9 +146,9 @@ public:
 
     T operator[](uint32 pos) const
     {
-    	if(pos < L)
-    		return buf[pos];
-    	return buf[L-1];
+        if(pos < L)
+            return buf[pos];
+        return buf[L-1];
     }
 
     T& at(uint32 pos)
@@ -182,27 +182,27 @@ public:
     }
 
 private:
-	struct ArrayInitCounter
+    struct ArrayInitCounter
     {
-    	ArrayInitCounter() { }
-    	ArrayInitCounter(const ArrayInitCounter& c)
-    	{
-    		count = c.count+1;
-    	}
-    	uint32 count = 1;
+        ArrayInitCounter() { }
+        ArrayInitCounter(const ArrayInitCounter& c)
+        {
+            count = c.count+1;
+        }
+        uint32 count = 1;
     };
 
     Array(ArrayInitCounter c, T t)
     {
-    	if(c.count < L)
-    		buf[c.count] = t;
+        if(c.count < L)
+            buf[c.count] = t;
     }
 
     template <typename... Args>
     Array(ArrayInitCounter c, T t, Args... rest) : Array(c, rest...)
     {
-    	if(c.count < L)
-    		buf[c.count] = t;
+        if(c.count < L)
+            buf[c.count] = t;
     }
 
     T buf[L];

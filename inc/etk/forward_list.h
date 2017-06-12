@@ -56,10 +56,10 @@ public:
         {
             return (node != iter.node);
         }
-        
+
         operator bool() const
         {
-        	return (node != nullptr);
+            return (node != nullptr);
         }
 
     private:
@@ -102,8 +102,8 @@ public:
     {
         Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
         if(node == nullptr)
-        	return false;
-        	
+            return false;
+
         node->data = t;
         node->next = nullptr;
         if(head == nullptr)
@@ -124,7 +124,7 @@ public:
     {
         Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
         if(node == nullptr)
-        	return false;
+            return false;
         node->data = t;
 
         if(iter.node == head)
@@ -157,7 +157,7 @@ public:
     {
         Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
         if(node == nullptr)
-        	return false;
+            return false;
         node->data = t;
 
         Node* pnext = iter.node->next->next;
@@ -166,14 +166,14 @@ public:
         return true;
     }
 
-	void remove_after(Iterator iter)
-	{
-		Node* pnext = iter.node->next->next;
-		pool.free(iter.node->next);
+    void remove_after(Iterator iter)
+    {
+        Node* pnext = iter.node->next->next;
+        pool.free(iter.node->next);
         iter.node->next = pnext;
         return;
-	}
-	
+    }
+
     void remove_item(T t)
     {
         Node* node = head;
@@ -233,17 +233,17 @@ public:
         }
         return;
     }
-    
+
     void pop_head()
     {
-    	if(head)
-    	{
-    		Node* pnext = head->next;
-    		pool.free(head);
-    		head = pnext;
-    	}
+        if(head)
+        {
+            Node* pnext = head->next;
+            pool.free(head);
+            head = pnext;
+        }
     }
-    
+
 
     T* get(uint32 n)
     {

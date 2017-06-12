@@ -95,7 +95,7 @@ public:
         Rope r(buf, L, c);
     }
 
-	/**
+    /**
      * \brief Initialises the string from a Rope.
      */
     StaticString(Rope r)
@@ -103,18 +103,18 @@ public:
         r.copy(buf);
     }
 
-	/**
-	 * \brief Assigns the contents of a Rope to the string.
-	 */
+    /**
+     * \brief Assigns the contents of a Rope to the string.
+     */
     StaticString& operator = (Rope r)
     {
         r.copy(buf, L);
         return *this;
     }
 
-	/**
-	 * \brief Copies another string to this.
-	 */
+    /**
+     * \brief Copies another string to this.
+     */
     StaticString& operator = (StaticString& s)
     {
         for(uint32 i = 0; i < L; i++)
@@ -129,9 +129,9 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief Copies a const C-string to this.
-	 */
+    /**
+     * \brief Copies a const C-string to this.
+     */
     StaticString& operator=(const char* c)
     {
         uint32 i = 0;
@@ -139,15 +139,15 @@ public:
         {
             buf[i] = c[i];
             if(buf[i] == '\0')
-            	return *this;
+                return *this;
         }
         buf[i] = '\0';
         return *this;
     }
 
-	/**
-	 * \brief Copies a C-string to this.
-	 */
+    /**
+     * \brief Copies a C-string to this.
+     */
     StaticString& operator=(char* c)
     {
         uint32 i = 0;
@@ -155,7 +155,7 @@ public:
         {
             buf[i] = c[i];
             if(buf[i] == '\0')
-            	return *this;
+                return *this;
         }
         buf[i] = '\0';
         return *this;
@@ -175,9 +175,9 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief Appends the contents of a Rope to this.
-	 */
+    /**
+     * \brief Appends the contents of a Rope to this.
+     */
     StaticString& operator + (Rope& s)
     {
         Rope r(buf, L);
@@ -186,9 +186,9 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief Appends the contents of another string to this.
-	 */
+    /**
+     * \brief Appends the contents of another string to this.
+     */
     template <uint32 N> StaticString& operator += (StaticString<N> & s)
     {
         Rope r(buf, L);
@@ -197,9 +197,9 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief Appends and nicely formats an etk::Vector to this.
-	 */
+    /**
+     * \brief Appends and nicely formats an etk::Vector to this.
+     */
     template <uint32 N> StaticString& operator += (Vector<N> v)
     {
         Rope r(buf, L);
@@ -221,8 +221,8 @@ public:
     }
 
     /**
-	 * \brief Appends a float to this.
-	 */
+     * \brief Appends a float to this.
+     */
     void append(float f, uint8 precision=default_float_precision)
     {
         char temp[20];
@@ -231,19 +231,19 @@ public:
         *this += temp;
     }
 
-	/**
-	 * \brief Appends a double to this.
-	 */
-     void append(double f, uint8 precision=default_float_precision)
-     {
-         char temp[20];
-         Rope r(temp, 20);
-         r.append(f, precision);
-         *this += temp;
-     }
-	/**
-	 * \brief Appends a float to this.
-	 */
+    /**
+     * \brief Appends a double to this.
+     */
+    void append(double f, uint8 precision=default_float_precision)
+    {
+        char temp[20];
+        Rope r(temp, 20);
+        r.append(f, precision);
+        *this += temp;
+    }
+    /**
+     * \brief Appends a float to this.
+     */
     StaticString& operator += (float f)
     {
         char temp[20];
@@ -253,9 +253,9 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief Appends a double to this.
-	 */
+    /**
+     * \brief Appends a double to this.
+     */
     StaticString& operator += (double f)
     {
         char temp[20];
@@ -265,9 +265,9 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief Appends an int32 to this.
-	 */
+    /**
+     * \brief Appends an int32 to this.
+     */
     StaticString& operator += (int32 f)
     {
         char temp[20];
@@ -277,9 +277,9 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief Appends a uint32 to this.
-	 */
+    /**
+     * \brief Appends a uint32 to this.
+     */
     StaticString& operator += (uint32 f)
     {
         char temp[20];
@@ -329,16 +329,16 @@ public:
         return *this;
     }
 
-	/**
-	 * \brief This operator overload allows you to access and modify individual characters in the string.
-	 */
+    /**
+     * \brief This operator overload allows you to access and modify individual characters in the string.
+     */
     char& operator [](uint32 p)
     {
         if(p >= L)
             return buf[L-1];
         return buf[p];
     }
-    
+
     char operator [](uint32 p) const
     {
         if(p >= L)
@@ -368,9 +368,9 @@ public:
         return buf[p];
     }
 
-	/**
-	 * \brief Compares this to a const C-string
-	 */
+    /**
+     * \brief Compares this to a const C-string
+     */
     bool operator == (const char* c)
     {
         for(uint32 i = 0; i < L-1; i++)
@@ -378,23 +378,23 @@ public:
             if(c[i] != buf[i])
                 return false;
             if(c[i] == '\0')
-            	return true;
+                return true;
         }
         return true;
     }
 
-	/**
-	 * \brief Compares this to another StaticString up to max_len characters.
-	 */
+    /**
+     * \brief Compares this to another StaticString up to max_len characters.
+     */
     template <uint32 N> bool compare(StaticString<N>& s, uint32 max_len)
     {
         Rope rope(buf, L);
         return rope.compare(s.buf, min(max_len, L));
     }
 
-	/**
-	 * \brief Compares this to const C-string up to max_len characters.
-	 */
+    /**
+     * \brief Compares this to const C-string up to max_len characters.
+     */
     bool compare(const char* s, uint32 max_len)
     {
         Rope rope(buf, L);
@@ -413,57 +413,57 @@ public:
         return rope.compare(s, L);
     }
 
-	/**
-	 * \brief Converts the string to a floating point number.
-	 * @code
-	 etk::StaticString<20> ss("20.65");
-	 float f = ss.atof();
-	 //f == 20.65f
-	 @endcode
-	 */
+    /**
+     * \brief Converts the string to a floating point number.
+     * @code
+     etk::StaticString<20> ss("20.65");
+     float f = ss.atof();
+     //f == 20.65f
+     @endcode
+     */
     float atof(uint16 p=0)
     {
         Rope rope(buf, L);
         return rope.atof(p);
     }
 
-	/**
-	 * \brief Converts the string to an integer.
-	 * @code
-	 etk::StaticString<20> ss("20.65");
-	 int f = ss.atof();
-	 //f == 20
-	 @endcode
-	 */
+    /**
+     * \brief Converts the string to an integer.
+     * @code
+     etk::StaticString<20> ss("20.65");
+     int f = ss.atof();
+     //f == 20
+     @endcode
+     */
     int atoi(uint16 p=0)
     {
         Rope rope(buf, L);
         return rope.atoi(p);
     }
-    
+
     uint32 parse_hex(uint16 p=0)
     {
-    	Rope rope(buf, L);
-    	return rope.parse_hex(p);
+        Rope rope(buf, L);
+        return rope.parse_hex(p);
     }
 
-	/**
-	 * \brief Returns the number of characters in the string.
-	 */
+    /**
+     * \brief Returns the number of characters in the string.
+     */
     uint32 length() const
     {
-    	uint32 i = 0;
+        uint32 i = 0;
         for(; i < L; i++)
         {
-        	if(buf[i] == '\0')
-        		break;
+            if(buf[i] == '\0')
+                break;
         }
         return i;
     }
 
-	/**
-	 * \brief Sets all characters to null.
-	 */
+    /**
+     * \brief Sets all characters to null.
+     */
     void clear()
     {
         Rope rope(buf, L);
@@ -489,13 +489,13 @@ public:
 
     Rope get_rope()
     {
-    	Rope rope(buf, L);
+        Rope rope(buf, L);
         return rope;
     }
 
-	/**
-	 * \brief Inserts a character in a position.
-	 */
+    /**
+     * \brief Inserts a character in a position.
+     */
     void insert(char c, uint32 pos)
     {
         if(pos < L-1)
@@ -506,9 +506,9 @@ public:
         }
     }
 
-	/**
-	 * \brief Removes a character rom position pos
-	 */
+    /**
+     * \brief Removes a character rom position pos
+     */
     void remove(uint32 pos)
     {
         if(pos < L)
@@ -518,9 +518,9 @@ public:
         }
     }
 
-	/**
-	 * \brief Erases a number of characters starting at position pos.
-	 */
+    /**
+     * \brief Erases a number of characters starting at position pos.
+     */
     void erase(uint32 pos, uint32 len)
     {
         if((pos+len) < L)
@@ -540,28 +540,28 @@ public:
     }
 
 
-	/**
-	 * \brief Converts the string to upper case.
-	 */
+    /**
+     * \brief Converts the string to upper case.
+     */
     void to_upper()
     {
         for(uint32 i = 0; i < L-1; i++)
         {
-        	if(buf[i] == '\0')
-        		break;
+            if(buf[i] == '\0')
+                break;
             buf[i] = etk::to_upper(buf[i]);
         }
     }
 
-	/**
-	 * \brief Converts the string to lower case.
-	 */
+    /**
+     * \brief Converts the string to lower case.
+     */
     void to_lower()
     {
         for(uint32 i = 0; i < L-1; i++)
         {
-        	if(buf[i] == '\0')
-        		break;
+            if(buf[i] == '\0')
+                break;
             buf[i] = etk::to_lower(buf[i]);
         }
     }
@@ -573,58 +573,58 @@ public:
         return ss;
     }
 
-	/**
-	 * \brief Returns a pointer to the C-string buf.
-	 */
+    /**
+     * \brief Returns a pointer to the C-string buf.
+     */
     const char* c_str() const
     {
         return buf;
     }
 
-	/**
-	 * \brief Returns a pointer to the raw memory used by StaticString
-	 */
+    /**
+     * \brief Returns a pointer to the raw memory used by StaticString
+     */
     char* raw_memory()
     {
         return buf;
     }
 
-	/**
-	 * \brief Extracts a section of text from the string and assigns it to buf.
-	 */
+    /**
+     * \brief Extracts a section of text from the string and assigns it to buf.
+     */
     void sub_string(char* buf, uint32 start, uint32 len) const
     {
         Rope r(buf, L);
         r.sub_string(buf, start, len);
     }
 
-	/**
-	 * \brief Extracts a section of text from the string and assigns it to rope.
-	 */
+    /**
+     * \brief Extracts a section of text from the string and assigns it to rope.
+     */
     void sub_string(Rope& rope, uint32 start, uint32 len) const
     {
         Rope r(buf, L);
         r.sub_string(rope, start, len);
     }
 
-	/**
-	 * \brief Extracts a section of text from the string and assigns it to string.
-	 */
+    /**
+     * \brief Extracts a section of text from the string and assigns it to string.
+     */
     template <uint32 N> void sub_string(StaticString<N>& string, uint32 start, uint32 len) const
     {
-	uint32 i = 0;
-	for(; i < len; i++)
+        uint32 i = 0;
+        for(; i < len; i++)
             string[i] = (*this).get(i+start);
-	string[i] = '\0';
-/*
-        Rope r(buf, L);
-        r.sub_string(string.raw_memory(), start, len);
-*/
+        string[i] = '\0';
+        /*
+                Rope r(buf, L);
+                r.sub_string(string.raw_memory(), start, len);
+        */
     }
 
-	/**
-	 * \brief Reverses the contents of the string. E.g. "Hello" would become "olleH".
-	 */
+    /**
+     * \brief Reverses the contents of the string. E.g. "Hello" would become "olleH".
+     */
     void reverse()
     {
         uint32 hlen = length()/2;
@@ -637,13 +637,13 @@ public:
      * \brief Extracts a list numbers from a string of text. It's a little bit like scanf, except it doesn't check the format of the string.
      * For safety critical applications, you should use the tokeniser. The scan function doesn't perform any error checking and will fail silently.
      @code
-StaticString<100> st = "MSG05, 34, -9.5";
-int msgid, inum;
-float fnum;
-st.scan(msgid, inum, fnum);
-cout << msgid << " " << inum << " " << fnum << endl;
-//output would be 05 34 -9.5
-@endcode
+    StaticString<100> st = "MSG05, 34, -9.5";
+    int msgid, inum;
+    float fnum;
+    st.scan(msgid, inum, fnum);
+    cout << msgid << " " << inum << " " << fnum << endl;
+    //output would be 05 34 -9.5
+    @endcode
      */
     template<typename... Args> void scan(Args&... args)
     {
@@ -675,7 +675,7 @@ private:
                         break;
                 }
                 break;
-             }
+            }
         }
     }
 
@@ -702,7 +702,7 @@ private:
                         break;
                 }
                 break;
-             }
+            }
         }
         _scan(&bbuf[count], args...);
     }
