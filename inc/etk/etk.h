@@ -58,5 +58,6 @@
 #include "pool_ptr.h"
 #include "forward_list.h"
 #include "linked_list.h"
+#include "sigslot.h"
 
 #endif

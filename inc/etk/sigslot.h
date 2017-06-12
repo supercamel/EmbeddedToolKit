@@ -1,6 +1,8 @@
 #ifndef SIGSLOT_H_INCLUDED
 #define SIGSLOT_H_INCLUDED
 
+#include "math_util.h"
+
 namespace etk
 {
 
@@ -58,6 +60,7 @@ template<typename R, typename ARG1> class SlotBase1
 {
 public:
     virtual R callback(ARG1 a1) {
+    	unused(a1);
         return R();
     }
 };
@@ -106,8 +109,8 @@ template<typename R, typename ARG1, typename ARG2> class SlotBase2
 {
 public:
     virtual R callback(ARG1 a1, ARG2 a2) {
-        (void)a1;
-        (void)a2;
+        unused(a1);
+        unused(a2);
         return R();
     }
 };
