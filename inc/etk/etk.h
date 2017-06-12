@@ -25,7 +25,6 @@
  *
  * \section requirements_sec Requirements
  *
- * ETK uses C++14 language features. This means it requires at least g++-4.9 or an equivalent compiler to use.
  *
  *
  *
@@ -59,5 +58,6 @@
 #include "forward_list.h"
 #include "linked_list.h"
 #include "sigslot.h"
+#include "state_machine.h"
 
 #endif
