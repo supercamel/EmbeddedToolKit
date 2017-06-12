@@ -217,7 +217,7 @@ private:
          *
          */
 
-        const uint32 chunk_size = 32;
+        const uint32 chunk_size = 64;
 
         Block* pblock = free_head.next;
         while(pblock)

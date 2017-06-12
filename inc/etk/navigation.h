@@ -57,20 +57,20 @@ public:
 	/**
 	 * \brief Calculates the bearing to a coordinate.
 	 */
-    real_t bearing_to(Coordinate to);
+    real_t bearing_to(Coordinate to) const;
 
     /**
      * \brief Calculates the distance to a coordinate.
      * @return Distance to a coordinate in meters.
      */
-    real_t distance_to(Coordinate b);
+    real_t distance_to(Coordinate b) const;
 
     /**
      * \brief Calculates cross track distance (how far off course you are).
      * \image html http://www.firetailuav.com/img/xtrack.png
      * @return Cross track distance in meters.
      */
-    real_t cross_track_distance(Coordinate from, Coordinate to);
+    real_t cross_track_distance(Coordinate from, Coordinate to) const;
 
     /**
      * \brief Given a distance and a bearing, this function calculates the destination coordinate.
@@ -78,7 +78,7 @@ public:
      * @arg bearing Direction to destination.
      * @return Coordinate that represents the destination.
      */
-    Coordinate destination_from_distance_bearing(real_t dist, real_t bearing);
+    Coordinate destination_from_distance_bearing(real_t dist, real_t bearing) const;
 
 	/**
      * \brief Coordinate can be seamlessly cast to a two dimensional vector.
@@ -100,29 +100,45 @@ public:
 	/**
 	 * \brief Returns latitude.
 	 */
-    real_t get_lat() {
+    real_t get_lat() const {
         return radians_to_degrees(lat);
     }
 
     /**
      * \brief Sets latitude
      */
-    void set_lat(real_t l) {
+    void set_lat(const real_t l) {
         lat = degrees_to_radians(l);
     }
 
     /**
      * \brief Returns longitude
      */
-    real_t get_lng() {
+    real_t get_lng() const { 
         return radians_to_degrees(lng);
     }
 
     /**
      * \brief Sets longitude.
      */
-    void set_lng(real_t l) {
+    void set_lng(const real_t l) {
         lng = degrees_to_radians(l);
+    }
+    
+    real_t get_lat_rad() const {
+    	return lat;
+    }
+    
+    real_t get_lng_rad() const { 
+    	return lng;
+    }
+    
+    void set_lat_rad(const real_t l) {
+    	lat = l;
+    }
+    
+    void set_lng_rad(const real_t l) {
+    	lng = l;
     }
 
 protected:
@@ -142,6 +158,10 @@ public:
     Waypoint(real_t la, real_t ln);
     Waypoint(real_t la, real_t ln, real_t a);
     Waypoint(etk::Vector<3> pos);
+    Waypoint(Coordinate c) {
+    	lat = c.get_lat_rad();
+    	lng = c.get_lng_rad();
+    }
 
     operator Vector<3>()
     {
@@ -152,15 +172,58 @@ public:
         return ret;
     }
 
-    real_t get_alt() {
+    real_t get_alt() const {
         return alt;
     }
-    void set_alt(real_t a) {
+    void set_alt(const real_t a) {
         alt = a;
     }
+    
+    Waypoint& operator=(const Coordinate& c) 
+    {
+    	lat = c.get_lat_rad();
+    	lng = c.get_lng_rad();
+    	return *this;
+    }
+    
 protected:
     real_t alt = 0;
 };
+
+
+/**
+ * \class RelativePointFactory
+ * \brief Relative coordinates are points that are defined by an x and y distance from the origin.
+ * Units are meters.
+ */
+
+class RelativePointFactory
+{
+public:
+	RelativePointFactory(Coordinate origin) : origin(origin)
+	{
+	}
+	
+	Coordinate make_coord(real_t x, real_t y) const
+	{
+		Vector<2> v(y, x);
+		real_t dist = v.magnitude();
+		real_t bearing = v.theta()*(180.0/M_PI);
+		
+		return origin.destination_from_distance_bearing(dist, bearing);
+	}
+	
+	Waypoint make_waypoint(real_t x, real_t y, real_t alt) const
+	{
+		Waypoint wp = make_coord(y, x);
+		wp.set_alt(alt);
+		return wp;
+	}
+	
+private:
+	Coordinate origin;
+};
+
 
 }
 

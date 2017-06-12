@@ -60,6 +60,11 @@ bool navigation_test(std::string& subtest)
     	subtest = "Cross track distance";
     	real_t xtk = cross_track_distance(Coordinate from, Coordinate to);
     */
+    
+    auto rpf = RelativePointFactory({-37.54, 147.58});
+    auto p = rpf.make_coord(-100, 350);
+    cout << endl << p.get_lat() << ", " << p.get_lng() << endl;
+    
     return true;
 }
 
