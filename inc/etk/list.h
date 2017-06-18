@@ -16,7 +16,12 @@
 #ifndef ETK_LIST_H_INCLUDED
 #define ETK_LIST_H_INCLUDED
 
+#ifdef __AVR__
+inline void *operator new(size_t, void *buf) { return buf; }
+#else
 #include <new>
+#endif
+
 #include "types.h"
 #include "math_util.h"
 
@@ -260,8 +265,8 @@ public:
     void fill(uint16 start, uint16 end, T f)
     {
         T* pt = (T*)space;
-        end = etk::min(end, size());
-        start = etk::min(start, end);
+        end = min(end, size());
+        start = min(start, end);
         for(uint32 i = start; i < end; i++)
             pt[i] = f;
     }

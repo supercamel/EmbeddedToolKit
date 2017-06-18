@@ -3,7 +3,7 @@
 #define ETK_FORWARD_LIST_H
 
 
-#include <etk/etk.h>
+#include "pool.h"
 
 namespace etk
 {

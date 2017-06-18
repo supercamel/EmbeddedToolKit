@@ -31,8 +31,26 @@ typedef double real_t;
 */
 
 //g++ v6.1.0 on windows 10 / 64bit arch linux
+
+#ifdef __AVR__
+
 typedef unsigned char byte ;
 typedef char int8;
+typedef unsigned char uint8;
+typedef short int16;
+typedef unsigned short uint16;
+typedef long int int32;
+typedef unsigned long int uint32;
+typedef long long int64;
+typedef unsigned long long uint64;
+
+typedef double real_t;
+
+
+#else
+
+typedef unsigned char byte ;
+typedef signed char int8;
 typedef unsigned char uint8;
 typedef short int16;
 typedef unsigned short uint16;
@@ -43,6 +61,7 @@ typedef unsigned long long uint64;
 
 typedef double real_t;
 
+#endif
 
 /*
 // 32bit ARM

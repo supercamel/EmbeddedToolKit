@@ -17,7 +17,7 @@
 #define ETK_TIME_H_INCLUDED
 
 #include "types.h"
-#include <etk/rope.h>
+#include "rope.h"
 
 namespace etk
 {

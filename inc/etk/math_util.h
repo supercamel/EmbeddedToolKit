@@ -339,12 +339,24 @@ inline bool is_numeric(char c)
  * If t is a signed integer, it must be constrained to a plausible range
  * in order to prevent undefined behaviour if t == INT_MIN
  */
+#ifndef abs
+#define ETK_ABS
 template<typename T> T abs(T t)
 {
     if(t < 0)
         return -t;
     return t;
 }
+#endif
+
+#ifndef fabs
+#define ETK_FABS
+inline real_t fabs(real_t t)
+{
+	abs(t);
+}
+#endif
+
 
 /**
  * \brief Compares two values. Returns true if their difference is less than precision.

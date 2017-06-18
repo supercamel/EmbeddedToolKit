@@ -19,7 +19,11 @@
 #include "types.h"
 #include "loop_range.h"
 #include "math_util.h"
+
+#ifndef __AVR__
 #include <initializer_list>
+#endif
+
 
 
 namespace etk
@@ -45,6 +49,7 @@ public:
             buf[i] = t[i];
     }
 
+#ifndef __AVR__
     Array(std::initializer_list<T> il)
     {
         uint32 l = etk::min<uint32>(L, il.size());
@@ -52,6 +57,7 @@ public:
         for(uint32 i = 0; i < l; i++)
             buf[i] = *b++;
     }
+#endif
 
     template <typename... Args>
     Array(T t, Args... rest) : Array(ArrayInitCounter(), rest...)

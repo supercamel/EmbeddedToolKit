@@ -1,15 +1,18 @@
 #ifndef ETK_OBJECT_POOL_H
 #define ETK_OBJECT_POOL_H
 
-#include <new>
 #include "types.h"
-#include <etk/array.h>
+#include "array.h"
+#include "list.h"
 
 /*
  * This code is still very much under development.
  */
 
 namespace etk
+{
+
+namespace experimental
 {
 
 template <typename P, typename T> class PoolPtr
@@ -214,6 +217,7 @@ private:
     Array<tbl, N> pool;
 };
 
+}
 
 }
 

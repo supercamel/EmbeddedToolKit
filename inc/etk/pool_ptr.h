@@ -28,6 +28,8 @@
         p_obj->foo();
  */
 
+#ifndef __AVR__
+
 #include <cstdlib>
 #include <utility>
 
@@ -166,5 +168,7 @@ template<typename T, class... U> pool_pointer<T> make_pool_ptr(Pool& pool, U&&..
 }
 
 }
+
+#endif
 
 #endif

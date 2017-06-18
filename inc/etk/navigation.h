@@ -18,8 +18,8 @@
 
 
 #include "types.h"
-#include <etk/vector.h>
-#include <etk/conversions.h>
+#include "vector.h"
+#include "conversions.h"
 
 namespace etk
 {

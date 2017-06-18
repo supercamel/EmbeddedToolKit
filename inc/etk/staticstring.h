@@ -26,9 +26,12 @@
 */
 
 #include "types.h"
-#include <etk/rope.h>
-#include <etk/vector.h>
+#include "rope.h"
+#include "vector.h"
+
+#ifndef __AVR__
 #include <type_traits>
+#endif
 
 namespace etk
 {
@@ -645,13 +648,17 @@ public:
     //output would be 05 34 -9.5
     @endcode
      */
+     
+#ifndef __AVR__
     template<typename... Args> void scan(Args&... args)
     {
         _scan(buf, args...);
     }
-
+#endif
 
 private:
+
+#ifndef __AVR__
     template<typename T> void _scan(const char* bbuf, T& t)
     {
         uint32 count = 0;
@@ -706,6 +713,7 @@ private:
         }
         _scan(&bbuf[count], args...);
     }
+#endif
 
     char buf[L];
 };

@@ -170,15 +170,15 @@ public:
 
     template<uint32 N> void set_diagonal(Vector<N> v)
     {
-        uint32 n = etk::min<uint32>(MAX_X, MAX_Y);
+        uint32 n = min(MAX_X, MAX_Y);
         for(uint32 i = 0; i < n; i++)
             _cell[i][i] = v[i];
     }
 
     template<uint32 N> Vector<N> get_diagonal_vector()
     {
-        Vector<etk::min<uint32>(MAX_X, MAX_Y)> v;
-        uint32 n = etk::min<uint32>(MAX_X, MAX_Y);
+        Vector<min(MAX_X, MAX_Y)> v;
+        uint32 n = min(MAX_X, MAX_Y);
         for(uint32 i = 0; i < n; i++)
             v[i] = _cell[i][i];
         return v;
@@ -326,7 +326,7 @@ public:
             }
         }
 
-        for(uint32 i = 0; i < etk::min<uint32>(MAX_X, MAX_Y); i++)
+        for(uint32 i = 0; i < min(MAX_X, MAX_Y); i++)
             cell(i, i) = 1;
     }
 

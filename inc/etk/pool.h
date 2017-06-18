@@ -16,7 +16,7 @@
 #define POOL_H_INCLUDED
 
 #include <stdlib.h>
-#include <etk/types.h>
+#include "types.h"
 
 /*
 #include <iostream>

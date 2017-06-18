@@ -23,6 +23,8 @@
 
 */
 
+#ifndef __AVR__
+
 #include <stdlib.h>
 #include <utility>
 
@@ -148,5 +150,7 @@ template<typename T, class... U> smart_pointer<T> make_smart_ptr(U&&... u)
 }
 
 }
+
+#endif
 
 #endif

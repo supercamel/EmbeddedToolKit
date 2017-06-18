@@ -157,10 +157,18 @@ public:
 
     void fromMatrix(Matrix<3, 3> m)
     {
+    	#ifdef ETK_MAX
         _w = sqrtf(max<real_t>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
         _x = sqrtf(max<real_t>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
         _y = sqrtf(max<real_t>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
         _z = sqrtf(max<real_t>( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
+       	#else
+       	_w = sqrtf(max( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
+        _x = sqrtf(max( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
+        _y = sqrtf(max( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
+        _z = sqrtf(max( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
+        #endif
+        
         _x = copysign_zero(_x, m(2,1) - m(1,2));
         _y = copysign_zero(_y, m(0,2) - m(2,0));
         _z = copysign_zero(_z, m(1,0) - m(0,1));
@@ -344,7 +352,7 @@ public:
         }
 
         // if qa=qb or qa=-qb then theta = 0 and we can return qa
-        if (etk::abs(cosHalfTheta) >= 1.0)
+        if(fabs(cosHalfTheta) >= 1.0)
         {
             qm = *this;
             return qm;
@@ -354,7 +362,7 @@ public:
         real_t sinHalfTheta = sqrt(1.0 - cosHalfTheta*cosHalfTheta);
         // if theta = 180 degrees then result is not fully defined
         // we could rotate around any axis normal to qa or qb
-        if (etk::abs(sinHalfTheta) < 0.001)
+        if (fabs(sinHalfTheta) < 0.001)
         {   // fabs is floating point absolute
             qm._w = (_w * 0.5 + b._w * 0.5);
             qm._x = (_x * 0.5 + b._x * 0.5);

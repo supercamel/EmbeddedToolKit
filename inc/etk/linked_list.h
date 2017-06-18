@@ -2,8 +2,7 @@
 #ifndef ETK_LINKED_LIST_H
 #define ETK_LINKED_LIST_H
 
-
-#include <etk/pool.h>
+#include "pool.h"
 
 
 namespace etk

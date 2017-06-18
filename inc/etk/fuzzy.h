@@ -16,7 +16,7 @@
 #ifndef ETK_FUZZY_H
 #define ETK_FUZZY_H
 
-#include <etk/list.h>
+#include "list.h"
 
 namespace etk
 {
@@ -175,8 +175,9 @@ public:
         sets.append(f);
         sets[0].set_position(Set::START);
         int32 end = sets.size()-1;
-        for (auto i : range(end))
+        for(int i = 0; i < end; i++) {
             sets[i].set_position(Set::MID);
+        }
         sets[sets.size()-1].set_position(Set::END);
     }
 
