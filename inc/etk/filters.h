@@ -23,12 +23,12 @@ namespace etk
 {
 
 /**
- * \class ExpoMovingAvg
+ * \class LowPassFilter
  *
  * \brief An exponential moving average low-pass filter.
  *
  * @code
-    etk::ExpoMovingAvg filter(0.1);
+    etk::LowPassFilter filter(0.1);
 
     for(auto i : etk::range(100))
     {
@@ -40,10 +40,10 @@ namespace etk
  *
  */
 
-class ExpoMovingAvg
+class LowPassFilter
 {
 public:
-    ExpoMovingAvg()
+    LowPassFilter()
     {
         a = 0.5f;
         accumulator = 0;
@@ -55,7 +55,7 @@ public:
      * @arg f filter gain
      * @arg init_est initial estimate
      */
-    ExpoMovingAvg(real_t f, real_t init_est = 0)
+    LowPassFilter(real_t f, real_t init_est = 0)
     {
         a = f;
         accumulator = init_est;
@@ -98,15 +98,15 @@ private:
 
 
 /**
- * \class BrownLinearExpo
+ * \class LinearExpoFilter
  *
  * \brief Browns linear exponential filter is a form of double exponential smoothing. It can be more responsive than the MovingExpoAvg filter, but is prone to overshoot.
  */
 
-class BrownLinearExpo
+class LinearExpoFilter
 {
 public:
-    BrownLinearExpo()
+    LinearExpoFilter()
     {
         a = 0.5;
         estimate = 0;
@@ -120,7 +120,7 @@ public:
      * @arg f filter gain
      * @arg init_est initial estimate
      */
-    BrownLinearExpo(real_t f, real_t init_est)
+    LinearExpoFilter(real_t f, real_t init_est)
     {
         a = f;
         estimate = init_est;
@@ -170,14 +170,14 @@ private:
 
 
 /**
- * \class scalarLinearKalman
+ * \class ScalarLinearKalman
  *
  * \brief A linear kalman filter for scalars.
  */
-class scalarLinearKalman
+class ScalarLinearKalman
 {
 public:
-    scalarLinearKalman(real_t control_gain, real_t initial_state_estimate, real_t initial_covariance, real_t control_noise, real_t measurement_noise)
+    ScalarLinearKalman(real_t control_gain, real_t initial_state_estimate, real_t initial_covariance, real_t control_noise, real_t measurement_noise)
     {
         B = control_gain;
         current_state_estimate = initial_state_estimate;
@@ -254,7 +254,7 @@ public:
     }
 
 private:
-    ExpoMovingAvg emv;
+    LowPassFilter emv;
     real_t estimate;
 };
 
