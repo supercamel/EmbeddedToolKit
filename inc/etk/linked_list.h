@@ -129,11 +129,11 @@ public:
             iter.node->next->prev = iter.node->prev;
         pool.free(iter.node);
     }
-    
+
     uint32 size() const
     {
-    	Node* pnode = head;
-    	uint32 count = 0;
+        Node* pnode = head;
+        uint32 count = 0;
         while(pnode->next)
         {
             pnode = pnode->next;
@@ -141,15 +141,15 @@ public:
         }
         return count;
     }
-    
+
     bool front(T& t) const
     {
-    	if(tail)
-    	{
-    		t = tail.data;
-    		return true;
-    	}
-    	return false;
+        if(tail)
+        {
+            t = tail.data;
+            return true;
+        }
+        return false;
     }
 
 private:

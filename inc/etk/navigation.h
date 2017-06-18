@@ -41,14 +41,14 @@ public:
 
     Coordinate(const Coordinate& c)
     {
-		lat = c.lat;
-		lng = c.lng;
-	}
+        lat = c.lat;
+        lng = c.lng;
+    }
 
     Coordinate(const real_t la, const real_t ln)
     {
-    	lat = degrees_to_radians(la);
-    	lng = degrees_to_radians(ln);
+        lat = degrees_to_radians(la);
+        lng = degrees_to_radians(ln);
     }
     /**
      * \brief Creates a Coordinate.
@@ -56,30 +56,30 @@ public:
      */
     Coordinate(const etk::Vector<2>& v)
     {
-		lat = degrees_to_radians(v.x());
-		lng = degrees_to_radians(v.y());
-	}
+        lat = degrees_to_radians(v.x());
+        lng = degrees_to_radians(v.y());
+    }
     /**
      * \brief Creates a Coordinate.
      * @arg v A three dimensional vector with lat as x and lng as y. The z dimension is ignored.
      */
     Coordinate(const etk::Vector<3>& v)
     {
-		lat = degrees_to_radians(v.x());
-		lng = degrees_to_radians(v.y());
-	}
+        lat = degrees_to_radians(v.x());
+        lng = degrees_to_radians(v.y());
+    }
 
     /**
      * \brief Calculates the bearing to a coordinate.
      */
     real_t bearing_to(const Coordinate& to) const
     {
-		real_t dLon = to.lng - lng;
-		real_t y = sin(dLon) * cos(to.lat);
-		real_t x = cos(lat)*sin(to.lat) -
-		          sin(lat)*cos(to.lat)*cos(dLon);
-		return radians_to_degrees(atan2(y, x));
-	}
+        real_t dLon = to.lng - lng;
+        real_t y = sin(dLon) * cos(to.lat);
+        real_t x = cos(lat)*sin(to.lat) -
+                   sin(lat)*cos(to.lat)*cos(dLon);
+        return radians_to_degrees(atan2(y, x));
+    }
 
     /**
      * \brief Calculates the distance to a coordinate.
@@ -87,8 +87,8 @@ public:
      */
     real_t distance_to(const Coordinate& b) const
     {
-		return acos(sin(lat)*sin(b.lat) + cos(lat)*cos(b.lat)*cos(b.lng-lng)) * R;
-	}
+        return acos(sin(lat)*sin(b.lat) + cos(lat)*cos(b.lat)*cos(b.lng-lng)) * R;
+    }
 
     /**
      * \brief Calculates cross track distance (how far off course you are).
@@ -97,12 +97,12 @@ public:
      */
     real_t cross_track_distance(const Coordinate& from, const Coordinate& to) const
     {
-		real_t d13, brng13, brng12;
-		d13 = from.distance_to(*this);
-		brng13 = degrees_to_radians(from.bearing_to(*this));
-		brng12 = degrees_to_radians(from.bearing_to(to));
-		return asin(sin(d13/R)*sin(brng13-brng12)) * R;
-	}
+        real_t d13, brng13, brng12;
+        d13 = from.distance_to(*this);
+        brng13 = degrees_to_radians(from.bearing_to(*this));
+        brng12 = degrees_to_radians(from.bearing_to(to));
+        return asin(sin(d13/R)*sin(brng13-brng12)) * R;
+    }
 
 
     /**
@@ -113,19 +113,19 @@ public:
      */
     Coordinate destination_from_distance_bearing(const real_t dist, const real_t bearing) const
     {
-		real_t brng = degrees_to_radians(bearing);
-		Coordinate dest;
-		dest.lat = asin(sin(lat)*cos(dist/R) +
-		                cos(lat)*sin(dist/R)*cos(brng));
-		dest.lng = lng + atan2f(sin(brng)*sin(dist/R)*cos(lat),
-		                            cos(dist/R)-sin(lat)*sin(dest.lat));
+        real_t brng = degrees_to_radians(bearing);
+        Coordinate dest;
+        dest.lat = asin(sin(lat)*cos(dist/R) +
+                        cos(lat)*sin(dist/R)*cos(brng));
+        dest.lng = lng + atan2f(sin(brng)*sin(dist/R)*cos(lat),
+                                cos(dist/R)-sin(lat)*sin(dest.lat));
 
-		/*
-		lat2: =ASIN(SIN(lat1)*COS(d/R) + COS(lat1)*SIN(d/R)*COS(brng))
-	lon2: =lon1 + ATAN2(COS(d/R)-SIN(lat1)*SIN(lat2), SIN(brng)*SIN(d/R)*COS(lat1))
-		*/
-		return dest;
-	}
+        /*
+        lat2: =ASIN(SIN(lat1)*COS(d/R) + COS(lat1)*SIN(d/R)*COS(brng))
+        lon2: =lon1 + ATAN2(COS(d/R)-SIN(lat1)*SIN(lat2), SIN(brng)*SIN(d/R)*COS(lat1))
+        */
+        return dest;
+    }
 
 
     /**
@@ -206,25 +206,25 @@ public:
     Waypoint() { }
     Waypoint(const real_t la, const real_t ln)
     {
-		lat = degrees_to_radians(la);
-		lng = degrees_to_radians(ln);
-	}
-	
+        lat = degrees_to_radians(la);
+        lng = degrees_to_radians(ln);
+    }
+
     Waypoint(const real_t la, const real_t ln, const real_t a)
     {
-		lat = degrees_to_radians(la);
-		lng = degrees_to_radians(ln);
-		alt = a;
-	}
+        lat = degrees_to_radians(la);
+        lng = degrees_to_radians(ln);
+        alt = a;
+    }
 
     Waypoint(const etk::Vector<3>& pos)
     {
-		lat = degrees_to_radians(pos.x());
-		lng = degrees_to_radians(pos.y());
-		alt = pos.z();
-	}
+        lat = degrees_to_radians(pos.x());
+        lng = degrees_to_radians(pos.y());
+        alt = pos.z();
+    }
 
-    Waypoint(const Coordinate& c) 
+    Waypoint(const Coordinate& c)
     {
         lat = c.get_lat_rad();
         lng = c.get_lng_rad();
@@ -239,11 +239,11 @@ public:
         return ret;
     }
 
-    real_t get_alt() const 
+    real_t get_alt() const
     {
         return alt;
     }
-    void set_alt(const real_t a) 
+    void set_alt(const real_t a)
     {
         alt = a;
     }

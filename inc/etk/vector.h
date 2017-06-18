@@ -319,7 +319,7 @@ public:
     real_t& z() {
         return p_vec[2];
     }
-    
+
     real_t x() const {
         return p_vec[0];
     }

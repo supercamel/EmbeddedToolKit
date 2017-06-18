@@ -60,7 +60,7 @@ template<typename R, typename ARG1> class SlotBase1
 {
 public:
     virtual R callback(ARG1 a1) {
-    	unused(a1);
+        unused(a1);
         return R();
     }
 };
