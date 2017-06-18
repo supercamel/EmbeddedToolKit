@@ -189,7 +189,11 @@ public:
     {
         return _cell[x][y];
     }
-
+    
+    real_t cell(uint32 x, uint32 y) const
+    {
+    	return _cell[x][y];
+    }
 
     Matrix operator + (Matrix m)
     {
@@ -258,7 +262,7 @@ public:
         return ret;
     }
 
-    Matrix<MAX_Y-1,MAX_X-1> minor_matrix(uint32 row, uint32 col)
+    Matrix<MAX_Y-1,MAX_X-1> minor_matrix(uint32 row, uint32 col) const
     {
         uint32 colCount = 0, rowCount = 0;
         Matrix<MAX_Y-1,MAX_X-1> ret;
@@ -280,20 +284,16 @@ public:
         return ret;
     }
 
-    real_t determinant()
+    real_t determinant() const
     {
-        if((MAX_X == 1) || (MAX_Y == 1))
-            return cell(0, 0);
-        else
-        {
+
             real_t det = 0.0;
             for(uint32 i = 0; i < MAX_X; i++ )
             {
                 auto minor = minor_matrix(0, i);
                 det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
-            }
-            return det;
         }
+        return det;
 
         return 0;
     }
@@ -401,6 +401,13 @@ private:
     uint32 set_flag = 0;
     uint32 set_y_flag = 0;
 };
+
+template<>
+inline real_t Matrix<1, 1>::determinant() const
+{
+    return cell(0, 0);
+}
+
 
 typedef Matrix<3, 3> Matrix3x3;
 typedef Matrix<4, 4> Matrix4x4;
