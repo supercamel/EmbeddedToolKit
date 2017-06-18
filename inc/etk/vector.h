@@ -24,26 +24,44 @@
 namespace etk
 {
 
+/**
+ * \class Vector
+ * \brief A vector math class. 
+ * @tparam N The number of dimensions.
+ */
 template <uint32 N> class Vector
 {
 public:
+	/**
+	 * \brief constructor sets all elements to zero.
+	 */
     Vector()
     {
         for(uint32 i = 0; i < N; i++)
             p_vec[i] = 0.0f;
     }
 
+	/**
+	 * \brief sets the value of the first element.
+	 */
     Vector(real_t a)
     {
         p_vec[0] = a;
     }
 
+	/**
+	 * \brief sets the value of the first two elements.
+	 */
     Vector(real_t a, real_t b)
     {
         p_vec[0] = a;
         p_vec[1] = b;
     }
-
+	
+	/**
+	 * \brief sets the value of the first three elements.
+	 * Don't use this function for 2 dimensional vectors.
+	 */
     Vector(real_t a, real_t b, real_t c)
     {
         p_vec[0] = a;
@@ -51,36 +69,51 @@ public:
         p_vec[2] = c;
     }
 
+	/**
+	 * \brief sets the value of the first four elements.
+	 * Don't use this function for 2 or 3 dimensional vectors.
+	 */
     Vector(real_t a, real_t b, real_t c, real_t d)
     {
-        for(uint32 i = 0; i < N; i++)
-            p_vec[i] = 0.0f;
-
         p_vec[0] = a;
         p_vec[1] = b;
         p_vec[2] = c;
         p_vec[3] = d;
     }
 
+	/**
+	 * \brief copy constructor
+	 */
     Vector(const Vector<N> &v)
     {
         for (uint32 x = 0; x < N; x++ )
             p_vec[x] = v.p_vec[x];
     }
 
-
-    uint32 n() {
+	/**
+	 * \brief Returns the number of dimensions
+	 * @return The number of dimensions in this vector.
+	 */
+    uint32 n() const 
+    {
         return N;
     }
 
-    //make a vector from magnitude and direction
+    /**
+     * \brief Sets the x and y components of the vector from a magnitude and direction
+     * @arg mag a magnitude
+     * @arg dir a direction in radians ( use degrees_to_radians() if necessary )
+     */
     void from_polar(real_t mag, real_t dir)
     {
         x() = mag*cosf(dir);
         y() = mag*sinf(dir);
     }
 
-    //returns length of vector
+    /**
+     * \brief gets the magnitude of the vector.
+     * @return length of vector
+     */
     real_t magnitude()
     {
         real_t res = 0;
@@ -93,13 +126,19 @@ public:
         return 1;
     }
 
-    //returns angle from the origin (0,0) to the vector (x,y) in radians
+    /**
+     * \brief returns the angle of the vector in radians
+     * @return angle in radians
+     */
     real_t theta()
     {
         return atan2f(y(),x());
     }
 
-    //sets magnitude to 1.0
+    /**
+     * \brief normalizes the vector. 
+     * normalize() sets the magnitude to 1.0.
+     */
     void normalize()
     {
         real_t mag = magnitude();
@@ -111,7 +150,10 @@ public:
             p_vec[i] = p_vec[i]/mag;
     }
 
-    //returns a normalised copy of this vector
+    /**
+     * \brief returns a normalised copy of this vector
+     * @return a vector with the direction of this and a magnitude of 1.0
+     */
     Vector normalized()
     {
         Vector ret = *this;
@@ -119,7 +161,11 @@ public:
         return ret;
     }
 
-    //returns the dot product of two vectors
+    /**
+     * \brief calculates the dot product of two vectors
+     * @arg v another vector
+     * @return the dot product and this and v
+     */
     real_t dot(Vector v)
     {
         real_t ret = 0;
@@ -130,7 +176,11 @@ public:
         return ret;
     }
 
-    //generates the cross product of two 3D vectors
+    /**
+     * \brief generates the cross product of two 3D vectors. this function is invalid for vectors that are not three dimensional.
+     * @arg v another vector
+     * @return the cross product
+     */
     Vector cross(Vector v) const
     {
         Vector ret;
@@ -146,7 +196,11 @@ public:
         return ret;
     }
 
-    //scales a vector. this changes the magnitude only
+    /**
+     * \brief scales a vector. this changes the magnitude only.
+     * @arg a scalar to multiply the vector components by.
+     * @return the new scaled vector.
+     */
     Vector scale(real_t scalar)
     {
         Vector ret;
@@ -155,7 +209,10 @@ public:
         return ret;
     }
 
-    //inverts
+    /**
+     * \brief inverts the vector.
+     * @return the inverted vector.
+     */
     Vector invert()
     {
         Vector ret;
@@ -164,6 +221,21 @@ public:
         return ret;
     }
 
+	/**
+	 * \brief extracts a number of components and creates a new smaller vector.
+
+	 <pre>
+Vector<5> v = [ 0, 1, 2, 3, 4 ]
+                   ^  ^  ^
+                 if we want this
+                 
+Vector<3> t = v.sub_vector<3>(1)
+t = [ 1, 2, 3 ]
+     </pre>
+     
+     * @tparam nn the number of components in the new vector.
+	 * @arg n the start point of the sub vector
+     */
     template <uint32 nn> Vector<nn> sub_vector(uint32 n)
     {
         Vector<nn> ret;
@@ -172,12 +244,35 @@ public:
         return ret;
     }
 
+	/**
+	 * \brief sets part of the vector from a smaller vector
+
+	 <pre>
+Vector<3> t = [ 1, 2, 3 ]
+
+Vector<5> v = [ 0, 0, 0, 0, 4 ]
+                 
+Vector<3> n = v.set_sub_vector<3>(1)
+n = [ 0, 1, 2, 3, 4]
+
+     </pre>
+     
+     * @tparam nn the number of components in the new vector.
+     * @arg v the sub-vector
+	 * @arg n the start point of the sub vector
+	 * @return a vector that is v, with the subvector overwritten
+     */
     template <uint32 nn> void set_sub_vector(Vector<nn> v, uint32 n)
     {
         for(uint32 i = 0; i < nn; i++)
             p_vec[i+n] = v[i];
     }
 
+	/**
+	 * \brief assigns v to this.
+	 * @arg v a vector
+	 * @return *this
+	 */
     Vector operator = (Vector v)
     {
         for (uint32 x = 0; x < N; x++ )
@@ -185,7 +280,12 @@ public:
         return *this;
     }
 
-    bool operator == (Vector v)
+	/**
+	 * \brief comparison operator compares two vectors.
+	 * @arg v the vector to compare with
+	 * @return true if the values of the two vectors are within 0.00001 of each other. 
+	 */
+    bool operator == (Vector v) const
     {
         for(uint32 i = 0; i < N; i++)
         {
@@ -195,7 +295,13 @@ public:
         return true;
     }
 
-    bool compare(Vector& v, real_t precision = 0.00000f)
+	/**
+	 * \brief compares two vectors
+	 * @arg v the vector to compare with
+	 * @arg precision how precisely to compared the two vectors. By default they must be within 0.00001 of each other
+	 * @return true if the vectors match
+	 */
+    bool compare(Vector& v, real_t precision = 0.00001f) const
     {
         for(uint32 i = 0; i < N; i++)
         {
@@ -251,18 +357,18 @@ public:
 
     Vector operator + (Vector v)
     {
-        Vector ret;
+        Vector r;
         for(uint32 i = 0; i < N; i++)
-            ret.p_vec[i] = p_vec[i] + v.p_vec[i];
-        return ret;
+            r.p_vec[i] = p_vec[i] + v.p_vec[i];
+        return r;
     }
 
     Vector operator - (Vector v)
     {
-        Vector ret;
+        Vector r;
         for(uint32 i = 0; i < N; i++)
-            ret.p_vec[i] = p_vec[i] - v.p_vec[i];
-        return ret;
+            r.p_vec[i] = p_vec[i] - v.p_vec[i];
+        return r;
     }
 
     Vector operator * (real_t scalar)

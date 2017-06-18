@@ -23,7 +23,12 @@
 namespace etk
 {
 
-
+/**
+ * \brief u32b is a union for 32bit types.
+ * This is an easy way to convert between bytes and 32bit datatypes.
+ * Generally, a union should be preferred over casts because it makes your intensions 
+ * very clear to both the compiler and other people. 
+ */
 typedef union u32b
 {
     int32 i;
@@ -33,6 +38,9 @@ typedef union u32b
 }
 u32b;
 
+/**
+ * \brief u16b is a union for 16bit types.
+ */
 typedef union u16b
 {
     int16 i;

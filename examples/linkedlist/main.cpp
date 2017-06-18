@@ -59,7 +59,7 @@ int main()
 	while(next)
 	{
 		next->next = pool.alloc(); //get an allocation
-		if(!next->next) //check if the call to pool.alloc() has worked
+		if(next->next == nullptr) //check if the call to pool.alloc() has worked
 			break; //if not, break the loop
 			
 		next = next->next; //move on to next node

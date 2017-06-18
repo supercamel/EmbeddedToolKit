@@ -26,7 +26,7 @@ public:
                 out << "Aborting test\n";
                 return false;
             }
-            it++;
+            ++it;
         }
 
         out << "\nEND TEST\n";
