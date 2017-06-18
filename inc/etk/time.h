@@ -25,15 +25,7 @@ namespace etk
 /**
  * \class Time
  *
- * \brief Time is a class that can be used to perform time related functions such as counting systicks.
- *
- * http://www.camelsoftware.com/2015/12/24/etk-time/
- *
- * A simple 32bit systick counter with microsecond precision will roll over in a matter of hours.
- * The Time class counts both seconds and microseconds. This multiplies the roll over time by a million, which means it won't roll over for 120 years.
- * Some say systick roll over is easy to work around, but some haven't had to debug a fault that only occurs once per 12 hours :-).
- *
- * In addition to counting systicks, the Time class provides a number of other convenient functions such as diff_time();, sleep_ms(); and to_rope();
+ * \brief Time is a class that can be used to perform time related functions.
  */
 
 class Time
@@ -197,63 +189,6 @@ private:
     uint32 sec;
     uint32 mic;
 };
-
-#ifdef ETK_TICK_RATE
-
-extern volatile Time _now;
-
-
-/**
- * \brief Returns the current time.
- */
-inline Time __attribute__((weak)) now()
-{
-	return _now;
-}
-
-/**
-	 * \brief Sleeps for a number of milliseconds.
-	 * @arg ms Number of milliseconds to wait.
-	 */
-inline void __attribute__((weak)) sleep_ms(uint32 ms)
-{
-    Time start = now();
-	real_t sms = ms/1000.0f;
-
-    while(now().diff_time(start) < sms)
-    { }
-}
-
-/**
- * \brief Sleeps for a number of microseconds.
- * @args us Number of microseconds to wait.
- */
-inline void __attribute__((weak)) sleep_us(uint32 us)
-{
-    Time start = now();
-	real_t sus = us/1000000.0f;
-
-    while(now().diff_time(start) < sus)
-    { }
-}
-
-/**
- * \brief Increments the systick counter by the tick rate (set_tick_rate(); )
- */
-inline void tick()
-{
-	static_assert((1000000%ETK_TICK_RATE == 0), "Bad tick rate!");
-	
-	_now.mic += ETK_TICK_RATE;
-
-	if(_now.mic >= 1000000)
-	{
-		_now.sec++;
-		_now.mic = 0;
-	}
-}
-
-#endif
 
 }
 
