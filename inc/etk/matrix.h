@@ -298,7 +298,7 @@ public:
         return 0;
     }
 
-    Matrix invert()
+    Matrix invert() const
     {
         Matrix ret;
         real_t det = determinant();
@@ -330,7 +330,7 @@ public:
             cell(i, i) = 1;
     }
 
-    Matrix lower_triangle()
+    Matrix lower_triangle() const
     {
         Matrix m = *this;
         for(uint32 x = 0; x < MAX_X; x++)
@@ -341,7 +341,7 @@ public:
         return m;
     }
 
-    Matrix upper_triangle()
+    Matrix upper_triangle() const
     {
         Matrix m = *this;
         for(uint32 x = 0; x < MAX_X; x++)

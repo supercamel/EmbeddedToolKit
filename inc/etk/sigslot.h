@@ -31,6 +31,52 @@ private:
     R (BASE::*on_callback)() = nullptr;
 };
 
+/**
+ \class Signal0
+
+ \brief A signal with zero parameters.
+ Signals and slots are used in event-driven programming to signal when an event has occured. 
+ Signals connect to slots.
+ When an event occurs, the signal is emitted. If a slot is connected, it will receive the signal. 
+ What this means is that the emitter and receiver can be completely de-coupled. The emitter doesn't need a pointer or reference to the receiver and vise-versa. 
+ 
+@code
+class TempSensor
+{
+public:
+	void check_something() { something_detected_signal.emit(); }
+	
+	etk::Signal0<void> something_detected_signal;
+};
+
+class Controller
+{
+public:
+	Controller() : 
+		something_measured_slot(this, &Controller::on_something_measured)
+	{ }
+	
+	void on_something_measured() {
+		cout << "something measured " << m << endl;
+	}
+	
+	etk::Slot0<Controller, void> something_measured_slot;
+};
+
+int main()
+{
+	Sensor sensor;
+	Controller controller;
+	
+	sensor.something_detected_signal.connect(controller.something_measured_slot);
+	sensor.check_something();
+}
+
+@endcode
+
+ Note that TempSensor has absolutely no idea about Controller, and Controller doesn't know about TempSensor either. Using signals and slots means they are totally de-coupled.
+ That's a good thing! 
+ */
 
 template<typename R> class Signal0
 {
