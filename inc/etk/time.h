@@ -73,7 +73,7 @@ public:
      * @args then Time to compare to.
      * @return Difference in times in seconds.
      */
-    real_t diff_time(Time then) const
+    real_t diff_time(const Time& then)
     {
 		real_t ret;
 		ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
@@ -92,7 +92,7 @@ public:
     /**
      * \brief Same as Time::diff_time but the return value is in milliseconds rather than seconds.
      */
-    real_t diff_time_ms(Time then) const
+    real_t diff_time_ms(const Time& then)
     {
         return diff_time(then)*1000.0f;
     }
