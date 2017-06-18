@@ -353,7 +353,7 @@ template<typename T> T abs(T t)
 #define ETK_FABS
 inline real_t fabs(real_t t)
 {
-	abs(t);
+	return abs(t);
 }
 #endif
 
