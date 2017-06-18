@@ -135,7 +135,6 @@ public:
         }
 
         Node* pnode = head;
-        uint32 count = 0;
         while(pnode->next)
         {
             if(iter.node == pnode->next)
@@ -145,7 +144,6 @@ public:
                 return true;
             }
             pnode = pnode->next;
-            count++;
         }
 
         pool.free(node);

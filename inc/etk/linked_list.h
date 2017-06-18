@@ -128,16 +128,28 @@ public:
         if(iter.node->next)
             iter.node->next->prev = iter.node->prev;
         pool.free(iter.node);
-        /*
-        Node* prev = iter.node->prev;
-        Node* next = iter.node->next;
-
-        if(prev != nullptr)
-        	prev->next = next;
-        if(next != nullptr)
-        	next->prev = prev;
-        pool.free(iter.node);
-        */
+    }
+    
+    uint32 size() const
+    {
+    	Node* pnode = head;
+    	uint32 count = 0;
+        while(pnode->next)
+        {
+            pnode = pnode->next;
+            count++;
+        }
+        return count;
+    }
+    
+    bool front(T& t) const
+    {
+    	if(tail)
+    	{
+    		t = tail.data;
+    		return true;
+    	}
+    	return false;
     }
 
 private:

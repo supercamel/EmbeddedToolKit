@@ -67,12 +67,10 @@ enum class EVENT
 };
 
 
+//a typedef, for readability
 typedef etk::StateMachine<class TrafficController, STATE, EVENT> StateMachineType;
 
-/**
- * StateMachines are often used in an iterative way. 
- */
-			
+		
 class TrafficController : public StateMachineType
 {
 public:

@@ -319,6 +319,16 @@ public:
     real_t& z() {
         return p_vec[2];
     }
+    
+    real_t x() const {
+        return p_vec[0];
+    }
+    real_t y() const {
+        return p_vec[1];
+    }
+    real_t z() const {
+        return p_vec[2];
+    }
 
     real_t squaredNorm()
     {

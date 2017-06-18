@@ -153,7 +153,7 @@ public:
     void free(void* ptr)
     {
         uint8* cptr = (uint8*)ptr;
-        Block* pblock = (Block*)(cptr-sizeof(Block));
+        Block* pblock = reinterpret_cast<Block*>(cptr-sizeof(Block));
         add_to_list(pblock);
     }
 
@@ -174,10 +174,10 @@ public:
                 uint8* pnext = (uint8*)pblock;
                 pnext = &pnext[pblock->size];
 
-                if(block_is_free((Block*)pnext))
+                if(block_is_free(reinterpret_cast<Block*>(pnext)))
                 {
-                    pblock->size += ((Block*)pnext)->size;
-                    remove_from_list((Block*)pnext);
+                    pblock->size += (reinterpret_cast<Block*>(pnext))->size;
+                    remove_from_list(reinterpret_cast<Block*>(pnext));
                     changes = true;
                 }
                 pblock = pblock->next;
