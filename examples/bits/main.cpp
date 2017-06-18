@@ -1,6 +1,6 @@
 /*
- * A memory pool is just a blob of memory that can be used to dynamically 
- * allocate memory a bit like new or malloc. 
+ * etk::Bits will read/write bits from an integer.
+ * It's easier than using bitwise operators and is just as efficient. 
  */
 
 #include <etk/etk.h>
@@ -14,7 +14,7 @@ using namespace etk;
 
 int main()
 {
-	etk::Bits<uint8> bits;
+	etk::Bits8 bits;
 	bits.set_bit(0, true);
 	bits.set_bit(3, true);
 	

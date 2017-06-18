@@ -7,13 +7,13 @@ using namespace etk;
 struct test_list
 {
     StaticString<20> ss;
-    PoolPtr<ObjPool<test_list, 10>, test_list> next;
+    experimental::PoolPtr<experimental::ObjPool<test_list, 10>, test_list> next;
 };
 
 bool objpool_test(std::string& subtest)
 {
 
-    etk::ObjPool<test_list, 10> pool;
+    etk::experimental::ObjPool<test_list, 10> pool;
 
     {
         subtest = "proving reference counting";

@@ -72,7 +72,7 @@ public:
      * @arg on True to set the bit to 1, false to set to 0.
      * @return This function returns false if n is greater than the size of T.
      */
-    bool set_bit(uint32 n, bool on = true)
+    bool set_bit(const uint32 n, const bool on = true)
     {
         if(n < (sizeof(T)*8))
         {
@@ -91,7 +91,7 @@ public:
      * @arg n The bit to read.
      * @return true if bit is 1, false if 0
      */
-    bool read_bit(uint32 n)
+    bool read_bit(const uint32 n) const
     {
         if(n < (sizeof(T)*8))
         {
@@ -106,7 +106,7 @@ public:
      *
      * @return a StaticString.
      */
-    StaticString<sizeof(T)*8+1> to_string()
+    StaticString<sizeof(T)*8+1> to_string() const
     {
         StaticString<sizeof(T)*8+1> string;
         for(uint32 i = (sizeof(T)*8); i != 0; i--)
@@ -123,7 +123,7 @@ public:
      * \brief Returns the integer that Bits has been modifying.
      *
      */
-    T get()
+    T get() const
     {
         return bte;
     }

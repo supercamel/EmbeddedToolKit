@@ -57,7 +57,7 @@ bool test_rope(std::string& subtest)
 
     for(real_t i = -10; i < 10; i += 0.01)
     {
-        if(fabs(i) < 0.005)
+        if(etk::fabs(i) < 0.005)
             i = 0.0;
         std::stringstream ss;
         ss << setprecision(2) << fixed << i;
