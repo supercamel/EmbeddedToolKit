@@ -109,9 +109,9 @@ public:
     StaticString<sizeof(T)*8+1> to_string()
     {
         StaticString<sizeof(T)*8+1> string;
-        for(uint32 i = 0; i < (sizeof(T)*8); i++)
+        for(uint32 i = (sizeof(T)*8); i != 0; i--)
         {
-            if(read_bit(i))
+            if(read_bit(i-1))
                 string += "1";
             else
                 string += "0";
