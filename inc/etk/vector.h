@@ -82,15 +82,6 @@ public:
     }
 
 	/**
-	 * \brief copy constructor
-	 */
-    Vector(const Vector<N> &v)
-    {
-        for (uint32 x = 0; x < N; x++ )
-            p_vec[x] = v.p_vec[x];
-    }
-
-	/**
 	 * \brief Returns the number of dimensions
 	 * @return The number of dimensions in this vector.
 	 */
@@ -402,14 +393,14 @@ n = [ 0, 1, 2, 3, 4]
         return *this;
     }
 
-    void toDegrees()
+    void to_degrees()
     {
         const real_t radians_to_degrees = 57.2957795131f;
         for(uint32 i = 0; i < N; i++)
             p_vec[i] *= radians_to_degrees; //180/pi
     }
 
-    void toRadians()
+    void to_radians()
     {
         const real_t degrees_to_radians = 0.01745329251f; //pi/180
         for(uint32 i = 0; i < N; i++)
@@ -436,7 +427,7 @@ n = [ 0, 1, 2, 3, 4]
         return p_vec[2];
     }
 
-    real_t squaredNorm()
+    real_t squared_norm() const
     {
         return dot(*this);
     }
