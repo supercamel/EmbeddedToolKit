@@ -40,23 +40,35 @@ class Time
 {
     friend void tick();
 public:
-    Time() {
+    Time() 
+    {
         setnull();
     }
-    Time(Time& d) {
+    
+    Time(Time& d) 
+    {
         sec = d.sec;
         mic = d.mic;
     }
-    Time(volatile Time& d) {
+    
+    Time(volatile Time& d) 
+    {
         sec = d.sec;
         mic = d.mic;
     }
-    Time(const Time& d) {
+    
+    Time(const Time& d) 
+    {
         sec = d.sec;
         mic = d.mic;
     }
 
-    Time& operator=(const Time& d) volatile;
+    Time& operator=(const Time& d) volatile
+    {
+		sec = d.sec;
+		mic = d.mic;
+		return (Time&)*this;
+	}
 
     /**
      * \brief Calculates the difference between two Times in seconds.
@@ -69,43 +81,89 @@ public:
      * @args then Time to compare to.
      * @return Difference in times in seconds.
      */
-    real_t diff_time(Time then);
-    real_t diff_time(Time then) volatile;
+    real_t diff_time(const Time& then) const
+    {
+		real_t ret;
+		ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
+		ret += ((real_t)sec - (real_t)then.seconds());
+		return ret;
+	}
+	
+    real_t diff_time(Time then) volatile
+    {
+		real_t ret;
+		ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
+		ret += ((real_t)sec - (real_t)then.seconds());
+		return ret;
+	}
 
     /**
      * \brief Same as Time::diff_time but the return value is in milliseconds rather than seconds.
      */
-    real_t diff_time_ms(Time then) {
+    real_t diff_time_ms(const Time& then) const
+    {
         return diff_time(then)*1000.0f;
     }
-    real_t diff_time_ms(Time then) volatile {
+    
+    real_t diff_time_ms(Time then) volatile 
+    {
         return diff_time(then)*1000.0f;
     }
 
     /**
      * \brief Sets the time instance to zero.
      */
-    void setnull();
-    void setnull() volatile;
+    void setnull()
+    {
+		mic = sec = 0;
+	}
+	
+    void setnull() volatile
+    {
+		mic = sec = 0;
+	}
 
     /**
      * \brief Returns true is the time is zero.
      */
-    bool is_nulltime();
-    bool is_nulltime() volatile;
+    bool is_nulltime()
+    {
+		if((mic == 0) && (sec == 0))
+			return true;
+		return false;
+	}
+
+    bool is_nulltime() volatile
+    {
+		if((mic == 0) && (sec == 0))
+			return true;
+		return false;
+	}
 
     /**
      * \brief Returns a reference to the seconds counter.
      */
-    uint32& seconds() {
+    uint32& seconds() 
+    {
         return sec;
     }
 
     /**
      * \brief Returns a reference to the microsecond counter.
      */
-    uint32& micros() {
+    uint32& micros() 
+    {
         return mic;
+    }
+    
+    uint32 seconds() const
+    {
+    	return sec;
+    }
+    
+    uint32 micros() const
+    {
+    	return mic;
     }
 
     volatile uint32& seconds() volatile {
@@ -124,7 +182,15 @@ public:
      //buf will now contain something like '3 days, 2 hours, 45 minutes, 12 seconds'
      @endcode
      */
-    void to_rope(Rope& r);
+    void to_rope(Rope& r)
+    {
+		r.clear();
+		int32 days = sec / 60 / 60 / 24;
+		int32 hours = (sec / 60 / 60) % 24;
+		int32 minutes = (sec / 60) % 60;
+		int32 seconds = sec % 60;
+		r << days << " days, " << hours << " hours, " << minutes << " mins, " << seconds << " seconds";
+	}
 
 
 private:
@@ -132,36 +198,66 @@ private:
     uint32 mic;
 };
 
+#ifdef ETK_TICK_RATE
+
+extern volatile Time _now;
+
+
 /**
  * \brief Returns the current time.
  */
-Time now();
+inline Time __attribute__((weak)) now()
+{
+	return _now;
+}
 
 /**
 	 * \brief Sleeps for a number of milliseconds.
 	 * @arg ms Number of milliseconds to wait.
 	 */
-void sleep_ms(uint32 ms);
+inline void __attribute__((weak)) sleep_ms(uint32 ms)
+{
+    Time start = now();
+	real_t sms = ms/1000.0f;
+
+    while(now().diff_time(start) < sms)
+    { }
+}
 
 /**
  * \brief Sleeps for a number of microseconds.
  * @args us Number of microseconds to wait.
  */
-void sleep_us(uint32 us);
+inline void __attribute__((weak)) sleep_us(uint32 us)
+{
+    Time start = now();
+	real_t sus = us/1000000.0f;
+
+    while(now().diff_time(start) < sus)
+    { }
+}
 
 /**
  * \brief Increments the systick counter by the tick rate (set_tick_rate(); )
  */
-void tick();
+inline void tick()
+{
+	static_assert((1000000%ETK_TICK_RATE == 0), "Bad tick rate!");
+	
+	_now.mic += ETK_TICK_RATE;
 
-/**
- * \brief Sets the tick rate in microseconds per tick. eg for a 1ms tick rate, use set_tick_rate(1000);
- * @arg us Microseconds per tick.
- */
-void set_tick_rate(uint32 us); //microseconds per tick
+	if(_now.mic >= 1000000)
+	{
+		_now.sec++;
+		_now.mic = 0;
+	}
+}
+
+#endif
 
 }
 
 
 
 #endif
+

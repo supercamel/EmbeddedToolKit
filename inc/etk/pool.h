@@ -80,8 +80,6 @@ public:
     }
 };
 
-extern Heap heap;
-
 template <uint32 SIZE> class MemPool : public Pool
 {
 public:

@@ -18,6 +18,7 @@
 #define MATH_UTIL_H_INCLUDED
 
 #include "types.h"
+#include <math.h>
 
 namespace etk
 {
@@ -40,21 +41,25 @@ typedef union u16b
 }
 u16b;
 
-
+#ifndef is_inf
+#define ETK_IS_INF
 inline bool is_inf(float value)
 {
     u32b ieee754;
     ieee754.f = value;
     return (ieee754.u & 0x7fffffff) == 0x7f800000;
 }
+#endif
 
-
+#ifndef is_nan
+#define ETK_IS_NAN
 inline bool is_nan( float value )
 {
     u32b ieee754;
     ieee754.f = value;
     return (ieee754.u & 0x7fffffff) > 0x7f800000;
 }
+#endif
 
 
 /**
@@ -64,6 +69,8 @@ inline bool is_nan( float value )
  * \arg b Maximum value
  * \return x, if x is between a and b. If x is smaller than a, then a. If x is larger than b, then b.
  */
+#ifndef constrain
+#define ETK_CONSTRAIN
 template<typename T> T constrain(T x, T a, T b)
 {
     if(x < a)
@@ -72,6 +79,7 @@ template<typename T> T constrain(T x, T a, T b)
         return b;
     return x;
 }
+#endif
 
 /**
  * \brief Used to constrain a number to within a circular range.
@@ -102,22 +110,28 @@ inline real_t constrain_circular(real_t x, uint32 segments)
 /**
  * \brief Returns the smaller of two values.
  */
+#ifndef min
+#define ETK_MIN
 template<typename T> T min(T a, T b)
 {
     if(a < b)
         return a;
     return b;
 }
+#endif
 
 /**
  * \brief Returns the larger of two values.
  */
+#ifndef max
+#define ETK_MAX
 template<typename T> T max(T a, T b)
 {
     if(a > b)
         return a;
     return b;
 }
+#endif
 
 /**
  * \brief Converts a value from one scale to another.
@@ -127,11 +141,13 @@ template<typename T> T max(T a, T b)
  * If in_max is equal to in_min, a divide by zero will occur.
  *
  */
+#ifndef map
+#define ETK_MAP
 template<typename T> T map(T x, T in_min, T in_max, T out_min, T out_max)
 {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
-
+#endif
 /**
  * \brief Returns a number with the value of x and the sign of y.
  */
