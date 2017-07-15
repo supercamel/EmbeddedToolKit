@@ -299,6 +299,11 @@ public:
     {
         ms = m;
     }
+    
+    real_t get()
+    {
+    	return last_sample;
+    }
 
 private:
     real_t ms;

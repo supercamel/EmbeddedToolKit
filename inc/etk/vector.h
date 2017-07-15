@@ -443,6 +443,18 @@ n = [ 0, 1, 2, 3, 4]
     real_t get_z() const {
         return p_vec[2];
     }
+    
+    void set_x(const real_t x) {
+        p_vec[0] = x;
+    }
+    
+    void set_y(const real_t y) {
+        p_vec[1] = y;
+    }
+    
+    void set_z(const real_t z) {
+        p_vec[2] = z;
+    }
 
 
 private:
