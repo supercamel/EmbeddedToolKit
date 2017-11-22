@@ -232,6 +232,18 @@ public:
         return;
     }
 
+    void free()
+    {
+        Node* node = head;
+        while(node != nullptr)
+        {
+            Node* next = node->next;
+            pool.free(node);
+            node = next;
+        }
+        head = nullptr;
+    }
+
     void pop_head()
     {
         if(head)
@@ -260,6 +272,18 @@ public:
             node = node->next;
         }
         return nullptr;
+    }
+
+    uint32 length()
+    {
+        Node* node = head;
+        uint32 sz = 0;
+        while(node != nullptr)
+        {
+            sz++;
+            node = node->next;
+        }
+        return sz;
     }
 
 private:
