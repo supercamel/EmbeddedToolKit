@@ -31,5 +31,5 @@ clean:
 	rm inc/etk/version.h
 
 install:
-	sudo cp -rf ./inc/etk /usr/include
-	sudo cp libetk.a /usr/lib
+	cp -rf ./inc/etk /mingw32/include
+	cp libetk.a /mingw32/lib

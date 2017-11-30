@@ -109,7 +109,7 @@ public:
         return q;
     }
 
-    void fromEuler(Vector<3> euler)
+    void from_euler(Vector<3> euler)
     {
         Quaternion h, p, r;
         Vector<3> v(0.0, 0.0, 1.0);
@@ -122,7 +122,7 @@ public:
         *this = (h*p*r);
     }
 
-    void fromAxisAngle(Vector<3> axis, real_t theta)
+    void from_axis_angle(Vector<3> axis, real_t theta)
     {
         _w = cosf(theta/2.0f);
         //only need to calculate sine of half theta once
@@ -132,7 +132,7 @@ public:
         _z = axis.z() * sht;
     }
 
-    void toAxisAngle(Vector<3>& axis, real_t& angle)
+    void to_axis_angle(Vector<3>& axis, real_t& angle)
     {
         normalize();
 
@@ -155,7 +155,7 @@ public:
     }
 
 
-    void fromMatrix(Matrix<3, 3> m)
+    void from_matrix(Matrix<3, 3> m)
     {
     	#ifdef ETK_MAX
         _w = sqrtf(max<real_t>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
@@ -174,7 +174,7 @@ public:
         _z = copysign_zero(_z, m(1,0) - m(0,1));
     }
 
-    Matrix<3, 3> toMatrix()
+    Matrix<3, 3> to_matrix()
     {
         Matrix<3,3> ret;
         ret.cell(0, 0) = 1-(2*(_y*_y))-(2*(_z*_z));
@@ -192,7 +192,7 @@ public:
     }
 
 
-    Vector<3> toEuler()
+    Vector<3> to_euler()
     {
         Vector<3> ret;
         real_t sqw = _w*_w;
@@ -209,7 +209,7 @@ public:
 
 
 
-    Vector<3> toAngularVelocity(real_t dt)
+    Vector<3> to_angular_velocity(real_t dt)
     {
         Vector<3> ret;
         if(dt == 0)
@@ -225,7 +225,7 @@ public:
 
     }
 
-    void fromAngularVelocity(Vector<3> w, real_t dt)
+    void from_angular_velocity(Vector<3> w, real_t dt)
     {
         real_t theta = w.magnitude() * dt;
         w.normalize();
@@ -234,13 +234,13 @@ public:
     }
 
 
-    Vector<3> rotateVector(Vector<2> v)
+    Vector<3> rotate_vector(Vector<2> v)
     {
         Vector<3> ret(v.x(), v.y(), 0.0);
         return rotateVector(ret);
     }
 
-    Vector<3> rotateVector(Vector<3> v)
+    Vector<3> rotate_vector(Vector<3> v)
     {
         Vector<3> qv(this->x(), this->y(), this->z());
         Vector<3> t;
