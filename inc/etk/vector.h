@@ -95,7 +95,7 @@ public:
      * @arg mag a magnitude
      * @arg dir a direction in radians ( use degrees_to_radians() if necessary )
      */
-    void from_polar(real_t mag, real_t dir)
+    void from_polar(const real_t mag, const real_t dir)
     {
         x() = mag*cosf(dir);
         y() = mag*sinf(dir);
@@ -105,7 +105,7 @@ public:
      * \brief gets the magnitude of the vector.
      * @return length of vector
      */
-    real_t magnitude()
+    real_t magnitude() const
     {
         real_t res = 0;
         uint32 i;

@@ -60,5 +60,6 @@
 #include "dynamic_list.h"
 #include "sigslot.h"
 #include "state_machine.h"
+#include "version.h"
 
 #endif
