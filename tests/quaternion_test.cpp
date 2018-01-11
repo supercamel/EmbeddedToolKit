@@ -15,10 +15,10 @@ bool quaternion_test(std::string& subtest)
     etk::Quaternion q;
     etk::Vector<3> euler(-45, 10, 30);
     euler.to_radians();
-    q.fromEuler(euler);
+    q.from_euler(euler);
     euler.to_degrees();
 
-    etk::Vector<3> eq = q.toEuler();
+    etk::Vector<3> eq = q.to_euler();
     eq.to_degrees();
 
     if(eq != euler)
@@ -27,7 +27,7 @@ bool quaternion_test(std::string& subtest)
     subtest = "gravity rotate";
     euler = etk::Vector<3>(90, 0, 0);
     euler.to_radians();
-    q.fromEuler(euler);
+    q.from_euler(euler);
 
     etk::Vector<3> gravity(5, 0, 9.8);
     etk::Vector<3> result = q*gravity;
@@ -37,10 +37,10 @@ bool quaternion_test(std::string& subtest)
 
     subtest = "axis angle";
     Vector<3> v(0.0, 1.0, 0.0);
-    q.fromAxisAngle(v, 0.84);
+    q.from_axis_angle(v, 0.84);
 
     real_t angle = 0;
-    q.toAxisAngle(v, angle);
+    q.to_axis_angle(v, angle);
 
     if(!compare(angle, 0.84, 0.01))
         return false;
@@ -53,8 +53,8 @@ bool quaternion_test(std::string& subtest)
     subtest = "angular vle";
     v = Vector<3>(0.01, 0.2, -0.05);
 
-    q.fromAngularVelocity(v, 0.01);
-    v = q.toAngularVelocity(0.01);
+    q.from_angular_velocity(v, 0.01);
+    v = q.to_angular_velocity(0.01);
 
     etk::StaticString<128> s;
     s += v;

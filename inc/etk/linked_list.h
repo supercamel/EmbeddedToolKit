@@ -143,9 +143,9 @@ public:
 
     bool front(T& t) const
     {
-        if(tail)
+        if(tail != nullptr)
         {
-            t = tail.data;
+            t = tail->data;
             return true;
         }
         return false;

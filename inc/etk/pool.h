@@ -67,6 +67,8 @@ class Pool
 public:
     virtual void* alloc(uint32 sz) = 0;
     virtual void free(void* ptr) = 0;
+    virtual void* realloc(void* ptr, uint32 sz) = 0;
+	virtual void coalesce() = 0;
 };
 
 class Heap : public Pool
@@ -78,9 +80,14 @@ public:
     void free(void* ptr) {
         ::free(ptr);
     }
+    void* realloc(void* ptr, uint32 sz) {
+        return ::realloc(ptr, sz);
+    }
+	void coalesce() {
+	}
 };
 
-template <uint32 SIZE> class MemPool : public Pool
+template <uint32 SIZE, uint32 CHUNK_SIZE = 64> class MemPool : public Pool
 {
 public:
     /**
@@ -127,18 +134,42 @@ public:
 
     void* realloc(void* ptr, uint32 sz)
     {
-        void* n = alloc(sz);
-        if(n == nullptr)
-            return nullptr;
+        if(ptr == nullptr)
+        {
+            return alloc(sz);
+        }
+        
+        uint8* cptr = (uint8*)ptr;
+        Block* pblock = reinterpret_cast<Block*>(cptr-sizeof(Block));
+        
+        //the allocation needs to be shrunk down
+        if(pblock->size < sz)
+        {
+            if((pblock->size - sz) > CHUNK_SIZE)
+            {
+                Block* free_block = reinterpret_cast<Block*>(cptr+sz);
+                free_block->size = pblock->size-sz;
+                add_to_list(free_block);
+            }
+        }
+        //the allocation needs to grow larger
+        else if(pblock->size > sz)
+        {
+            void* n = alloc(sz);
+            if(n == nullptr)
+                return nullptr;
 
-        char* pptr = (char*)ptr;
-        char* nptr = (char*)n;
-        for(uint32 i = 0; i < sz; i++)
-            nptr[i] = pptr[i];
+            char* pptr = (char*)ptr;
+            char* nptr = (char*)n;
+            for(uint32 i = 0; i < sz; i++)
+                nptr[i] = pptr[i];
 
-        if(ptr != nullptr)
-            free(ptr);
-        return n;
+            if(ptr != nullptr)
+                free(ptr);
+            return n;
+        }
+        
+        return ptr;
     }
 
     /**
@@ -155,14 +186,12 @@ public:
         add_to_list(pblock);
     }
 
-    /**
-     * coalesce_free_blocks scans through the list of free blocks and merges any adjacent blocks together.
-     *
-     * This helps minimize fragmentation. Remember the old windoze 95 hard drive defrag tool?
-     */
-    void coalesce_free_blocks()
-    {
-        bool changes = true;
+	/**
+	 * Joins free blocks together.
+	 */
+	void coalesce()
+	{
+	    bool changes = true;
         while(changes)
         {
             changes = false;
@@ -181,6 +210,15 @@ public:
                 pblock = pblock->next;
             }
         }
+	}
+    /**
+     * coalesce_free_blocks scans through the list of free blocks and merges any adjacent blocks together.
+     *
+     * This helps minimize fragmentation. Remember the old windoze 95 hard drive defrag tool?
+     */
+    void coalesce_free_blocks() __attribute__((deprecated("use coalesce() instead")))
+    {
+   		coalesce(); 
     }
 
     /*
@@ -228,10 +266,10 @@ private:
             if(pblock->size >= sz)
             {
                 //if the block is too big, split it
-                if((pblock->size - sz) >= chunk_size)
+                if((pblock->size - sz) >= CHUNK_SIZE)
                 {
                     //create second block at the end of this chunk of memory
-                    uint32 inc = ((sz/chunk_size)*chunk_size);
+                    uint32 inc = ((sz/CHUNK_SIZE)*CHUNK_SIZE);
                     if(sz%chunk_size)
                         inc += chunk_size;
 

@@ -192,7 +192,7 @@ public:
      * @arg a scalar to multiply the vector components by.
      * @return the new scaled vector.
      */
-    Vector scale(real_t scalar)
+    Vector scale(real_t scalar) const
     {
         Vector ret;
         for(uint32 i = 0; i < N; i++)
@@ -204,7 +204,7 @@ public:
      * \brief inverts the vector.
      * @return the inverted vector.
      */
-    Vector invert()
+    Vector invert() const
     {
         Vector ret;
         for(uint32 i = 0; i < N; i++)
@@ -227,7 +227,7 @@ t = [ 1, 2, 3 ]
      * @tparam nn the number of components in the new vector.
 	 * @arg n the start point of the sub vector
      */
-    template <uint32 nn> Vector<nn> sub_vector(uint32 n)
+    template <uint32 nn> Vector<nn> sub_vector(uint32 n) const
     {
         Vector<nn> ret;
         for(uint32 i = 0; i < nn; i++)
@@ -326,7 +326,7 @@ n = [ 0, 1, 2, 3, 4]
         set(args...);
     }
 
-    bool operator != (Vector v)
+    bool operator != (const Vector& v) const
     {
         return !(operator == (v));
     }
@@ -346,7 +346,7 @@ n = [ 0, 1, 2, 3, 4]
         return p_vec[n];
     }
 
-    Vector operator + (Vector v)
+    Vector operator + (const Vector& v) const
     {
         Vector r;
         for(uint32 i = 0; i < N; i++)
@@ -354,7 +354,7 @@ n = [ 0, 1, 2, 3, 4]
         return r;
     }
 
-    Vector operator - (Vector v)
+    Vector operator - (const Vector& v) const
     {
         Vector r;
         for(uint32 i = 0; i < N; i++)
@@ -362,7 +362,7 @@ n = [ 0, 1, 2, 3, 4]
         return r;
     }
 
-    Vector operator * (real_t scalar)
+    Vector operator * (real_t scalar) const
     {
         return scale(scalar);
     }
@@ -379,7 +379,7 @@ n = [ 0, 1, 2, 3, 4]
         return *this;
     }
 
-    Vector operator / (real_t scalar)
+    Vector operator / (real_t scalar) const
     {
         Vector ret;
         for(uint32 i = 0; i < N; i++)

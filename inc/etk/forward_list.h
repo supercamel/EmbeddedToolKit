@@ -2,6 +2,9 @@
 #ifndef ETK_FORWARD_LIST_H
 #define ETK_FORWARD_LIST_H
 
+#include <iostream>
+using namespace std;
+
 
 #include "pool.h"
 
@@ -11,7 +14,7 @@ namespace etk
 namespace experimental
 {
 
-template <typename T, uint32 SZ> class forward_list
+template <typename T> class forward_list
 {
 private:
     struct Node;
@@ -66,21 +69,21 @@ public:
         forward_list::Node* node;
     };
 
-    forward_list(MemPool<SZ>& pool) : pool(pool)
-    {
-    }
+	forward_list(etk::experimental::Pool* pool) : pool(pool)
+	{
 
+	}
+	
     ~forward_list()
     {
         Node* node = head;
         while(node != nullptr)
         {
             Node* pnext = node->next;
-            pool.free(node);
+            pool->free(node);
             node = pnext;
         }
     }
-
 
     Iterator begin()
     {
@@ -100,7 +103,7 @@ public:
 
     bool append(T t)
     {
-        Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
+        Node* node = static_cast<Node*>(pool->alloc(sizeof(Node)));
         if(node == nullptr)
             return false;
 
@@ -122,7 +125,7 @@ public:
 
     bool insert_before(Iterator iter, T t)
     {
-        Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
+        Node* node = static_cast<Node*>(pool->alloc(sizeof(Node)));
         if(node == nullptr)
             return false;
         node->data = t;
@@ -146,14 +149,13 @@ public:
             pnode = pnode->next;
         }
 
-        pool.free(node);
-        pool.coalesce_free_blocks();
-        return false;
+        pool->free(node);
+        pool->coalesce(); return false;
     }
 
     bool insert_after(Iterator iter, T t)
     {
-        Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
+        Node* node = static_cast<Node*>(pool->alloc(sizeof(Node)));
         if(node == nullptr)
             return false;
         node->data = t;
@@ -167,7 +169,7 @@ public:
     void remove_after(Iterator iter)
     {
         Node* pnext = iter.node->next->next;
-        pool.free(iter.node->next);
+        pool->free(iter.node->next);
         iter.node->next = pnext;
         return;
     }
@@ -179,8 +181,8 @@ public:
         if(node->data == t)
         {
             node = node->next;
-            pool.free(head);
-            pool.coalesce_free_blocks();
+            pool->free(head);
+            pool->coalesce();
             head = node;
             return;
         }
@@ -190,8 +192,8 @@ public:
             if(node->next->data == t)
             {
                 Node* pnext = node->next->next;
-                pool.free(node->next);
-                pool.coalesce_free_blocks();
+                pool->free(node->next);
+                pool->coalesce();
                 node->next = pnext;
                 return;
             }
@@ -208,7 +210,7 @@ public:
             if(head)
             {
                 Node* pnext = head->next;
-                pool.free(head);
+                pool->free(head);
                 head = pnext;
             }
             return;
@@ -223,7 +225,7 @@ public:
             if(n == c)
             {
                 Node* pnext = node->next->next;
-                pool.free(node->next);
+                pool->free(node->next);
                 node->next = pnext;
                 return;
             }
@@ -238,18 +240,30 @@ public:
         while(node != nullptr)
         {
             Node* next = node->next;
-            pool.free(node);
+            pool->free(node);
             node = next;
         }
         head = nullptr;
     }
+
+	bool push_head(const T t)
+	{
+		Node* node = static_cast<Node*>(pool->alloc(sizeof(Node)));
+        if(node == nullptr)
+            return false;
+
+        node->data = t;
+        node->next = head;
+        head = node;
+        return true;
+	}
 
     void pop_head()
     {
         if(head)
         {
             Node* pnext = head->next;
-            pool.free(head);
+            pool->free(head);
             head = pnext;
         }
     }
@@ -294,7 +308,7 @@ private:
     };
 
     Node* head = nullptr;
-    MemPool<SZ>& pool;
+	etk::experimental::Pool* pool = nullptr;
 };
 
 }

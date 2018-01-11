@@ -35,5 +35,8 @@ bool pool_test(string& subtest)
     if(pto->get_ss() != "Hello world!")
         return false;
 
+    subtest = "realloc";
+    
+    experimental::MemPool<128, 4> ipool;
     return true;
 }

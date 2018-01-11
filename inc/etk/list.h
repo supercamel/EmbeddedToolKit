@@ -148,7 +148,7 @@ public:
     /**
      * \brief Adds an item to the end of the list and increments the size of the list by 1.
      */
-    void append(T t)
+    bool append(T t)
     {
         if(size() < L)
         {
@@ -156,7 +156,9 @@ public:
             T* pt = (T*)space;
             pt += list_end;
             new(pt)T(t);
+            return true;
         }
+        return false;
     }
 
     /**
@@ -164,7 +166,7 @@ public:
      * @arg T the item to be inserted.
      * @arg pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list.
      */
-    void insert(T t, uint32 pos)
+    bool insert(T t, uint32 pos)
     {
         if((pos <= size()) && (size() < L))
         {
@@ -174,7 +176,10 @@ public:
 
             new(&pt[pos])T(t);
             list_end++;
+
+            return true;
         }
+        return false;
     }
 
     /**
@@ -221,6 +226,7 @@ public:
      */
     void erase(uint16 pos, uint16 len)
     {
+        //TODO calling remove() isn't very efficient
         for(uint32 i = 0; i < len; i++)
             remove(pos);
     }
