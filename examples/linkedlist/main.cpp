@@ -62,8 +62,8 @@ int main()
 		if(next->next == nullptr) //check if the call to pool.alloc() has worked
 			break; //if not, break the loop
 			
-		next = next->next; //move on to next node
 		next->text = count; //set the text to node counter
+		next = next->next; //move on to next node
 		count++; //increment node counter
 	}
 	
