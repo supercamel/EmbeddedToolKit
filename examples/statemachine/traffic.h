@@ -3,6 +3,7 @@
 
 #include <etk/etk.h>
 #include <iostream>
+#include "time.h"
 
 /**
  * State machines are everywhere. They are implemented in microcontrollers and
@@ -94,12 +95,12 @@ public:
 		add_entry_callback(STATE::NS_YELLOW, &TrafficController::on_ns_yellow_entry);
 		
 		//set start time for timing
-		start = etk::now();
+		start = now();
 	}
 	
 	void reset_time()
 	{
-		start = etk::now();
+		start = now();
 	}
 	
 
@@ -123,17 +124,17 @@ private:
 	
 	bool green_timer_check()
 	{
-		return(etk::now().diff_time(start) > 5.0);
+		return(now().diff_time(start) > 5.0);
 	}
 	
 	bool yellow_timer_check()
 	{
-		return(etk::now().diff_time(start) > 3.0);
+		return(now().diff_time(start) > 3.0);
 	}
 	
 	bool both_red_check()
 	{
-		return(etk::now().diff_time(start) > 2.0);
+		return(now().diff_time(start) > 2.0);
 	}
 	
 	//this is a boilerplate function. it must be implemented.
@@ -143,7 +144,7 @@ private:
 		etk::unused(last);
 		etk::unused(from);
 		etk::unused(to);
-		start = etk::now();
+		start = now();
 	}
 	
 	//this is also boilerplate code. 

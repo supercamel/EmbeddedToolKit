@@ -216,7 +216,7 @@ public:
      *
      * This helps minimize fragmentation. Remember the old windoze 95 hard drive defrag tool?
      */
-    void coalesce_free_blocks() __attribute__((deprecated("use coalesce() instead")))
+    void coalesce_free_blocks()
     {
    		coalesce(); 
     }

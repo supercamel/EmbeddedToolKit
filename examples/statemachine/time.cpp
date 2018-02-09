@@ -7,10 +7,8 @@ using namespace std;
 etk::Time _now;
 auto start_time = std::chrono::high_resolution_clock::now();
  
-namespace etk
-{
  
-Time now()
+etk::Time now()
 {
     auto end_time = std::chrono::high_resolution_clock::now();
     auto seconds = std::chrono::duration_cast<std::chrono::seconds>(end_time - start_time).count();
@@ -31,6 +29,6 @@ void sleep_us(uint32_t us)
     std::this_thread::sleep_for(std::chrono::microseconds(us));
 }
  
-}
+
 
 

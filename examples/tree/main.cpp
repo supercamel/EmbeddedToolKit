@@ -10,8 +10,8 @@ using namespace etk;
 
 
 struct node;
-typedef ObjPool<node, 1024*3> pool_type;
-typedef PoolPtr<pool_type, node> node_ptr;
+typedef experimental::ObjPool<node, 1024*3> pool_type;
+typedef experimental::PoolPtr<pool_type, node> node_ptr;
 
 const int max_depth = 5;
 

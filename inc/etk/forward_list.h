@@ -2,9 +2,6 @@
 #ifndef ETK_FORWARD_LIST_H
 #define ETK_FORWARD_LIST_H
 
-#include <iostream>
-using namespace std;
-
 
 #include "pool.h"
 

@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -g -Wall -Wextra -Werror -std=c++14 -I../../inc
+CFLAGS=-c -g -Wall -Wextra -std=c++14 -I../../inc
 LDFLAGS= -L../../lib -letk
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(patsubst %.cpp,%.o,$(wildcard *.cpp)) 

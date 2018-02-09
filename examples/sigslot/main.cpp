@@ -22,7 +22,7 @@ public:
 		something_detected_signal.emit(10.5);
 	}
 	
-	etk::Signal1<void, float> hot_enough_signal;
+	etk::Signal1<void, float> something_detected_signal;
 };
 
 class Controller
@@ -46,12 +46,12 @@ public:
 	
 int main()
 {
-	Sensor sensor;
+	TempSensor sensor;
 	Controller controller;
 	
 	sensor.something_detected_signal.connect(controller.something_measured_slot);
 	
-	sensor.check_something();
+	sensor.check_temperature();
 }
 
 

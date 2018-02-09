@@ -1,3 +1,4 @@
+#include <iostream>
 
 #include "harness.h"
 #include "rope_tests.h"
@@ -45,6 +46,11 @@ bool limiter_test(std::string& subtest)
 int main()
 {
     TestHarness th("ETK Test Harness");
+   	std::cout << "Version string: " << etk::Version::version << std::endl;
+   	etk::unused(etk::Version::year);
+   	etk::unused(etk::Version::month);
+   	etk::unused(etk::Version::day);
+
     th.add_module(pool_test, "Pool test");
 
     
