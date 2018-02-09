@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-c -g -Wall -Wextra -std=c++14 -I../../inc
-LDFLAGS= -L../../ -letk
+LDFLAGS= 
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(patsubst %.cpp,%.o,$(wildcard *.cpp)) 
 EXECUTABLE=strings

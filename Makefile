@@ -13,7 +13,6 @@ $(EXECUTABLE): $(OBJECTS) $(TEST_OBJECTS)
 	mkdir -p bin
 	$(CC) $(LDFLAGS) $(OBJECTS) $(TEST_OBJECTS) -o $@
 	./bin/main
-	ar rcs libetk.a $(OBJECTS)
 
 .obj/%.o:src/%.cpp
 	$(CC) $(CFLAGS) $< -o $@
@@ -32,4 +31,3 @@ clean:
 
 install:
 	cp -rf ./inc/etk /mingw32/include
-	cp libetk.a /mingw32/lib
