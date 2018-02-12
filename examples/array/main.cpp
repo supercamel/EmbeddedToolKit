@@ -7,7 +7,7 @@ using namespace etk;
 
 
 /**
- * C-styled arrays are typically passed to functions are pointers.
+ * C-styled arrays are typically passed to functions as pointers.
  *      foo(int* arr);
  * It's not exactly clear how long arr is, and the length of arr cannot be checked. It's a bug waiting to happen.
  *
@@ -34,5 +34,23 @@ int main()
 	foo(arr);
 	
 	cout << endl;
+	
+	//some alternative constructors/initialisers
+	//note that the number of parameters to the constructor can be between zero and the length of the array
+	//providing more parameters will cause a compile time error
+	//auto a = Array<int, 5>(1, 2, 3); //this is valid
+	auto a = Array<int, 5>(1, 2, 3, 4, 5);
+	for(auto i : a)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
+
+	Array<int, 5> b = {1, 2, 3, 4, 5};
+
+	//warning: when initialising from an existing array or pointer, the etk::Array class expects 
+	//the existing array is of the same size
+	int c_array[] = {1, 2, 3, 4, 5};
+	Array<int, 5> c = c_array;
 }
 
