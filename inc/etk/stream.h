@@ -21,6 +21,16 @@
 #include "staticstring.h"
 #include "vector.h"
 #include "matrix.h"
+#include <iostream>
+
+
+#define LF 10
+#define CR 13
+#define NULC  (char)(0)
+// This string contains all the printable/keyable characters used in the kernel
+const char ChkStr[] ={
+	"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -+*/%&|^:=()[]$\",.;<>"
+};
 
 namespace etk
 {
@@ -28,6 +38,11 @@ namespace etk
 template <class derived> class Stream
 {
 public:
+	//StaticString<84> ChkStr = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -+*/%&|^:=()[]$\",.;<>";
+	//etk::StaticString<128> line;
+	char linebuf[100];  // Line buffer used for command line input
+	char *cline = linebuf;
+
     void print(const char* cstr)
     {
         while(*cstr != '\0')
@@ -86,12 +101,70 @@ public:
         return *this;
     }
 
-
     template<uint32 L> Stream& operator << (StaticString<L> ss)
     {
         print(ss);
         return *this;
     }
+
+	char *strchr(char *s, char c){
+		int i=0;
+		std::cout << "Enter----->: " << s[i] << std::endl;
+		for ( i=0; s[i]!='\0'; i++){
+			std::cout << s[i] << std::endl;
+			if(s[i]==c){
+				s = s+i;
+				std::cout << "Returning" << std::endl;
+				return s;
+			}
+		}
+		return 0;
+	}
+
+	void putChar( char c){
+		print(c);
+	}
+
+	unsigned int getChar(){
+		//platform Oriented getChar()
+		//for desktop version include <iostream> and use getchar()
+		return getchar();
+	}
+
+	int getLine(){
+		unsigned int c;
+		c = getChar();
+		switch(c){
+			case 0x0: return(-1);
+			case 0x100 : return(-1); /* Nothing entered */
+			case 27 : return(-2); /* Escape key      */
+			case 1  : return(-3); /* <Ctrl A> key    */
+			case 8  : /* <Backspace>     */
+				*cline-- = (char)0;
+				*cline = (char)0;
+				//printBackspace();
+				return(0);
+			default : /* <Enter>: line ready to be processed */
+				if ((c == CR) | (c == LF)){
+					*cline = NULC;
+					cline = linebuf;
+					return(1);
+				}
+				/* If valid character, print and put character in line buffer */
+				std::cout << "Debug" << std::endl;
+				if(strchr((char *)ChkStr,(char)c)!= 0 /*NULC*/){
+					*cline++ = (char)c;
+					*cline = NULC;
+					std::cout << "Debug" << std::endl;
+					putChar(c);
+
+					return(0);
+				}
+				else{
+					return (-1);
+				}
+		}
+	}
 
 };
 
