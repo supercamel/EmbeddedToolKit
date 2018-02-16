@@ -5,13 +5,19 @@ using namespace std;
 using namespace etk;
 using CMD_PFUNC = int (*) (void);
 
-typedef struct ct{
+struct ctable{
+	ctable(StaticString<5> name, CMD_PFUNC f) : name(name), f(f) { }
 	StaticString<5> name;
-	CMD_PFUNC f;     		//pointer to function for this item
-}ctable;
+	CMD_PFUNC f;
+};
+
+List<ctable, 3> list;
 
 int do_help(){
-	cout << "This and that and this and that" << endl;
+	cout<< "Available commands are: " <<endl;
+	for(auto i : list){
+		cout <<i.name.c_str() << endl;
+	}
 	return 0;
 }
 
@@ -21,39 +27,29 @@ int do_runc(){
 }
 
 int do_exit(){
-	printf("EXIT\r\n");
+	printf("Exiting...\r\n");
+	exit(0);
 	return 0;
 }
 
+void loadCommandList(){
+// Initialize list with some dummy functions
+	list.append({"help", do_help});
+	list.append({"runc", do_runc});
+	list.append({"exit", do_exit});
+}
+
 int main(){
-// Initialize list
-	List<ctable, 3> list;
+	int cnt=0;
+	string userInput;
 
-	ctable helpCmd;
-	helpCmd.name = "help";
-	helpCmd.f = do_help;
+	loadCommandList();
 
-	ctable runCmd;
-	runCmd.name = "runc";
-	runCmd.f = do_runc;
-
-	ctable exitCmd;
-	exitCmd.name = "exit";
-	exitCmd.f = do_exit;
-
-	list.append(helpCmd);
-	list.append(runCmd),
-	list.append(exitCmd);
-// <<-
-
-	cout<< "Available commands are: " <<endl;
-	for(auto i : list){
-		cout << i.name.c_str() << endl;
-	}
+	cout << "Command Line interface example\r\n";
+	cout << "Type help for a list of commands\r\n";
+	cout << "================================\r\n";
 	cout << "> ";
 
-	string userInput;
-	int cnt=0;
 	while(1){
 		cnt=0;
 		getline(cin, userInput);
@@ -63,7 +59,7 @@ int main(){
 				break;
 			}
 			else if(cnt == list.size()-1){
-				cout << "No such command!" << endl;
+				cout << "No such command! Type help for a list of commands." << endl;
 			}
 			cnt++;
 		}
