@@ -40,7 +40,7 @@ void loadCommandList(){
 }
 
 int main(){
-	int cnt=0;
+
 	string userInput;
 
 	loadCommandList();
@@ -51,7 +51,7 @@ int main(){
 	cout << "> ";
 
 	while(1){
-		cnt=0;
+		int cnt=0;
 		getline(cin, userInput);
 		for(auto& i : list){
 			if(i.name.compare(userInput.c_str())){
