@@ -26,11 +26,7 @@
 
 #define LF 10
 #define CR 13
-#define NULC  (char)(0)
-// This string contains all the printable/keyable characters used in the kernel
-const char ChkStr[] ={
-	"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -+*/%&|^:=()[]$\",.;<>"
-};
+#define INPUT_BUFFER_MAX_SIZE 80
 
 namespace etk
 {
@@ -38,11 +34,6 @@ namespace etk
 template <class derived> class Stream
 {
 public:
-	//StaticString<84> ChkStr = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -+*/%&|^:=()[]$\",.;<>";
-	//etk::StaticString<128> line;
-	char linebuf[100];  // Line buffer used for command line input
-	char *cline = linebuf;
-
     void print(const char* cstr)
     {
         while(*cstr != '\0')
@@ -107,57 +98,28 @@ public:
         return *this;
     }
 
-	char *strchr(char *s, char c){
-		int i=0;
-		std::cout << "Enter----->: " << s[i] << std::endl;
-		for ( i=0; s[i]!='\0'; i++){
-			std::cout << s[i] << std::endl;
-			if(s[i]==c){
-				s = s+i;
-				std::cout << "Returning" << std::endl;
-				return s;
-			}
-		}
-		return 0;
-	}
-
-	void putChar( char c){
-		print(c);
-	}
-
-	unsigned int getChar(){
-		//platform Oriented getChar()
-		//for desktop version include <iostream> and use getchar()
-		return getchar();
-	}
-
 	int getLine(){
-		unsigned int c;
-		c = getChar();
+		// This string contains all the printable/keyable characters used in the kernel
+		char validChar[85]={"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -+*/%&|^:=()[]$\",.;<>"};
+		Rope ChkStr((char *)validChar,85);
+
+		char c;
+		c = static_cast<derived*>(this)->get();
 		switch(c){
 			case 0x0: return(-1);
-			case 0x100 : return(-1); /* Nothing entered */
-			case 27 : return(-2); /* Escape key      */
-			case 1  : return(-3); /* <Ctrl A> key    */
-			case 8  : /* <Backspace>     */
-				*cline-- = (char)0;
-				*cline = (char)0;
-				//printBackspace();
+			case 0x100 : return(-1); 	/* Nothing entered */
+			case 27 : return(-2); 		/* Escape key      */
+			case 1  : return(-3); 		/* <Ctrl A> key    */
+			case 8  : 					/* <Backspace> */
+				inputBuff.set_cursor(inputBuff.get_cursor()-1);
 				return(0);
 			default : /* <Enter>: line ready to be processed */
 				if ((c == CR) | (c == LF)){
-					*cline = NULC;
-					cline = linebuf;
+					inputBuff << '\0';
 					return(1);
 				}
-				/* If valid character, print and put character in line buffer */
-				std::cout << "Debug" << std::endl;
-				if(strchr((char *)ChkStr,(char)c)!= 0 /*NULC*/){
-					*cline++ = (char)c;
-					*cline = NULC;
-					std::cout << "Debug" << std::endl;
-					putChar(c);
-
+				if(ChkStr.strchr(c)!= nullptr){
+					inputBuff.append(c);
 					return(0);
 				}
 				else{
@@ -165,6 +127,14 @@ public:
 				}
 		}
 	}
+
+	void putInput(){
+		print(inputBuff);
+	}
+	
+private:
+	char inputBuffer[INPUT_BUFFER_MAX_SIZE];
+	Rope inputBuff = Rope(inputBuffer,INPUT_BUFFER_MAX_SIZE);
 
 };
 
