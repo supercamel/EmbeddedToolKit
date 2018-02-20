@@ -22,6 +22,10 @@
 #include "vector.h"
 #include "matrix.h"
 
+#define LF 10
+#define CR 13
+#define INPUT_BUFFER_MAX_SIZE 80
+
 namespace etk
 {
 
@@ -86,12 +90,49 @@ public:
         return *this;
     }
 
-
     template<uint32 L> Stream& operator << (StaticString<L> ss)
     {
         print(ss);
         return *this;
     }
+
+	int getLine(){
+		// This string contains all the printable/keyable characters used in the kernel
+		char validChar[85]={"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -+*/%&|^:=()[]$\",.;<>"};
+		Rope ChkStr((char *)validChar,85);
+
+		char c;
+		c = static_cast<derived*>(this)->get();
+		switch(c){
+			case 0x0: return(-1);
+			case 0x100 : return(-1); 	/* Nothing entered */
+			case 27 : return(-2); 		/* Escape key      */
+			case 1  : return(-3); 		/* <Ctrl A> key    */
+			case 8  : 					/* <Backspace> */
+				inputBuff.set_cursor(inputBuff.get_cursor()-1);
+				return(0);
+			default : /* <Enter>: line ready to be processed */
+				if ((c == CR) | (c == LF)){
+					inputBuff << '\0';
+					return(1);
+				}
+				if(ChkStr.strchr(c)!= nullptr){
+					inputBuff.append(c);
+					return(0);
+				}
+				else{
+					return (-1);
+				}
+		}
+	}
+
+	void putInput(){
+		print(inputBuff);
+	}
+	
+private:
+	char inputBuffer[INPUT_BUFFER_MAX_SIZE];
+	Rope inputBuff = Rope(inputBuffer,INPUT_BUFFER_MAX_SIZE);
 
 };
 

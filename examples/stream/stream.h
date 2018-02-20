@@ -28,7 +28,8 @@
  * In an embedded environment, 'put' could transmit via UART or display onto an LCD screen.
  *
  */
- 
+#include <iostream>
+
 class Stream : public etk::Stream<Stream>
 {
 public:
@@ -37,6 +38,12 @@ public:
     {
         std::cout << c;
     }
+
+    unsigned int get(){
+		//platform Oriented getChar()
+		//for desktop version include <iostream> and use getchar()
+		return getchar();
+	}
 };
 
 
