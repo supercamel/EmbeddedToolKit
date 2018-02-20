@@ -21,8 +21,6 @@
 #include "staticstring.h"
 #include "vector.h"
 #include "matrix.h"
-#include <iostream>
-
 
 #define LF 10
 #define CR 13
