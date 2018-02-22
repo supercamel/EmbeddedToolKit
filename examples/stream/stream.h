@@ -37,6 +37,32 @@ public:
     {
         std::cout << c;
     }
+
+	uint32 available()
+	{
+		int32 r = buf_len - buf_pos;
+		if(r > 0)
+			return r;
+		return 0;
+	}
+
+	char get()
+	{
+		if(buf_pos < buf_len)
+			return in_buf[buf_pos++];
+		return 0;
+	}
+
+	void reset()
+	{
+		buf_pos = 0;
+	}
+
+private:
+	char* in_buf = "A line\nA number: 86\naaa23.5";
+	int buf_len = etk::Rope::c_strlen(in_buf, 256);
+	int buf_pos = 0;
+
 };
 
 
