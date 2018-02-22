@@ -64,7 +64,7 @@ public:
 	 * \brief Reads all available bytes into obj. 
 	 * There is no bounds checking in this function so obj must be immune to buffer overruns.
 	 */
-	void read(auto& obj)
+	template<typename T> void read(T& obj)
 	{
 		uint32 count = 0;
 		while(static_cast<derived*>(this)->available() > 0)
@@ -82,7 +82,7 @@ public:
 		uint32 count = 0;
 		while((static_cast<derived*>(this)->available() > 0) && (count < max_len)) 
 		{
-			obj[count++] = static_cast<derived*>(this)->get();
+			cstr[count++] = static_cast<derived*>(this)->get();
 		}
 	}
 
