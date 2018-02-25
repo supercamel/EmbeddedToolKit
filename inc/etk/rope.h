@@ -476,6 +476,20 @@ public:
 		}
 	}
 
+	void make_hex(const uint16 s)
+	{
+		u16b u;
+		u.u = s;
+
+		char buf[3];
+		Rope r(buf, 3);
+		r.make_hex(u.bytes[1]);
+		
+		append(buf);
+		r.clear();
+		r.make_hex(u.bytes[0]);
+		append(buf);	
+	}
 
     const char* c_str()
     {

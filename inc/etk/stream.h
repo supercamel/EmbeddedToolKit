@@ -28,6 +28,64 @@ namespace etk
 template <class derived> class Stream
 {
 public:
+	/**
+	 * \brief Reads characters into str until either the stop character is read or max_len is reached
+	 * \return the number of bytes read
+	 */
+	uint32 get_until(char* str, char stop, uint32 max_len)
+	{
+		uint32 count = 0;
+		while(static_cast<derived*>(this)->available() > 0)
+		{
+			char c = static_cast<derived*>(this)->get();
+			str[count] = c;
+			if(c == stop)
+			{
+				break;
+			}
+			if(++count >= max_len)
+			{
+				break;
+			}
+		}
+		return count;
+	}
+
+	/**
+	 * \brief Reads a line from the input stream.
+	 * stops reading when a '\n' char is read or max_len is reached.
+	 */
+	uint32 getline(char* str, uint32 max_len)
+	{
+		return get_until(str, '\n', max_len);
+	}
+
+	/**
+	 * \brief Reads all available bytes into obj. 
+	 * There is no bounds checking in this function so obj must be immune to buffer overruns.
+	 */
+	template<typename T> void read(T& obj)
+	{
+		uint32 count = 0;
+		while(static_cast<derived*>(this)->available() > 0)
+		{
+			obj[count++] = static_cast<derived*>(this)->get();
+		}
+	}
+
+	/**
+	 * \brief Copies characters from the input stream to cstr until there are no more bytes or max_len is reached.
+	 *
+	 */
+	void read(char* cstr, uint32 max_len)
+	{
+		uint32 count = 0;
+		while((static_cast<derived*>(this)->available() > 0) && (count < max_len)) 
+		{
+			cstr[count++] = static_cast<derived*>(this)->get();
+		}
+	}
+
     void print(const char* cstr)
     {
         while(*cstr != '\0')

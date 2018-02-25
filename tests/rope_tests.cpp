@@ -253,8 +253,28 @@ bool test_rope(std::string& subtest)
     uint32 r = rope.parse_hex(0);
     
     rope.clear();
-    rope.make_hex(0x6F);
+    rope.make_hex((uint8)0x6F);
     
+
+	subtest = "making hex strings from uint16 type";
+	uint16_t h = 0xF842;
+	rope.clear();
+	rope.make_hex(h);
+
+	if(rope != "F842")
+	{
+		return false;
+	}
+
+	h = 0x3F;
+	rope.clear();
+	rope.make_hex(h);
+
+	cout << buf << endl;
+	if(rope != "3F")
+	{
+		return false;
+	}
 
     return true;
 }
