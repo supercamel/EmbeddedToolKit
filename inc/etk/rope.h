@@ -580,6 +580,18 @@ public:
 		return maxlen;
 	}
 
+	char *strchr(char c){
+		unsigned int i=0;
+		char *s;
+		for ( i=0; i < this->length(); i++){
+			if((this->str[i])==c){
+				s = &(this->str[i]);
+				return s;
+			}
+		}
+		return 0;
+	}
+
 private:
     void terminate()
     {
