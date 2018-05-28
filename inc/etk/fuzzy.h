@@ -24,7 +24,7 @@ namespace etk
 /**
  * \class Fuzzy
  *
- * \brief Fuzzy logic class. Fuzzy logic can be used for function approximation, control applications, signal process, AI and so on.
+ * \brief Fuzzy logic class. Fuzzy logic can be used for function approximation, control applications, signal processing, AI and so on.
  * Here is a tutorial on using Fuzzy logic with ETK
  * http://www.camelsoftware.com/blog/2015/12/12/fuzzy-logic-control-part-1/
  *
@@ -181,6 +181,14 @@ public:
         sets[sets.size()-1].set_position(Set::END);
     }
 
+    void add_set(float min, float mid, float max, float val)
+    {
+        Set s;
+        s.set_points(min, mid, max);
+        s.set_value(val);
+        add_set(s);
+    }
+
     /**
      * \brief Returns the number of sets.
      */
@@ -209,6 +217,15 @@ public:
             out += set.get_result(crisp_in);
         return out;
     }
+
+    /**
+     * \brief Alternative to crisp_in that avoids the irritating terminology.
+     */
+    real_t get(real_t crisp_in)
+    {
+        return crisp_out(crisp_in);
+    }
+
 
     /**
      * \brief Returns a fuzzy logic class that is inverted.
