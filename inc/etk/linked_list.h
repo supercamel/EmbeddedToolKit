@@ -23,7 +23,7 @@ public:
     public:
         Iterator() { }
 
-        Iterator(linked_list::Node* head) : node(head) { }
+        Iterator(typename linked_list::Node* head) : node(head) { }
         void next()
         {
             node = node->next;
@@ -63,7 +63,7 @@ public:
         }
 
     private:
-        linked_list::Node* node;
+        typename linked_list::Node* node;
     };
 
     linked_list(POOL_T& pool) : pool(pool)

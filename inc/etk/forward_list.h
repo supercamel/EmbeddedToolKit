@@ -23,7 +23,7 @@ public:
     public:
         Iterator() { }
 
-        Iterator(forward_list::Node* head) : node(head) { }
+        Iterator(typename forward_list::Node* head) : node(head) { }
         void next()
         {
             node = node->next;
@@ -63,7 +63,7 @@ public:
         }
 
     private:
-        forward_list::Node* node;
+        typename forward_list::Node* node;
     };
 
 	forward_list(etk::experimental::Pool* pool) : pool(pool)
