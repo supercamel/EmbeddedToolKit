@@ -648,7 +648,7 @@ public:
     //output would be 05 34 -9.5
     @endcode
      */
-     
+
 #ifndef __AVR__
     template<typename... Args> void scan(Args&... args)
     {

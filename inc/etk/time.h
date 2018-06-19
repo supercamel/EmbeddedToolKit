@@ -32,24 +32,24 @@ class Time
 {
     friend void tick();
 public:
-    Time() 
+    Time()
     {
         setnull();
     }
-    
-    Time(Time& d) 
+
+    Time(Time& d)
     {
         sec = d.sec;
         mic = d.mic;
     }
-    
-    Time(volatile Time& d) 
+
+    Time(volatile Time& d)
     {
         sec = d.sec;
         mic = d.mic;
     }
-    
-    Time(const Time& d) 
+
+    Time(const Time& d)
     {
         sec = d.sec;
         mic = d.mic;
@@ -57,10 +57,10 @@ public:
 
     Time& operator=(const Time& d) volatile
     {
-		sec = d.sec;
-		mic = d.mic;
-		return (Time&)*this;
-	}
+        sec = d.sec;
+        mic = d.mic;
+        return (Time&)*this;
+    }
 
     /**
      * \brief Calculates the difference between two Times in seconds.
@@ -75,19 +75,19 @@ public:
      */
     real_t diff_time(const Time& then)
     {
-		real_t ret;
-		ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
-		ret += ((real_t)sec - (real_t)then.seconds());
-		return ret;
-	}
-	
+        real_t ret;
+        ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
+        ret += ((real_t)sec - (real_t)then.seconds());
+        return ret;
+    }
+
     real_t diff_time(Time then) volatile
     {
-		real_t ret;
-		ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
-		ret += ((real_t)sec - (real_t)then.seconds());
-		return ret;
-	}
+        real_t ret;
+        ret = (((real_t)mic - (real_t)then.micros())/1000000.0f);
+        ret += ((real_t)sec - (real_t)then.seconds());
+        return ret;
+    }
 
     /**
      * \brief Same as Time::diff_time but the return value is in milliseconds rather than seconds.
@@ -96,8 +96,8 @@ public:
     {
         return diff_time(then)*1000.0f;
     }
-    
-    real_t diff_time_ms(Time then) volatile 
+
+    real_t diff_time_ms(Time then) volatile
     {
         return diff_time(then)*1000.0f;
     }
@@ -107,35 +107,35 @@ public:
      */
     void setnull()
     {
-		mic = sec = 0;
-	}
-	
+        mic = sec = 0;
+    }
+
     void setnull() volatile
     {
-		mic = sec = 0;
-	}
+        mic = sec = 0;
+    }
 
     /**
      * \brief Returns true is the time is zero.
      */
     bool is_nulltime()
     {
-		if((mic == 0) && (sec == 0))
-			return true;
-		return false;
-	}
+        if((mic == 0) && (sec == 0))
+            return true;
+        return false;
+    }
 
     bool is_nulltime() volatile
     {
-		if((mic == 0) && (sec == 0))
-			return true;
-		return false;
-	}
+        if((mic == 0) && (sec == 0))
+            return true;
+        return false;
+    }
 
     /**
      * \brief Returns a reference to the seconds counter.
      */
-    uint32& seconds() 
+    uint32& seconds()
     {
         return sec;
     }
@@ -143,19 +143,19 @@ public:
     /**
      * \brief Returns a reference to the microsecond counter.
      */
-    uint32& micros() 
+    uint32& micros()
     {
         return mic;
     }
-    
+
     uint32 seconds() const
     {
-    	return sec;
+        return sec;
     }
-    
+
     uint32 micros() const
     {
-    	return mic;
+        return mic;
     }
 
     volatile uint32& seconds() volatile {
@@ -176,13 +176,13 @@ public:
      */
     void to_rope(Rope& r)
     {
-		r.clear();
-		int32 days = sec / 60 / 60 / 24;
-		int32 hours = (sec / 60 / 60) % 24;
-		int32 minutes = (sec / 60) % 60;
-		int32 seconds = sec % 60;
-		r << days << " days, " << hours << " hours, " << minutes << " mins, " << seconds << " seconds";
-	}
+        r.clear();
+        int32 days = sec / 60 / 60 / 24;
+        int32 hours = (sec / 60 / 60) % 24;
+        int32 minutes = (sec / 60) % 60;
+        int32 seconds = sec % 60;
+        r << days << " days, " << hours << " hours, " << minutes << " mins, " << seconds << " seconds";
+    }
 
 
 private:

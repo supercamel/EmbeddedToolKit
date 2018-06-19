@@ -36,7 +36,7 @@ bool pool_test(string& subtest)
         return false;
 
     subtest = "realloc";
-    
+
     experimental::MemPool<128, 4> ipool;
     return true;
 }

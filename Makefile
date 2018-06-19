@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -g -Wall -Wextra -fno-strict-overflow -Wstrict-overflow=50 -std=c++11 -I./inc -I/usr/include/eigen3
+CFLAGS=-c -g -Wall -Wextra -fno-strict-overflow -Wstrict-overflow=5 -std=c++11 -I./inc -I/usr/include/eigen3
 LDFLAGS=
 SOURCES=$(wildcard src/*.cpp) $(wildcard tests/*.cpp)
 HEADERS=$(wildcard inc/etk/*.h)

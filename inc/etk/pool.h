@@ -68,7 +68,7 @@ public:
     virtual void* alloc(uint32 sz) = 0;
     virtual void free(void* ptr) = 0;
     virtual void* realloc(void* ptr, uint32 sz) = 0;
-	virtual void coalesce() = 0;
+    virtual void coalesce() = 0;
 };
 
 class Heap : public Pool
@@ -83,8 +83,8 @@ public:
     void* realloc(void* ptr, uint32 sz) {
         return ::realloc(ptr, sz);
     }
-	void coalesce() {
-	}
+    void coalesce() {
+    }
 };
 
 template <uint32 SIZE, uint32 CHUNK_SIZE = 64> class MemPool : public Pool
@@ -138,10 +138,10 @@ public:
         {
             return alloc(sz);
         }
-        
+
         uint8* cptr = (uint8*)ptr;
         Block* pblock = reinterpret_cast<Block*>(cptr-sizeof(Block));
-        
+
         //the allocation needs to be shrunk down
         if(pblock->size < sz)
         {
@@ -168,7 +168,7 @@ public:
                 free(ptr);
             return n;
         }
-        
+
         return ptr;
     }
 
@@ -186,12 +186,12 @@ public:
         add_to_list(pblock);
     }
 
-	/**
-	 * Joins free blocks together.
-	 */
-	void coalesce()
-	{
-	    bool changes = true;
+    /**
+     * Joins free blocks together.
+     */
+    void coalesce()
+    {
+        bool changes = true;
         while(changes)
         {
             changes = false;
@@ -210,7 +210,7 @@ public:
                 pblock = pblock->next;
             }
         }
-	}
+    }
     /**
      * coalesce_free_blocks scans through the list of free blocks and merges any adjacent blocks together.
      *
@@ -218,7 +218,7 @@ public:
      */
     void coalesce_free_blocks()
     {
-   		coalesce(); 
+        coalesce();
     }
 
     /*

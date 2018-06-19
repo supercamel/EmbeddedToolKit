@@ -118,24 +118,24 @@ public:
         return true;
     }
 
-	/**
-	 * \brief Removed and returns the first item on the list.
-	 */
-	T pop_head()
-	{
-		if(head != nullptr)
-		{
-			T ret = head->data;
-			auto next = head->next;
-			pool.free(head);
-			head = next;
-			return ret;
-		}
-	}
+    /**
+     * \brief Removed and returns the first item on the list.
+     */
+    T pop_head()
+    {
+        if(head != nullptr)
+        {
+            T ret = head->data;
+            auto next = head->next;
+            pool.free(head);
+            head = next;
+            return ret;
+        }
+    }
 
-	/**
-	 * \brief Removes an item from the list.
-	 */
+    /**
+     * \brief Removes an item from the list.
+     */
     void remove(Iterator iter)
     {
         if(iter.node->prev)
@@ -147,9 +147,9 @@ public:
         pool.free(iter.node);
     }
 
-	/**
-	 * \brief Returns the number of items in the list.
-	 */
+    /**
+     * \brief Returns the number of items in the list.
+     */
     uint32 size() const
     {
         Node* pnode = head;

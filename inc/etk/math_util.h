@@ -26,8 +26,8 @@ namespace etk
 /**
  * \brief u32b is a union for 32bit types.
  * This is an easy way to convert between bytes and 32bit datatypes.
- * Generally, a union should be preferred over casts because it makes your intensions 
- * very clear to both the compiler and other people. 
+ * Generally, a union should be preferred over casts because it makes your intensions
+ * very clear to both the compiler and other people.
  */
 typedef union u32b
 {
@@ -361,7 +361,7 @@ template<typename T> T abs(T t)
 #define ETK_FABS
 inline real_t fabs(real_t t)
 {
-	return abs(t);
+    return abs(t);
 }
 #endif
 
