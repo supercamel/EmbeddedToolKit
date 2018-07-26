@@ -29,7 +29,7 @@
  * The format for each row is
  * { last state, current state, event, next state }
  *
- * { STATE::EW_YELLOW, STATE::BOTH_RED, EVENT::BOTH_RED_TIMEOUT, STATE::NS_GREEN },
+ * { STATE_EW_YELLOW, STATE_BOTH_RED, EVENT_BOTH_RED_TIMEOUT, STATE_NS_GREEN },
  *
  * This line means if the last state was east/west light is yellow and the current 
  * state is both red, and there is a timeout event, then the new state must be 
@@ -45,54 +45,54 @@
 /**
  * This enum class defines the states.
  */
-enum class STATE
+enum STATE
 {
-	EW_GREEN, //east/west light is green. north/south is red
-	EW_YELLOW, //east/west is yellow. ns is red.
-	BOTH_RED, //both ways are red for a short moment
-	NS_GREEN, //ns is green, ew is red
-	NS_YELLOW, //ns is yellow, ew is red
-	END_STATE //END_STATE is mandatory. (boilerplate code)
+	STATE_EW_GREEN, //east/west light is green. north/south is red
+	STATE_EW_YELLOW, //east/west is yellow. ns is red.
+	STATE_BOTH_RED, //both ways are red for a short moment
+	STATE_NS_GREEN, //ns is green, ew is red
+	STATE_NS_YELLOW, //ns is yellow, ew is red
+	STATE_END_STATE //END_STATE is mandatory. (boilerplate code)
 };
 
-enum class EVENT
+enum EVENT
 {
-	EW_GREEN_TIMER, //this event occurs when the ew green light has been on for too long
-	EW_GREEN_TRAFFIC, //occurs when there is no traffic going through
-	EW_YELLOW_TIMER, //timer based event, so yellow light turns to red
-	BOTH_RED_TIMEOUT, //both red timeout event
-	NS_GREEN_TIMER, 
-	NS_GREEN_TRAFFIC,
-	NS_YELLOW_TIMER,
-	END_EVENT //END_EVENT is mandatory boilerplate code
+	EVENT_EW_GREEN_TIMER, //this event occurs when the ew green light has been on for too long
+	EVENT_EW_GREEN_TRAFFIC, //occurs when there is no traffic going through
+	EVENT_EW_YELLOW_TIMER, //timer based event, so yellow light turns to red
+	EVENT_BOTH_RED_TIMEOUT, //both red timeout event
+	EVENT_NS_GREEN_TIMER, 
+	EVENT_NS_GREEN_TRAFFIC,
+	EVENT_NS_YELLOW_TIMER,
+	EVENT_END_EVENT //END_EVENT is mandatory boilerplate code
 };
 
 
 //a typedef, for readability
-typedef etk::StateMachine<class TrafficController, STATE, EVENT> StateMachineType;
+typedef etk::StateMachine<class TrafficController, STATE, EVENT, STATE_END_STATE, EVENT_END_EVENT> StateMachineType;
 
 		
 class TrafficController : public StateMachineType
 {
 public:
-	TrafficController() : StateMachineType(this, STATE::EW_GREEN)
+	TrafficController() : StateMachineType(this, STATE_EW_GREEN)
 	{
 		//the event check functions are called every iteration.
 		//only the relevant event checks for the current state are called.
 		//'external' events can be triggered by calling the 'submit_event()' function
-		add_event_check(EVENT::EW_GREEN_TIMER, &TrafficController::green_timer_check);
-		add_event_check(EVENT::EW_YELLOW_TIMER, &TrafficController::yellow_timer_check);
-		add_event_check(EVENT::BOTH_RED_TIMEOUT, &TrafficController::both_red_check);
-		add_event_check(EVENT::NS_GREEN_TIMER, &TrafficController::green_timer_check);
-		add_event_check(EVENT::NS_YELLOW_TIMER, &TrafficController::yellow_timer_check);
+		add_event_check(EVENT_EW_GREEN_TIMER, &TrafficController::green_timer_check);
+		add_event_check(EVENT_EW_YELLOW_TIMER, &TrafficController::yellow_timer_check);
+		add_event_check(EVENT_BOTH_RED_TIMEOUT, &TrafficController::both_red_check);
+		add_event_check(EVENT_NS_GREEN_TIMER, &TrafficController::green_timer_check);
+		add_event_check(EVENT_NS_YELLOW_TIMER, &TrafficController::yellow_timer_check);
 		
 		//this callbacks are called when a new state is entered.
 		//there are also exit callbacks for when a state is exited (use add_exit_callback() instead). 
-		add_entry_callback(STATE::EW_GREEN, &TrafficController::on_ew_green_entry);
-		add_entry_callback(STATE::EW_YELLOW, &TrafficController::on_ew_yellow_entry);
-		add_entry_callback(STATE::BOTH_RED, &TrafficController::on_both_red_entry);
-		add_entry_callback(STATE::NS_GREEN, &TrafficController::on_ns_green_entry);
-		add_entry_callback(STATE::NS_YELLOW, &TrafficController::on_ns_yellow_entry);
+		add_entry_callback(STATE_EW_GREEN, &TrafficController::on_ew_green_entry);
+		add_entry_callback(STATE_EW_YELLOW, &TrafficController::on_ew_yellow_entry);
+		add_entry_callback(STATE_BOTH_RED, &TrafficController::on_both_red_entry);
+		add_entry_callback(STATE_NS_GREEN, &TrafficController::on_ns_green_entry);
+		add_entry_callback(STATE_NS_YELLOW, &TrafficController::on_ns_yellow_entry);
 		
 		//set start time for timing
 		start = now();
@@ -152,19 +152,19 @@ private:
 	//should populate the table with your own states and events.
 	static constexpr transition_table table[] = {
 		//ignore last state, if state is east/west green and the green timer goes off, turn lights yellow
-		{ STATE::END_STATE, STATE::EW_GREEN, EVENT::EW_GREEN_TIMER, STATE::EW_YELLOW },
+		{ STATE_END_STATE, STATE_EW_GREEN, EVENT_EW_GREEN_TIMER, STATE_EW_YELLOW },
 		//ignore last sate, if state is e/w green and there is no traffic, turn lights yellow
-		{ STATE::END_STATE, STATE::EW_GREEN, EVENT::EW_GREEN_TRAFFIC, STATE::EW_YELLOW },
+		{ STATE_END_STATE, STATE_EW_GREEN, EVENT_EW_GREEN_TRAFFIC, STATE_EW_YELLOW },
 		//ignore last state, if east/west lights are yellow, and the timer goes off, turn all lights red
-		{ STATE::END_STATE, STATE::EW_YELLOW, EVENT::EW_YELLOW_TIMER, STATE::BOTH_RED },
+		{ STATE_END_STATE, STATE_EW_YELLOW, EVENT_EW_YELLOW_TIMER, STATE_BOTH_RED },
 		//if last state was east/west yellow and state is both red and there is a timeout event, turn north south lights green
-		{ STATE::EW_YELLOW, STATE::BOTH_RED, EVENT::BOTH_RED_TIMEOUT, STATE::NS_GREEN },
+		{ STATE_EW_YELLOW, STATE_BOTH_RED, EVENT_BOTH_RED_TIMEOUT, STATE_NS_GREEN },
 		//if last state was north/south yellow and state is both red and timeout occurs, turn east/west lights green
-		{ STATE::NS_YELLOW, STATE::BOTH_RED, EVENT::BOTH_RED_TIMEOUT, STATE::EW_GREEN },
+		{ STATE_NS_YELLOW, STATE_BOTH_RED, EVENT_BOTH_RED_TIMEOUT, STATE_EW_GREEN },
 		// and so on . . .
-		{ STATE::END_STATE, STATE::NS_GREEN, EVENT::NS_GREEN_TIMER, STATE::NS_YELLOW },
-		{ STATE::END_STATE, STATE::NS_GREEN, EVENT::NS_GREEN_TRAFFIC, STATE::NS_YELLOW },
-		{ STATE::END_STATE, STATE::NS_YELLOW, EVENT::NS_YELLOW_TIMER, STATE::BOTH_RED }
+		{ STATE_END_STATE, STATE_NS_GREEN, EVENT_NS_GREEN_TIMER, STATE_NS_YELLOW },
+		{ STATE_END_STATE, STATE_NS_GREEN, EVENT_NS_GREEN_TRAFFIC, STATE_NS_YELLOW },
+		{ STATE_END_STATE, STATE_NS_YELLOW, EVENT_NS_YELLOW_TIMER, STATE_BOTH_RED }
 	};
 	
 	etk::Time start;
