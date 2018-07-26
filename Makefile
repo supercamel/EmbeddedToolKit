@@ -30,4 +30,4 @@ clean:
 	rm inc/etk/version.h
 
 install:
-	cp -rf ./inc/etk /mingw32/include
+	cp -rf ./inc/etk /usr/include
