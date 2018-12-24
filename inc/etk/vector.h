@@ -26,42 +26,42 @@ namespace etk
 
 /**
  * \class Vector
- * \brief A vector math class. 
+ * \brief A vector math class.
  * @tparam N The number of dimensions.
  */
 template <uint32 N> class Vector
 {
 public:
-	/**
-	 * \brief constructor sets all elements to zero.
-	 */
+    /**
+     * \brief constructor sets all elements to zero.
+     */
     Vector()
     {
         for(uint32 i = 0; i < N; i++)
             p_vec[i] = 0.0f;
     }
 
-	/**
-	 * \brief sets the value of the first element.
-	 */
+    /**
+     * \brief sets the value of the first element.
+     */
     Vector(real_t a)
     {
         p_vec[0] = a;
     }
 
-	/**
-	 * \brief sets the value of the first two elements.
-	 */
+    /**
+     * \brief sets the value of the first two elements.
+     */
     Vector(real_t a, real_t b)
     {
         p_vec[0] = a;
         p_vec[1] = b;
     }
-	
-	/**
-	 * \brief sets the value of the first three elements.
-	 * Don't use this function for 2 dimensional vectors.
-	 */
+
+    /**
+     * \brief sets the value of the first three elements.
+     * Don't use this function for 2 dimensional vectors.
+     */
     Vector(real_t a, real_t b, real_t c)
     {
         p_vec[0] = a;
@@ -69,10 +69,10 @@ public:
         p_vec[2] = c;
     }
 
-	/**
-	 * \brief sets the value of the first four elements.
-	 * Don't use this function for 2 or 3 dimensional vectors.
-	 */
+    /**
+     * \brief sets the value of the first four elements.
+     * Don't use this function for 2 or 3 dimensional vectors.
+     */
     Vector(real_t a, real_t b, real_t c, real_t d)
     {
         p_vec[0] = a;
@@ -81,11 +81,11 @@ public:
         p_vec[3] = d;
     }
 
-	/**
-	 * \brief Returns the number of dimensions
-	 * @return The number of dimensions in this vector.
-	 */
-    uint32 n() const 
+    /**
+     * \brief Returns the number of dimensions
+     * @return The number of dimensions in this vector.
+     */
+    uint32 n() const
     {
         return N;
     }
@@ -127,7 +127,7 @@ public:
     }
 
     /**
-     * \brief normalizes the vector. 
+     * \brief normalizes the vector.
      * normalize() sets the magnitude to 1.0.
      */
     void normalize()
@@ -212,20 +212,20 @@ public:
         return ret;
     }
 
-	/**
-	 * \brief extracts a number of components and creates a new smaller vector.
+    /**
+     * \brief extracts a number of components and creates a new smaller vector.
 
-	 <pre>
-Vector<5> v = [ 0, 1, 2, 3, 4 ]
+     <pre>
+    Vector<5> v = [ 0, 1, 2, 3, 4 ]
                    ^  ^  ^
                  if we want this
-                 
-Vector<3> t = v.sub_vector<3>(1)
-t = [ 1, 2, 3 ]
+
+    Vector<3> t = v.sub_vector<3>(1)
+    t = [ 1, 2, 3 ]
      </pre>
-     
+
      * @tparam nn the number of components in the new vector.
-	 * @arg n the start point of the sub vector
+     * @arg n the start point of the sub vector
      */
     template <uint32 nn> Vector<nn> sub_vector(uint32 n) const
     {
@@ -235,23 +235,23 @@ t = [ 1, 2, 3 ]
         return ret;
     }
 
-	/**
-	 * \brief sets part of the vector from a smaller vector
+    /**
+     * \brief sets part of the vector from a smaller vector
 
-	 <pre>
-Vector<3> t = [ 1, 2, 3 ]
+     <pre>
+    Vector<3> t = [ 1, 2, 3 ]
 
-Vector<5> v = [ 0, 0, 0, 0, 4 ]
-                 
-Vector<3> n = v.set_sub_vector<3>(1)
-n = [ 0, 1, 2, 3, 4]
+    Vector<5> v = [ 0, 0, 0, 0, 4 ]
+
+    Vector<3> n = v.set_sub_vector<3>(1)
+    n = [ 0, 1, 2, 3, 4]
 
      </pre>
-     
+
      * @tparam nn the number of components in the new vector.
      * @arg v the sub-vector
-	 * @arg n the start point of the sub vector
-	 * @return a vector that is v, with the subvector overwritten
+     * @arg n the start point of the sub vector
+     * @return a vector that is v, with the subvector overwritten
      */
     template <uint32 nn> void set_sub_vector(Vector<nn> v, uint32 n)
     {
@@ -259,11 +259,11 @@ n = [ 0, 1, 2, 3, 4]
             p_vec[i+n] = v[i];
     }
 
-	/**
-	 * \brief assigns v to this.
-	 * @arg v a vector
-	 * @return *this
-	 */
+    /**
+     * \brief assigns v to this.
+     * @arg v a vector
+     * @return *this
+     */
     Vector operator = (Vector v)
     {
         for (uint32 x = 0; x < N; x++ )
@@ -271,11 +271,11 @@ n = [ 0, 1, 2, 3, 4]
         return *this;
     }
 
-	/**
-	 * \brief comparison operator compares two vectors.
-	 * @arg v the vector to compare with
-	 * @return true if the values of the two vectors are within 0.00001 of each other. 
-	 */
+    /**
+     * \brief comparison operator compares two vectors.
+     * @arg v the vector to compare with
+     * @return true if the values of the two vectors are within 0.00001 of each other.
+     */
     bool operator == (Vector v) const
     {
         for(uint32 i = 0; i < N; i++)
@@ -286,12 +286,12 @@ n = [ 0, 1, 2, 3, 4]
         return true;
     }
 
-	/**
-	 * \brief compares two vectors
-	 * @arg v the vector to compare with
-	 * @arg precision how precisely to compared the two vectors. By default they must be within 0.00001 of each other
-	 * @return true if the vectors match
-	 */
+    /**
+     * \brief compares two vectors
+     * @arg v the vector to compare with
+     * @arg precision how precisely to compared the two vectors. By default they must be within 0.00001 of each other
+     * @return true if the vectors match
+     */
     bool compare(Vector& v, real_t precision = 0.00001f) const
     {
         for(uint32 i = 0; i < N; i++)
@@ -443,15 +443,15 @@ n = [ 0, 1, 2, 3, 4]
     real_t get_z() const {
         return p_vec[2];
     }
-    
+
     void set_x(const real_t x) {
         p_vec[0] = x;
     }
-    
+
     void set_y(const real_t y) {
         p_vec[1] = y;
     }
-    
+
     void set_z(const real_t z) {
         p_vec[2] = z;
     }

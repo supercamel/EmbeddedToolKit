@@ -24,6 +24,7 @@
 
 
 
+
 bool limiter_test(std::string& subtest)
 {
     subtest = "Rate limiter";
@@ -48,14 +49,11 @@ bool limiter_test(std::string& subtest)
 int main()
 {
     TestHarness th("ETK Test Harness");
-   	std::cout << "Version string: " << etk::Version::version << std::endl;
-   	etk::unused(etk::Version::year);
-   	etk::unused(etk::Version::month);
-   	etk::unused(etk::Version::day);
+    std::cout << "Version string: " << etk::Version::get_version() << std::endl;
 
     th.add_module(pool_test, "Pool test");
 
-    
+
     th.add_module(test_rope, "Rope Test");
     th.add_module(list_test, "List Test");
     th.add_module(static_string_test, "Static String");

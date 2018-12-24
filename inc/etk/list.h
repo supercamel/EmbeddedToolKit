@@ -17,7 +17,9 @@
 #define ETK_LIST_H_INCLUDED
 
 #ifdef __AVR__
-inline void *operator new(size_t, void *buf) { return buf; }
+inline void *operator new(size_t, void *buf) {
+    return buf;
+}
 #else
 #include <new>
 #endif

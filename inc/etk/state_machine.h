@@ -13,7 +13,7 @@ namespace etk
  *
  */
 
-template <class T, typename _STATE, typename _EVENT>
+template <class T, typename _STATE, typename _EVENT, uint32_t N_STATES, uint32_t N_EVENTS>
 class StateMachine
 {
 public:
@@ -33,7 +33,7 @@ public:
     StateMachine(T* t, _STATE s) : t(t)
     {
         state = s;
-        for(uint32_t i = 0; i < static_cast<uint32_t>(_STATE::END_STATE); i++)
+        for(uint32_t i = 0; i < N_STATES; i++)
         {
             state_callbacks[i] = nullptr;
             entry_callbacks[i] = nullptr;
@@ -49,7 +49,7 @@ public:
         {
             for(const auto& row : T::table)
             {
-                if((row.last_state == last_state) || (row.last_state == _STATE::END_STATE))
+                if((row.last_state == last_state) || (row.last_state == N_STATES))
                 {
                     if(row.state == state)
                     {
@@ -148,10 +148,10 @@ private:
     _STATE state;
 
 
-    iteration_foo state_callbacks[static_cast<uint32_t>(_STATE::END_STATE)];
-    event_check_foo event_checks[static_cast<uint32_t>(_EVENT::END_EVENT)];
-    state_entry_foo entry_callbacks[static_cast<uint32_t>(_STATE::END_STATE)];
-    state_exit_foo exit_callbacks[static_cast<uint32_t>(_STATE::END_STATE)];
+    iteration_foo state_callbacks[static_cast<uint32_t>(N_STATES)];
+    event_check_foo event_checks[static_cast<uint32_t>(N_EVENTS)];
+    state_entry_foo entry_callbacks[static_cast<uint32_t>(N_STATES)];
+    state_exit_foo exit_callbacks[static_cast<uint32_t>(N_EVENTS)];
 
     T* t;
 };

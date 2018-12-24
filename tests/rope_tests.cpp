@@ -12,7 +12,7 @@ using namespace etk;
 
 bool test_rope(std::string& subtest)
 {
-	subtest = "Constructor";
+    subtest = "Constructor";
     char buf[20];
     etk::Rope rope(buf, 20, "Hello!");
 
@@ -25,11 +25,11 @@ bool test_rope(std::string& subtest)
 
     subtest = "Appending unsigned integer";
     rope.append(556u);
-    if(rope.compare("556") == false) 
+    if(rope.compare("556") == false)
     {
         return false;
     }
-    
+
     rope.clear();
 
     subtest = "Appending unsigned int with padding";
@@ -37,14 +37,14 @@ bool test_rope(std::string& subtest)
     if(rope.compare("00556") == false) {
         return false;
     }
-    
+
     rope.clear();
-    
+
     subtest = "Appending min int";
-    #undef min
+#undef min
     rope.append(numeric_limits<int32_t>::min());
     if(rope.compare("-2147483648") == false)
-    	return false;
+        return false;
     rope.clear();
 
     subtest = "Appending positive signed integer";
@@ -54,12 +54,12 @@ bool test_rope(std::string& subtest)
     }
 
     rope.clear();
-    
+
     subtest = "half max int32";
     auto test_val = 1073741823;
     rope.append(test_val);
     if(rope.compare("1073741823") == false) {
-    	return false;
+        return false;
     }
     rope.clear();
 
@@ -78,22 +78,22 @@ bool test_rope(std::string& subtest)
         rope.clear();
 
     }
-	
+
     rope.clear();
     rope.append(0.0f);
     if(rope.compare("0.00") == false) {
         return false;
     }
-    
+
     rope.clear();
 
     rope.append(0.05f);
     if(rope.compare("0.05") == false) {
         return false;
     }
-    
+
     rope.clear();
-    
+
     subtest = "Appending huge double";
     rope.append(1200000000.0, 9);
     rope.clear();
@@ -246,15 +246,14 @@ bool test_rope(std::string& subtest)
     if(rope != "c") {
         return false;
     }
-        
+
     subtest = "parse hex";
     rope.clear();
     rope << "af";
     uint32 r = rope.parse_hex(0);
-    
+
     rope.clear();
     rope.make_hex((uint8)0x6F);
-    
 
 	subtest = "making hex strings from uint16 type";
 	uint16_t h = 0xF842;
@@ -276,6 +275,5 @@ bool test_rope(std::string& subtest)
 	{
 		return false;
 	}
-
     return true;
 }

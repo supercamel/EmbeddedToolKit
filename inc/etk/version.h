@@ -7,10 +7,10 @@ namespace etk
 
 namespace Version
 {
-	static const char* year = "2018";
-	static const char* month = "12";
-	static const char* day = "24";
-	static const char* version = "20181224";
+	inline const char* get_year() { return "2018"; }
+	inline const char* get_month() { return "12"; }
+	inline const char* get_day() { return  "24"; }
+	inline const char* get_version() { return "20181224"; }
 
 }
 

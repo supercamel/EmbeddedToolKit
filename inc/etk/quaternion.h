@@ -85,25 +85,25 @@ public:
     {
         return _z;
     }
-    
-    real_t w() const 
+
+    real_t w() const
     {
-    	return _w;
+        return _w;
     }
-    
+
     real_t x() const
     {
-    	return _x;
+        return _x;
     }
-    
+
     real_t y() const
     {
-    	return _y;
+        return _y;
     }
-    
+
     real_t z() const
     {
-    	return _z;
+        return _z;
     }
 
     real_t magnitude()
@@ -177,18 +177,18 @@ public:
 
     void from_matrix(Matrix<3, 3> m)
     {
-    	#ifdef ETK_MAX
+#ifdef ETK_MAX
         _w = sqrtf(max<real_t>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
         _x = sqrtf(max<real_t>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
         _y = sqrtf(max<real_t>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
         _z = sqrtf(max<real_t>( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
-       	#else
-       	_w = sqrtf(max( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
+#else
+        _w = sqrtf(max( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
         _x = sqrtf(max( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
         _y = sqrtf(max( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
         _z = sqrtf(max( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
-        #endif
-        
+#endif
+
         _x = copysign_zero(_x, m(2,1) - m(1,2));
         _y = copysign_zero(_y, m(0,2) - m(2,0));
         _z = copysign_zero(_z, m(1,0) - m(0,1));

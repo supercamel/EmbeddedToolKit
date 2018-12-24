@@ -19,7 +19,7 @@ public:
     DynamicList(Pool& pool) : pool(pool)
     {
     }
-    
+
     void append(const T& t)
     {
         if(sz >= alloc_sz)
@@ -27,11 +27,11 @@ public:
             list = static_cast<T*>(pool.realloc(static_cast<void*>(list), (alloc_sz+REALLOC_SZ)*sizeof(T)));
             alloc_sz += REALLOC_SZ;
         }
-        
+
         list[sz] = t;
         sz++;
     }
-    
+
     void remove(uint32 index)
     {
         if((index < sz) && (index != 0))
@@ -40,37 +40,37 @@ public:
             for(uint32 i = index; i < sz-1; i++)
                 list[i] = list[i+1];
             sz--;
-            
+
             if(alloc_sz-sz > REALLOC_SZ)
             {
                 list = static_cast<T*>(pool.realloc(static_cast<void*>(list), sz*sizeof(T)));
             }
         }
     }
-    
+
     T pop_back()
     {
         T t = list[sz-1];
         sz--;
         return t;
     }
-    
+
     void push_back(const T& t)
     {
         append(t);
     }
-    
-    
+
+
     T& operator[](const uint32 pos) const
     {
         return list[pos];
     }
-    
+
     const T* buffer() const
     {
         return list;
     }
-    
+
     T* raw_memory() const
     {
         return list;
@@ -106,15 +106,15 @@ bool dynamic_list_test(std::string& subtest)
     {
         list.append(i);
     }
-    
+
     list.remove(14);
-    
+
     /*
     for(auto i : range(20)) {
         cout << list[i] << endl;
     }
     */
-    
+
     return true;
 }
 

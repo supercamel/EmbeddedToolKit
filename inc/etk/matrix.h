@@ -189,10 +189,10 @@ public:
     {
         return _cell[x][y];
     }
-    
+
     real_t cell(uint32 x, uint32 y) const
     {
-    	return _cell[x][y];
+        return _cell[x][y];
     }
 
     Matrix operator + (Matrix m)
@@ -287,11 +287,11 @@ public:
     real_t determinant() const
     {
 
-            real_t det = 0.0;
-            for(uint32 i = 0; i < MAX_X; i++ )
-            {
-                auto minor = minor_matrix(0, i);
-                det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
+        real_t det = 0.0;
+        for(uint32 i = 0; i < MAX_X; i++ )
+        {
+            auto minor = minor_matrix(0, i);
+            det += (i%2==1?-1.0:1.0) * cell(0, i) * minor.determinant();
         }
         return det;
 

@@ -27,7 +27,8 @@ public:
     public:
         Iterator() { }
 
-        Iterator(Node* head) : node(head) { }
+        Iterator(typename forward_list::Node* head) : node(head) { }
+
         void next()
         {
             node = node->next;
@@ -67,14 +68,14 @@ public:
         }
 
     private:
-        Node* node;
+        typename forward_list::Node* node;
     };
 
-	forward_list(etk::experimental::Pool* pool) : pool(pool)
-	{
+    forward_list(etk::experimental::Pool* pool) : pool(pool)
+    {
 
-	}
-	
+    }
+
     ~forward_list()
     {
         Node* node = head;
@@ -151,7 +152,8 @@ public:
         }
 
         pool->free(node);
-        pool->coalesce(); return false;
+        pool->coalesce();
+        return false;
     }
 
     bool insert_after(Iterator iter, T t)
@@ -247,9 +249,9 @@ public:
         head = nullptr;
     }
 
-	bool push_head(const T t)
-	{
-		Node* node = static_cast<Node*>(pool->alloc(sizeof(Node)));
+    bool push_head(const T t)
+    {
+        Node* node = static_cast<Node*>(pool->alloc(sizeof(Node)));
         if(node == nullptr)
             return false;
 
@@ -257,7 +259,7 @@ public:
         node->next = head;
         head = node;
         return true;
-	}
+    }
 
     void pop_head()
     {
@@ -305,7 +307,7 @@ private:
     
 
     Node* head = nullptr;
-	etk::experimental::Pool* pool = nullptr;
+    etk::experimental::Pool* pool = nullptr;
 };
 
 }
