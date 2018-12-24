@@ -19,8 +19,6 @@
 #include "types.h"
 #include "math_util.h"
 
-#include <iostream>
-using namespace std;
 
 namespace etk
 {
