@@ -16,12 +16,12 @@ bool vector_test(std::string& subtest)
 {
     subtest = "circular constraint";
     real_t vf = 450;
-    vf = constrain_circular(vf, 360.0f);
+    vf = constrain_circular(vf, 360);
     if(!compare(vf, 90.0f, 0.1f))
         return false;
 
     vf = -450;
-    vf = constrain_circular(vf, 360.0f);
+    vf = constrain_circular(vf, 360);
     if(!compare(vf, -90.0f, 0.1f))
         return false;
 

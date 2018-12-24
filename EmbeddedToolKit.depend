@@ -474,3 +474,298 @@
 	<utility>
 	"pool.h"
 
+1496549193 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\array_test.cpp
+	"array_test.h"
+	<etk/array.h>
+	<etk/loop_range.h>
+	<etk/math_util.h>
+	<iostream>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\array_test.h
+	<string>
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\array.h
+	"types.h"
+	"loop_range.h"
+	"math_util.h"
+	<initializer_list>
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\types.h
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\loop_range.h
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\math_util.h
+	"types.h"
+	<math.h>
+
+1497792208 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\bits_test.cpp
+	"bits_test.h"
+	<iostream>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\bits_test.h
+	<etk/etk.h>
+	<string>
+
+1515642990 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\etk.h
+	"math_util.h"
+	"stream.h"
+	"rope.h"
+	"tokeniser.h"
+	"matrix.h"
+	"quaternion.h"
+	"vector.h"
+	"bits.h"
+	"conversions.h"
+	"list.h"
+	"staticstring.h"
+	"ring_buffer.h"
+	"time.h"
+	"filters.h"
+	"navigation.h"
+	"loop_range.h"
+	"stm.h"
+	"fuzzy.h"
+	"array.h"
+	"objpool.h"
+	"smrt_ptr.h"
+	"pool.h"
+	"pool_ptr.h"
+	"forward_list.h"
+	"linked_list.h"
+	"dynamic_list.h"
+	"sigslot.h"
+	"state_machine.h"
+	"version.h"
+
+1519281209 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\stream.h
+	"rope.h"
+	"staticstring.h"
+	"vector.h"
+	"matrix.h"
+
+1527491051 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\rope.h
+	"types.h"
+	"math_util.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\staticstring.h
+	"types.h"
+	"rope.h"
+	"vector.h"
+	<type_traits>
+	<etk/etk.h>
+	<iostream>
+
+1515642990 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\vector.h
+	"types.h"
+	"math_util.h"
+	<math.h>
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\matrix.h
+	"types.h"
+	"vector.h"
+	"staticstring.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\tokeniser.h
+
+1515643042 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\quaternion.h
+	"types.h"
+	"vector.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\bits.h
+	"staticstring.h"
+	<type_traits>
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\conversions.h
+
+1511432782 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\list.h
+	<new>
+	"types.h"
+	"math_util.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\ring_buffer.h
+	"types.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\time.h
+	"types.h"
+	"rope.h"
+
+1499689688 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\filters.h
+	"math_util.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\navigation.h
+	"types.h"
+	"vector.h"
+	"conversions.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\stm.h
+	"loop_range.h"
+
+1527493093 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\fuzzy.h
+	"list.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\objpool.h
+	"types.h"
+	"array.h"
+	"list.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\smrt_ptr.h
+	<stdlib.h>
+	<utility>
+
+1515644336 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\pool.h
+	<stdlib.h>
+	"types.h"
+	<iostream>
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\pool_ptr.h
+	<cstdlib>
+	<utility>
+	"pool.h"
+
+1518142988 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\forward_list.h
+	"pool.h"
+
+1515642990 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\linked_list.h
+	"pool.h"
+
+1511431862 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\dynamic_list.h
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\sigslot.h
+	"math_util.h"
+
+1498128753 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\state_machine.h
+	<stdint.h>
+
+1518500645 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\inc\\etk\version.h
+
+1496549193 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\list_tests.cpp
+	"list_tests.h"
+	<etk/list.h>
+	"out.h"
+	<iostream>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\list_tests.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\out.h
+	<etk/etk.h>
+	<iostream>
+
+1518144418 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\main.cpp
+	<iostream>
+	"harness.h"
+	"rope_tests.h"
+	"static_string_tests.h"
+	"list_tests.h"
+	"bits_test.h"
+	"vector_test.h"
+	"matrix_test.h"
+	"quaternion_test.h"
+	"navigation_tests.h"
+	"out.h"
+	"pool_test.h"
+	"array_test.h"
+	"tokeniser_test.h"
+	"objpool_test.h"
+	"forward_list_test.h"
+	"dynamic_list_test.h"
+
+1497793124 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\harness.h
+	"out.h"
+	<vector>
+	<string>
+	<memory>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\rope_tests.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\static_string_tests.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\vector_test.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\matrix_test.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\quaternion_test.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\navigation_tests.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\pool_test.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\tokeniser_test.h
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\objpool_test.h
+	<etk/etk.h>
+	<string>
+
+1496549193 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\forward_list_test.h
+	<etk/etk.h>
+	<string>
+
+1511430289 c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\dynamic_list_test.h
+	<etk/etk.h>
+	<string>
+
+1496549193 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\matrix_test.cpp
+	"matrix_test.h"
+	"out.h"
+	<etk/matrix.h>
+	<iostream>
+	<Eigen/Dense>
+
+1497794723 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\navigation_tests.cpp
+	"navigation_tests.h"
+	"etk/navigation.h"
+	<iostream>
+
+1497769513 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\objpool_test.cpp
+	"objpool_test.h"
+	<iostream>
+
+1496549193 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\out.cpp
+	"out.h"
+
+1511435238 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\pool_test.cpp
+	"pool_test.h"
+	"etk/etk.h"
+	<iostream>
+
+1511431476 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\quaternion_test.cpp
+	"quaternion_test.h"
+	<etk/etk.h>
+	<iostream>
+
+1518501949 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\rope_tests.cpp
+	"rope_tests.h"
+	"out.h"
+	<etk/etk.h>
+	<sstream>
+	<iomanip>
+	<limits>
+	<iostream>
+
+1496549193 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\static_string_tests.cpp
+	"static_string_tests.h"
+	<etk/staticstring.h>
+	<etk/tokeniser.h>
+	<etk/loop_range.h>
+	<iostream>
+
+1496549193 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\tokeniser_test.cpp
+	"tokeniser_test.h"
+	<etk/etk.h>
+	<iostream>
+
+1498128753 source:c:\users\flamingo\dropbox (personal)\programming\embeddedtoolkit\tests\vector_test.cpp
+	"vector_test.h"
+	<etk/etk.h>
+	"out.h"
+	<Eigen/Dense>
+	<iostream>
+

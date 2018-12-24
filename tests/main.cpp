@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <etk/version.h>
+
 #include "harness.h"
 #include "rope_tests.h"
 #include "static_string_tests.h"

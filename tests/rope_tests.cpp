@@ -259,8 +259,9 @@ bool test_rope(std::string& subtest)
 	subtest = "making hex strings from uint16 type";
 	uint16_t h = 0xF842;
 	rope.clear();
+	cout << buf << endl;
 	rope.make_hex(h);
-
+	cout << buf << endl;
 	if(rope != "F842")
 	{
 		return false;

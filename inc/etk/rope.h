@@ -19,6 +19,9 @@
 #include "types.h"
 #include "math_util.h"
 
+#include <iostream>
+using namespace std;
+
 namespace etk
 {
 
@@ -97,7 +100,7 @@ public:
     {
 		if(j < 0)
 		{
-			if(j == -2147483648) //special case for j == min int32
+			if(j == -(int32)(2147483648)) //special case for j == min int32
 			{
 				append("-2147483648");
 				return;
@@ -185,7 +188,7 @@ public:
 
 		precision &= 0x0F;
 
-		uint64 mul = pow(10, precision);
+		uint64 mul = static_cast<uint64>(pow(10, precision));
 
 		float r = j*mul;
 		const int64 max_int64 = 9223372036854775807;
@@ -483,9 +486,12 @@ public:
 
 		char buf[3];
 		Rope r(buf, 3);
+		r.clear();
 		r.make_hex(u.bytes[1]);
-		
-		append(buf);
+
+		if (r != "00") {
+			append(buf);
+		}
 		r.clear();
 		r.make_hex(u.bytes[0]);
 		append(buf);	
@@ -526,7 +532,7 @@ public:
 		    return INFINITY;
 
 		char* p = &str[ps];
-		float sign, value;
+		real_t sign, value;
 
 		sign = 1.0;
 		if (*p == '-')
@@ -538,7 +544,7 @@ public:
 		    p++;
 
 		for (value = 0.0; is_numeric(*p); p++)
-		    value = value * 10.0 + (*p - '0');
+		    value = value * real_t(10.0) + (*p - '0');
 
 		// Get digits after decimal point, if any.
 		if (*p == '.')

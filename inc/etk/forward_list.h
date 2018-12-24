@@ -14,7 +14,11 @@ namespace experimental
 template <typename T> class forward_list
 {
 private:
-    struct Node;
+	struct Node
+	{
+		T data;
+		Node* next = nullptr;
+	};
 
 public:
     class Iterator
@@ -23,7 +27,7 @@ public:
     public:
         Iterator() { }
 
-        Iterator(forward_list::Node* head) : node(head) { }
+        Iterator(Node* head) : node(head) { }
         void next()
         {
             node = node->next;
@@ -63,7 +67,7 @@ public:
         }
 
     private:
-        forward_list::Node* node;
+        Node* node;
     };
 
 	forward_list(etk::experimental::Pool* pool) : pool(pool)
@@ -298,11 +302,7 @@ public:
     }
 
 private:
-    struct Node
-    {
-        T data;
-        Node* next = nullptr;
-    };
+    
 
     Node* head = nullptr;
 	etk::experimental::Pool* pool = nullptr;

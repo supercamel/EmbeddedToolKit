@@ -52,7 +52,11 @@ public:
 #ifndef __AVR__
     Array(std::initializer_list<T> il)
     {
+#ifdef ETK_MIN
         uint32 l = etk::min<uint32>(L, il.size());
+#else
+        uint32 l = min(L, il.size());
+#endif
         auto b = il.begin();
         for(uint32 i = 0; i < l; i++)
             buf[i] = *b++;
