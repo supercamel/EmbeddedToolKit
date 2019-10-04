@@ -195,6 +195,12 @@ bool static_string_test(std::string& subtest)
     if(eighty != 80)
         return false;
 
+
+	subtest = "Starts with";
+	ss = "asdf;lkj";
+	if(ss.startsWith("asdf") == false) {
+		return false;
+	}
     return true;
 }
 

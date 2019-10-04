@@ -416,6 +416,12 @@ public:
         return rope.compare(s, L);
     }
 
+	bool startsWith(const char* s)
+	{
+		Rope rope(buf, L);
+		return rope.compare(s, 0, 0, Rope::c_strlen(s, L));
+	}
+
     /**
      * \brief Converts the string to a floating point number.
      * @code
