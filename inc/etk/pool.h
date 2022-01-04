@@ -211,7 +211,6 @@ namespace etk
                     block->head.prev = nullptr;
 
                     free_head = block;
-                    coalesce();
                 }/*}}}*/
                 /**
                  * Joins free blocks together.
