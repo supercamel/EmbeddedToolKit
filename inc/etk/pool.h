@@ -57,9 +57,6 @@ using namespace std;
  *         could help speed up the next call to alloc().
  */
 
-#include <iostream>
-using namespace std;
-
 namespace etk
 {
 
@@ -96,12 +93,8 @@ namespace etk
         /**
          * The memory pool divides the memory into chunks of free memory and tracks them as a double linked list.
          *
-         * Memory allocation works like this
-         *      1. A free block with size > request is found.
-         *      2. 
-         *
          */
-        template <uint32 SIZE> class MemPool : public Pool
+        template <uint32 SIZE, uint32 CHUNK_SIZE = 64> class MemPool : public Pool
         {
             public:
                 /**
@@ -121,7 +114,6 @@ namespace etk
                     blocks[0].head.size = TOTAL_CHUNKS;
                     blocks[0].head.next = nullptr;
                     blocks[0].head.prev = nullptr;
-
                 }
 
                 /**
@@ -132,29 +124,17 @@ namespace etk
                  */
                 void* alloc(uint32 sz)
                 {
+                    void* r = nullptr;
                     //first see if there is a suitable block
-                    void* r = alloc_from_free_list(sz);
-                    //return on success
-                    if(r != nullptr) {
-                        dump();
-                        return r;
-                    }
-
-
-                    //we're out of memory, so try joining together all the adjacent free blocks to see if they release a region large enough
-                    coalesce_free_blocks();
-                    //after merging free blocks, there might be a large enough block free
                     r = alloc_from_free_list(sz);
-                    if(r != nullptr) {
-                        dump();
-                        return r;
+                    if(r == nullptr) {
+                        //we're out of memory, so try joining together all the adjacent free blocks to see if they release a region large enough
+                        coalesce_free_blocks();
+                        //after merging free blocks, there might be a large enough block free
+                        r = alloc_from_free_list(sz);
                     }        
 
-                    dump();
-
-
-                    //can't allocate any more memory.
-                    return nullptr;
+                    return r;
                 }
 
                 void* realloc(void* ptr, uint32 sz, uint32 oldsz = 0)/*{{{*/
@@ -168,7 +148,7 @@ namespace etk
                     bptr -= sizeof(BlockHead);
                     Block* block = (Block*)bptr;
                     uint32 old_chunks = block->head.size;
-                    
+
 
                     // calculate the number of chunks to allocate
                     uint32 n_chunks = (sz+sizeof(BlockHead))/CHUNK_SIZE;
@@ -176,22 +156,16 @@ namespace etk
                         n_chunks += 1;
                     }
 
-                    //cout << "realloc" << endl;
-                    //cout << "new size: " << sz << endl << endl;
 
                     //the allocation needs to be shrunk down
                     if(old_chunks > n_chunks)
                     {
-                        //cout << "shrinking" << endl;
                         split_block(block, n_chunks);
-
-                        print_free_list();
                         return ptr;
                     }
                     //the allocation needs to grow larger
                     else if(old_chunks < n_chunks)
                     {
-                        //cout << "realloc growing" << endl;
                         free(ptr);
                         void* n = alloc(sz);
                         if(n == nullptr)
@@ -207,7 +181,6 @@ namespace etk
                             }
                         }
 
-                        //cout << "done realloc growing" << endl;
                         return n;
                     }
                     else 
@@ -227,12 +200,10 @@ namespace etk
                 {
                     unused(sz);
                     // freeing a block adds it to the tail
-                    //cout << "freeing" << endl;    
-
                     uint8* bptr = (uint8*)ptr;
                     bptr -= sizeof(BlockHead);
                     Block* block = (Block*)bptr;
-                    
+
 
                     free_head->head.prev = block;
                     //block->head.size = ssz;
@@ -240,6 +211,7 @@ namespace etk
                     block->head.prev = nullptr;
 
                     free_head = block;
+                    coalesce();
                 }/*}}}*/
                 /**
                  * Joins free blocks together.
@@ -263,13 +235,13 @@ namespace etk
                                 //remove the block from the free block list - cause it's not free no more
                                 if(blocks[i].head.next != nullptr) {
                                     reinterpret_cast<Block*>(
-                                        blocks[i].head.next)->head.prev =
-                                            blocks[i].head.prev;
+                                            blocks[i].head.next)->head.prev =
+                                        blocks[i].head.prev;
                                 }
                                 if(blocks[i].head.prev != nullptr) {
                                     reinterpret_cast<Block*>(
-                                        blocks[i].head.prev)->head.next = 
-                                            blocks[i].head.next;
+                                            blocks[i].head.prev)->head.next = 
+                                        blocks[i].head.next;
                                 }
 
                                 i += blocks[i].head.size;
@@ -279,8 +251,6 @@ namespace etk
                             i += blocks[i].head.size;
                         }
                     }
-                    print_free_list();
-                    //cout << "coalesce done" << endl;
                 }/*}}}*/
                 /**
                  * coalesce_free_blocks scans through the list of free blocks and merges any adjacent blocks together.
@@ -292,41 +262,8 @@ namespace etk
                     coalesce();
                 }/*}}}*/
 
-
-                void dump()/*{{{*/
-                {
-                    /*
-                       ofstream fout;
-                       fout.open("memory_dump.bin", ios::binary | ios::out);
-                       fout.write((char*) memory, SIZE);
-                       fout.close();
-                       */
-                }
-                /*}}}*/
-
-                void print_free_list()/*{{{*/
-                {
-                    /*
-                       cout << "print_free_list" << endl;
-                       int count = 0;
-                       int32 n = free_head;
-                       while(n >= 0)
-                       {
-                       cout << "free: " << n << flush << " " << blocks[n].head.size << endl;
-                       n = blocks[n].head.next;
-
-                       count++;
-                       if(count > 100) {
-                       char b;
-                       cin >> b;
-                       }
-                       }
-                       */
-                }
-                /*}}}*/
             private:
 
-                static const uint32 CHUNK_SIZE = 64;
                 static const uint32 TOTAL_CHUNKS = SIZE/CHUNK_SIZE;
 
                 struct BlockHead {
@@ -343,7 +280,7 @@ namespace etk
                 }Block;
 
 
-                static_assert(sizeof(Block) == CHUNK_SIZE, "Block does not equal chunck size");
+                static_assert(sizeof(Block) == CHUNK_SIZE, "Block does not equal chunk size");
 
                 void split_block(Block* n, uint32 split_pos) {
                     Block* sp = &n[split_pos];
@@ -351,7 +288,6 @@ namespace etk
                     sp->head.size = n->head.size-split_pos;
                     sp->head.next = free_head;
                     sp->head.prev = nullptr;
-                    //cout << "alloc_from_free_list free head = " << n+n_blocks << endl;
                     free_head = sp;
                 }
                 /**
