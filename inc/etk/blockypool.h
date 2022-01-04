@@ -1,96 +1,16 @@
-/*
-   Copyright (C) 2016 Samuel Cowen samuel.cowen@camelsoftware.com
+#ifndef BLOCKYPOOL_H_INCLUDED
+#define BLOCKYPOOL_H_INCLUDED
 
-   Permission is hereby granted, free of charge, to any person obtaining a copy
-   of this software and associated documentation files (the "Software"), to deal
-   in the Software without restriction, including without limitation the rights
-   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-   copies of the Software, and to permit persons to whom the Software is
-   furnished to do so, subject to the following conditions:
-
-   The above copyright notice and this permission notice shall be included in
-   all copies or substantial portions of the Software.
-   */
-
-#ifndef POOL_H_INCLUDED
-#define POOL_H_INCLUDED
-
-#include <stdlib.h>
-#include "types.h"
-#include "math_util.h"
-
-/*
-#include <iostream>
-using namespace std;
-*/
-
-/**
- * The Pool class is a memory pool - aka a disposable heap.
- *
- * Pros:
- *  - Generally faster than malloc/free
- *  - Eliminates the risk of heap fragmentation
- *  - Generally gets destroyed after use which almost eliminates the danger of fragmentation
- *
- * Computers and micro-controllers require dynamic memory allocation to solve complex problems.
- * Such problems include:
- *  - Path finding & navigation
- *  - Language processing (compilers, interpreters, NLP, etc)
- *  - Searching algorithms
- *
- *
- * However, with great power comes great responsibility!
- * Normal dynamic memory allocation (using new/delete or malloc/free) comes with risks. Memory leaks
- * and heap fragmentation are a couple. malloc/new are also a little non-deterministic in that you can never
- * know exactly how long it will take for malloc or new to perform an allocation (memory pools don't eliminate
- * this, but they are generally faster). This is why the use of malloc and new is strongly discouraged or sometimes
- * prohibited in serious embedded applications.
- *
- * By far the most important pro of memory pools is that they can be completely destroyed when they are no longer required.
- * The entire pool can simply popped off the stack. All that memory would be freed in an instant, along with any
- * fragmented pockets of memory.
- *
- * ProTip: Put MemPools on the stack whenever possible - and don't call free() unless you actually need to.
- *
- * ProTip: If you're doing a lot of allocating and freeing with a MemPool, call coalesce_free_blocks() after free().
- *     This will join together free blocks that are adjacent to each other. It helps minimize fragmentation and
- *         could help speed up the next call to alloc().
- */
+#include "pool.h"
 
 #include <iostream>
 using namespace std;
+
 
 namespace etk
 {
-
     namespace experimental
     {
-
-        class Pool
-        {
-            public:
-                virtual void* alloc(uint32 sz) = 0;
-                virtual void free(void* ptr, uint32 sz) = 0;
-                virtual void* realloc(void* ptr, uint32 sz, uint32 oldsz) = 0;
-                virtual void coalesce() = 0;
-        };
-
-        class Heap : public Pool
-        {
-            public:
-                void* alloc(uint32 sz) {
-                    return malloc(sz);
-                }
-                void free(void* ptr, uint32 sz = 0) {
-                    unused(sz);
-                    ::free(ptr);
-                }
-                void* realloc(void* ptr, uint32 sz, uint32 oldsz = 0) {
-                    return ::realloc(ptr, sz);
-                }
-                void coalesce() {
-                }
-        };
 
 
         /**
@@ -101,13 +21,13 @@ namespace etk
          *      2. 
          *
          */
-        template <uint32 SIZE> class MemPool : public Pool
+        template <uint32 SIZE> class BlockyPool : public Pool
         {
             public:
                 /**
                  * The constructor creates one big block at the start of the memory region and adds it to the free block list.
                  */
-                MemPool()
+                BlockyPool()
                 {
                     begin();
                 }
@@ -130,13 +50,13 @@ namespace etk
                  * First it tries to find a big enough free block. If that fails, it attempts to merge adjacent free blocks together.
                  * If it still can't get a big enough block, it returns a null pointer.
                  */
-                void* alloc(uint32 sz)
+                void* alloc(uint32 sz)/*{{{*/
                 {
+                    //cout << "alloc: " << sz << endl;
                     //first see if there is a suitable block
                     void* r = alloc_from_free_list(sz);
                     //return on success
                     if(r != nullptr) {
-                        dump();
                         return r;
                     }
 
@@ -146,44 +66,41 @@ namespace etk
                     //after merging free blocks, there might be a large enough block free
                     r = alloc_from_free_list(sz);
                     if(r != nullptr) {
-                        dump();
                         return r;
                     }        
 
-                    dump();
-
-
                     //can't allocate any more memory.
                     return nullptr;
-                }
+                }/*}}}*/
 
-                void* realloc(void* ptr, uint32 sz, uint32 oldsz = 0)/*{{{*/
+                void* realloc(void* ptr, uint32 sz, uint32 oldsz)/*{{{*/
                 {
                     if(ptr == nullptr)
                     {
                         return alloc(sz);
                     }
 
-                    uint8* bptr = (uint8*)ptr;
-                    bptr -= sizeof(BlockHead);
-                    Block* block = (Block*)bptr;
-                    uint32 old_chunks = block->head.size;
-                    
+                    //cout << "realloc" << endl;
 
                     // calculate the number of chunks to allocate
-                    uint32 n_chunks = (sz+sizeof(BlockHead))/CHUNK_SIZE;
-                    if((n_chunks == 0) || ((sz+sizeof(BlockHead))%CHUNK_SIZE)) {
+
+                    uint32 n_chunks = sz/CHUNK_SIZE;
+                    if((n_chunks == 0) || (sz%CHUNK_SIZE)) {
                         n_chunks += 1;
                     }
 
-                    //cout << "realloc" << endl;
+                    uint32 old_chunks = oldsz/CHUNK_SIZE;
+                    if((old_chunks == 0) || (oldsz%CHUNK_SIZE)) {
+                        old_chunks += 1;
+                    }
+
                     //cout << "new size: " << sz << endl << endl;
 
                     //the allocation needs to be shrunk down
                     if(old_chunks > n_chunks)
                     {
                         //cout << "shrinking" << endl;
-                        split_block(block, n_chunks);
+                        split_block((Block*)ptr, n_chunks);
 
                         print_free_list();
                         return ptr;
@@ -192,7 +109,6 @@ namespace etk
                     else if(old_chunks < n_chunks)
                     {
                         //cout << "realloc growing" << endl;
-                        free(ptr);
                         void* n = alloc(sz);
                         if(n == nullptr)
                         {
@@ -207,6 +123,8 @@ namespace etk
                             }
                         }
 
+
+                        free(ptr, oldsz);
                         //cout << "done realloc growing" << endl;
                         return n;
                     }
@@ -223,23 +141,25 @@ namespace etk
                  * It is assumed that the size of the block hasn't been wrecked by some stray, memory trashing bug elsewhere in the application.
                  * I guess everything is based on that assumption, aye? :-)
                  */
-                void free(void* ptr, uint32 sz = 0)/*{{{*/
+                void free(void* ptr, uint32 sz)/*{{{*/
                 {
-                    unused(sz);
                     // freeing a block adds it to the tail
-                    //cout << "freeing" << endl;    
+                    Block* block = (Block*)ptr;
 
-                    uint8* bptr = (uint8*)ptr;
-                    bptr -= sizeof(BlockHead);
-                    Block* block = (Block*)bptr;
-                    
+                    //cout << "freeing " << i << endl;
 
+                    uint32 ssz = sz/CHUNK_SIZE;
+                    if((ssz == 0) || (sz%CHUNK_SIZE)) {
+                        ssz += 1;
+                    }
+                    //cout << "ssz: " << ssz << endl;
                     free_head->head.prev = block;
-                    //block->head.size = ssz;
+                    block->head.size = ssz;
                     block->head.next = free_head;
                     block->head.prev = nullptr;
 
                     free_head = block;
+                    //cout << "free failed!" << endl;
                 }/*}}}*/
                 /**
                  * Joins free blocks together.
@@ -276,7 +196,7 @@ namespace etk
                             }
                         }
                         else {
-                            i += blocks[i].head.size;
+                            i++;
                         }
                     }
                     print_free_list();
@@ -291,7 +211,6 @@ namespace etk
                 {
                     coalesce();
                 }/*}}}*/
-
 
                 void dump()/*{{{*/
                 {
@@ -326,7 +245,7 @@ namespace etk
                 /*}}}*/
             private:
 
-                static const uint32 CHUNK_SIZE = 64;
+                static const uint32 CHUNK_SIZE = 128;
                 static const uint32 TOTAL_CHUNKS = SIZE/CHUNK_SIZE;
 
                 struct BlockHead {
@@ -360,8 +279,8 @@ namespace etk
                 void* alloc_from_free_list(uint32 sz)
                 {
                     // calculate the number of chunks to allocate
-                    uint32 n_blocks = ((sz+sizeof(BlockHead))/CHUNK_SIZE);
-                    if((n_blocks == 0) || ((sz+sizeof(BlockHead))%CHUNK_SIZE)) {
+                    uint32 n_blocks = sz/CHUNK_SIZE;
+                    if((n_blocks == 0) || (sz%CHUNK_SIZE)) {
                         n_blocks += 1;
                     }
 
@@ -380,7 +299,7 @@ namespace etk
                                 split_block(n, n_blocks);
                             }
 
-                            n->head.size = n_blocks;
+                            //blocks[n].head.size = n_blocks;
 
                             if(n == free_head) {
                                 free_head = (Block*)n->head.next;
@@ -396,7 +315,7 @@ namespace etk
                             }
 
                             //return a pointer to the start of the allocated chunk
-                            return (void*)&n->bytes[sizeof(BlockHead)];
+                            return (void*)n;
                         }
                         n = (Block*)n->head.next;
                     }
@@ -420,16 +339,17 @@ namespace etk
                         n = (Block*)n->head.next;
                     }
                     return false;
-
                 }
 
                 Block* free_head;
+
                 Block blocks[TOTAL_CHUNKS];
         };
 
-
     }
-
 }
 
+
 #endif
+
+
