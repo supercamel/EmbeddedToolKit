@@ -11,22 +11,9 @@ namespace etk
 {
     namespace experimental
     {
-
-
-        /**
-         * The memory pool divides the memory into chunks of free memory and tracks them as a double linked list.
-         *
-         * Memory allocation works like this
-         *      1. A free block with size > request is found.
-         *      2. 
-         *
-         */
         template <uint32 SIZE> class BlockyPool : public Pool
         {
             public:
-                /**
-                 * The constructor creates one big block at the start of the memory region and adds it to the free block list.
-                 */
                 BlockyPool()
                 {
                     begin();
@@ -34,7 +21,8 @@ namespace etk
 
                 void begin()
                 {
-                    static_assert(SIZE%CHUNK_SIZE == 0, "The memory pool size must be a multiple of the chunk size.");
+                    static_assert(SIZE%CHUNK_SIZE == 0, 
+                            "The memory pool size must be a multiple of the chunk size.");
                     static_assert(CHUNK_SIZE > sizeof(BlockHead), "CHUNK_SIZE is too small.");
 
                     free_head = &blocks[0];
@@ -44,12 +32,6 @@ namespace etk
 
                 }
 
-                /**
-                 * alloc allocates a block of memory of at least sz bytes.
-                 *
-                 * First it tries to find a big enough free block. If that fails, it attempts to merge adjacent free blocks together.
-                 * If it still can't get a big enough block, it returns a null pointer.
-                 */
                 void* alloc(uint32 sz)/*{{{*/
                 {
                     //cout << "alloc: " << sz << endl;
@@ -62,7 +44,7 @@ namespace etk
 
 
                     //we're out of memory, so try joining together all the adjacent free blocks to see if they release a region large enough
-                    coalesce_free_blocks();
+                    coalesce();
                     //after merging free blocks, there might be a large enough block free
                     r = alloc_from_free_list(sz);
                     if(r != nullptr) {
@@ -135,12 +117,6 @@ namespace etk
                 }
                 /*}}}*/
 
-                /* free releases a block of memory back to the memory pool.
-                 *
-                 * The block is added to the free block list.
-                 * It is assumed that the size of the block hasn't been wrecked by some stray, memory trashing bug elsewhere in the application.
-                 * I guess everything is based on that assumption, aye? :-)
-                 */
                 void free(void* ptr, uint32 sz)/*{{{*/
                 {
                     // freeing a block adds it to the tail
@@ -161,9 +137,7 @@ namespace etk
                     free_head = block;
                     //cout << "free failed!" << endl;
                 }/*}}}*/
-                /**
-                 * Joins free blocks together.
-                 */
+
                 void coalesce()/*{{{*/
                 {
                     int32 i = 0;
@@ -202,47 +176,7 @@ namespace etk
                     print_free_list();
                     //cout << "coalesce done" << endl;
                 }/*}}}*/
-                /**
-                 * coalesce_free_blocks scans through the list of free blocks and merges any adjacent blocks together.
-                 *
-                 * This helps minimize fragmentation. Remember the old windoze 95 hard drive defrag tool?
-                 */
-                void coalesce_free_blocks()/*{{{*/
-                {
-                    coalesce();
-                }/*}}}*/
 
-                void dump()/*{{{*/
-                {
-                    /*
-                       ofstream fout;
-                       fout.open("memory_dump.bin", ios::binary | ios::out);
-                       fout.write((char*) memory, SIZE);
-                       fout.close();
-                       */
-                }
-                /*}}}*/
-
-                void print_free_list()/*{{{*/
-                {
-                    /*
-                       cout << "print_free_list" << endl;
-                       int count = 0;
-                       int32 n = free_head;
-                       while(n >= 0)
-                       {
-                       cout << "free: " << n << flush << " " << blocks[n].head.size << endl;
-                       n = blocks[n].head.next;
-
-                       count++;
-                       if(count > 100) {
-                       char b;
-                       cin >> b;
-                       }
-                       }
-                       */
-                }
-                /*}}}*/
             private:
 
                 static const uint32 CHUNK_SIZE = 128;

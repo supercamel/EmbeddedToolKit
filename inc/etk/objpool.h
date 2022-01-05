@@ -207,14 +207,7 @@ private:
         }
     }
 
-    class tbl
-    {
-    public:
-        uint32 references = 0;
-        uint8 data[sizeof(T)];
-    };
-
-    Array<tbl, N> pool;
+    unsigned int references[N];
 };
 
 }

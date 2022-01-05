@@ -17,6 +17,7 @@
 
 #include <stdlib.h>
 #include "types.h"
+#include "bitfield.h"
 #include "math_util.h"
 
 /*
@@ -52,10 +53,14 @@ using namespace std;
  *
  * ProTip: Put MemPools on the stack whenever possible - and don't call free() unless you actually need to.
  *
- * ProTip: If you're doing a lot of allocating and freeing with a MemPool, call coalesce_free_blocks() after free().
+ * ProTip: If you're doing a lot of allocating and freeing with a MemPool, call coalesce() after free().
  *     This will join together free blocks that are adjacent to each other. It helps minimize fragmentation and
  *         could help speed up the next call to alloc().
  */
+
+#include <iostream>
+using namespace std;
+
 
 namespace etk
 {
@@ -91,20 +96,29 @@ namespace etk
 
 
         /**
-         * The memory pool divides the memory into chunks of free memory and tracks them as a double linked list.
+         * This is a memory pool implementation that uses a free list to track
+         * unused chunks.
+         *
+         * SIZE = number of bytes to reserve for the pool
+         * CHUNK_SIZE = the size of the blocks. bigger blocks usually perform 
+         * better than small blocks, but will reduce the number of available 
+         * blocks to allocate. 
          *
          */
         template <uint32 SIZE, uint32 CHUNK_SIZE = 64> class MemPool : public Pool
         {
             public:
-                /**
-                 * The constructor creates one big block at the start of the memory region and adds it to the free block list.
-                 */
                 MemPool()
                 {
                     begin();
                 }
 
+                /**
+                 * Some systems use startup code designed for C.
+                 * In this case, C++ constructors for global objects are not
+                 * executed when the program begins. Here we provide an 
+                 * alternative way to initialise the object.
+                 */
                 void begin()
                 {
                     static_assert(SIZE%CHUNK_SIZE == 0, "The memory pool size must be a multiple of the chunk size.");
@@ -118,9 +132,6 @@ namespace etk
 
                 /**
                  * alloc allocates a block of memory of at least sz bytes.
-                 *
-                 * First it tries to find a big enough free block. If that fails, it attempts to merge adjacent free blocks together.
-                 * If it still can't get a big enough block, it returns a null pointer.
                  */
                 void* alloc(uint32 sz)
                 {
@@ -129,14 +140,20 @@ namespace etk
                     r = alloc_from_free_list(sz);
                     if(r == nullptr) {
                         //we're out of memory, so try joining together all the adjacent free blocks to see if they release a region large enough
-                        coalesce_free_blocks();
+                        coalesce();
                         //after merging free blocks, there might be a large enough block free
                         r = alloc_from_free_list(sz);
                     }        
 
+                    if(r == nullptr) {
+                        cout << "alloc failed" << endl;
+                    }
                     return r;
                 }
 
+                /**
+                 * realloc will resize an allocation to make it either bigger or smaller
+                 */
                 void* realloc(void* ptr, uint32 sz, uint32 oldsz = 0)/*{{{*/
                 {
                     if(ptr == nullptr)
@@ -151,11 +168,8 @@ namespace etk
 
 
                     // calculate the number of chunks to allocate
-                    uint32 n_chunks = (sz+sizeof(BlockHead))/CHUNK_SIZE;
-                    if((n_chunks == 0) || ((sz+sizeof(BlockHead))%CHUNK_SIZE)) {
-                        n_chunks += 1;
-                    }
-
+                    uint32 N = sz+sizeof(BlockHead);
+                    uint32 n_chunks = N / CHUNK_SIZE + ((N % CHUNK_SIZE != 0) * 1) ;
 
                     //the allocation needs to be shrunk down
                     if(old_chunks > n_chunks)
@@ -166,6 +180,8 @@ namespace etk
                     //the allocation needs to grow larger
                     else if(old_chunks < n_chunks)
                     {
+                        // TODO try to coalesce adjacent blocks
+                        // before calling free and alloc
                         free(ptr);
                         void* n = alloc(sz);
                         if(n == nullptr)
@@ -190,11 +206,8 @@ namespace etk
                 }
                 /*}}}*/
 
-                /* free releases a block of memory back to the memory pool.
-                 *
-                 * The block is added to the free block list.
-                 * It is assumed that the size of the block hasn't been wrecked by some stray, memory trashing bug elsewhere in the application.
-                 * I guess everything is based on that assumption, aye? :-)
+                /* 
+                 * free releases a block of memory back to the memory pool.
                  */
                 void free(void* ptr, uint32 sz = 0)/*{{{*/
                 {
@@ -212,8 +225,9 @@ namespace etk
 
                     free_head = block;
                 }/*}}}*/
+
                 /**
-                 * Joins free blocks together.
+                 * Joins adjacent free blocks together.
                  */
                 void coalesce()/*{{{*/
                 {
@@ -250,16 +264,51 @@ namespace etk
                             i += blocks[i].head.size;
                         }
                     }
-                }/*}}}*/
-                /**
-                 * coalesce_free_blocks scans through the list of free blocks and merges any adjacent blocks together.
-                 *
-                 * This helps minimize fragmentation. Remember the old windoze 95 hard drive defrag tool?
-                 */
-                void coalesce_free_blocks()/*{{{*/
-                {
-                    coalesce();
-                }/*}}}*/
+                }
+                /*
+                 * version that uses bit field to look up if a block is allocated
+                 * doesn't appear to be faster
+                 void coalesce()
+                 {
+                 construct_abf();
+                 int32 i = 0;
+                 while(i < TOTAL_CHUNKS)
+                 {
+                 if(abf.get(i)) {
+                 int32 first = i;
+                 i += blocks[i].head.size;
+                 while(abf.get(i)) {
+                 blocks[first].head.size += blocks[i].head.size;
+
+                 if(&blocks[i] == free_head) {
+                 free_head = (Block*)blocks[i].head.next;
+                 if(free_head != nullptr) {
+                 free_head->head.prev = nullptr;
+                 }
+                 }
+                 else {
+                //remove the block from the free block list - cause it's not free no more
+                if(blocks[i].head.next != nullptr) {
+                reinterpret_cast<Block*>(blocks[i].head.next)->head.prev 
+                = blocks[i].head.prev;
+                }
+                if(blocks[i].head.prev != nullptr) {
+                reinterpret_cast<Block*>(blocks[i].head.prev)->head.next 
+                = blocks[i].head.next;
+                }
+                }
+
+
+                i += blocks[i].head.size;
+                }
+                }
+                else {
+                i++;
+                }
+                }
+
+                construct_abf();
+                }*/
 
             private:
 
@@ -281,6 +330,10 @@ namespace etk
 
                 static_assert(sizeof(Block) == CHUNK_SIZE, "Block does not equal chunk size");
 
+                /**
+                 * split_block splits a large chunk into two smaller chunks 
+                 * and adds the second chunk to the free list.
+                 */
                 void split_block(Block* n, uint32 split_pos) {
                     Block* sp = &n[split_pos];
                     free_head->head.prev = sp;
@@ -288,21 +341,20 @@ namespace etk
                     sp->head.next = free_head;
                     sp->head.prev = nullptr;
                     free_head = sp;
+
+                    n->head.size = split_pos;
                 }
                 /**
-                 * Finds and allocates a free block that is at least as big as sz.
+                 * Finds and allocates a free chunk that is at least as big as sz.
                  */
                 void* alloc_from_free_list(uint32 sz)
                 {
-                    // calculate the number of chunks to allocate
-                    uint32 n_blocks = ((sz+sizeof(BlockHead))/CHUNK_SIZE);
-                    if((n_blocks == 0) || ((sz+sizeof(BlockHead))%CHUNK_SIZE)) {
-                        n_blocks += 1;
-                    }
+                    // calculate the number of blocks to allocate
+                    uint32 N = sz+sizeof(BlockHead);
+                    uint32 n_blocks = N / CHUNK_SIZE + ((N % CHUNK_SIZE != 0) * 1) ;
 
                     // iterate over the free blocks
                     Block* n = free_head;
-
                     while(n != nullptr)
                     {
                         //if this block has sufficient space
@@ -315,19 +367,26 @@ namespace etk
                                 split_block(n, n_blocks);
                             }
 
-                            n->head.size = n_blocks;
+                            // TODO this line may be unecessary??
+                            //n->head.size = n_blocks;
 
+                            // if the free head is being allocated
                             if(n == free_head) {
+                                // move the free head to the next free chunk
                                 free_head = (Block*)n->head.next;
-                                n->head.prev = nullptr;
+                                // link the next chunk to the prior chunk
+                                if(free_head != nullptr) {
+                                    free_head->head.prev = n->head.prev;
+                                }
                             }
-
-                            //remove the block from the free block list - cause it's not free no more
-                            if(n->head.next != nullptr) {
-                                reinterpret_cast<Block*>(n->head.next)->head.prev = n->head.prev;
-                            }
-                            if(n->head.prev != nullptr) {
-                                reinterpret_cast<Block*>(n->head.prev)->head.next = n->head.next;
+                            else {
+                                //remove the block from the free block list - cause it's not free no more
+                                if(n->head.next != nullptr) {
+                                    reinterpret_cast<Block*>(n->head.next)->head.prev = n->head.prev;
+                                }
+                                if(n->head.prev != nullptr) {
+                                    reinterpret_cast<Block*>(n->head.prev)->head.next = n->head.next;
+                                }
                             }
 
                             //return a pointer to the start of the allocated chunk
@@ -342,6 +401,9 @@ namespace etk
 
                 /**
                  * Returns true if the pointer is in the free block list
+                 * TODO maybe implement a bit field to store if a chunk is 
+                 * allocated or not
+                 * or maybe not?? 
                  */
                 bool block_is_free(Block* block)
                 {
@@ -355,16 +417,45 @@ namespace etk
                         n = (Block*)n->head.next;
                     }
                     return false;
-
                 }
+
+                /*
+                   void construct_abf() 
+                   {
+                   abf.zero(); // turn all bits off
+                   Block* n = free_head;
+                   while(n != nullptr)
+                   {
+                // find the block number from pointer address
+
+                uint32 blocknumber = (n - blocks);
+                abf.set(blocknumber);
+                n = (Block*)n->head.next;
+                }
+
+
+                int i = 0; 
+                while(i < TOTAL_CHUNKS) {
+                if(abf.get(i)) {
+                while(abf.get(i++)) { };
+                }
+                else {
+                i++;
+                }
+                }
+                }
+                */
 
                 Block* free_head;
                 Block blocks[TOTAL_CHUNKS];
+
+                // allocation bit field
+                //BitField<TOTAL_CHUNKS> abf;
         };
 
 
-    }
+        }
 
-}
+        }
 
 #endif
