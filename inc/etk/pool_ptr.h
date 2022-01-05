@@ -5,31 +5,19 @@
 /**
  * This is a smart pointer implementation for memory pools.
  *
- * Memory pool leaks are typically less dangerous than memory leaked from the heap
- * since memory pools are often placed on the stack anyway. Infact, sometimes it's
- * desirable to NOT explicitly free memory from a pool because it can be faster to
- * simply destroy the whole pool rather than each object individually.
- *
- * However, leaks can and do occur with memory pools.
- *
- * Memory pools simply allocate and free memory. They do not construct or destroy C++
- * objects. This must be done explicitly using placement new/delete.
- *
- * The pool_pointer class is a smart pointer that allocates memory and constructs the object.
- * It's a reference counting smart pointer, so it knows when the object is no longer required
- * and it automatically destructs the object and releases the memory back to the pool.
- * It's very convenient - but only use it if you need those features.
+ * It's a reference counting smart pointer.
  *
  * Example:
-        Pool<1024> pool;
-        // pool_pointer<Pool<1024>, Object> p_obj = make_pool_ptr<1024, Object>(pool);
-        //it's much cleaner to use auto where possible
-        auto p_obj = make_pool_ptr<1024, Object>(pool);
-        p_obj->foo();
- */
+ Pool<1024> pool;
+// pool_pointer<Pool<1024>, Object> p_obj = make_pool_ptr<1024, Object>(pool);
+//it's much cleaner to use auto where possible
+auto p_obj = make_pool_ptr<1024, Object>(pool);
+p_obj->foo();
+*/
 
 #ifndef __AVR__
 
+#include <new>
 #include <cstdlib>
 #include <utility>
 
@@ -38,135 +26,126 @@
 namespace etk
 {
 
-namespace experimental
-{
 
-template <typename T> class pool_pointer
-{
-public:
-    pool_pointer(Pool& pool) : pool(pool)
+    template <typename T> class pool_pointer
     {
-        ref = static_cast<pool_pointer<T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
-        ref->construct();
-        if(ref)
-            ref->reference();
-    }
 
-    pool_pointer(Pool& pool, T* pValue) : ptr(pValue), pool(pool)
-    {
-        ref = static_cast<pool_pointer<T>::RefCounter*>(pool.alloc(sizeof(RefCounter)));
-        ref->construct();
-        if(ref)
-            ref->reference();
-    }
+        public:
+            /**
+             * Use the make function to construct a pool pointer. E.g.
+             *
+             * auto p = etk::pool_pointer<MyClass>::make(pool, <constructor params>);
+             *
+             */
+            template<class... U> static pool_pointer<T> make(Pool& pool, U&&... u);
 
-    pool_pointer(const pool_pointer<T>& sp) : ptr(sp.ptr), ref(sp.ref), pool(sp.pool)
-    {
-        ref->reference();
-    }
 
-    ~pool_pointer()
-    {
-        if(ref->unreference() == 0)
-        {
-            ptr->~T(); //placement delete
-            pool.free(ptr);
-            pool.free(ref);
-        }
-    }
-
-    T& operator* ()
-    {
-        return *ptr;
-    }
-
-    T* operator-> ()
-    {
-        return ptr;
-    }
-
-    pool_pointer<T>& operator = (const pool_pointer<T>& sp)
-    {
-        if (this != &sp)
-        {
-            if(ref->unreference() == 0)
+            /**
+             * copy constructor
+             */
+            pool_pointer(const pool_pointer<T>& sp) 
+                : refobj(sp.refobj), pool(sp.pool)
             {
-                ptr->~T(); //placement delete
-                pool.free(ptr);
-                pool.free(ref);
+                refobj->count++;
             }
 
-            ptr = sp.ptr;
-            ref = sp.ref;
-            ref->reference();
-        }
-        return *this;
-    }
+            ~pool_pointer()
+            {
+                refobj->count--;
+                if(refobj->count == 0)
+                {
+                    refobj->obj.~T(); //placement delete
+                    pool.free((void*)refobj);
+                }
+            }
 
-    bool operator == (const pool_pointer<T>& sp)
-    {
-        return ptr == sp.ptr;
-    }
+            T& operator* ()
+            {
+                return refobj->obj;
+            }
 
-    bool operator != (const pool_pointer<T>& sp)
-    {
-        return ptr != sp.ptr;
-    }
+            T* operator-> ()
+            {
+                return &refobj->obj;
+            }
 
-    operator bool()
-    {
-        if((ptr) && (ref))
-            return true;
-        return false;
-    }
+            /**
+             * assignment operator
+             */
+            pool_pointer<T>& operator = (const pool_pointer<T>& sp)
+            {
+                // if not assigning to itself
+                if (this != &sp)
+                {
+                    // deref self
+                    refobj->count -= 1;
+                    if(refobj->count == 0)
+                    {
+                        refobj->obj.~T(); //destroy and free, if necessary
+                        pool.free((void*)refobj);
+                    }
 
-    Pool& get_pool()
-    {
-        return pool;
-    }
+                    //get other obj
+                    refobj = sp.refobj;
+                    //inc reference
+                    refobj->count++;
+                }
+                return *this;
+            }
 
-private:
+            /**
+             * comparison operators
+             */
+            bool operator == (const pool_pointer<T>& sp)
+            {
+                return refobj == sp.refobj;
+            }
 
-    class RefCounter
-    {
-    public:
-        void construct() {
-            count = 0;
-        }
+            bool operator != (const pool_pointer<T>& sp)
+            {
+                return refobj != sp.refobj;
+            }
 
-        void reference()
-        {
-            count++;
-        }
+            // boolean cast operator
+            operator bool()
+            {
+                return refobj != nullptr;
+            }
 
-        int unreference()
-        {
-            return --count;
-        }
+            // gets a reference to the pool
+            Pool& get_pool()
+            {
+                return pool;
+            }
 
-    private:
-        int32 count;
+
+        private:
+            pool_pointer() { }
+
+            struct RefObj {
+                uint32 count = 0;
+                T obj;
+            };
+
+            pool_pointer(Pool& pool, RefObj* refobj) 
+                : pool(pool), refobj(refobj)
+            { 
+            }
+
+            RefObj* refobj = nullptr;
+            Pool& pool;
     };
 
-    T* ptr = nullptr;
-    RefCounter* ref = nullptr;
-    Pool& pool;
-};
+    template <typename T> template<class... U> pool_pointer<T> pool_pointer<T>::make(Pool& pool, U&&... u) {
+        auto* ptr = (pool_pointer<T>::RefObj*)
+            pool.alloc(sizeof(pool_pointer<T>::RefObj)); 
 
+        new(&ptr->obj) T(std::forward<U>(u)...);
 
-template<typename T, class... U> pool_pointer<T> make_pool_ptr(Pool& pool, U&&... u)
-{
-    void* ptr = pool.alloc(sizeof(T));
-    if(ptr)
-        new(ptr)T(std::forward<U>(u)...);
-
-    pool_pointer<T> sp(pool, static_cast<T*>(ptr));
-
-    return sp;
-}
-
-}
-
+        ptr->count = 1;
+        pool_pointer<T> sp(pool, ptr);
+        return sp;
+    }
 }
 
 #endif

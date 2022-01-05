@@ -33,7 +33,7 @@ using namespace etk;
 
 //pool pointer declarations are very long-winded, so i've typedef'd it down to something easier to read
 struct node;
-typedef experimental::PoolPtr<experimental::ObjPool<node, 10>, node> node_ptr;
+typedef PoolPtr<node> node_ptr;
 
 
 //the list node object
@@ -47,10 +47,10 @@ struct node
 int main()
 {
 	//declare a pool. this pool can allocate a maximum of 10 node objects
-	experimental::ObjPool<node, 10> pool;
+	ObjPool<node, 10> pool;
 	
 	//allocate a head node
-	auto head = pool.alloc();
+	auto head = pool.alloc_ptr();
 	head->text = "Head node";
 	
 	//this loop actually consumes all allocations from the pool
@@ -58,7 +58,7 @@ int main()
 	int count = 1;
 	while(next)
 	{
-		next->next = pool.alloc(); //get an allocation
+		next->next = pool.alloc_ptr(); //get an allocation
 		if(next->next == nullptr) //check if the call to pool.alloc() has worked
 			break; //if not, break the loop
 			

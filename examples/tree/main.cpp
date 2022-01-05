@@ -10,8 +10,8 @@ using namespace etk;
 
 
 struct node;
-typedef experimental::ObjPool<node, 1024*3> pool_type;
-typedef experimental::PoolPtr<pool_type, node> node_ptr;
+typedef ObjPool<node, 1024*3> pool_type;
+typedef PoolPtr<node> node_ptr;
 
 const int max_depth = 5;
 
@@ -128,7 +128,7 @@ void add_child_nodes(node_ptr ptr)
 	
 	for(int i = 0; i < 3; i++)
 	{
-		ptr->children.append(pool.alloc());
+		ptr->children.append(pool.alloc_ptr());
 		add_child_nodes(ptr->children[i]);
 	}
 	
@@ -142,7 +142,7 @@ int main()
 	cout << "Randomly generating a tree . . . " << endl;
 	srand(time(NULL));
 	//allocate a head node
-	auto head = pool.alloc();
+	auto head = pool.alloc_ptr();
 	head->segment_length = 0;
 	
 	add_child_nodes(head);

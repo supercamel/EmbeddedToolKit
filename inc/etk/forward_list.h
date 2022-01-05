@@ -8,9 +8,6 @@
 namespace etk
 {
 
-namespace experimental
-{
-
 template <typename T> class forward_list
 {
 private:
@@ -71,7 +68,7 @@ public:
         typename forward_list::Node* node;
     };
 
-    forward_list(etk::experimental::Pool* pool) : pool(pool)
+    forward_list(etk::Pool* pool) : pool(pool)
     {
 
     }
@@ -304,13 +301,10 @@ public:
     }
 
 private:
-    
 
     Node* head = nullptr;
-    etk::experimental::Pool* pool = nullptr;
+    etk::Pool* pool = nullptr;
 };
-
-}
 
 }
 
