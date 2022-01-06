@@ -55,6 +55,7 @@
 #include "smrt_ptr.h"
 #include "pool.h"
 #include "pool_ptr.h"
+#include "dynamic_list.h"
 #include "forward_list.h"
 #include "linked_list.h"
 #include "sigslot.h"

@@ -16,14 +16,13 @@
 #define POOL_H_INCLUDED
 
 #include <stdlib.h>
+#include <string.h>
 #include "types.h"
-#include "bitfield.h"
 #include "math_util.h"
 
 /**
  * A memory pool implementation.
  */
-
 
 namespace etk
 {
@@ -104,9 +103,6 @@ namespace etk
                     r = alloc_from_free_list(sz);
                 }        
 
-                if(r == nullptr) {
-                    cout << "alloc failed" << endl;
-                }
                 return r;
             }
 
@@ -159,6 +155,22 @@ namespace etk
                         void* n = alloc(sz);
                         if(n == nullptr)
                         {
+                            // un-free the block
+                            if(block == free_head) {
+                                free_head = (Block*)block->head.next;
+                                if(free_head != nullptr) {
+                                    free_head->head.prev = block->head.prev;
+                                }
+                            }
+                            else {
+                                if(block->head.next != nullptr) {
+                                    reinterpret_cast<Block*>(block->head.next)->head.prev = block->head.prev;
+                                }
+                                if(block->head.prev != nullptr) {
+                                    reinterpret_cast<Block*>(block->head.prev)->head.next = block->head.next;
+                                }
+                            }
+
                             return nullptr;
                         }
                         // copy contents of the old chunks to the new location
@@ -184,8 +196,10 @@ namespace etk
                 bptr -= sizeof(BlockHead);
                 Block* block = (Block*)bptr;
 
-
-                free_head->head.prev = block;
+                if(free_head != nullptr)
+                {
+                    free_head->head.prev = block;
+                }
                 block->head.next = free_head;
                 block->head.prev = nullptr;
                 block->head.available = 1;
@@ -213,8 +227,8 @@ namespace etk
             static const uint32 TOTAL_CHUNKS = SIZE/CHUNK_SIZE;
 
             struct BlockHead {
-                uint16 size;
-                uint16 available;
+                uint32 size;
+                uint32 available;
                 void* next;
                 void* prev;
             };
@@ -265,7 +279,11 @@ namespace etk
              */
             void split_block(Block* n, uint32 split_pos) {
                 Block* sp = &n[split_pos];
-                free_head->head.prev = sp;
+
+                if(free_head != nullptr) 
+                {
+                    free_head->head.prev = sp;
+                }
                 sp->head.size = n->head.size-split_pos;
                 sp->head.next = free_head;
                 sp->head.prev = nullptr;

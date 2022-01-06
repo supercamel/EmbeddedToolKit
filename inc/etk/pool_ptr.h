@@ -15,6 +15,7 @@ auto p_obj = make_pool_ptr<1024, Object>(pool);
 p_obj->foo();
 */
 
+
 #ifndef __AVR__
 
 #include <new>
