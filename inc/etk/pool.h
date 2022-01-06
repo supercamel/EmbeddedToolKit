@@ -171,6 +171,8 @@ namespace etk
                                 }
                             }
 
+                            block->head.available = 0;
+
                             return nullptr;
                         }
                         // copy contents of the old chunks to the new location
@@ -268,6 +270,7 @@ namespace etk
                                 blocks[block_n].head.prev)->head.next = 
                             blocks[block_n].head.next;
                     }
+                    blocks[block_n].head.available = 0;
 
                     block_n += blocks[block_n].head.size;
                 }

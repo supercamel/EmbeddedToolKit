@@ -51,9 +51,10 @@ namespace etk
             DynamicList(Pool* pool) 
                 : pool(pool)
             {
-                space = pool->alloc(sizeof(T)*2);
-                reserved = 2;
+                //space = pool->alloc(sizeof(T)*2);
+                reserved = 0;
                 list_end = -1;
+                space = nullptr;
             }
 
             ~DynamicList()
@@ -390,7 +391,7 @@ namespace etk
 
             bool resize() 
             {
-                if(reserved < list_end) 
+                if(reserved <= list_end) 
                 {
                     void* tmp_space = space;
                     reserved += RESIZE_STEP;
