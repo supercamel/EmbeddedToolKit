@@ -20,6 +20,7 @@
 #include "types.h"
 #include "math_util.h"
 
+
 /**
  * A memory pool implementation.
  */
@@ -32,7 +33,7 @@ namespace etk
             virtual void* alloc(uint32 sz) = 0;
             virtual void free(void* ptr) = 0;
             virtual void* realloc(void* ptr, uint32 sz) = 0;
-            virtual void coalesce() = 0;
+            virtual uint32 coalesce() = 0;
     };
 
     class Heap : public Pool
@@ -47,7 +48,8 @@ namespace etk
             void* realloc(void* ptr, uint32 sz) {
                 return ::realloc(ptr, sz);
             }
-            void coalesce() {
+            uint32 coalesce() {
+                return 0;
             }
     };
 
@@ -81,11 +83,13 @@ namespace etk
                 static_assert(SIZE%CHUNK_SIZE == 0, "The memory pool size must be a multiple of the chunk size.");
                 static_assert(CHUNK_SIZE > sizeof(BlockHead), "CHUNK_SIZE is too small.");
 
+                memset(&blocks[0], 0, sizeof(Block)*TOTAL_CHUNKS);
+
                 free_head = &blocks[0];
                 blocks[0].head.size = TOTAL_CHUNKS;
                 blocks[0].head.next = nullptr;
                 blocks[0].head.prev = nullptr;
-                blocks[0].head.available = 1;
+                blocks[0].head.ref = 0;
             }
 
             /**
@@ -138,6 +142,7 @@ namespace etk
                     // first attempt to join on any adjacent free blocks
                     uint32 blocknumber = (block - blocks);
                     join_adjacent(blocknumber);
+
                     if(block->head.size > n_chunks)  // if the block size is now too big
                     {
                         split_block(block, n_chunks); // split it
@@ -151,6 +156,7 @@ namespace etk
                     {
                         // free the memory
                         free(ptr);
+
                         // attempt allocation 
                         void* n = alloc(sz);
                         if(n == nullptr)
@@ -171,12 +177,12 @@ namespace etk
                                 }
                             }
 
-                            block->head.available = 0;
+                            block->head.ref = 1;
 
                             return nullptr;
                         }
                         // copy contents of the old chunks to the new location
-                        memcpy(n, ptr, old_chunks*CHUNK_SIZE);
+                        memmove(n, ptr, old_chunks*CHUNK_SIZE);
                         return n;
                     }
                 }
@@ -193,35 +199,92 @@ namespace etk
              */
             void free(void* ptr)/*{{{*/
             {
-                // freeing a block adds it to the tail
-                uint8* bptr = (uint8*)ptr;
-                bptr -= sizeof(BlockHead);
-                Block* block = (Block*)bptr;
-
-                if(free_head != nullptr)
+                if(ptr != nullptr) 
                 {
-                    free_head->head.prev = block;
-                }
-                block->head.next = free_head;
-                block->head.prev = nullptr;
-                block->head.available = 1;
+                    // freeing a block adds it to the tail
+                    uint8* bptr = (uint8*)ptr;
+                    bptr -= sizeof(BlockHead);
+                    Block* block = (Block*)bptr;
 
-                free_head = block;
+                    if(free_head != nullptr)
+                    {
+                        free_head->head.prev = block;
+                    }
+                    block->head.next = free_head;
+                    block->head.prev = nullptr;
+                    block->head.ref = 0;
+
+                    free_head = block;
+                }
             }/*}}}*/
+
+            void ref(void* ptr)
+            {
+                if(ptr != nullptr) 
+                {
+                    // freeing a block adds it to the tail
+                    uint8* bptr = (uint8*)ptr;
+                    bptr -= sizeof(BlockHead);
+                    Block* block = (Block*)bptr;
+                    block->head.ref++;
+                }
+            }
+
+            uint32_t unref(void* ptr)/*{{{*/
+            {
+                if(ptr != nullptr) 
+                {
+                    // freeing a block adds it to the tail
+                    //
+
+                    uint8* bptr = (uint8*)ptr;
+                    bptr -= sizeof(BlockHead);
+                    Block* block = (Block*)bptr;
+                    if(block->head.ref > 0) {
+                        block->head.ref--;
+
+                        if(block->head.ref == 0) {
+                            if(free_head != nullptr)
+                            {
+                                free_head->head.prev = block;
+                            }
+                            block->head.next = free_head;
+                            block->head.prev = nullptr;
+                            block->head.ref = 0;
+
+                            free_head = block;
+                        }
+                        return block->head.ref;
+                    }
+                }
+                return 0;
+            }/*}}}*/
+
 
             /**
              * Joins adjacent free blocks together.
              */
-            void coalesce()
+            uint32 coalesce()
             {
-                int32 i = 0;
-                while(i < TOTAL_CHUNKS)
+                uint32 count = 0;
+                uint32 i = 0;
+                while((i < TOTAL_CHUNKS) && (count < TOTAL_CHUNKS))
                 {
                     if(block_is_free(&blocks[i])) {
+                        count++;
                         join_adjacent(i);
                     }
                     i += blocks[i].head.size;
                 }
+                return count;
+            }
+
+            void* get_memory() {
+                return &blocks[0];
+            }
+
+            uint32_t get_free_head() {
+                return free_head - blocks;
             }
 
         private:
@@ -230,7 +293,7 @@ namespace etk
 
             struct BlockHead {
                 uint32 size;
-                uint32 available;
+                uint32 ref;
                 void* next;
                 void* prev;
             };
@@ -249,9 +312,15 @@ namespace etk
 
             void join_adjacent(uint32 block_n) 
             {
-                int32 first = block_n;
+                uint32 first = block_n;
                 block_n += blocks[block_n].head.size;
-                while(block_is_free(&blocks[block_n])) {
+                if(block_n >= TOTAL_CHUNKS) {
+                    return;
+                }
+
+                uint32_t count = 0;
+                while((block_is_free(&blocks[block_n])) && 
+                        (count < TOTAL_CHUNKS)) {
                     blocks[first].head.size += blocks[block_n].head.size;
 
                     if(&blocks[block_n] == free_head) {
@@ -270,7 +339,9 @@ namespace etk
                                 blocks[block_n].head.prev)->head.next = 
                             blocks[block_n].head.next;
                     }
-                    blocks[block_n].head.available = 0;
+
+                    //memset(blocks[block_n].bytes, 0, sizeof(Block));
+                    blocks[block_n].head.ref = 1;
 
                     block_n += blocks[block_n].head.size;
                 }
@@ -290,7 +361,7 @@ namespace etk
                 sp->head.size = n->head.size-split_pos;
                 sp->head.next = free_head;
                 sp->head.prev = nullptr;
-                sp->head.available = 1;
+                sp->head.ref = 0;
                 free_head = sp;
 
                 n->head.size = split_pos;
@@ -308,8 +379,10 @@ namespace etk
 
                 // iterate over the free blocks
                 Block* n = free_head;
-                while(n != nullptr)
+                uint32_t count = 0;
+                while((n != nullptr) && (count < TOTAL_CHUNKS))
                 {
+                    count++;
                     //if this block has sufficient space
                     if(n->head.size >= n_blocks)
                     {
@@ -339,7 +412,7 @@ namespace etk
                             }
                         }
 
-                        n->head.available = 0;
+                        n->head.ref = 1;
                         //return a pointer to the start of the allocated chunk
                         return (void*)&n->bytes[sizeof(BlockHead)];
                     }
@@ -355,7 +428,7 @@ namespace etk
              */
             bool block_is_free(Block* block)
             {
-                return block->head.available;
+                return block->head.ref == 0;
             }
 
             Block* free_head;

@@ -28,6 +28,7 @@ inline void *operator new(size_t, void *buf) {
 #include "types.h"
 #include "math_util.h"
 
+
 namespace etk
 {
 
@@ -48,9 +49,9 @@ namespace etk
     template <typename T, uint32 RESIZE_STEP = 1> class DynamicList
     {
         public:
-            DynamicList(Pool* pool) 
-                : pool(pool)
+            DynamicList(Pool* _pool) 
             {
+                pool = _pool;
                 //space = pool->alloc(sizeof(T)*2);
                 reserved = 0;
                 list_end = -1;
@@ -62,47 +63,66 @@ namespace etk
                 T* pt = (T*)space;
                 for(uint32 i = 0; i < size(); i++)
                     (&pt[i])->~T();
-                pool->free(space);
+                if(space != nullptr)
+                {
+                    pool->free(space);
+                }
             }
 
             DynamicList(DynamicList& list)
             {
                 pool = list.pool;
-                if(reserved != list->reserved) 
+                void* tmp_space = space;
+                space = pool->realloc(space, sizeof(T)*list.reserved);
+                if(space == nullptr)
                 {
-                    void* tmp_space = space;
-                    space = pool->realloc(space, sizeof(T)*list->reserved);
-                    if(space == nullptr)
-                    {
-                        space = tmp_space;
-                        return;
-                    }
-                    reserved = list->reserved;
+                    space = tmp_space;
+                    return;
                 }
+                reserved = list.reserved;
 
-             
-                memcpy(list.space, space, sizeof(T)*list->reserved);
+                memcpy(space, list.space, sizeof(T)*list.reserved);
                 list_end = list.list_end;
             }
 
             DynamicList(const DynamicList& list)
             {
                 pool = list.pool;
-                if(reserved != list->reserved) 
+                void* tmp_space = space;
+                space = pool->realloc(space, sizeof(T)*list.reserved);
+                if(space == nullptr)
                 {
+                    space = tmp_space;
+                    return;
+                }
+                reserved = list.reserved;
+
+                memcpy(space, list.space, sizeof(T)*list.reserved);
+                list_end = list.list_end;
+            }
+
+            // assignment operator
+            DynamicList& operator = (const DynamicList& sp)
+            {
+                // if not assigning to self
+                if (space != sp.space)
+                {
+                    pool = sp.pool;
                     void* tmp_space = space;
-                    space = pool->realloc(space, sizeof(T)*list->reserved);
+                    space = pool->realloc(space, sizeof(T)*sp.reserved);
                     if(space == nullptr)
                     {
                         space = tmp_space;
-                        return;
+                        return *this;
                     }
-                    reserved = list->reserved;
-                }
+                    reserved = sp.reserved;
 
-                memcpy(list.space, space, sizeof(T)*list->reserved);
-                list_end = list.list_end;
+                    memcpy(space, sp.space, sizeof(T)*sp.reserved);
+                    list_end = sp.list_end;
+                }
+                return *this;
             }
+
 
             /**
              * \class Iterator
@@ -186,7 +206,7 @@ namespace etk
              * \brief Adds an item to the end of the list and increments the size of the list by 1.
              * \Returns true on success or false if it has failed to allocate more memory.
              */
-            bool append(T t)
+            bool append(T& t)
             {
                 list_end++;
                 if(resize() == false) 
@@ -208,7 +228,7 @@ namespace etk
              * @arg T the item to be inserted.
              * @arg pos where the item will be inserted. If pos is zero, then it will be inserted at the start of the list. If it's 1, it will become the second item in the list.
              */
-            bool insert(T t, uint32 pos)
+            bool insert(T& t, uint32 pos)
             {
                 if(pos <= size())
                 {
@@ -277,9 +297,11 @@ namespace etk
             void clear()
             {
                 T* pt = (T*)space;
-                auto sz = size();
-                for(uint32 i = 0; i < sz; i++)
-                    (&pt[i])->~T();
+                for(uint32 i = 0; i < size(); i++) 
+                {
+                    pt->~T();
+                    pt++;
+                }
 
                 list_end = -1;
                 resize();
@@ -290,7 +312,7 @@ namespace etk
              * @arg t The item to count.
              * @return The number of these items in the list.
              */
-            uint32 count(T t)
+            uint32 count(T& t)
             {
                 uint32 c = 0;
                 T* pt = (T*)space;
@@ -309,7 +331,7 @@ namespace etk
              * @arg end The end position.
              * @arg f The item to fill with.
              */
-            void fill(uint32 start, uint32 end, T f)
+            void fill(uint32 start, uint32 end, T& f)
             {
                 T* pt = (T*)space;
                 end = min(end, size());
@@ -339,7 +361,7 @@ namespace etk
             /**
              * \brief Same as append();
              */
-            void push_back(T t)
+            void push_back(T& t)
             {
                 append(t);
             }
@@ -387,6 +409,11 @@ namespace etk
                 return (T*)space;
             }
 
+            void print_pool_ptr()
+            {
+
+                //cout << "list pool addr: " <<  (uint64)pool << endl;
+            }
         private:
 
             bool resize() 
@@ -396,6 +423,7 @@ namespace etk
                     void* tmp_space = space;
                     reserved += RESIZE_STEP;
 
+                    print_pool_ptr();
                     space = pool->realloc(space, sizeof(T)*reserved);
                     if(space == nullptr) 
                     {
