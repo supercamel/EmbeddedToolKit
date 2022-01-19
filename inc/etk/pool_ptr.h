@@ -45,29 +45,32 @@ namespace etk
              * copy constructor
              */
             pool_pointer(const pool_pointer<T>& sp) 
-                : refobj(sp.refobj), pool(sp.pool)
             {
-                refobj->count++;
+                //refobj->count++;
+                pool.ref(o);
             }
 
             ~pool_pointer()
             {
+                pool.unref(o);
+                /*
                 refobj->count--;
                 if(refobj->count == 0)
                 {
                     refobj->obj.~T(); //placement delete
                     pool.free((void*)refobj);
                 }
+                */
             }
 
             T& operator* ()
             {
-                return refobj->obj;
+                return o;
             }
 
             T* operator-> ()
             {
-                return &refobj->obj;
+                return &o;
             }
 
             /**
@@ -79,17 +82,19 @@ namespace etk
                 if (this != &sp)
                 {
                     // deref self
-                    refobj->count -= 1;
+                    pool.unref(o);
+                    /*
                     if(refobj->count == 0)
                     {
                         refobj->obj.~T(); //destroy and free, if necessary
                         pool.free((void*)refobj);
                     }
+                    */
 
                     //get other obj
                     refobj = sp.refobj;
                     //inc reference
-                    refobj->count++;
+                    pool.ref(o);
                 }
                 return *this;
             }
@@ -99,18 +104,18 @@ namespace etk
              */
             bool operator == (const pool_pointer<T>& sp)
             {
-                return refobj == sp.refobj;
+                return o == sp.o;
             }
 
             bool operator != (const pool_pointer<T>& sp)
             {
-                return refobj != sp.refobj;
+                return o != sp.refobj;
             }
 
             // boolean cast operator
             operator bool()
             {
-                return refobj != nullptr;
+                return o != nullptr;
             }
 
             // gets a reference to the pool
@@ -123,27 +128,20 @@ namespace etk
         private:
             pool_pointer() { }
 
-            struct RefObj {
-                uint32 count = 0;
-                T obj;
-            };
-
-            pool_pointer(Pool& pool, RefObj* refobj) 
-                : pool(pool), refobj(refobj)
+            pool_pointer(Pool& pool, T* o) 
+                : pool(pool), o(o)
             { 
             }
 
-            RefObj* refobj = nullptr;
+            T* o = nullptr;
             Pool& pool;
     };
 
     template <typename T> template<class... U> pool_pointer<T> pool_pointer<T>::make(Pool& pool, U&&... u) {
-        auto* ptr = (pool_pointer<T>::RefObj*)
-            pool.alloc(sizeof(pool_pointer<T>::RefObj)); 
+        auto* ptr = (T*)pool.alloc(sizeof(T)); 
 
-        new(&ptr->obj) T(std::forward<U>(u)...);
+        new(&ptr->o) T(std::forward<U>(u)...);
 
-        ptr->count = 1;
         pool_pointer<T> sp(pool, ptr);
         return sp;
     }
