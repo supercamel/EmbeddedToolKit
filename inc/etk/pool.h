@@ -34,8 +34,11 @@ namespace etk
             virtual void free(void* ptr) = 0;
             virtual void* realloc(void* ptr, uint32 sz) = 0;
             virtual uint32 coalesce() = 0;
+            virtual uint32 ref(void* ptr) = 0;
+            virtual uint32 unref(void* ptr) = 0;
     };
 
+    /*
     class Heap : public Pool
     {
         public:
@@ -52,6 +55,7 @@ namespace etk
                 return 0;
             }
     };
+    */
 
 
     /**
@@ -218,7 +222,7 @@ namespace etk
                 }
             }/*}}}*/
 
-            void ref(void* ptr)
+            uint32_t ref(void* ptr)
             {
                 if(ptr != nullptr) 
                 {
@@ -227,6 +231,7 @@ namespace etk
                     bptr -= sizeof(BlockHead);
                     Block* block = (Block*)bptr;
                     block->head.ref++;
+                    return block->head.ref;
                 }
             }
 
