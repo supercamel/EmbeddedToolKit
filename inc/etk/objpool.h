@@ -5,219 +5,253 @@
 #include "array.h"
 #include "list.h"
 
-/*
- * This code is still very much under development.
- */
-
 namespace etk
 {
 
-namespace experimental
-{
-
-template <typename P, typename T> class PoolPtr
-{
-public:
-    PoolPtr()
-    {
-    }
-
-    PoolPtr(P* pool) : pData(0), pool(pool)
-    {
-        if(pool)
-            pool->inc_references(pData);
-    }
-
-    PoolPtr(P* pool, T* pValue) : pData(pValue), pool(pool)
-    {
-        if(pool)
-        {
-            pool->inc_references(pData);
-        }
-    }
-
-    PoolPtr(const PoolPtr<P,T>& sp) : pData(sp.pData), pool(sp.pool)
-    {
-        if(pool)
-            pool->inc_references(pData);
-    }
-
-    ~PoolPtr()
-    {
-        if(pool)
-            pool->dec_references(pData);
-    }
-
-    T& operator* ()
-    {
-        return *pData;
-    }
-
-    T* operator-> ()
-    {
-        return pData;
-    }
-
-    void unref()
-    {
-        if(pool)
-            pool->dec_references(pData);
-    }
-
-    operator bool()
-    {
-        if(pData == nullptr)
-            return false;
-        return true;
-    }
-
-    PoolPtr<P,T>& operator = (const PoolPtr<P,T>& sp)
-    {
-        if (this != &sp)
-        {
-            if(pool)
-                pool->dec_references(pData);
-            pData = sp.pData;
-            pool = sp.pool;
-            if(pool)
-                pool->inc_references(pData);
-        }
-
-        return *this;
-    }
-
-    bool operator == (const PoolPtr& sp)
-    {
-        return &pData == &sp.pData;
-    }
-
-    bool operator != (const PoolPtr& sp)
-    {
-        return &pData != &sp.pData;
-    }
-
-private:
-    T* pData = 0;
-    P* pool = 0;
-};
-
-
-template <typename T, uint32 N> class ObjPool
-{
-public:
-    ObjPool()
-    {
-
-    }
-
-    bool available()
-    {
-        for(auto& o : pool)
-        {
-            if(o.references == 0)
-                return true;
-        }
-        return false;
-    }
-
-    int n_available()
-    {
-        int count = 0;
-        for(auto& o : pool)
-        {
-            if(o.references == 0)
-                count++;
-        }
-        return count;
-    }
-
-    PoolPtr<ObjPool, T> null_ptr()
-    {
-        return PoolPtr<ObjPool, T>(this);
-    }
-
-    PoolPtr<ObjPool, T> alloc()
-    {
-        for(auto& o : pool)
-        {
-            if(o.references == 0)
-            {
-                T* r = new((void*)o.data) T();
-                return PoolPtr<ObjPool, T>(this, r);
-            }
-        }
-        return PoolPtr<ObjPool, T>(this, nullptr);
-    }
-
-    void* raw_alloc()
-    {
-        for(auto& o : pool)
-        {
-            if(o.references == 0)
-            {
-                o.references = 1;
-                return o.data;
-            }
-        }
-        return nullptr;
-    }
-
-    void free(T*& ptr)
-    {
-        for(auto& o : pool)
-        {
-            if((&o.obj) == ptr)
-            {
-                o.references = 0;
-                ptr = nullptr;
-                return;
-            }
-        }
-    }
-
-private:
-    friend PoolPtr<ObjPool, T>;
-
-    void inc_references(T* ptr)
-    {
-        for(auto& o : pool)
-        {
-            if(&o.data == (void*)ptr)
-            {
-                o.references++;
-                return;
-            }
-        }
-    }
-
-    void dec_references(T* ptr)
-    {
-        for(auto& o : pool)
-        {
-            if(&o.data == (void*)ptr)
-            {
-                if(o.references > 0)
-                {
-                    o.references--;
-                    if(o.references == 0)
-                        ptr->~T();
-                }
-                return;
-            }
-        }
-    }
-
-    class tbl
-    {
-    public:
-        uint32 references = 0;
-        uint8 data[sizeof(T)];
+    class RefCounter {
+        public:
+            virtual void inc_references(void* pdata) = 0;
+            virtual void dec_references(void* pdata) = 0;
     };
 
-    Array<tbl, N> pool;
-};
+    template <typename T> class PoolPtr
+    {
+        public:
+            PoolPtr()
+            {
+            }
 
-}
+            PoolPtr(RefCounter* pool) 
+                : pData(0), pool(pool)
+            {
+            }
+
+            PoolPtr(RefCounter* pool, T* pValue) 
+                : pData(pValue), pool(pool)
+            {
+                if(pool != nullptr) {
+                    pool->inc_references(pData);
+                }
+            }
+
+            PoolPtr(const PoolPtr<T>& sp) 
+                : pData(sp.pData), pool(sp.pool)
+            {
+                if(pool != nullptr) {
+                    pool->inc_references(pData);
+                }
+            }
+
+            ~PoolPtr()
+            {
+                if(pool) 
+                {
+                    pool->dec_references(pData);
+                }
+            }
+
+            T& operator* ()
+            {
+                return *pData;
+            }
+
+            T* operator-> ()
+            {
+                return pData;
+            }
+
+            void unref()
+            {
+                if(pool)
+                {
+                    pool->dec_references(pData);
+                }
+            }
+
+            operator bool()
+            {
+                return pData != nullptr;
+            }
+
+            PoolPtr<T>& operator = (const PoolPtr<T>& sp)
+            {
+                if (this != &sp)
+                {
+                    if(pool)
+                    {
+                        pool->dec_references(pData);
+                    }
+                    pData = sp.pData;
+                    pool = sp.pool;
+                    if(pool)
+                    {
+                        pool->inc_references(pData);
+                    }
+                }
+
+                return *this;
+            }
+
+            bool operator == (const PoolPtr& sp)
+            {
+                return &pData == &sp.pData;
+            }
+
+            bool operator != (const PoolPtr& sp)
+            {
+                return &pData != &sp.pData;
+            }
+
+            bool operator == (const std::nullptr_t n) {
+                return ((pData == nullptr) || (pool == nullptr));
+            }
+
+        private:
+            T* pData = 0;
+            RefCounter* pool = 0;
+    };
+
+
+    template <typename T, uint32 N> class ObjPool : private RefCounter
+    {
+        public:
+            ObjPool()
+            {
+                begin();
+            }
+
+            void begin()
+            {
+                free_head = &blocks[0];
+
+                blocks[0].head.prev = nullptr;
+                for(int i = 0; i < N-1; i++) {
+                    blocks[i].head.references = 0;
+                    blocks[i].head.next = (void*)&blocks[i+1];
+                }
+                blocks[N-1].head.next = nullptr;
+                navailable = N;
+            }
+
+            bool available()
+            {
+                return free_head != nullptr;
+            }
+
+            uint32 n_available() 
+            {
+                return navailable;
+            }
+
+            PoolPtr<T> alloc_ptr()
+            {
+                T* r = alloc();
+                if(r == nullptr) {
+                    return PoolPtr<T>(this, nullptr);
+                }
+                else {
+                    new((void*)r) T();
+                    return PoolPtr<T>(this, r);
+                }
+            }
+
+            T* alloc()
+            {
+                if(free_head != nullptr) {
+                    Block* n = free_head;
+                    free_head = (Block*)free_head->head.next;
+                    n->head.references = 0;
+                    navailable--;
+                    return (T*)n->t;
+                }
+                else {
+                    return nullptr;
+                }
+            }
+
+            void free(T* ptr)
+            {
+                uint8* bptr = (uint8*)ptr;
+                bptr -= sizeof(Head);
+                Block* block = (Block*)bptr;
+
+                if(free_head != nullptr) 
+                {
+                    free_head->head.prev = block;
+                }
+                block->head.next = free_head;
+                block->head.prev = nullptr;
+
+                free_head = block;
+                navailable++;
+            }
+
+        private:
+            friend PoolPtr<T>;
+
+            struct Head {
+                unsigned int references;
+                void* next;
+                void* prev;
+            };
+
+            struct Block {
+                Head head;
+                uint8 t[sizeof(T)];
+            };
+
+            Block* free_head;
+            Block blocks[N];
+
+            uint32 navailable;
+
+
+            void inc_references(void* ptr)
+            {
+                inc_references((T*)ptr);
+            }
+
+            void inc_references(T* ptr)
+            {
+                if(ptr != nullptr) 
+                {
+                    uint8* bptr = (uint8*)ptr;
+                    bptr -= sizeof(Head);
+                    Block* block = (Block*)bptr;
+
+                    block->head.references++;
+                }
+            }
+
+            void dec_references(void* ptr)
+            {
+                dec_references((T*)ptr);
+            }
+
+            void dec_references(T* ptr)
+            {
+                if(ptr != nullptr) 
+                {
+                    uint8* bptr = (uint8*)ptr;
+                    bptr -= sizeof(Head);
+                    Block* block = (Block*)bptr;
+
+                    block->head.references--;
+
+                    if(block->head.references == 0) {
+                        ptr->~T();
+                        if(free_head != nullptr) {
+                            free_head->head.prev = block;
+                        }
+                        block->head.next = free_head;
+                        block->head.prev = nullptr;
+
+                        free_head = block;
+                        navailable++;
+                    }
+                }
+            }
+    };
 
 }
 

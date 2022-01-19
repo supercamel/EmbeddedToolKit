@@ -182,8 +182,10 @@ public:
 
     void fill(T t)
     {
-        for(auto i : *this)
+        for(auto i : *this) 
+        {
             i = t;
+        }
     }
 
     T* buffer()

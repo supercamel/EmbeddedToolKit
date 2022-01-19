@@ -8,10 +8,7 @@
 namespace etk
 {
 
-namespace experimental
-{
-
-template <typename T, typename POOL_T> class linked_list
+template <typename T> class linked_list
 {
 private:
     struct Node;
@@ -67,7 +64,7 @@ public:
         typename linked_list::Node* node;
     };
 
-    linked_list(POOL_T& pool) : pool(pool)
+    linked_list(Pool* pool) : pool(pool)
     {
     }
 
@@ -77,7 +74,7 @@ public:
         while(node != nullptr)
         {
             Node* pnext = node->next;
-            pool.free(node);
+            pool->free(node);
             node = pnext;
         }
     }
@@ -95,7 +92,7 @@ public:
 
     bool append(T t)
     {
-        Node* node = static_cast<Node*>(pool.alloc(sizeof(Node)));
+        Node* node = static_cast<Node*>(pool->alloc(sizeof(Node)));
         if(node == nullptr)
             return false;
 
@@ -128,7 +125,7 @@ public:
         {
             T ret = head->data;
             auto next = head->next;
-            pool.free(head);
+            pool->free(head);
             head = next;
             return ret;
         }
@@ -145,7 +142,7 @@ public:
             head = iter.node->next;
         if(iter.node->next)
             iter.node->next->prev = iter.node->prev;
-        pool.free(iter.node);
+        pool->free(iter.node);
     }
 
     /**
@@ -183,10 +180,8 @@ private:
 
     Node* head = nullptr;
     Node* tail = nullptr;
-    POOL_T& pool;
+    Pool* pool;
 };
-
-}
 
 }
 

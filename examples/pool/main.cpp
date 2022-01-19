@@ -11,7 +11,7 @@ using namespace std;
 using namespace etk;
 
 
-experimental::MemPool<1024> pool;
+MemPool<1024> pool;
 
 
 class Obj
@@ -37,7 +37,7 @@ public:
 
 int main()
 {
-	auto ptr = experimental::make_pool_ptr<Obj>(pool, "Hello world!");
+	auto ptr = pool_pointer<Obj>::make(pool, "Hello world!");
 	
 	//ALWAYS check pointers after allocation.
 	//memory runs out, especially with small pools. 
