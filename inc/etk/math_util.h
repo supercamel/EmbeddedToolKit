@@ -20,6 +20,9 @@
 #include "types.h"
 #include <math.h>
 
+#include <iostream>
+
+
 namespace etk
 {
 
@@ -174,8 +177,10 @@ inline real_t copysign(real_t x, real_t y)
  */
 inline real_t copysign_zero(real_t x, real_t y, real_t precision=0.000001)
 {
-    if((y < precision) && (y > -precision))
+    if((y < precision) && (y > -precision)) {
         return 0;
+	}
+
     return copysign(x, y);
 }
 

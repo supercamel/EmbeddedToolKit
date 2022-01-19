@@ -19,6 +19,7 @@
 #include "types.h"
 #include "vector.h"
 
+#include <iostream>
 
 namespace etk
 {
@@ -177,21 +178,14 @@ public:
 
     void from_matrix(Matrix<3, 3> m)
     {
-#ifdef ETK_MAX
-        _w = sqrtf(max<real_t>( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
+        _w = sqrtf(max<real_t>(0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
         _x = sqrtf(max<real_t>( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
         _y = sqrtf(max<real_t>( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
         _z = sqrtf(max<real_t>( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
-#else
-        _w = sqrtf(max( 0, 1 + m(0,0) + m(1,1) + m(2,2))) / 2.0f;
-        _x = sqrtf(max( 0, 1 + m(0,0) - m(1,1) - m(2,2))) / 2.0f;
-        _y = sqrtf(max( 0, 1 - m(0,0) + m(1,1) - m(2,2))) / 2.0f;
-        _z = sqrtf(max( 0, 1 - m(0,0) - m(1,1) + m(2,2))) / 2.0f;
-#endif
 
-        _x = copysign_zero(_x, m(2,1) - m(1,2));
-        _y = copysign_zero(_y, m(0,2) - m(2,0));
-        _z = copysign_zero(_z, m(1,0) - m(0,1));
+        _x = copysign(_x, m(2,1) - m(1,2));
+        _y = copysign(_y, m(0,2) - m(2,0));
+        _z = copysign(_z, m(1,0) - m(0,1));
     }
 
     Matrix<3, 3> to_matrix()
