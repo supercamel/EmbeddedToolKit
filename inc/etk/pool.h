@@ -20,7 +20,6 @@
 #include "types.h"
 #include "math_util.h"
 
-
 /**
  * A memory pool implementation.
  */
@@ -323,10 +322,11 @@ namespace etk
                     return;
                 }
 
-                uint32_t count = 0;
+                uint32_t count = block_n;
                 while((block_is_free(&blocks[block_n])) && 
                         (count < TOTAL_CHUNKS)) {
                     blocks[first].head.size += blocks[block_n].head.size;
+                    count += blocks[block_n].head.size;
 
                     if(&blocks[block_n] == free_head) {
                         free_head = (Block*)blocks[block_n].head.next;

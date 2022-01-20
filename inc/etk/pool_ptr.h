@@ -46,21 +46,12 @@ namespace etk
              */
             pool_pointer(const pool_pointer<T>& sp) 
             {
-                //refobj->count++;
                 pool.ref(o);
             }
 
             ~pool_pointer()
             {
-                pool.unref(o);
-                /*
-                refobj->count--;
-                if(refobj->count == 0)
-                {
-                    refobj->obj.~T(); //placement delete
-                    pool.free((void*)refobj);
-                }
-                */
+                pool.free(o);
             }
 
             T& operator* ()
@@ -83,16 +74,9 @@ namespace etk
                 {
                     // deref self
                     pool.unref(o);
-                    /*
-                    if(refobj->count == 0)
-                    {
-                        refobj->obj.~T(); //destroy and free, if necessary
-                        pool.free((void*)refobj);
-                    }
-                    */
 
                     //get other obj
-                    refobj = sp.refobj;
+                    o = sp.o;
                     //inc reference
                     pool.ref(o);
                 }
@@ -109,7 +93,7 @@ namespace etk
 
             bool operator != (const pool_pointer<T>& sp)
             {
-                return o != sp.refobj;
+                return o != sp.o;
             }
 
             // boolean cast operator
