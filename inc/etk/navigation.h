@@ -39,12 +39,6 @@ public:
      * @arg ln longitude
      */
 
-    Coordinate(const Coordinate& c)
-    {
-        lat = c.lat;
-        lng = c.lng;
-    }
-
     Coordinate(const real_t la, const real_t ln)
     {
         lat = degrees_to_radians(la);

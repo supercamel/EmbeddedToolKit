@@ -20,8 +20,6 @@
 #include "types.h"
 #include <math.h>
 
-#include <iostream>
-
 
 namespace etk
 {

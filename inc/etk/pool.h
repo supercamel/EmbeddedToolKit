@@ -221,7 +221,7 @@ namespace etk
                 }
             }/*}}}*/
 
-            uint32_t ref(void* ptr)
+            uint32 ref(void* ptr)
             {
                 if(ptr != nullptr) 
                 {
@@ -234,7 +234,7 @@ namespace etk
                 }
             }
 
-            uint32_t unref(void* ptr)/*{{{*/
+            uint32 unref(void* ptr)/*{{{*/
             {
                 if(ptr != nullptr) 
                 {
@@ -287,7 +287,7 @@ namespace etk
                 return &blocks[0];
             }
 
-            uint32_t get_free_head() {
+            uint32 get_free_head() {
                 return free_head - blocks;
             }
 
@@ -322,7 +322,7 @@ namespace etk
                     return;
                 }
 
-                uint32_t count = block_n;
+                uint32 count = block_n;
                 while((block_is_free(&blocks[block_n])) && 
                         (count < TOTAL_CHUNKS)) {
                     blocks[first].head.size += blocks[block_n].head.size;
@@ -384,7 +384,7 @@ namespace etk
 
                 // iterate over the free blocks
                 Block* n = free_head;
-                uint32_t count = 0;
+                uint32 count = 0;
                 while((n != nullptr) && (count < TOTAL_CHUNKS))
                 {
                     count++;

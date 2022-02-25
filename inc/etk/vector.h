@@ -260,18 +260,6 @@ public:
     }
 
     /**
-     * \brief assigns v to this.
-     * @arg v a vector
-     * @return *this
-     */
-    Vector operator = (Vector v)
-    {
-        for (uint32 x = 0; x < N; x++ )
-            p_vec[x] = v.p_vec[x];
-        return *this;
-    }
-
-    /**
      * \brief comparison operator compares two vectors.
      * @arg v the vector to compare with
      * @return true if the values of the two vectors are within 0.00001 of each other.

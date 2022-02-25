@@ -19,8 +19,6 @@
 #include "types.h"
 #include "vector.h"
 
-#include <iostream>
-
 namespace etk
 {
 

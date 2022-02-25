@@ -4,9 +4,6 @@
 #include "types.h"
 #include <string.h>
 
-#include <iostream>
-using namespace std;
-
 namespace etk
 {
 
