@@ -177,7 +177,7 @@ namespace etk
 
 			template<uint32 N> Vector<N> get_diagonal_vector()
 			{
-                uint32 n = (MAX_X > MAX_Y) ? MAX_Y : MAX_X;
+                const uint32 n = (MAX_X > MAX_Y) ? MAX_Y : MAX_X;
 				Vector<n> v;
 				for(uint32 i = 0; i < n; i++)
 					v[i] = _cell[i][i];
