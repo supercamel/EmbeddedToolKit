@@ -29,6 +29,7 @@ namespace etk
     class Pool
     {
         public:
+            virtual ~Pool() { }
             virtual void* alloc(uint32 sz) = 0;
             virtual void free(void* ptr) = 0;
             virtual void* realloc(void* ptr, uint32 sz) = 0;

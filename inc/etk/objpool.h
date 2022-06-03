@@ -10,6 +10,7 @@ namespace etk
 
     class RefCounter {
         public:
+            virtual ~RefCounter() { }
             virtual void inc_references(void* pdata) = 0;
             virtual void dec_references(void* pdata) = 0;
     };
