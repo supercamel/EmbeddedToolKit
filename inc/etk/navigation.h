@@ -156,14 +156,14 @@ public:
     /**
      * \brief Returns longitude
      */
-    real_t get_lng() const {
+    real_t get_lon() const {
         return radians_to_degrees(lng);
     }
 
     /**
      * \brief Sets longitude.
      */
-    void set_lng(const real_t l) {
+    void set_lon(const real_t l) {
         lng = degrees_to_radians(l);
     }
 
@@ -171,7 +171,7 @@ public:
         return lat;
     }
 
-    real_t get_lng_rad() const {
+    real_t get_lon_rad() const {
         return lng;
     }
 
@@ -179,7 +179,7 @@ public:
         lat = l;
     }
 
-    void set_lng_rad(const real_t l) {
+    void set_lon_rad(const real_t l) {
         lng = l;
     }
 
@@ -221,7 +221,7 @@ public:
     Waypoint(const Coordinate& c)
     {
         lat = c.get_lat_rad();
-        lng = c.get_lng_rad();
+        lng = c.get_lon_rad();
     }
 
     operator Vector<3>()
@@ -245,7 +245,7 @@ public:
     Waypoint& operator=(const Coordinate& c)
     {
         lat = c.get_lat_rad();
-        lng = c.get_lng_rad();
+        lng = c.get_lon_rad();
         return *this;
     }
 

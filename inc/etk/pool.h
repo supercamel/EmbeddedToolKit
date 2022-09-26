@@ -232,6 +232,7 @@ namespace etk
                     block->head.ref++;
                     return block->head.ref;
                 }
+                return 0;
             }
 
             uint32 unref(void* ptr)/*{{{*/

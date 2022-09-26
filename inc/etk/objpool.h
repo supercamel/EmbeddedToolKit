@@ -1,258 +1,113 @@
 #ifndef ETK_OBJECT_POOL_H
 #define ETK_OBJECT_POOL_H
 
+#include <new> 
 #include "types.h"
-#include "array.h"
-#include "list.h"
+#include "pool.h"
 
 namespace etk
 {
-
-    class RefCounter {
-        public:
-            virtual void inc_references(void* pdata) = 0;
-            virtual void dec_references(void* pdata) = 0;
-    };
-
-    template <typename T> class PoolPtr
+    // an interface for a class that can allocate only a single type of object
+    template<typename T> class ObjectAllocator
     {
         public:
-            PoolPtr()
-            {
-            }
-
-            PoolPtr(RefCounter* pool) 
-                : pData(0), pool(pool)
-            {
-            }
-
-            PoolPtr(RefCounter* pool, T* pValue) 
-                : pData(pValue), pool(pool)
-            {
-                if(pool != nullptr) {
-                    pool->inc_references(pData);
-                }
-            }
-
-            PoolPtr(const PoolPtr<T>& sp) 
-                : pData(sp.pData), pool(sp.pool)
-            {
-                if(pool != nullptr) {
-                    pool->inc_references(pData);
-                }
-            }
-
-            ~PoolPtr()
-            {
-                if(pool) 
-                {
-                    pool->dec_references(pData);
-                }
-            }
-
-            T& operator* ()
-            {
-                return *pData;
-            }
-
-            T* operator-> ()
-            {
-                return pData;
-            }
-
-            void unref()
-            {
-                if(pool)
-                {
-                    pool->dec_references(pData);
-                }
-            }
-
-            operator bool()
-            {
-                return pData != nullptr;
-            }
-
-            PoolPtr<T>& operator = (const PoolPtr<T>& sp)
-            {
-                if (this != &sp)
-                {
-                    if(pool)
-                    {
-                        pool->dec_references(pData);
-                    }
-                    pData = sp.pData;
-                    pool = sp.pool;
-                    if(pool)
-                    {
-                        pool->inc_references(pData);
-                    }
-                }
-
-                return *this;
-            }
-
-            bool operator == (const PoolPtr& sp)
-            {
-                return &pData == &sp.pData;
-            }
-
-            bool operator != (const PoolPtr& sp)
-            {
-                return &pData != &sp.pData;
-            }
-
-            bool operator == (const std::nullptr_t n) {
-                return ((pData == nullptr) || (pool == nullptr));
-            }
-
-        private:
-            T* pData = 0;
-            RefCounter* pool = 0;
+            // allocates space for a new object. note the object is not constructed
+            virtual T* alloc() = 0;
+            // deallocates space for an object. note the object is not destructed
+            virtual bool free(T* obj) = 0;
     };
 
 
-    template <typename T, uint32 N> class ObjPool : private RefCounter
+    /*
+    A ObjectArrayAllocator reserves a block of memory and allocates objects from it.
+    The memory is created as an array, and the objects are allocated from the array.
+    It has no memory overhead for the objects, but it has a fixed size.
+    */
+    template<typename T, uint32 N_OBJECTS> class ObjectArrayAllocator : public ObjectAllocator<T>
     {
         public:
-            ObjPool()
+            ObjectArrayAllocator()
             {
-                begin();
-            }
+                free_head = blocks;
 
-            void begin()
-            {
-                free_head = &blocks[0];
-
-                blocks[0].head.prev = nullptr;
-                for(int i = 0; i < N-1; i++) {
-                    blocks[i].head.references = 0;
-                    blocks[i].head.next = (void*)&blocks[i+1];
+                uint32 count = 0;
+                while (count < N_OBJECTS)
+                {
+                    blocks[count].next = &blocks[count + 1];
+                    count++;
                 }
-                blocks[N-1].head.next = nullptr;
-                navailable = N;
-            }
-
-            bool available()
-            {
-                return free_head != nullptr;
-            }
-
-            uint32 n_available() 
-            {
-                return navailable;
-            }
-
-            PoolPtr<T> alloc_ptr()
-            {
-                T* r = alloc();
-                if(r == nullptr) {
-                    return PoolPtr<T>(this, nullptr);
-                }
-                else {
-                    new((void*)r) T();
-                    return PoolPtr<T>(this, r);
-                }
+                blocks[N_OBJECTS - 1].next = nullptr;
             }
 
             T* alloc()
             {
-                if(free_head != nullptr) {
-                    Block* n = free_head;
-                    free_head = (Block*)free_head->head.next;
-                    n->head.references = 0;
-                    navailable--;
-                    return (T*)n->t;
-                }
-                else {
+                Block *n = free_head;
+                if(n == nullptr) {
                     return nullptr;
                 }
+
+                free_head = free_head->next;
+                T* t = (T*)n;
+                return t;
             }
 
-            void free(T* ptr)
+            bool free(T *obj_ptr)
             {
-                uint8* bptr = (uint8*)ptr;
-                bptr -= sizeof(Head);
-                Block* block = (Block*)bptr;
-
-                if(free_head != nullptr) 
+                void* ptr = (void*)obj_ptr;
+                if ((ptr >= &blocks[0]) && (ptr <= &blocks[N_OBJECTS - 1]))
                 {
-                    free_head->head.prev = block;
+                    Block *n = (Block*)ptr;
+                    n->next = free_head;
+                    free_head = n;
+                    return true;
                 }
-                block->head.next = free_head;
-                block->head.prev = nullptr;
+                return false;
+            }
 
-                free_head = block;
-                navailable++;
+            int available() {
+                int count = 0;
+                Block *n = free_head;
+                while (n != nullptr)
+                {
+                    count++;
+                    n = n->next;
+                }
+                return count;
             }
 
         private:
-            friend PoolPtr<T>;
-
-            struct Head {
-                unsigned int references;
-                void* next;
-                void* prev;
+            union Block
+            {
+                Block *next;
+                uint8 space[sizeof(T)];
             };
 
-            struct Block {
-                Head head;
-                uint8 t[sizeof(T)];
-            };
+            Block blocks[N_OBJECTS];
 
-            Block* free_head;
-            Block blocks[N];
-
-            uint32 navailable;
-
-
-            void inc_references(void* ptr)
-            {
-                inc_references((T*)ptr);
-            }
-
-            void inc_references(T* ptr)
-            {
-                if(ptr != nullptr) 
-                {
-                    uint8* bptr = (uint8*)ptr;
-                    bptr -= sizeof(Head);
-                    Block* block = (Block*)bptr;
-
-                    block->head.references++;
-                }
-            }
-
-            void dec_references(void* ptr)
-            {
-                dec_references((T*)ptr);
-            }
-
-            void dec_references(T* ptr)
-            {
-                if(ptr != nullptr) 
-                {
-                    uint8* bptr = (uint8*)ptr;
-                    bptr -= sizeof(Head);
-                    Block* block = (Block*)bptr;
-
-                    block->head.references--;
-
-                    if(block->head.references == 0) {
-                        ptr->~T();
-                        if(free_head != nullptr) {
-                            free_head->head.prev = block;
-                        }
-                        block->head.next = free_head;
-                        block->head.prev = nullptr;
-
-                        free_head = block;
-                        navailable++;
-                    }
-                }
-            }
+            Block *free_head;
     };
 
+    template<typename T> class ObjectPoolAllocator : public ObjectAllocator<T>
+    {
+        public:
+            ObjectPoolAllocator(Pool* pool)
+            {
+                this->pool = pool;
+            }
+
+            T* alloc()
+            {
+                return (T*)pool->alloc(sizeof(T));
+            }
+
+            bool free(T *obj_ptr)
+            {
+                return pool->free(obj_ptr);
+            }
+
+        private:
+            Pool *pool;
+    };
 }
 
 
