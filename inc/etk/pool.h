@@ -294,7 +294,6 @@ namespace etk
             }
 
         private:
-
             static const uint32 TOTAL_CHUNKS = SIZE/CHUNK_SIZE;
 
             struct BlockHead {
