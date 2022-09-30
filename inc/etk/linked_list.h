@@ -4,6 +4,10 @@
 
 #include "objpool.h"
 
+#include <iostream>
+using namespace std;
+
+
 namespace etk
 {
 
@@ -70,24 +74,10 @@ public:
 
     SingleLinkedList(Pool* pool) : pool(pool)
     {
-        ObjectArrayAllocator<Node, SLAB_SIZE>* objpool_ptr = 
-            (ObjectArrayAllocator<Node, SLAB_SIZE>*)pool->alloc(sizeof(ObjectArrayAllocator<Node, SLAB_SIZE>));
-        // call placement new on new memory
-
-        if(objpool_ptr == nullptr) {
-            node_pool_size = 0;
-            return;
-        }
-        objpool_ptr = new (objpool_ptr) ObjectArrayAllocator<Node, SLAB_SIZE>();
-
-        node_pool_list = (ObjectArrayAllocator<Node, SLAB_SIZE>**)pool->alloc(sizeof(objpool_ptr));
-        if(node_pool_list == nullptr) {
-            node_pool_size = 0;
-            pool->free(objpool_ptr);
-            return;
-        }
-        node_pool_list[0] = objpool_ptr;
-        node_pool_size = 1;
+        head = nullptr;
+        tail = nullptr;
+        node_pool_list = nullptr;
+        node_pool_size = 0;
         current_node_pool = 0;
     }
 
@@ -157,6 +147,19 @@ public:
         }
     }
 
+    Iterator get(uint32_t index) {
+        Node* node = head;
+        uint32_t i = 0;
+        while(node != nullptr) {
+            if(i == index) {
+                return Iterator(node);
+            }
+            node = node->next;
+            i++;
+        }
+        return Iterator(nullptr);
+    }
+
     /**
      * \brief Removed and returns the first item on the list.
      */
@@ -213,10 +216,12 @@ public:
     {
         Node* pnode = head;
         uint32 count = 0;
-        while(pnode->next)
-        {
-            pnode = pnode->next;
+        if(pnode != nullptr) {
             count++;
+            while(pnode->next != nullptr) {
+                pnode = pnode->next;
+                count++;
+            }
         }
         return count;
     }
@@ -238,6 +243,7 @@ public:
 private:
     Node* allocate_node() {
         Node* node = nullptr;
+
         while(current_node_pool < node_pool_size) {
            node = node_pool_list[current_node_pool]->alloc(); 
            if(node == nullptr) {
@@ -268,16 +274,12 @@ private:
 
             // check if allocation was a win
             if(node_pool_list[current_node_pool] == nullptr) {
-                // reallocate the pool list back to original size
                 node_pool_size--;
-                node_pool_list = (ObjectArrayAllocator<Node, SLAB_SIZE>**)
-                        pool->realloc(node_pool_list, sizeof(ObjectArrayAllocator<Node, SLAB_SIZE>*) * node_pool_size);
                 return nullptr;
             }
 
             // call placement new on the object pool
             new (node_pool_list[current_node_pool]) ObjectArrayAllocator<Node, SLAB_SIZE>();
-
             node = node_pool_list[current_node_pool]->alloc();
             node->next = nullptr;
         }
@@ -289,24 +291,34 @@ private:
         //iterate over node_pool_list and free the node
         for(uint32 i = 0; i < node_pool_size; i++) {
             if(node_pool_list[i]->free(node)) {
+                // run the node data destructor 
+                node->data.~T();
+
                 if(i < current_node_pool) {
                     current_node_pool = i;
                 }
                 // if the pool is empty, free it
-                pool->free(node_pool_list[i]);
-                // move the last pool to the current position
-                node_pool_list[i] = node_pool_list[node_pool_size - 1];
-                node_pool_size--;
+                if(node_pool_list[i]->available() == SLAB_SIZE) {
+                    node_pool_list[i]->~ObjectArrayAllocator<Node, SLAB_SIZE>();
+                    pool->free(node_pool_list[i]);
 
-                if(node_pool_size > 0) {
-                    // try to shrink the list
-                    node_pool_list = (ObjectArrayAllocator<Node, SLAB_SIZE>**)
-                        pool->realloc(node_pool_list, sizeof(ObjectArrayAllocator<Node, SLAB_SIZE>*) * node_pool_size);
-                }
-                else {
-                    // free the list
-                    pool->free(node_pool_list);
-                    node_pool_list = nullptr;
+                    // move the last pool into the freed pool's place
+                    if(node_pool_size > 1) {
+                        node_pool_list[i] = node_pool_list[node_pool_size - 1];
+                    }
+
+                    node_pool_size--;
+                    if(node_pool_size > 0) {
+                        // reallocate the pool list back to original size
+                        node_pool_list = (ObjectArrayAllocator<Node, SLAB_SIZE>**)
+                            pool->realloc(node_pool_list, sizeof(ObjectArrayAllocator<Node, SLAB_SIZE>*) * node_pool_size);
+                        // no need to check since this is either the same or smaller
+                        // realloc *cant* fail for this operation
+                    }
+                    else {
+                        pool->free(node_pool_list);
+                        node_pool_list = nullptr;
+                    }
                 }
 
                 current_node_pool = 0;

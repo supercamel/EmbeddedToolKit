@@ -59,7 +59,7 @@ typedef unsigned int uint32;
 typedef long long int64;
 typedef unsigned long long uint64;
 
-typedef float real_t;
+typedef double real_t;
 
 #endif
 

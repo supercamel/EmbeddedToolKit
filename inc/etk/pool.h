@@ -20,6 +20,10 @@
 #include "types.h"
 #include "math_util.h"
 
+#include <iostream>
+using namespace std;
+
+
 /**
  * A memory pool implementation.
  */
@@ -119,6 +123,18 @@ namespace etk
              */
             void* realloc(void* ptr, uint32 sz)/*{{{*/
             {
+                /*
+                if(ptr == nullptr) {
+                    return alloc(sz);
+                }
+
+                free(ptr);
+                void* n_ptr = alloc(sz);
+                if((n_ptr != nullptr) && (n_ptr != ptr)) {
+                    memcpy(n_ptr, ptr, sz);
+                }
+                return n_ptr;
+                */
                 if(ptr == nullptr)
                 {
                     return alloc(sz);

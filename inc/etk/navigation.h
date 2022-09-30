@@ -42,25 +42,25 @@ public:
     Coordinate(const real_t la, const real_t ln)
     {
         lat = degrees_to_radians(la);
-        lng = degrees_to_radians(ln);
+        lon = degrees_to_radians(ln);
     }
     /**
      * \brief Creates a Coordinate.
-     * @arg v A two dimensional vector with lat as x and lng as y.
+     * @arg v A two dimensional vector with lat as x and lon as y.
      */
     Coordinate(const etk::Vector<2>& v)
     {
         lat = degrees_to_radians(v.x());
-        lng = degrees_to_radians(v.y());
+        lon = degrees_to_radians(v.y());
     }
     /**
      * \brief Creates a Coordinate.
-     * @arg v A three dimensional vector with lat as x and lng as y. The z dimension is ignored.
+     * @arg v A three dimensional vector with lat as x and lon as y. The z dimension is ignored.
      */
     Coordinate(const etk::Vector<3>& v)
     {
         lat = degrees_to_radians(v.x());
-        lng = degrees_to_radians(v.y());
+        lon = degrees_to_radians(v.y());
     }
 
     /**
@@ -68,7 +68,7 @@ public:
      */
     real_t bearing_to(const Coordinate& to) const
     {
-        real_t dLon = to.lng - lng;
+        real_t dLon = to.lon - lon;
         real_t y = sin(dLon) * cos(to.lat);
         real_t x = cos(lat)*sin(to.lat) -
                    sin(lat)*cos(to.lat)*cos(dLon);
@@ -81,7 +81,7 @@ public:
      */
     real_t distance_to(const Coordinate& b) const
     {
-        return acos(sin(lat)*sin(b.lat) + cos(lat)*cos(b.lat)*cos(b.lng-lng)) * R;
+        return acos(sin(lat)*sin(b.lat) + cos(lat)*cos(b.lat)*cos(b.lon-lon)) * R;
     }
 
     /**
@@ -111,7 +111,7 @@ public:
         Coordinate dest;
         dest.lat = asin(sin(lat)*cos(dist/R) +
                         cos(lat)*sin(dist/R)*cos(brng));
-        dest.lng = lng + atan2f(sin(brng)*sin(dist/R)*cos(lat),
+        dest.lon = lon + atan2f(sin(brng)*sin(dist/R)*cos(lat),
                                 cos(dist/R)-sin(lat)*sin(dest.lat));
 
         /*
@@ -135,7 +135,7 @@ public:
     {
         Vector<2> ret;
         ret.x() = radians_to_degrees(lat);
-        ret.y() = radians_to_degrees(lng);
+        ret.y() = radians_to_degrees(lon);
         return ret;
     }
 
@@ -157,14 +157,14 @@ public:
      * \brief Returns longitude
      */
     real_t get_lon() const {
-        return radians_to_degrees(lng);
+        return radians_to_degrees(lon);
     }
 
     /**
      * \brief Sets longitude.
      */
     void set_lon(const real_t l) {
-        lng = degrees_to_radians(l);
+        lon = degrees_to_radians(l);
     }
 
     real_t get_lat_rad() const {
@@ -172,7 +172,7 @@ public:
     }
 
     real_t get_lon_rad() const {
-        return lng;
+        return lon;
     }
 
     void set_lat_rad(const real_t l) {
@@ -180,11 +180,11 @@ public:
     }
 
     void set_lon_rad(const real_t l) {
-        lng = l;
+        lon = l;
     }
 
 protected:
-    real_t lat = 0, lng = 0;
+    real_t lat = 0, lon = 0;
     static constexpr real_t R = 6371000.0;
 };
 
@@ -201,34 +201,34 @@ public:
     Waypoint(const real_t la, const real_t ln)
     {
         lat = degrees_to_radians(la);
-        lng = degrees_to_radians(ln);
+        lon = degrees_to_radians(ln);
     }
 
     Waypoint(const real_t la, const real_t ln, const real_t a)
     {
         lat = degrees_to_radians(la);
-        lng = degrees_to_radians(ln);
+        lon = degrees_to_radians(ln);
         alt = a;
     }
 
     Waypoint(const etk::Vector<3>& pos)
     {
         lat = degrees_to_radians(pos.x());
-        lng = degrees_to_radians(pos.y());
+        lon = degrees_to_radians(pos.y());
         alt = pos.z();
     }
 
     Waypoint(const Coordinate& c)
     {
         lat = c.get_lat_rad();
-        lng = c.get_lon_rad();
+        lon = c.get_lon_rad();
     }
 
     operator Vector<3>()
     {
         Vector<3> ret;
         ret.x() = radians_to_degrees(lat);
-        ret.y() = radians_to_degrees(lng);
+        ret.y() = radians_to_degrees(lon);
         ret.z() = alt;
         return ret;
     }
@@ -245,7 +245,7 @@ public:
     Waypoint& operator=(const Coordinate& c)
     {
         lat = c.get_lat_rad();
-        lng = c.get_lon_rad();
+        lon = c.get_lon_rad();
         return *this;
     }
 
