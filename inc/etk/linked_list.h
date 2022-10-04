@@ -21,7 +21,9 @@ public:
     {
         friend class SingleLinkedList;
     public:
-        Iterator() { }
+        Iterator() { 
+            node = nullptr;
+        }
 
         Iterator(typename SingleLinkedList::Node* head) : node(head) { }
 
