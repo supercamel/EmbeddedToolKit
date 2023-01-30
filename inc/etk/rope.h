@@ -530,7 +530,8 @@ public:
 		    return INFINITY;
 
 		char* p = &str[ps];
-		real_t sign, value;
+		real_t sign = 0;
+        real_t value = 0;
 
 		sign = 1.0;
 		if (*p == '-')

@@ -2,10 +2,8 @@
 #ifndef ETK_LINKED_LIST_H
 #define ETK_LINKED_LIST_H
 
+#include <stdint.h>
 #include "objpool.h"
-
-#include <iostream>
-using namespace std;
 
 
 namespace etk

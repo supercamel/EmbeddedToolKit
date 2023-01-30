@@ -122,7 +122,12 @@ namespace etk
 			void normalize()
 			{
 				real_t mag = magnitude();
-				*this = this->scale(1/mag);
+                if(mag == 0) {
+                    _w = 1.0f;
+                }
+                else {
+				    *this = this->scale(1/mag);
+                }
 			}
 
 

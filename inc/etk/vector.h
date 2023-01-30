@@ -302,6 +302,7 @@ public:
         return v;
     }
 
+/*
     void set(real_t a)
     {
         (*this)[set_flag] = a;
@@ -313,6 +314,7 @@ public:
         (*this)[set_flag++] = a;
         set(args...);
     }
+    */
 
     bool operator != (const Vector& v) const
     {
@@ -359,6 +361,15 @@ public:
     {
         *this = scale(scalar);
         return *this;
+    }
+
+    Vector operator * (Vector v) const 
+    {
+        Vector ret;
+        for(uint32 i = 0; i < N; i++) {
+            ret.p_vec[i] = p_vec[i] * v[i];
+        }
+        return ret;
     }
 
     Vector operator /= (real_t scalar)
@@ -447,13 +458,19 @@ public:
 
 private:
     real_t p_vec[N];
-
-    uint32 set_flag = 0;
 };
 
 typedef Vector<2> Vector2d;
 typedef Vector<3> Vector3d;
 typedef Vector<4> Vector4d;
+
+template <uint32 N> Vector<N> operator - (int a, Vector<N> v) {
+    Vector<N> r;
+    for(uint32 i = 0; i < N; i++) {
+        r[i] = a - v[i];
+    }
+    return r;
+}
 
 }
 
